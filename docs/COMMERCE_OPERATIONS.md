@@ -28,12 +28,16 @@ Admins see the most recent 100 orders and payment states in `/admin/products`. T
 
 ## Notifications and deployment prerequisites
 
-A unique `DeliveryNotice` per paid order records a PURCHASE_READY event using `development-outbox`. The account explicitly states that no email was sent. This is an outbox persistence boundary, not a functioning SMTP/provider delivery worker. A future mail adapter needs verified sender/domain, retry/deduplication, safe account links, delivery status and unsubscribe/transactional policy review. Never email private storage keys or reuse ephemeral download links in notices.
+A unique `DeliveryNotice` per paid order records a PURCHASE_READY event using `development-outbox`. The account explicitly states that no email was sent. Phase 5A adds the encrypted queue and functioning Node SMTP worker described in ACCOUNT_SECURITY.md. Real delivery still needs an authorized provider, verified sender/domain, scheduling and deliverability/transactional policy review. Never email private storage keys or reuse ephemeral download links in notices.
 
-Private disk works for this single Node/browser worker. A deployment must supply a durable shared private volume or implement a remote private object-storage adapter, backups and restore validation. Default ephemeral/edge hosting is insufficient. Email verification, password recovery, real payment/refund reconciliation, remote storage, complete content/legal review and production operational hardening remain launch prerequisites.
+Private disk works for this single Node/browser worker. A deployment must supply a durable shared private volume or implement a remote private object-storage adapter, backups and restore validation. Default ephemeral/edge hosting is insufficient. Real-provider verification/recovery testing, real payment/refund reconciliation, remote storage, complete content/legal review and production operational hardening remain launch prerequisites.
 
 ## Validation
 
 Run `npm run lint`, `npm run typecheck`, `npm test`, `npm run content:check`, `npm run test:db`, `npm run build`, then `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:e2e`. The ordinary suite runs the production server and tests that mock checkout and unsigned webhooks fail closed.
 
 Stop this checkout's running development server before `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:commerce`: Next permits one development server per checkout. This separate suite starts a development server on port 3100, uses synthetic PDF proofs, exercises the full mock lifecycle on desktop/mobile, and checks concurrency, ownership, price snapshots, expiration, revocation/restoration and refund denial. Both wrappers provision unique disposable databases and private file directories and destroy only their generated resources. Never run bare Playwright against development/customer data. The database provisioning role needs CREATE/DROP DATABASE; the real application deployment role should not.
+
+## Phase 5A notification update
+
+The original development-outbox boundary now feeds an encrypted mail queue for verified customer addresses with coherent paid orders and live entitlements. The separately scheduled npm run mail:work worker supports private development copies and a strict-TLS SMTP submission adapter. No real SMTP provider is configured or authorized in this cloud. File copies are not sent emails; SMTP acceptance is not guaranteed inbox delivery. Read ACCOUNT_SECURITY.md for scheduling, credentials, retry/lease behavior, sensitive-payload erasure and real-provider prerequisites.

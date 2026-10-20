@@ -2,7 +2,7 @@
 
 An independent, unofficial learning platform for Professional and Subprofessional preparation. **Not affiliated with, endorsed by, or approved by the CSC. No passing guarantee.** Official 2027 coverage, dates, durations and scoring remain unverified.
 
-## Current development stage: reviewed sessions and development commerce
+## Current development stage: reviewed sessions, development commerce and account recovery
 
 Next.js App Router + TypeScript + Tailwind, PostgreSQL + Prisma, Zod validation, Vitest and Playwright. Includes a responsive landing page, configurable illustrative PHP catalog, track-based curriculum, Markdown lesson preview, ungraded interactive arithmetic exercise, policy drafts and database health endpoint.
 
@@ -75,8 +75,12 @@ To run the production server locally: `npm run build`, then `npm start`. Develop
 
 ## Next phase
 
-Phase 5 and production integrations: verified provider sandbox/signatures/refunds, actual transactional email, durable shared private storage, account recovery, backups/restore, accessibility and operational hardening. Do not enable sales before the 500-question review target, authoritative source checks, legal policies, private file delivery and payment sandbox verification are complete.
+Phase 5 and production integrations: verified provider sandbox/signatures/refunds, real SMTP authorization/delivery evidence, durable shared private storage, production recovery smoke tests, backups/restore, accessibility and operational hardening. Do not enable sales before the 500-question review target, authoritative source checks, legal policies, private file delivery and payment sandbox verification are complete.
 
 ## Development storefront
 
 The storefront at `/shop`, customer library at `/account/purchases` and admin products/orders at `/admin/products` implement development mock commerce. Production checkout remains disabled. Prices are server-owned, simulated fulfillment is atomic, and private download links require live purchase access and expire after five minutes. No real payment or email service is integrated. Read [COMMERCE_OPERATIONS.md](docs/COMMERCE_OPERATIONS.md) before operating or deploying this workflow. `npm run test:commerce` runs isolated development purchase tests; stop the checkout's other development server first.
+
+## Account verification and recovery
+
+Account email verification, `/forgot-password` and `/reset-password` are implemented with expiring single-use credentials and session revocation. The encrypted mail queue has a Node SMTP adapter and a private development inbox. Run `npm run mail:work` to process due mail; no external provider is configured by default. Production mail stays disabled until securely configured, and local inbox files do not send email. See [ACCOUNT_SECURITY.md](docs/ACCOUNT_SECURITY.md) for worker scheduling, configuration, TLS and remaining provider authorization.

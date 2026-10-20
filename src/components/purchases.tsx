@@ -73,8 +73,8 @@ export default function Purchases() {
       {development && (
         <p className="notice">
           Development simulation: no funds are collected. A simulated payment
-          creates test access only. Email notices stay in the development
-          outbox; no email is sent.
+          creates test access only. Purchase emails require a verified address
+          and configured email delivery.
         </p>
       )}
       {error && <p role="alert">{error}</p>}
@@ -166,6 +166,15 @@ export default function Purchases() {
               <p>
                 Purchase notice recorded in development outbox. Email not sent.
               </p>
+            )}{" "}
+            {o.notices.some((n) => n.transport === "smtp-queued") && (
+              <p>Purchase email queued.</p>
+            )}
+            {o.notices.some((n) => n.transport === "smtp-accepted") && (
+              <p>Purchase notification submitted to the email service.</p>
+            )}
+            {o.notices.some((n) => n.transport === "development-file") && (
+              <p>Development notification copy saved. Email not sent.</p>
             )}
           </article>
         ))}

@@ -46,6 +46,25 @@ test("production disables simulated checkout and unsigned payment events", async
     (await (await request.get("/api/commerce/catalog")).json())
       .checkoutAvailable,
   ).toBe(false);
+  const mailKnown = await page.request.post("/api/auth/request-reset", {
+    headers,
+    data: { email },
+  });
+  const mailUnknown = await page.request.post("/api/auth/request-reset", {
+    headers,
+    data: { email: `missing-${randomUUID()}@example.test` },
+  });
+  expect(mailKnown.status()).toBe(503);
+  expect(mailUnknown.status()).toBe(503);
+  expect(await mailKnown.json()).toEqual(await mailUnknown.json());
+  expect(
+    (
+      await page.request.post("/api/auth/request-verification", {
+        headers,
+        data: {},
+      })
+    ).status(),
+  ).toBe(503);
   const db = new PrismaClient({
     adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL }),
   });

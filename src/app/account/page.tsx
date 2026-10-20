@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { currentUser } from "@/lib/auth";
 import { staffRoles } from "@/lib/security";
+import AccountSecurity from "@/components/account-security";
 import Logout from "@/components/logout";
 export default async function Account() {
   const user = await currentUser();
@@ -34,6 +35,7 @@ export default async function Account() {
         </Link>
         <Logout />
       </div>
+      <AccountSecurity verified={!!user.emailVerifiedAt} />
       <div className="notice">
         No payments are accepted. Registration does not grant paid files or
         premium exam access. Admins may offer free reviewed sessions.

@@ -5,7 +5,13 @@ import type { Role } from "@prisma/client";
 import { getDb } from "@/lib/db";
 import { digest, sessionCookie } from "@/lib/security";
 import { HttpError } from "@/lib/http";
-const safeUser = { id: true, email: true, name: true, role: true } as const;
+const safeUser = {
+  id: true,
+  email: true,
+  name: true,
+  role: true,
+  emailVerifiedAt: true,
+} as const;
 export function registrationEnabled() {
   return process.env.REGISTRATION_ENABLED === undefined
     ? process.env.NODE_ENV !== "production"
@@ -16,9 +22,17 @@ export async function currentUser() {
   if (!token || !/^[a-f0-9]{64}$/.test(token)) return null;
   const session = await getDb().session.findUnique({
     where: { tokenHash: digest(token) },
-    include: { user: { select: safeUser } },
+    include: { user: { select: { ...safeUser, authVersion: true } } },
   });
-  return session && session.expiresAt > new Date() ? session.user : null;
+  if (
+    !session ||
+    session.expiresAt <= new Date() ||
+    session.authVersion !== session.user.authVersion
+  )
+    return null;
+  const { authVersion, ...user } = session.user;
+  void authVersion;
+  return user;
 }
 export async function requireUser(roles?: Role[]) {
   const user = await currentUser();
@@ -27,12 +41,26 @@ export async function requireUser(roles?: Role[]) {
     throw new HttpError(403, "You do not have access to this action.");
   return user;
 }
-export async function createSession(userId: string) {
+export async function createSession(userId: string, expectedVersion: number) {
   await destroySession();
   const token = randomBytes(32).toString("hex");
   const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
-  await getDb().session.create({
-    data: { userId, tokenHash: digest(token), expiresAt },
+  await getDb().$transaction(async (tx) => {
+    await tx.$queryRaw`SELECT id FROM "User" WHERE id=${userId} FOR UPDATE`;
+    const user = await tx.user.findUniqueOrThrow({
+      where: { id: userId },
+      select: { authVersion: true },
+    });
+    if (user.authVersion !== expectedVersion)
+      throw new HttpError(401, "Credentials changed. Sign in again.");
+    await tx.session.create({
+      data: {
+        userId,
+        tokenHash: digest(token),
+        expiresAt,
+        authVersion: user.authVersion,
+      },
+    });
   });
   (await cookies()).set(sessionCookie(), token, {
     httpOnly: true,

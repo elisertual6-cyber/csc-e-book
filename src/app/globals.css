@@ -1551,3 +1551,5 @@ button:disabled {
 .commerce-orders .button {
   margin: 0.5rem 0.5rem 0.5rem 0;
 }
+
+.account-security{padding:1.5rem;border:1px solid var(--line);border-radius:16px;margin:2rem 0;background:white}.account-security h2{margin-top:0}.account-security p[role="status"]:empty{display:none}

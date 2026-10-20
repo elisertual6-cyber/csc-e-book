@@ -2,7 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
-  testIgnore: /commerce\.spec\.ts/,
+  testIgnore: /(?:commerce|account-recovery)\.spec\.ts/,
   retries: 0,
   use: {
     baseURL: "http://127.0.0.1:3100",
@@ -15,7 +15,10 @@ export default defineConfig({
     { name: "desktop", use: { ...devices["Desktop Chrome"] } },
     {
       name: "mobile",
-      testIgnore: [/phase[23]\.spec\.ts/, /commerce\.spec\.ts/],
+      testIgnore: [
+        /phase[23]\.spec\.ts/,
+        /(?:commerce|account-recovery)\.spec\.ts/,
+      ],
       use: { ...devices["iPhone 13"], defaultBrowserType: "chromium" },
     },
   ],
@@ -23,6 +26,7 @@ export default defineConfig({
     env: {
       APP_URL: "http://127.0.0.1:3100",
       REGISTRATION_ENABLED: "true",
+      MAIL_TRANSPORT: "disabled",
       PDF_PRIVATE_DIR: process.env.PDF_PRIVATE_DIR ?? ".local/test-editions",
     },
     command: "npm run start -- --port 3100",

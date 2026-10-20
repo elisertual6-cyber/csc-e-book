@@ -1,10 +1,10 @@
 import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./e2e",
-  testMatch: /commerce\.spec\.ts/,
+  testMatch: /(?:commerce|account-recovery)\.spec\.ts/,
   fullyParallel: true,
   expect: { timeout: 20000 },
-  workers: 2,
+  workers: 1,
   retries: 0,
   use: {
     baseURL: "http://127.0.0.1:3100",
@@ -25,6 +25,9 @@ export default defineConfig({
       APP_URL: "http://127.0.0.1:3100",
       REGISTRATION_ENABLED: "true",
       PAYMENT_PROVIDER: "mock",
+      MAIL_TRANSPORT: "file",
+      MAIL_PRIVATE_DIR: process.env.MAIL_PRIVATE_DIR!,
+      MAIL_ENCRYPTION_KEY: process.env.MAIL_ENCRYPTION_KEY!,
       PDF_PRIVATE_DIR: process.env.PDF_PRIVATE_DIR!,
     },
     command: "npm run dev -- --port 3100",

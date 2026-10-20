@@ -59,6 +59,10 @@ model User {
   email             String           @unique
   name              String?
   passwordHash      String?
+  emailVerifiedAt   DateTime?
+  authVersion       Int              @default(0)
+  accountTokens     AccountToken[]
+  mailMessages      MailMessage[]
   role              Role             @default(CUSTOMER)
   createdAt         DateTime         @default(now())
   updatedAt         DateTime         @updatedAt
@@ -169,12 +173,13 @@ model Review {
 }
 
 model Session {
-  id        String   @id @default(cuid())
-  tokenHash String   @unique
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt DateTime @default(now())
-  expiresAt DateTime
+  id          String   @id @default(cuid())
+  tokenHash   String   @unique
+  authVersion Int      @default(0)
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  expiresAt   DateTime
 
   @@index([expiresAt])
 }
@@ -384,14 +389,15 @@ model Download {
 }
 
 model DeliveryNotice {
-  id        String   @id @default(cuid())
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Restrict)
-  orderId   String
-  order     Order    @relation(fields: [orderId], references: [id], onDelete: Restrict)
-  kind      String   @default("PURCHASE_READY")
-  transport String   @default("development-outbox")
-  createdAt DateTime @default(now())
+  id          String       @id @default(cuid())
+  userId      String
+  user        User         @relation(fields: [userId], references: [id], onDelete: Restrict)
+  orderId     String
+  order       Order        @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  kind        String       @default("PURCHASE_READY")
+  transport   String       @default("development-outbox")
+  mailMessage MailMessage?
+  createdAt   DateTime     @default(now())
 
   @@unique([orderId, kind])
 }
@@ -406,4 +412,58 @@ model AuditEvent {
   createdAt DateTime @default(now())
 
   @@index([targetId, createdAt])
+}
+
+enum AccountTokenPurpose {
+  VERIFY_EMAIL
+  RESET_PASSWORD
+}
+
+enum MailStatus {
+  PENDING
+  PROCESSING
+  SENT
+  FAILED
+  CANCELLED
+}
+
+model AccountToken {
+  id           String              @id @default(cuid())
+  userId       String
+  user         User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  purpose      AccountTokenPurpose
+  tokenHash    String              @unique
+  authVersion  Int
+  email        String
+  createdAt    DateTime            @default(now())
+  expiresAt    DateTime
+  consumedAt   DateTime?
+  mailMessages MailMessage[]
+
+  @@index([userId, purpose])
+  @@index([expiresAt])
+}
+
+model MailMessage {
+  id               String          @id @default(cuid())
+  userId           String
+  user             User            @relation(fields: [userId], references: [id], onDelete: Restrict)
+  tokenId          String?
+  token            AccountToken?   @relation(fields: [tokenId], references: [id], onDelete: SetNull)
+  noticeId         String?         @unique
+  notice           DeliveryNotice? @relation(fields: [noticeId], references: [id], onDelete: Restrict)
+  purpose          String
+  transport        String
+  encryptedPayload String?
+  status           MailStatus      @default(PENDING)
+  attempts         Int             @default(0)
+  availableAt      DateTime        @default(now())
+  leaseUntil       DateTime?
+  leaseKey         String?
+  createdAt        DateTime        @default(now())
+  expiresAt        DateTime
+  sentAt           DateTime?
+  lastErrorCode    String?
+
+  @@index([status, availableAt])
 }

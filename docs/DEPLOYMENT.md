@@ -16,11 +16,11 @@ For development, Compose volumes retain data on container restarts; they are not
 
 ## Before production commerce
 
-- The current database-session implementation and role checks are in place; complete email verification, account recovery, operator support and a dedicated authentication/security review before enabling real customer registration.
+- The current database-session implementation and role checks are in place; validate the implemented email verification/recovery with an authorized SMTP provider, complete operator support and perform a dedicated authentication/security review before enabling real customer registration.
 - Editorial writes, independent review and immutable versions are implemented; create and independently verify 500+ original questions and complete the curriculum.
 - Complete Philippine privacy assessment, operator identity, monitored support contact, legal/refund review and data subject request handling.
 - Choose a Philippine-compatible provider; store credentials securely, verify sandbox flows and signature validation, and test idempotent payment/entitlement changes.
-- Add private object storage, signed short-lived downloads, a PDF worker and email delivery with retry handling.
+- Provision durable private object storage/volume and the implemented PDF/download worker. Configure and schedule the implemented SMTP queue with provider delivery evidence.
 - Current auth/editorial/PDF routes use PostgreSQL rate counters and sanitized errors. Add operational alerts, request identifiers, retention scheduling and capacity tuning without logging credentials or unnecessary personal information.
 - The server-side exam engine has deadline/concurrency/ownership/entitlement tests. Extend these through the real payment/webhook flow, then load-test and review production operations.
 - Re-run accessibility, browser, security and restore tests. Review CSP/nonces and HSTS for the deployment host before enabling them.
@@ -33,4 +33,8 @@ Exam details and graded results must use authenticated no-store routes. Schedule
 
 ## Commerce is development-only
 
-Read COMMERCE_OPERATIONS.md. The production build refuses mock checkout even with PAYMENT_PROVIDER=mock. Real webhooks return 503 until a selected provider adapter verifies signatures and canonical payment state and passes sandbox tests. Development proof artifacts and mock-backed entitlements cannot deliver production files or premium exam access. DeliveryNotice rows are an unsent development outbox. Do not advertise payment/email/remote storage integration as complete. Private PDF volumes, database backups and restore drills, mail and payment reconciliation, reviewed commercial content, account recovery and operational/legal review are required before enabling sales. Redact download-token paths from request logs.
+Read COMMERCE_OPERATIONS.md. The production build refuses mock checkout even with PAYMENT_PROVIDER=mock. Real webhooks return 503 until a selected provider adapter verifies signatures and canonical payment state and passes sandbox tests. Development proof artifacts and mock-backed entitlements cannot deliver production files or premium exam access. DeliveryNotice rows begin as an unsent outbox; the Phase 5A worker can submit eligible verified-address messages through an authorized SMTP provider. Do not advertise payment/email/remote storage integration as complete. Private PDF volumes, database backups and restore drills, mail and payment reconciliation, reviewed commercial content, real-provider recovery testing and operational/legal review are required before enabling sales. Redact download-token paths from request logs.
+
+## Verification/recovery and SMTP worker
+
+See ACCOUNT_SECURITY.md. Configure APP_URL as the actual HTTPS origin, MAIL_TRANSPORT=smtp, a verified MAIL_FROM and provider SMTP settings plus a secure MAIL_ENCRYPTION_KEY. Preserve TLS/certificate validation. Schedule npm run mail:work for due deliveries and npm run maintenance for expiry cleanup. File mail delivery is development-only. Do not claim provider delivery based on the loopback SMTP tests. Track queue depth, generic failure/retry rates, provider acceptance/bounces and password-recovery smoke checks. Back up the mail encryption key separately in the secret manager; a database restore alone cannot decrypt the pending queue. Authorization, sender/domain verification and real mailbox delivery evidence remain operator prerequisites.

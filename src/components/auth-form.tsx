@@ -81,10 +81,16 @@ export default function AuthForm({ register = false }: { register?: boolean }) {
           {register ? "Sign in" : "Create an account"}
         </Link>
       </p>
+      {!register && (
+        <p>
+          <Link className="text-link" href="/forgot-password">
+            Forgot your password?
+          </Link>
+        </p>
+      )}
       <p className="fine-print">
-        Development service. Email verification and self-service password
-        recovery are not enabled yet. Do not reuse a password from another
-        service.
+        Development service. Email verification and recovery depend on a
+        configured mail service. Do not reuse a password from another service.
       </p>
     </form>
   );

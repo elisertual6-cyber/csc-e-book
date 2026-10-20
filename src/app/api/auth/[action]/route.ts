@@ -6,8 +6,15 @@ import {
   destroySession,
   rateLimit,
   registrationEnabled,
+  requireUser,
 } from "@/lib/auth";
 import { hashPassword, verifyPassword } from "@/lib/security";
+import {
+  emailInput,
+  requestAccountToken,
+  verifyEmail,
+  resetPassword,
+} from "@/lib/account-security";
 const credentials = z
   .object({
     email: z
@@ -27,6 +34,56 @@ export async function POST(
   return api(async () => {
     assertMutation(request);
     const { action } = await params;
+    if (
+      [
+        "request-verification",
+        "request-reset",
+        "verify-email",
+        "reset-password",
+      ].includes(action)
+    ) {
+      await rateLimit("account-security-global", "all", 100);
+      if (action === "request-verification") {
+        const user = await requireUser();
+        z.object({})
+          .strict()
+          .parse(await readJson(request));
+        await rateLimit("email-verification", user.id, 3);
+        await requestAccountToken("VERIFY_EMAIL", { userId: user.id });
+        return json(
+          {
+            message:
+              "If verification is needed, a message has been queued. Check your email or ask the development operator.",
+          },
+          202,
+        );
+      }
+      if (action === "request-reset") {
+        const { email } = emailInput.parse(await readJson(request));
+        await rateLimit("password-reset-request", email, 3);
+        await requestAccountToken("RESET_PASSWORD", { email });
+        return json(
+          {
+            message:
+              "If an eligible account exists, a reset message has been queued. Check your email or ask the development operator.",
+          },
+          202,
+        );
+      }
+      if (action === "verify-email") {
+        await verifyEmail(await readJson(request));
+        return json({
+          message:
+            "Your email address is verified. You can return to your account.",
+        });
+      }
+      await resetPassword(await readJson(request));
+      await destroySession();
+      return json({
+        message:
+          "Your password was changed and all sessions signed out. Sign in with your new password.",
+      });
+    }
     if (action === "logout") {
       await destroySession();
       return json({ ok: true });
@@ -60,7 +117,7 @@ export async function POST(
           role: "CUSTOMER",
         },
       });
-      await createSession(user.id);
+      await createSession(user.id, user.authVersion);
       return json({ ok: true }, 201);
     }
     const user = await getDb().user.findUnique({
@@ -71,7 +128,7 @@ export async function POST(
       !user
     )
       throw new HttpError(401, "Email or password is incorrect.");
-    await createSession(user.id);
+    await createSession(user.id, user.authVersion);
     return json({ ok: true });
   });
 }

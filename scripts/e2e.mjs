@@ -18,6 +18,9 @@ const env = {
   DATABASE_URL: url.toString(),
   APP_URL: "http://127.0.0.1:3100",
   PDF_PRIVATE_DIR: privateDir,
+  MAIL_PRIVATE_DIR: path.join(privateDir, "mail"),
+  MAIL_ENCRYPTION_KEY: randomBytes(32).toString("hex"),
+  MAIL_TRANSPORT: "disabled",
 };
 const admin = new Client({ connectionString: base });
 let created = false;

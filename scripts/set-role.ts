@@ -15,7 +15,10 @@ async function main() {
     .enum(["ADMIN", "EDITOR", "REVIEWER", "CUSTOMER"])
     .parse(values.role);
   await db.$transaction(async (tx) => {
-    const user = await tx.user.update({ where: { email }, data: { role } });
+    const user = await tx.user.update({
+      where: { email },
+      data: { role, authVersion: { increment: 1 } },
+    });
     await tx.session.deleteMany({ where: { userId: user.id } });
     await tx.auditEvent.create({
       data: {

@@ -13,3 +13,5 @@ Phase 2 implements the editorial/PDF software; it does not complete human review
 Phase 3 implements server-owned reviewed sessions, grade/history reports and entitlement checks. No exam templates are automatically activated, and commerce/gateway fulfillment is still Phase 4. Read EXAM_OPERATIONS.md for access and timing semantics.
 
 Phase 4 supplies server-priced mock checkout, idempotent transactional fulfillment, purchase entitlements, admin order/access controls, owner-bound short-lived downloads and a development notification outbox. A real signed payment/refund adapter, actual mail delivery and remote storage remain explicit integration work; no production gateway is claimed. See COMMERCE_OPERATIONS.md.
+
+Phase 5A adds email verification, password recovery with session-generation invalidation, an encrypted mail queue, a Node SMTP submission worker and eligible purchase notifications. Local SMTP and private file delivery are tested; a real provider remains unconfigured. See ACCOUNT_SECURITY.md. Remaining Phase 5 work includes backups/restore, accessibility/load/security, observability and production integration evidence.
