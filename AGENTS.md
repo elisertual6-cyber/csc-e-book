@@ -9,6 +9,8 @@ Phase 2 adds custom database sessions, editorial review and a private-disk PDF w
 
 Phase 3 exam operations are documented in docs/EXAM_OPERATIONS.md. Preserve database-clock deadlines, immutable snapshots, owner/entitlement checks, idempotent start/submit and revision-controlled saves. Keep client question DTOs separate from private grading snapshots. No real questions or templates may be auto-approved/activated by setup or tests.
 
+Read docs/COMMERCE_OPERATIONS.md for development checkout. Never enable mock purchase actions or mock-backed paid access in production. Download tokens must remain hashed, owner-bound, short-lived and revalidated on consumption. No real payment/email/storage adapter is configured; development outbox rows are not sent emails.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know

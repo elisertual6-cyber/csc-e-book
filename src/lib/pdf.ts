@@ -320,3 +320,24 @@ export async function publicPreview() {
   await recordsFor(edition.manifest as unknown as Manifest, true);
   return { edition, bytes: await readEdition(edition) };
 }
+
+// Revalidate every source version on release and delivery, including withdrawals.
+export async function fullEdition(id: string) {
+  const edition = await getDb().pdfEdition.findUnique({ where: { id } });
+  if (!edition || edition.kind !== "FULL")
+    throw new HttpError(409, "Select a reviewed full edition.");
+  const records = await recordsFor(
+    edition.manifest as unknown as Manifest,
+    true,
+  );
+  if (
+    !records.lessons.length ||
+    new Set(records.questions.map((q) => ("key" in q ? q.key : q.id))).size <
+      500
+  )
+    throw new HttpError(
+      409,
+      "A full edition requires lessons and 500 unique independently reviewed questions.",
+    );
+  return { edition, bytes: await readEdition(edition) };
+}

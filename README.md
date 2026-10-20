@@ -2,23 +2,23 @@
 
 An independent, unofficial learning platform for Professional and Subprofessional preparation. **Not affiliated with, endorsed by, or approved by the CSC. No passing guarantee.** Official 2027 coverage, dates, durations and scoring remain unverified.
 
-## Current development stage: reviewed practice and exam simulation
+## Current development stage: reviewed sessions and development commerce
 
 Next.js App Router + TypeScript + Tailwind, PostgreSQL + Prisma, Zod validation, Vitest and Playwright. Includes a responsive landing page, configurable illustrative PHP catalog, track-based curriculum, Markdown lesson preview, ungraded interactive arithmetic exercise, policy drafts and database health endpoint.
 
-The 25-chapter curriculum is an outline, with **one original draft lesson and one draft bank question**. Content is not independently reviewed or approved for commercial publication. Phase 2 adds customer sign-in, an editorial dashboard, independent review and protected PDF generation. Phase 3 adds server-owned practice/mock attempts, saved responses, deadline enforcement, grading, explanations and history. Paid downloads and checkout remain unimplemented. No real gateway is integrated; `PAYMENT_PROVIDER=mock` reserves a later development setting, not an implemented payment flow.
+The 25-chapter curriculum is an outline, with **one original draft lesson and one draft bank question**. Content is not independently reviewed or approved for commercial publication. Phase 2 adds customer sign-in, an editorial dashboard, independent review and protected PDF generation. Phase 3 adds server-owned practice/mock attempts, saved responses, deadline enforcement, grading, explanations and history. Phase 4 adds product/price administration, a development storefront, transactional mock checkout, purchase entitlements and protected downloads. No real gateway is integrated; `PAYMENT_PROVIDER=mock` enables simulations only outside production.
 
 ## Accounts and editorial workflow
 
 Open /register to create a synthetic development customer account, or /login to sign in. Customer accounts cannot access /admin. Staff bootstrap, review, import/export and PDF release procedures are documented in [docs/EDITORIAL_OPERATIONS.md](docs/EDITORIAL_OPERATIONS.md). There are no default staff passwords; operator-created authors and independent reviewers must use separate accounts. Public registration is disabled by default in production until explicitly enabled.
 
-PDF generation uses Node and Chromium, stores files privately outside public/, and exposes only an explicitly released, independently reviewed free preview. No reviewer content is automatically approved during setup. Full commercial editions require 500 unique reviewed questions and remain inaccessible to customers pending the commerce phase.
+PDF generation uses Node and Chromium, stores files privately outside public/, and exposes only an explicitly released, independently reviewed free preview. No reviewer content is automatically approved during setup. Full commercial editions require 500 unique reviewed questions and are delivered only to entitled purchasers after separate admin release. Draft proofs may be attached to mock products solely in development.
 
 ## Practice sessions and reports
 
 Signed-in learners use /practice and /practice/history. Admins configure inactive templates at /admin/exams, then activate them only after enough independently reviewed questions are published. Topic practice supports validated smaller counts and optional untimed sessions; mock exams use operator-defined fixed counts/timers. No official 2027 timing, coverage or scoring is implied.
 
-Answer keys stay server-side until submission/expiry. Attempts retain immutable question/settings snapshots, progress is acknowledged after server saves, and row locks/revisions prevent stale writes or repeated grading. Premium content requires a current purchased entitlement and coherent paid/verified financial records; no checkout or entitlement fulfillment exists yet. No real templates, approvals or paid records are seeded. See [docs/EXAM_OPERATIONS.md](docs/EXAM_OPERATIONS.md).
+Answer keys stay server-side until submission/expiry. Attempts retain immutable question/settings snapshots, progress is acknowledged after server saves, and row locks/revisions prevent stale writes or repeated grading. Premium content requires a current purchased entitlement and coherent paid/verified financial records; development mock checkout now creates those records transactionally, while mock-backed access remains blocked in production. No real templates, approvals or paid records are seeded. See [docs/EXAM_OPERATIONS.md](docs/EXAM_OPERATIONS.md).
 
 ## Local setup
 
@@ -41,7 +41,7 @@ On your own computer, replace the working directory with your clone's path. The 
 
 `local:env` creates an ignored, mode-0600 `.env` with a random local PostgreSQL password and preserves any existing configuration. Never print or commit its contents. Compose binds PostgreSQL to loopback and retains data in a named Docker volume. `npm run db:down` stops the database without deleting that volume. Restart with `npm run db:up`. Docker volumes and processes may not survive a new cloud machine; replay setup when necessary. For hosted PostgreSQL, inject `DATABASE_URL` through environment settings and skip Compose; use the provider's verified TLS configuration.
 
-Seed is transactional and repeatable: it never overwrites existing lessons, question versions or product prices. It creates inactive products and DRAFT material only. The public planned catalog reads `PRICE_BASIC_PHP`, `PRICE_COMPLETE_PHP`, and `PRICE_PREMIUM_PHP` (defaults 99/199/399). A later commerce implementation must use authoritative database prices and immutable order amounts, never client-supplied prices.
+Seed is transactional and repeatable: it never overwrites existing lessons, question versions or product prices. It creates inactive products and DRAFT material only. The public planned catalog reads `PRICE_BASIC_PHP`, `PRICE_COMPLETE_PHP`, and `PRICE_PREMIUM_PHP` (defaults 99/199/399). The storefront uses authoritative database prices and immutable order amounts; these planned landing-page examples are not checkout authority.
 
 ## Checks
 
@@ -75,4 +75,8 @@ To run the production server locally: `npm run build`, then `npm start`. Develop
 
 ## Next phase
 
-Phase 4: implement product/price administration, orders, a development mock payment adapter, verified fulfillment, customer entitlements and private paid downloads. Do not enable sales before the 500-question review target, authoritative source checks, legal policies, private file delivery and payment sandbox verification are complete.
+Phase 5 and production integrations: verified provider sandbox/signatures/refunds, actual transactional email, durable shared private storage, account recovery, backups/restore, accessibility and operational hardening. Do not enable sales before the 500-question review target, authoritative source checks, legal policies, private file delivery and payment sandbox verification are complete.
+
+## Development storefront
+
+The storefront at `/shop`, customer library at `/account/purchases` and admin products/orders at `/admin/products` implement development mock commerce. Production checkout remains disabled. Prices are server-owned, simulated fulfillment is atomic, and private download links require live purchase access and expire after five minutes. No real payment or email service is integrated. Read [COMMERCE_OPERATIONS.md](docs/COMMERCE_OPERATIONS.md) before operating or deploying this workflow. `npm run test:commerce` runs isolated development purchase tests; stop the checkout's other development server first.

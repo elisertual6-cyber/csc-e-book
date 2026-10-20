@@ -12,8 +12,7 @@ export default async function Account() {
       <h1>Hello, {user.name ?? "learner"}.</h1>
       <p className="lead">
         Your account is ready. Resume reviewed practice sessions and see your
-        saved results. Purchased products will appear when the storefront
-        launches.
+        saved results. Manage your study materials and orders in your library.
       </p>
       <div className="actions">
         <Link className="button" href="/practice">
@@ -30,6 +29,9 @@ export default async function Account() {
             Open editorial studio
           </Link>
         )}
+        <Link className="button button-light" href="/account/purchases">
+          Orders & downloads
+        </Link>
         <Logout />
       </div>
       <div className="notice">

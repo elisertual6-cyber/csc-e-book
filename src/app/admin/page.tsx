@@ -11,6 +11,13 @@ export default async function Admin() {
   return (
     <section className="shell section page-content">
       <div className="eyebrow">EDITORIAL STUDIO · {actor.role}</div>
+      {actor.role === "ADMIN" && (
+        <div className="actions">
+          <Link className="button button-light" href="/admin/products">
+            Products & releases
+          </Link>
+        </div>
+      )}
       <h1>Make every explanation count.</h1>
       <p className="lead">
         Write, check and release original educational content with an

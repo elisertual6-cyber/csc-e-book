@@ -37,7 +37,7 @@ export default function RootLayout({
             <nav aria-label="Main navigation">
               <Link href="/curriculum">The curriculum</Link>
               <Link href="/practice">Practice studio</Link>
-              <Link href="/#reviewers">Reviewers</Link>
+              <Link href="/shop">Reviewers</Link>
               <Link href="/account">My account</Link>
             </nav>
             <Link href="/preview" className="button button-small">

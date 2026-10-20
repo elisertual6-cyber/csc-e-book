@@ -55,22 +55,23 @@ enum PaymentStatus {
 }
 
 model User {
-  id                String        @id @default(cuid())
-  email             String        @unique
+  id                String           @id @default(cuid())
+  email             String           @unique
   name              String?
   passwordHash      String?
-  role              Role          @default(CUSTOMER)
-  createdAt         DateTime      @default(now())
-  updatedAt         DateTime      @updatedAt
+  role              Role             @default(CUSTOMER)
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
   reviews           Review[]
   attempts          Attempt[]
   orders            Order[]
   entitlements      Entitlement[]
   downloads         Download[]
+  deliveryNotices   DeliveryNotice[]
   auditEvents       AuditEvent[]
   sessions          Session[]
-  authoredLessons   Lesson[]      @relation("LessonAuthor")
-  authoredQuestions Question[]    @relation("QuestionAuthor")
+  authoredLessons   Lesson[]         @relation("LessonAuthor")
+  authoredQuestions Question[]       @relation("QuestionAuthor")
   editions          PdfEdition[]
 }
 
@@ -297,16 +298,20 @@ model Price {
 }
 
 model Order {
-  id           String        @id @default(cuid())
+  id           String           @id @default(cuid())
   userId       String
-  user         User          @relation(fields: [userId], references: [id], onDelete: Restrict)
-  status       OrderStatus   @default(PENDING)
+  user         User             @relation(fields: [userId], references: [id], onDelete: Restrict)
+  status       OrderStatus      @default(PENDING)
   totalMinor   Int
-  currency     String        @default("PHP")
-  createdAt    DateTime      @default(now())
+  currency     String           @default("PHP")
+  createdAt    DateTime         @default(now())
+  checkoutKey  String?
   items        OrderItem[]
   payments     Payment[]
   entitlements Entitlement[]
+  notices      DeliveryNotice[]
+
+  @@unique([userId, checkoutKey])
 }
 
 model OrderItem {
@@ -317,6 +322,8 @@ model OrderItem {
   product        Product @relation(fields: [productId], references: [id], onDelete: Restrict)
   priceId        String
   price          Price   @relation(fields: [priceId], references: [id], onDelete: Restrict)
+  productName    String?
+  productVersion String?
   unitPriceMinor Int
   quantity       Int     @default(1)
 }
@@ -352,24 +359,41 @@ model Entitlement {
 }
 
 model Artifact {
-  id          String     @id @default(cuid())
-  productId   String
-  product     Product    @relation(fields: [productId], references: [id], onDelete: Restrict)
-  version     String
-  privateKey  String     @unique
-  sha256      String
-  publishedAt DateTime?
-  downloads   Download[]
+  id              String     @id @default(cuid())
+  productId       String
+  product         Product    @relation(fields: [productId], references: [id], onDelete: Restrict)
+  version         String
+  privateKey      String     @unique
+  editionId       String?
+  developmentOnly Boolean    @default(true)
+  sha256          String
+  publishedAt     DateTime?
+  downloads       Download[]
 }
 
 model Download {
-  id         String   @id @default(cuid())
+  id         String    @id @default(cuid())
   userId     String
-  user       User     @relation(fields: [userId], references: [id], onDelete: Restrict)
+  user       User      @relation(fields: [userId], references: [id], onDelete: Restrict)
   artifactId String
-  artifact   Artifact @relation(fields: [artifactId], references: [id], onDelete: Restrict)
-  issuedAt   DateTime @default(now())
+  artifact   Artifact  @relation(fields: [artifactId], references: [id], onDelete: Restrict)
+  issuedAt   DateTime  @default(now())
   expiresAt  DateTime
+  tokenHash  String?   @unique
+  consumedAt DateTime?
+}
+
+model DeliveryNotice {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Restrict)
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  kind      String   @default("PURCHASE_READY")
+  transport String   @default("development-outbox")
+  createdAt DateTime @default(now())
+
+  @@unique([orderId, kind])
 }
 
 model AuditEvent {

@@ -24,7 +24,8 @@
     "user:create": "tsx scripts/create-user.ts",
     "user:role": "tsx scripts/set-role.ts",
     "maintenance": "tsx scripts/maintenance.ts",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "test:commerce": "node scripts/e2e.mjs --config playwright.commerce.config.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",

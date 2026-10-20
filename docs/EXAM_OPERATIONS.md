@@ -60,4 +60,4 @@ Use npm run test:e2e, never bare Playwright against live data. The wrapper creat
 
 Migration 202610200003_exam_engine is additive except making deadlines nullable for untimed practice. Existing records are preserved. A manually created legacy attempt without a recognized version snapshot fails closed with an operator-review response; it is not reset or silently assigned an invented grade.
 
-Before commercial launch, finish the 500-question independent review target, verified coverage/source work, commerce fulfillment, deployment/privacy/security review, monitoring and load/restore testing from ROADMAP.md.
+Before commercial launch, finish the 500-question independent review target, verified coverage/source work, real gateway verification/reconciliation, deployment/privacy/security review, monitoring and load/restore testing from ROADMAP.md.

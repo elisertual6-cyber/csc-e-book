@@ -1514,3 +1514,40 @@ button:disabled {
     min-width: 0;
   }
 }
+
+.commerce-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.commerce-orders {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.commerce-grid .panel,
+.commerce-orders .panel {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: white;
+  min-width: 0;
+}
+.commerce-grid .price {
+  font-size: 2rem;
+  font-family: Georgia, serif;
+}
+.commerce-grid .exam-form {
+  margin: 1.5rem 0;
+}
+.commerce-grid button {
+  white-space: normal;
+}
+.order-reference {
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+.commerce-orders .button {
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}
