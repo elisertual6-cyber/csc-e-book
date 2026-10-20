@@ -6,6 +6,8 @@ import { getDb } from "@/lib/db";
 import { audit, slug, type Actor } from "@/lib/editorial";
 import { HttpError } from "@/lib/http";
 import { digest } from "@/lib/security";
+import { gcashCheckoutEnabled } from "@/lib/paymongo";
+import { paymentAllowedInRuntime } from "@/lib/payment-policy";
 import { fullEdition, readEdition } from "@/lib/pdf";
 import {
   mockCheckoutEnabled,
@@ -29,7 +31,7 @@ async function clock(tx: Tx) {
     await tx.$queryRaw<{ now: Date }[]>`SELECT clock_timestamp() AS now`
   )[0].now;
 }
-async function lockOrder(tx: Tx, orderId: string, userId?: string) {
+export async function lockOrder(tx: Tx, orderId: string, userId?: string) {
   const rows = userId
     ? await tx.$queryRaw<
         { id: string }[]
@@ -43,11 +45,12 @@ async function lockOrder(tx: Tx, orderId: string, userId?: string) {
     include: { items: { include: { price: true } }, payments: true },
   });
 }
-async function artifactBytes(artifact: Artifact) {
+export async function artifactBytes(artifact: Artifact) {
   if (!artifact.publishedAt || !artifact.editionId)
     throw new HttpError(409, "The released file is unavailable.");
   if (artifact.developmentOnly) {
-    requireMockCheckout();
+    if (!developmentCommerceEnabled())
+      throw new HttpError(503, "Development proof delivery is unavailable.");
     const edition = await getDb().pdfEdition.findUnique({
       where: { id: artifact.editionId },
     });
@@ -105,6 +108,7 @@ export async function manageAccess(actor: Actor, raw: unknown) {
             p.verifiedAt &&
             p.amountMinor === order.totalMinor &&
             p.currency === order.currency &&
+            paymentAllowedInRuntime(p.provider) &&
             (p.provider !== "mock" || mockCheckoutEnabled()),
         ))
     )
@@ -126,6 +130,9 @@ export async function manageAccess(actor: Actor, raw: unknown) {
     return { id: entitlement.id, granted: input.granted };
   });
 }
+function developmentCommerceEnabled() {
+  return mockCheckoutEnabled() || gcashCheckoutEnabled();
+}
 export async function catalog() {
   const products = await getDb().product.findMany({
     where: { active: true },
@@ -140,12 +147,16 @@ export async function catalog() {
   });
   return {
     development: mockCheckoutEnabled(),
-    checkoutAvailable: mockCheckoutEnabled(),
+    sandbox: gcashCheckoutEnabled(),
+    preferredPaymentMethod: "GCash",
+    checkoutAvailable: developmentCommerceEnabled(),
     products: products
       .filter(
         (p) =>
           p.prices.length &&
-          p.artifacts.some((a) => !a.developmentOnly || mockCheckoutEnabled()),
+          p.artifacts.some(
+            (a) => !a.developmentOnly || developmentCommerceEnabled(),
+          ),
       )
       .map((p) => ({
         id: p.id,
@@ -235,7 +246,8 @@ export async function manageProduct(actor: Actor, raw: unknown) {
     if (!edition) throw new HttpError(404, "Edition not found.");
     const developmentOnly = edition.kind === "DRAFT";
     if (developmentOnly) {
-      requireMockCheckout();
+      if (!developmentCommerceEnabled())
+        throw new HttpError(503, "Development proof release is unavailable.");
       await readEdition(edition);
     } else await fullEdition(edition.id);
     release = { edition, developmentOnly };
@@ -341,7 +353,12 @@ export async function manageProduct(actor: Actor, raw: unknown) {
   );
 }
 export async function checkout(actor: Actor, raw: unknown) {
-  requireMockCheckout();
+  const gcash = gcashCheckoutEnabled();
+  if (!developmentCommerceEnabled())
+    throw new HttpError(
+      503,
+      "Checkout is unavailable. No payment will be collected.",
+    );
   const input = z
     .object({ priceId: id, checkoutKey: z.uuid() })
     .strict()
@@ -349,6 +366,17 @@ export async function checkout(actor: Actor, raw: unknown) {
   return getDb().$transaction(
     async (tx) => {
       await tx.$queryRaw`SELECT 1 AS locked FROM pg_advisory_xact_lock(hashtextextended(${actor.id},48294))`;
+      if (gcash) {
+        const user = await tx.user.findUniqueOrThrow({
+          where: { id: actor.id },
+          select: { emailVerifiedAt: true },
+        });
+        if (!user.emailVerifiedAt)
+          throw new HttpError(
+            403,
+            "Verify your email address before GCash checkout.",
+          );
+      }
       const previous = await tx.order.findUnique({
         where: {
           userId_checkoutKey: {
@@ -361,7 +389,8 @@ export async function checkout(actor: Actor, raw: unknown) {
       if (previous) {
         if (
           previous.items.length !== 1 ||
-          previous.items[0].priceId !== input.priceId
+          previous.items[0].priceId !== input.priceId ||
+          previous.paymentMethod !== (gcash ? "gcash" : "mock")
         )
           throw new HttpError(
             409,
@@ -409,6 +438,7 @@ export async function checkout(actor: Actor, raw: unknown) {
         data: {
           userId: actor.id,
           checkoutKey: input.checkoutKey,
+          paymentMethod: gcash ? "gcash" : "mock",
           totalMinor: fresh.amountMinor,
           currency: fresh.currency,
           items: {
@@ -424,7 +454,7 @@ export async function checkout(actor: Actor, raw: unknown) {
         },
       });
       await audit(tx, actor, "commerce.order.create", order.id, {
-        provider: "mock",
+        provider: gcash ? "paymongo_test" : "mock",
       });
       return { id: order.id, status: order.status };
     },
@@ -439,6 +469,8 @@ export async function orderAction(actor: Actor, orderId: string, raw: unknown) {
   requireMockCheckout();
   return getDb().$transaction(async (tx) => {
     const order = await lockOrder(tx, orderId, actor.id);
+    if (order.paymentMethod !== "mock")
+      throw new HttpError(409, "This order requires its GCash checkout flow.");
     if (input.action === "cancel") {
       if (order.status === "CANCELLED")
         return { id: order.id, status: order.status };
@@ -524,6 +556,8 @@ export async function orders(actor: Actor) {
       totalMinor: true,
       currency: true,
       createdAt: true,
+      paymentMethod: true,
+      paymentSession: { select: { state: true } },
       items: {
         select: {
           productId: true,
@@ -558,7 +592,7 @@ async function downloadAccess(
   artifact: Artifact,
   time: Date,
 ) {
-  if (artifact.developmentOnly && !mockCheckoutEnabled())
+  if (artifact.developmentOnly && !developmentCommerceEnabled())
     throw new HttpError(
       403,
       "Development files are unavailable in production.",
@@ -600,6 +634,7 @@ async function downloadAccess(
           p.verifiedAt &&
           p.amountMinor === e.order.totalMinor &&
           p.currency === e.order.currency &&
+          paymentAllowedInRuntime(p.provider) &&
           (p.provider !== "mock" || mockCheckoutEnabled()),
       ),
   );

@@ -5,6 +5,8 @@ import { commerceRequest, pesos } from "@/lib/commerce-client";
 type Order = {
   id: string;
   status: string;
+  paymentMethod: string;
+  paymentSession: { state: string } | null;
   totalMinor: number;
   createdAt: string;
   items: { productName: string | null; productVersion: string | null }[];
@@ -23,21 +25,39 @@ export default function Purchases() {
   const [orders, setOrders] = useState<Order[] | null>(null),
     [history, setHistory] = useState<History>([]),
     [development, setDevelopment] = useState(false),
+    [sandbox, setSandbox] = useState(false),
+    [paymentUrl, setPaymentUrl] = useState<string | null>(null),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
     [link, setLink] = useState<string | null>(null);
   async function load() {
     const [o, c, h] = await Promise.all([
       commerceRequest<Order[]>("/api/commerce/orders"),
-      commerceRequest<{ development: boolean }>("/api/commerce/catalog"),
+      commerceRequest<{ development: boolean; sandbox: boolean }>(
+        "/api/commerce/catalog",
+      ),
       commerceRequest<History>("/api/commerce/downloads"),
     ]);
     setOrders(o);
     setDevelopment(c.development);
+    setSandbox(c.sandbox);
     setHistory(h);
   }
   useEffect(() => {
-    load().catch((e) => setError(e.message));
+    Promise.all([
+      commerceRequest<Order[]>("/api/commerce/orders"),
+      commerceRequest<{ development: boolean; sandbox: boolean }>(
+        "/api/commerce/catalog",
+      ),
+      commerceRequest<History>("/api/commerce/downloads"),
+    ])
+      .then(([o, c, h]) => {
+        setOrders(o);
+        setDevelopment(c.development);
+        setSandbox(c.sandbox);
+        setHistory(h);
+      })
+      .catch((e) => setError(e.message));
   }, []);
   async function action(orderId: string, action: string) {
     setBusy(true);
@@ -68,6 +88,23 @@ export default function Purchases() {
       setBusy(false);
     }
   }
+  async function gcash(orderId: string, action: "checkout" | "refresh") {
+    setBusy(true);
+    setError("");
+    setPaymentUrl(null);
+    try {
+      const result = await commerceRequest<{ checkoutUrl?: string | null }>(
+        `/api/commerce/orders/${orderId}/gcash`,
+        { action },
+      );
+      if (result.checkoutUrl) setPaymentUrl(result.checkoutUrl);
+      await load();
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
   return (
     <>
       {development && (
@@ -76,6 +113,20 @@ export default function Purchases() {
           creates test access only. Purchase emails require a verified address
           and configured email delivery.
         </p>
+      )}
+      {sandbox && (
+        <div className="notice">
+          GCash sandbox only. No real money is collected. Returning from
+          checkout does not confirm payment; use “Check GCash status” while
+          confirmation is pending.
+        </div>
+      )}
+      {paymentUrl && (
+        <div className="notice">
+          <a className="button" href={paymentUrl} rel="noreferrer">
+            Continue to GCash sandbox
+          </a>
+        </div>
       )}
       {error && <p role="alert">{error}</p>}
       {link && (
@@ -116,24 +167,54 @@ export default function Purchases() {
               </time>
             </p>
             <p className="order-reference">Order {o.id}</p>
-            {o.status === "PENDING" && development && (
-              <div className="actions">
-                <button
-                  className="button"
-                  disabled={busy}
-                  onClick={() => action(o.id, "simulatePayment")}
-                >
-                  Simulate successful payment
-                </button>
-                <button
-                  className="button button-light"
-                  disabled={busy}
-                  onClick={() => action(o.id, "cancel")}
-                >
-                  Cancel order
-                </button>
-              </div>
+            {o.paymentMethod === "gcash" && (
+              <>
+                <p>
+                  Payment method: GCash · Sandbox ·{" "}
+                  {o.paymentSession?.state ?? "Not started"}
+                </p>
+                <div className="actions">
+                  {o.status === "PENDING" && (
+                    <button
+                      disabled={busy || !sandbox}
+                      className="button"
+                      onClick={() => gcash(o.id, "checkout")}
+                    >
+                      Pay with GCash (sandbox)
+                    </button>
+                  )}
+                  {o.paymentSession && (
+                    <button
+                      disabled={busy || !sandbox}
+                      className="button button-light"
+                      onClick={() => gcash(o.id, "refresh")}
+                    >
+                      Check GCash status
+                    </button>
+                  )}
+                </div>
+              </>
             )}
+            {o.status === "PENDING" &&
+              o.paymentMethod !== "gcash" &&
+              development && (
+                <div className="actions">
+                  <button
+                    className="button"
+                    disabled={busy}
+                    onClick={() => action(o.id, "simulatePayment")}
+                  >
+                    Simulate successful payment
+                  </button>
+                  <button
+                    className="button button-light"
+                    disabled={busy}
+                    onClick={() => action(o.id, "cancel")}
+                  >
+                    Cancel order
+                  </button>
+                </div>
+              )}
             {o.status === "PAID" &&
               o.entitlements
                 .filter(
@@ -146,7 +227,7 @@ export default function Purchases() {
                     .filter(
                       (a) =>
                         o.items.some((i) => i.productVersion === a.version) &&
-                        (!a.developmentOnly || development),
+                        (!a.developmentOnly || development || sandbox),
                     )
                     .map((a) => (
                       <button

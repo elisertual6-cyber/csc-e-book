@@ -303,18 +303,20 @@ model Price {
 }
 
 model Order {
-  id           String           @id @default(cuid())
-  userId       String
-  user         User             @relation(fields: [userId], references: [id], onDelete: Restrict)
-  status       OrderStatus      @default(PENDING)
-  totalMinor   Int
-  currency     String           @default("PHP")
-  createdAt    DateTime         @default(now())
-  checkoutKey  String?
-  items        OrderItem[]
-  payments     Payment[]
-  entitlements Entitlement[]
-  notices      DeliveryNotice[]
+  id             String           @id @default(cuid())
+  userId         String
+  user           User             @relation(fields: [userId], references: [id], onDelete: Restrict)
+  status         OrderStatus      @default(PENDING)
+  totalMinor     Int
+  currency       String           @default("PHP")
+  createdAt      DateTime         @default(now())
+  checkoutKey    String?
+  paymentMethod  String           @default("mock")
+  paymentSession PaymentSession?
+  items          OrderItem[]
+  payments       Payment[]
+  entitlements   Entitlement[]
+  notices        DeliveryNotice[]
 
   @@unique([userId, checkoutKey])
 }
@@ -466,4 +468,34 @@ model MailMessage {
   lastErrorCode    String?
 
   @@index([status, availableAt])
+}
+
+enum PaymentSessionState {
+  CREATING
+  OPEN
+  PAID
+  REVIEW_REQUIRED
+  REFUNDED
+}
+
+model PaymentSession {
+  id                String              @id @default(cuid())
+  orderId           String              @unique
+  order             Order               @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  providerSessionId String?             @unique
+  providerIntentId  String?             @unique
+  providerPaymentId String?             @unique
+  checkoutUrl       String?
+  state             PaymentSessionState @default(CREATING)
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+}
+
+model PaymentWebhookReceipt {
+  id          String   @id @default(cuid())
+  eventId     String   @unique
+  eventType   String
+  bodyHash    String
+  targetId    String
+  processedAt DateTime @default(now())
 }

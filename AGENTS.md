@@ -11,6 +11,8 @@ Phase 3 exam operations are documented in docs/EXAM_OPERATIONS.md. Preserve data
 
 Read docs/COMMERCE_OPERATIONS.md for development checkout. Never enable mock purchase actions or mock-backed paid access in production. Download tokens must remain hashed, owner-bound, short-lived and revalidated on consumption. No real payment/storage service or SMTP provider is configured. Account mail can use the tested Node SMTP adapter only after secure operator configuration; private file copies are not sent email. Read docs/ACCOUNT_SECURITY.md. Preserve single-use hashed account tokens, encrypted mail payloads, strict TLS, session generation checks and reset/login row locks. Do not expose credential links through APIs or logs.
 
+Read docs/GCASH_OPERATIONS.md before payment changes. GCash uses a sandbox-only PayMongo adapter. Live keys/mode and production checkout are rejected. Keep raw-body signature verification, canonical amount/currency/method/intent/order binding, monotonic refunds and idempotent fulfillment. Never treat redirect queries, screenshots or unsigned events as payment proof. paymongo_test records must never grant production customer access. The local fixture is not actual merchant sandbox evidence.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know

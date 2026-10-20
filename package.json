@@ -26,7 +26,8 @@
     "maintenance": "tsx scripts/maintenance.ts",
     "postinstall": "prisma generate",
     "test:commerce": "node scripts/e2e.mjs --config playwright.commerce.config.ts",
-    "mail:work": "tsx scripts/mail-worker.ts"
+    "mail:work": "tsx scripts/mail-worker.ts",
+    "test:gcash": "node scripts/e2e.mjs --config playwright.gcash.config.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",

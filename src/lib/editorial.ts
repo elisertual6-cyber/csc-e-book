@@ -126,13 +126,13 @@ export function independentlyApproved(record: ContentRecord) {
 }
 export async function audit(
   tx: Prisma.TransactionClient,
-  actor: Actor,
+  actor: Actor | null,
   action: string,
   targetId: string,
   metadata: Prisma.InputJsonValue = {},
 ) {
   await tx.auditEvent.create({
-    data: { actorId: actor.id, action, targetId, metadata },
+    data: { actorId: actor?.id ?? null, action, targetId, metadata },
   });
 }
 async function createContent(

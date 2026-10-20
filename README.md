@@ -84,3 +84,7 @@ The storefront at `/shop`, customer library at `/account/purchases` and admin pr
 ## Account verification and recovery
 
 Account email verification, `/forgot-password` and `/reset-password` are implemented with expiring single-use credentials and session revocation. The encrypted mail queue has a Node SMTP adapter and a private development inbox. Run `npm run mail:work` to process due mail; no external provider is configured by default. Production mail stays disabled until securely configured, and local inbox files do not send email. See [ACCOUNT_SECURITY.md](docs/ACCOUNT_SECURITY.md) for worker scheduling, configuration, TLS and remaining provider authorization.
+
+## GCash customer payments
+
+GCash is the chosen customer payment method through PayMongo-hosted checkout. A sandbox-only adapter, signed-event verification, canonical payment checks, reconciliation and refund/access handling are implemented and tested locally. Actual merchant sandbox calls and live payments are **not verified or enabled**. PayMongo credentials, merchant GCash activation, current API contract verification and the other launch gates remain required. See [GCASH_OPERATIONS.md](docs/GCASH_OPERATIONS.md). `npm run test:gcash` exercises only disposable local protocol fixtures on desktop/mobile.

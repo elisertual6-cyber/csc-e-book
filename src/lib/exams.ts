@@ -1,4 +1,5 @@
 import "server-only";
+import { paymentAllowedInRuntime } from "@/lib/payment-policy";
 import { z } from "zod";
 import { randomInt, randomUUID } from "node:crypto";
 import type { Prisma, ExamAccess } from "@prisma/client";
@@ -121,7 +122,7 @@ export async function hasExamAccess(
         (p) =>
           p.amountMinor === e.order.totalMinor &&
           p.currency === e.order.currency &&
-          (process.env.NODE_ENV !== "production" || p.provider !== "mock"),
+          paymentAllowedInRuntime(p.provider),
       ),
   );
 }

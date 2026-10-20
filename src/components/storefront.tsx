@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { commerceRequest, pesos } from "@/lib/commerce-client";
 type Catalog = {
   development: boolean;
+  sandbox: boolean;
   checkoutAvailable: boolean;
   products: {
     id: string;
@@ -48,10 +49,16 @@ export default function Storefront() {
   return (
     <>
       <div className="notice">
-        {catalog?.development
-          ? "Development simulation only. No money is collected. Draft proofs are for testing and are not commercial editions."
-          : "Sales are not open. Payment processing remains disabled while editorial review and gateway verification are pending."}
+        {catalog?.sandbox
+          ? "GCash sandbox checkout only. No real funds are collected. Verify your email before creating a test order."
+          : catalog?.development
+            ? "Development simulation only. No money is collected. Draft proofs are for testing and are not commercial editions."
+            : "Sales are not open. Payment processing remains disabled while editorial review and gateway verification are pending."}
       </div>
+      <p className="payment-method">
+        <strong>Customer payment method: GCash</strong>
+        {!catalog?.sandbox && " · Live checkout is not open yet."}
+      </p>
       {error && (
         <p role="alert">
           {error} <Link href="/login">Sign in</Link>
@@ -89,9 +96,11 @@ export default function Storefront() {
             >
               {busy
                 ? "Creating order…"
-                : catalog.development
-                  ? "Create simulated order"
-                  : "Checkout unavailable"}
+                : catalog.sandbox
+                  ? "Create GCash sandbox order"
+                  : catalog.development
+                    ? "Create simulated order"
+                    : "Checkout unavailable"}
             </button>
           </article>
         ))}

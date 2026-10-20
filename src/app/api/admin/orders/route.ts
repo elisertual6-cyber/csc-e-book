@@ -13,6 +13,8 @@ export async function GET() {
           id: true,
           userId: true,
           status: true,
+          paymentMethod: true,
+          paymentSession: { select: { state: true, providerSessionId: true } },
           totalMinor: true,
           currency: true,
           createdAt: true,

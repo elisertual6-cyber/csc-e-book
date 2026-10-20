@@ -11,6 +11,7 @@ import nodemailer from "nodemailer";
 import { z } from "zod";
 import type { PrismaClient, Prisma } from "@prisma/client";
 import { HttpError } from "./http";
+import { paymentAllowedInRuntime } from "./payment-policy";
 
 type Env = Record<string, string | undefined>;
 const payloadSchema = z
@@ -251,7 +252,7 @@ function eligibleNotice(order: NoticeOrder, userId: string, time: Date) {
         p.verifiedAt &&
         p.amountMinor === order.totalMinor &&
         p.currency === order.currency &&
-        (p.provider !== "mock" || process.env.NODE_ENV !== "production"),
+        paymentAllowedInRuntime(p.provider),
     )
   );
 }

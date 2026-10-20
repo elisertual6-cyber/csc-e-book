@@ -21,6 +21,9 @@ const env = {
   MAIL_PRIVATE_DIR: path.join(privateDir, "mail"),
   MAIL_ENCRYPTION_KEY: randomBytes(32).toString("hex"),
   MAIL_TRANSPORT: "disabled",
+  PAYMONGO_SECRET_KEY: `sk_test_fixture_${randomBytes(24).toString("hex")}`,
+  PAYMONGO_WEBHOOK_SECRET: randomBytes(32).toString("hex"),
+  GCASH_CHECKOUT_ENABLED: "false",
 };
 const admin = new Client({ connectionString: base });
 let created = false;

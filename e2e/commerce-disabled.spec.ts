@@ -125,6 +125,30 @@ test("production disables simulated checkout and unsigned payment events", async
         })
       ).status(),
     ).toBe(403);
+    await db.artifact.update({
+      where: { id: artifact.id },
+      data: { developmentOnly: false },
+    });
+    await db.payment.updateMany({
+      where: { orderId: order.id },
+      data: { provider: "paymongo_test" },
+    });
+    expect(
+      (
+        await page.request.post("/api/commerce/downloads", {
+          headers,
+          data: { artifactId: artifact.id },
+        })
+      ).status(),
+    ).toBe(403);
+    expect(
+      (
+        await page.request.post(`/api/commerce/orders/${order.id}/gcash`, {
+          headers,
+          data: { action: "checkout" },
+        })
+      ).status(),
+    ).toBe(503);
   } finally {
     await db.$disconnect();
   }

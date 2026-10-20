@@ -12,6 +12,8 @@ type Product = {
 type AdminOrder = {
   id: string;
   userId: string;
+  paymentMethod: string;
+  paymentSession: { state: string; providerSessionId: string | null } | null;
   status: string;
   totalMinor: number;
   payments: { provider: string; status: string }[];
@@ -221,6 +223,36 @@ export default function ProductStudio() {
                   .map((p) => `${p.provider}: ${p.status}`)
                   .join(", ") || "No payment"}
               </p>
+              {o.paymentMethod === "gcash" && o.paymentSession && (
+                <form
+                  className="exam-form"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const f = new FormData(e.currentTarget);
+                    void send(
+                      {
+                        orderId: o.id,
+                        providerSessionId: f.get("providerSessionId"),
+                      },
+                      "/api/admin/payments",
+                    );
+                  }}
+                >
+                  <p>GCash sandbox session: {o.paymentSession.state}</p>
+                  <label>
+                    PayMongo checkout session ID
+                    <input
+                      name="providerSessionId"
+                      defaultValue={o.paymentSession.providerSessionId ?? ""}
+                      required
+                      pattern="cs_[a-zA-Z0-9]+"
+                    />
+                  </label>
+                  <button className="button button-light" disabled={busy}>
+                    Reconcile sandbox payment
+                  </button>
+                </form>
+              )}
               {o.entitlements.map((e) => (
                 <button
                   disabled={busy}
