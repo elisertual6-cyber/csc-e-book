@@ -1,0 +1,15 @@
+[
+  {
+    "key": "arithmetic-001", "version": 1,
+    "prompt": "A study group has 8 learners. Each learner brings 3 practice sheets, and the facilitator brings 6 more. How many sheets are there in total?",
+    "topic": "arithmetic", "level": "COMMON", "difficulty": "EASY", "status": "DRAFT",
+    "sourceNotes": "Original arithmetic teaching example; independent human review pending. Not an actual CSC question.",
+    "explanation": "Multiply 8 learners by 3 sheets to obtain 24 sheets, then add the facilitator's 6 sheets: 24 + 6 = 30.",
+    "choices": [
+      { "label": "A", "text": "24 sheets", "isCorrect": false },
+      { "label": "B", "text": "30 sheets", "isCorrect": true },
+      { "label": "C", "text": "38 sheets", "isCorrect": false },
+      { "label": "D", "text": "72 sheets", "isCorrect": false }
+    ]
+  }
+]

@@ -1,0 +1,305 @@
+generator client {
+  provider = "prisma-client-js"
+  engineType = "client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  CUSTOMER
+  EDITOR
+  REVIEWER
+  ADMIN
+}
+
+enum Level {
+  COMMON
+  PROFESSIONAL
+  SUBPROFESSIONAL
+}
+
+enum ReviewStatus {
+  DRAFT
+  IN_REVIEW
+  APPROVED
+  PUBLISHED
+  ARCHIVED
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum AttemptStatus {
+  IN_PROGRESS
+  SUBMITTED
+  EXPIRED
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  PENDING
+  VERIFIED
+  FAILED
+  REFUNDED
+}
+
+model User {
+  id           String        @id @default(cuid())
+  email        String        @unique
+  name         String?
+  role         Role          @default(CUSTOMER)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  reviews      Review[]
+  attempts     Attempt[]
+  orders       Order[]
+  entitlements Entitlement[]
+  downloads    Download[]
+  auditEvents  AuditEvent[]
+}
+
+model Chapter {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String
+  position  Int      @unique
+  level     Level    @default(COMMON)
+  lessons   Lesson[]
+}
+
+model Lesson {
+  id         String       @id @default(cuid())
+  slug       String
+  title      String
+  markdown   String
+  objectives String[]
+  version    Int          @default(1)
+  status     ReviewStatus @default(DRAFT)
+  chapterId  String
+  chapter    Chapter      @relation(fields: [chapterId], references: [id], onDelete: Restrict)
+  reviews    Review[]
+  updatedAt  DateTime     @updatedAt
+  @@unique([slug, version])
+}
+
+model Question {
+  id          String           @id @default(cuid())
+  key         String
+  version     Int              @default(1)
+  prompt      String
+  topic       String
+  level       Level
+  difficulty  Difficulty
+  sourceNotes String
+  status      ReviewStatus     @default(DRAFT)
+  choices     Choice[]
+  explanation Explanation?
+  sources     SourceReference[]
+  reviews     Review[]
+  createdAt   DateTime         @default(now())
+  @@unique([key, version])
+  @@index([status, level, topic])
+}
+
+model Choice {
+  id         String   @id @default(cuid())
+  questionId String
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  label      String
+  text       String
+  isCorrect  Boolean  @default(false)
+  @@unique([questionId, label])
+}
+
+model Explanation {
+  id         String   @id @default(cuid())
+  questionId String   @unique
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  rationale  String
+}
+
+model SourceReference {
+  id             String     @id @default(cuid())
+  title          String
+  url            String
+  section        String?
+  lastReviewedAt DateTime?
+  notes          String
+  questions      Question[]
+}
+
+model Review {
+  id         String       @id @default(cuid())
+  reviewerId String
+  reviewer   User         @relation(fields: [reviewerId], references: [id], onDelete: Restrict)
+  questionId String?
+  question   Question?    @relation(fields: [questionId], references: [id], onDelete: Restrict)
+  lessonId   String?
+  lesson     Lesson?      @relation(fields: [lessonId], references: [id], onDelete: Restrict)
+  decision   ReviewStatus
+  notes      String
+  createdAt  DateTime     @default(now())
+}
+
+model ExamTemplate {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  title           String
+  level           Level
+  questionCount   Int
+  durationSeconds Int
+  version         Int       @default(1)
+  active          Boolean   @default(false)
+  attempts        Attempt[]
+}
+
+model Attempt {
+  id             String        @id @default(cuid())
+  userId         String
+  user           User          @relation(fields: [userId], references: [id], onDelete: Restrict)
+  templateId     String
+  template       ExamTemplate  @relation(fields: [templateId], references: [id], onDelete: Restrict)
+  status         AttemptStatus @default(IN_PROGRESS)
+  startedAt      DateTime      @default(now())
+  deadlineAt     DateTime
+  submittedAt    DateTime?
+  score          Int?
+  totalQuestions Int
+  // Immutable server-only snapshots include version, choices, rationale and correct label.
+  // Never serialize this JSON to a client before grading.
+  questionSnapshot Json
+  responses      Response[]
+  @@index([userId, startedAt])
+}
+
+model Response {
+  id          String   @id @default(cuid())
+  attemptId   String
+  attempt     Attempt  @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  questionKey String
+  choiceLabel String?
+  flagged     Boolean  @default(false)
+  updatedAt   DateTime @updatedAt
+  @@unique([attemptId, questionKey])
+}
+
+model Product {
+  id           String        @id @default(cuid())
+  slug         String        @unique
+  name         String
+  description  String
+  version      String
+  grantsExams  Boolean       @default(false)
+  active       Boolean       @default(false)
+  prices       Price[]
+  orderItems   OrderItem[]
+  entitlements Entitlement[]
+  artifacts    Artifact[]
+}
+
+model Price {
+  id          String      @id @default(cuid())
+  productId   String
+  product     Product     @relation(fields: [productId], references: [id], onDelete: Restrict)
+  currency    String      @default("PHP")
+  amountMinor Int
+  active      Boolean     @default(false)
+  createdAt   DateTime    @default(now())
+  orderItems  OrderItem[]
+}
+
+model Order {
+  id           String        @id @default(cuid())
+  userId       String
+  user         User          @relation(fields: [userId], references: [id], onDelete: Restrict)
+  status       OrderStatus   @default(PENDING)
+  totalMinor   Int
+  currency     String        @default("PHP")
+  createdAt    DateTime      @default(now())
+  items        OrderItem[]
+  payments     Payment[]
+  entitlements Entitlement[]
+}
+
+model OrderItem {
+  id             String  @id @default(cuid())
+  orderId        String
+  order          Order   @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  productId      String
+  product        Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+  priceId        String
+  price          Price   @relation(fields: [priceId], references: [id], onDelete: Restrict)
+  unitPriceMinor Int
+  quantity       Int     @default(1)
+}
+
+model Payment {
+  id              String        @id @default(cuid())
+  orderId         String
+  order           Order         @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  provider        String
+  providerEventId String
+  status          PaymentStatus @default(PENDING)
+  verifiedAt      DateTime?
+  amountMinor     Int
+  currency        String        @default("PHP")
+  createdAt       DateTime      @default(now())
+  @@unique([provider, providerEventId])
+}
+
+model Entitlement {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Restrict)
+  productId String
+  product   Product   @relation(fields: [productId], references: [id], onDelete: Restrict)
+  orderId   String
+  order     Order     @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  grantedAt DateTime  @default(now())
+  revokedAt DateTime?
+  expiresAt DateTime?
+  @@unique([userId, productId, orderId])
+}
+
+model Artifact {
+  id           String     @id @default(cuid())
+  productId    String
+  product      Product    @relation(fields: [productId], references: [id], onDelete: Restrict)
+  version      String
+  privateKey   String     @unique
+  sha256       String
+  publishedAt  DateTime?
+  downloads    Download[]
+}
+
+model Download {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Restrict)
+  artifactId String
+  artifact   Artifact @relation(fields: [artifactId], references: [id], onDelete: Restrict)
+  issuedAt   DateTime @default(now())
+  expiresAt  DateTime
+}
+
+model AuditEvent {
+  id        String   @id @default(cuid())
+  actorId   String?
+  actor     User?    @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  action    String
+  targetId  String
+  metadata  Json
+  createdAt DateTime @default(now())
+  @@index([targetId, createdAt])
+}
