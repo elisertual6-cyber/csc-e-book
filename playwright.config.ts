@@ -14,10 +14,16 @@ export default defineConfig({
     { name: "desktop", use: { ...devices["Desktop Chrome"] } },
     {
       name: "mobile",
+      testIgnore: /phase2\.spec\.ts/,
       use: { ...devices["iPhone 13"], defaultBrowserType: "chromium" },
     },
   ],
   webServer: {
+    env: {
+      APP_URL: "http://127.0.0.1:3100",
+      REGISTRATION_ENABLED: "true",
+      PDF_PRIVATE_DIR: process.env.PDF_PRIVATE_DIR ?? ".local/test-editions",
+    },
     command: "npm run start -- --port 3100",
     url: "http://127.0.0.1:3100",
     reuseExistingServer: false,

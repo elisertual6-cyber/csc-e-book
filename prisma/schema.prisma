@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client-js"
+  provider   = "prisma-client-js"
   engineType = "client"
 }
 
@@ -55,27 +55,32 @@ enum PaymentStatus {
 }
 
 model User {
-  id           String        @id @default(cuid())
-  email        String        @unique
-  name         String?
-  role         Role          @default(CUSTOMER)
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
-  reviews      Review[]
-  attempts     Attempt[]
-  orders       Order[]
-  entitlements Entitlement[]
-  downloads    Download[]
-  auditEvents  AuditEvent[]
+  id                String        @id @default(cuid())
+  email             String        @unique
+  name              String?
+  passwordHash      String?
+  role              Role          @default(CUSTOMER)
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+  reviews           Review[]
+  attempts          Attempt[]
+  orders            Order[]
+  entitlements      Entitlement[]
+  downloads         Download[]
+  auditEvents       AuditEvent[]
+  sessions          Session[]
+  authoredLessons   Lesson[]      @relation("LessonAuthor")
+  authoredQuestions Question[]    @relation("QuestionAuthor")
+  editions          PdfEdition[]
 }
 
 model Chapter {
-  id        String   @id @default(cuid())
-  slug      String   @unique
-  title     String
-  position  Int      @unique
-  level     Level    @default(COMMON)
-  lessons   Lesson[]
+  id       String   @id @default(cuid())
+  slug     String   @unique
+  title    String
+  position Int      @unique
+  level    Level    @default(COMMON)
+  lessons  Lesson[]
 }
 
 model Lesson {
@@ -85,29 +90,37 @@ model Lesson {
   markdown   String
   objectives String[]
   version    Int          @default(1)
+  revision   Int          @default(1)
+  authorId   String?
+  author     User?        @relation("LessonAuthor", fields: [authorId], references: [id], onDelete: Restrict)
   status     ReviewStatus @default(DRAFT)
   chapterId  String
   chapter    Chapter      @relation(fields: [chapterId], references: [id], onDelete: Restrict)
   reviews    Review[]
   updatedAt  DateTime     @updatedAt
+
   @@unique([slug, version])
 }
 
 model Question {
-  id          String           @id @default(cuid())
+  id          String            @id @default(cuid())
   key         String
-  version     Int              @default(1)
+  version     Int               @default(1)
+  revision    Int               @default(1)
+  authorId    String?
+  author      User?             @relation("QuestionAuthor", fields: [authorId], references: [id], onDelete: Restrict)
   prompt      String
   topic       String
   level       Level
   difficulty  Difficulty
   sourceNotes String
-  status      ReviewStatus     @default(DRAFT)
+  status      ReviewStatus      @default(DRAFT)
   choices     Choice[]
   explanation Explanation?
   sources     SourceReference[]
   reviews     Review[]
-  createdAt   DateTime         @default(now())
+  createdAt   DateTime          @default(now())
+
   @@unique([key, version])
   @@index([status, level, topic])
 }
@@ -119,6 +132,7 @@ model Choice {
   label      String
   text       String
   isCorrect  Boolean  @default(false)
+
   @@unique([questionId, label])
 }
 
@@ -140,16 +154,58 @@ model SourceReference {
 }
 
 model Review {
-  id         String       @id @default(cuid())
-  reviewerId String
-  reviewer   User         @relation(fields: [reviewerId], references: [id], onDelete: Restrict)
-  questionId String?
-  question   Question?    @relation(fields: [questionId], references: [id], onDelete: Restrict)
-  lessonId   String?
-  lesson     Lesson?      @relation(fields: [lessonId], references: [id], onDelete: Restrict)
-  decision   ReviewStatus
-  notes      String
-  createdAt  DateTime     @default(now())
+  id          String       @id @default(cuid())
+  reviewerId  String
+  reviewer    User         @relation(fields: [reviewerId], references: [id], onDelete: Restrict)
+  questionId  String?
+  question    Question?    @relation(fields: [questionId], references: [id], onDelete: Restrict)
+  lessonId    String?
+  lesson      Lesson?      @relation(fields: [lessonId], references: [id], onDelete: Restrict)
+  decision    ReviewStatus
+  notes       String
+  contentHash String?
+  createdAt   DateTime     @default(now())
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+
+  @@index([expiresAt])
+}
+
+model RateLimitBucket {
+  key       String   @id
+  hits      Int      @default(1)
+  expiresAt DateTime
+
+  @@index([expiresAt])
+}
+
+enum EditionKind {
+  DRAFT
+  PREVIEW
+  FULL
+}
+
+model PdfEdition {
+  id          String      @id @default(cuid())
+  kind        EditionKind
+  version     String
+  title       String
+  creatorId   String
+  creator     User        @relation(fields: [creatorId], references: [id], onDelete: Restrict)
+  filename    String      @unique
+  sha256      String
+  manifest    Json
+  createdAt   DateTime    @default(now())
+  publishedAt DateTime?
+
+  @@index([kind, publishedAt])
 }
 
 model ExamTemplate {
@@ -165,21 +221,22 @@ model ExamTemplate {
 }
 
 model Attempt {
-  id             String        @id @default(cuid())
-  userId         String
-  user           User          @relation(fields: [userId], references: [id], onDelete: Restrict)
-  templateId     String
-  template       ExamTemplate  @relation(fields: [templateId], references: [id], onDelete: Restrict)
-  status         AttemptStatus @default(IN_PROGRESS)
-  startedAt      DateTime      @default(now())
-  deadlineAt     DateTime
-  submittedAt    DateTime?
-  score          Int?
-  totalQuestions Int
+  id               String        @id @default(cuid())
+  userId           String
+  user             User          @relation(fields: [userId], references: [id], onDelete: Restrict)
+  templateId       String
+  template         ExamTemplate  @relation(fields: [templateId], references: [id], onDelete: Restrict)
+  status           AttemptStatus @default(IN_PROGRESS)
+  startedAt        DateTime      @default(now())
+  deadlineAt       DateTime
+  submittedAt      DateTime?
+  score            Int?
+  totalQuestions   Int
   // Immutable server-only snapshots include version, choices, rationale and correct label.
   // Never serialize this JSON to a client before grading.
   questionSnapshot Json
-  responses      Response[]
+  responses        Response[]
+
   @@index([userId, startedAt])
 }
 
@@ -191,6 +248,7 @@ model Response {
   choiceLabel String?
   flagged     Boolean  @default(false)
   updatedAt   DateTime @updatedAt
+
   @@unique([attemptId, questionKey])
 }
 
@@ -255,6 +313,7 @@ model Payment {
   amountMinor     Int
   currency        String        @default("PHP")
   createdAt       DateTime      @default(now())
+
   @@unique([provider, providerEventId])
 }
 
@@ -269,18 +328,19 @@ model Entitlement {
   grantedAt DateTime  @default(now())
   revokedAt DateTime?
   expiresAt DateTime?
+
   @@unique([userId, productId, orderId])
 }
 
 model Artifact {
-  id           String     @id @default(cuid())
-  productId    String
-  product      Product    @relation(fields: [productId], references: [id], onDelete: Restrict)
-  version      String
-  privateKey   String     @unique
-  sha256       String
-  publishedAt  DateTime?
-  downloads    Download[]
+  id          String     @id @default(cuid())
+  productId   String
+  product     Product    @relation(fields: [productId], references: [id], onDelete: Restrict)
+  version     String
+  privateKey  String     @unique
+  sha256      String
+  publishedAt DateTime?
+  downloads   Download[]
 }
 
 model Download {
@@ -301,5 +361,6 @@ model AuditEvent {
   targetId  String
   metadata  Json
   createdAt DateTime @default(now())
+
   @@index([targetId, createdAt])
 }

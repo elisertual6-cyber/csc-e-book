@@ -4,8 +4,8 @@ Use the existing checkout: cloud tasks are isolated; do not create worktrees unl
 Read docs/ROADMAP.md and docs/ARCHITECTURE.md before changing scope.
 Run npm run lint, npm run typecheck, npm test, npm run content:check, and npm run build for major changes. Run npm run test:e2e for UI changes and npm run test:db for database changes.
 Keep content marked DRAFT until independently reviewed. Never describe demo progress, prices, questions, or timing as official CSC information. Never expose answer keys in attempt responses before server-side submission.
-No production checkout or admin endpoints until authentication, authorization, entitlements, and provider signature verification are tested. Never commit .env or secrets.
-Phase 1 is an honest foundation/demo, not a production commerce service.
+Every admin endpoint must enforce and test authentication and role authorization. Keep production checkout and paid delivery disabled until entitlement checks and provider signature verification are implemented and tested. Never commit .env or secrets.
+Phase 2 adds custom database sessions, editorial review and a private-disk PDF worker; read docs/EDITORIAL_OPERATIONS.md before operating them. The product is still a development service, not a production commerce launch. Public registration defaults off in production. Browser/security tests must use npm run test:e2e, which provisions a disposable database; never run bare playwright test against development/customer data. Simulated test approvals do not count as human review.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

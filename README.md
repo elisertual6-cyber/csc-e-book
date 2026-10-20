@@ -2,11 +2,17 @@
 
 An independent, unofficial learning platform for Professional and Subprofessional preparation. **Not affiliated with, endorsed by, or approved by the CSC. No passing guarantee.** Official 2027 coverage, dates, durations and scoring remain unverified.
 
-## Phase 1: a working foundation
+## Current development stage: editorial and PDF workflows
 
 Next.js App Router + TypeScript + Tailwind, PostgreSQL + Prisma, Zod validation, Vitest and Playwright. Includes a responsive landing page, configurable illustrative PHP catalog, track-based curriculum, Markdown lesson preview, ungraded interactive arithmetic exercise, policy drafts and database health endpoint.
 
-The 25-chapter curriculum is an outline, with **one original draft lesson and one draft bank question**. Content is not independently reviewed or approved for commercial publication. No login, admin dashboard, PDF generation, paid downloads, checkout or server-graded exams are exposed yet. No real gateway is integrated; `PAYMENT_PROVIDER=mock` reserves a later development setting, not an implemented payment flow.
+The 25-chapter curriculum is an outline, with **one original draft lesson and one draft bank question**. Content is not independently reviewed or approved for commercial publication. Phase 2 adds customer sign-in, an editorial dashboard, independent review and protected PDF generation. Paid downloads, checkout and server-graded exams remain unimplemented. No real gateway is integrated; `PAYMENT_PROVIDER=mock` reserves a later development setting, not an implemented payment flow.
+
+## Accounts and editorial workflow
+
+Open /register to create a synthetic development customer account, or /login to sign in. Customer accounts cannot access /admin. Staff bootstrap, review, import/export and PDF release procedures are documented in [docs/EDITORIAL_OPERATIONS.md](docs/EDITORIAL_OPERATIONS.md). There are no default staff passwords; operator-created authors and independent reviewers must use separate accounts. Public registration is disabled by default in production until explicitly enabled.
+
+PDF generation uses Node and Chromium, stores files privately outside public/, and exposes only an explicitly released, independently reviewed free preview. No reviewer content is automatically approved during setup. Full commercial editions require 500 unique reviewed questions and remain inaccessible to customers pending the commerce phase.
 
 ## Local setup
 
@@ -45,14 +51,14 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-On this cloud machine, Chromium is already installed. Use `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:e2e` instead of downloading a browser. Playwright starts a production server on port 3100, so build first and keep that port free. If your home cache is not writable, pass `--cache /workspace/.npm-cache` to npm and `PLAYWRIGHT_BROWSERS_PATH=/workspace/.cache/ms-playwright` when installing/running bundled browsers.
+On this cloud machine, Chromium is already installed. Use `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:e2e` instead of downloading a browser. The test wrapper creates a disposable PostgreSQL database, migrates/seeds it, starts a production server on port 3100, and removes that test database and its private PDF files afterward. Build first, keep that port free, and use a database role permitted to create/drop test databases. Simulated approvals in tests never touch the development content bank. PDF checks also require pdftotext (provided in this cloud). If your home cache is not writable, pass `--cache /workspace/.npm-cache` to npm and `PLAYWRIGHT_BROWSERS_PATH=/workspace/.cache/ms-playwright` when installing/running bundled browsers.
 
 To run the production server locally: `npm run build`, then `npm start`. Development uses `npm run dev`. Ctrl+C stops the app; use Compose separately to stop the database. No localhost web preview is published by cloud onboarding.
 
 ## Project map
 
-- `src/app`: public routes, ungraded practice, draft policies and `/api/health`.
-- `src/lib`: track metadata, price validation, content integrity checks and server-only database client.
+- `src/app`: public pages, account/editorial UI, protected APIs, free preview route and `/api/health`.
+- `src/lib`: database-backed sessions, password hashing, authorization, content workflow, PDF worker, curriculum and price validation.
 - `content/`: editable original Markdown and a DRAFT question fixture. Not under `public/`.
 - `prisma/`: relational schema, checked-in migration and idempotent draft seed.
 - `tests/`, `e2e/`: content/configuration unit tests and desktop/mobile browser tests.
@@ -63,4 +69,4 @@ To run the production server locally: `npm run build`, then `npm start`. Develop
 
 ## Next phase
 
-Implement authentication and role-protected editorial workflows, independent content approval, and PDF generation. Do not enable sales before the 500-question review target, authoritative source checks, legal policies, private file delivery and payment sandbox verification are complete.
+Phase 3: implement the server-owned exam simulator, timed attempts, response persistence, server-side grading and reports. Do not enable sales before the 500-question review target, authoritative source checks, legal policies, private file delivery and payment sandbox verification are complete.

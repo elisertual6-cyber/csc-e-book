@@ -3,8 +3,8 @@ const policies: Record<string, { title: string; text: string[] }> = {
   privacy: {
     title: "Privacy notice — draft",
     text: [
-      "This foundation demo does not offer accounts, purchases, tracking analytics or saved exam progress. Exercise answers stay in your current browser state; hosting infrastructure may record technical access logs.",
-      "Before collecting customer information, the operator must publish its legal identity and contact details, purposes and legal bases, processors, retention periods, safeguards, and procedures for access, correction, objection and deletion under applicable Philippine privacy law. Do not submit personal information to this demo.",
+      "Development accounts store a name, email address, salted password hash, role and timestamps in PostgreSQL. A necessary HttpOnly session cookie keeps you signed in for up to 24 hours; the database stores only a hash of its random token. Editorial changes and reviews create audit records. No analytics, purchases, emails or saved exam results are enabled. Exercise answers remain in the current browser state. Hosting infrastructure may retain technical access logs.",
+      "Use synthetic account details while testing. Account and editorial records remain until the operator removes them; expired sessions and rate-limit counters are removed by scheduled maintenance. Before accepting real customer information, the operator must publish its legal identity and monitored contact, legal bases, processors, precise retention periods and data subject request procedures, and obtain Philippine privacy/legal review. This draft is not a claim of compliance.",
     ],
   },
   terms: {
@@ -25,7 +25,7 @@ const policies: Record<string, { title: string; text: string[] }> = {
     title: "Support — not yet open",
     text: [
       "A customer support channel has not been configured. For development issues, open an issue in the project repository without posting passwords, payment details or personal information.",
-      "The operator must provide a monitored support contact before enabling customer accounts or checkout.",
+      "Synthetic development accounts are available for testing. The operator must provide a monitored support contact, verification and account-recovery procedures before launching real customer registration or checkout.",
     ],
   },
 };

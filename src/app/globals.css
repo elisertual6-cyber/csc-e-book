@@ -1064,3 +1064,184 @@ footer {
     transition: none !important;
   }
 }
+.auth-form {
+  max-width: 480px;
+  margin: 32px 0;
+  display: grid;
+  gap: 12px;
+}
+.auth-form input,
+.editor-panel input,
+.editor-panel textarea,
+.editor-panel select {
+  width: 100%;
+  background: white;
+  border: 1px solid #a9b0a9;
+  border-radius: 4px;
+  padding: 10px 12px;
+  color: var(--ink);
+  font: inherit;
+}
+.auth-form label,
+.editor-panel label {
+  font-size: 13px;
+  font-weight: 600;
+}
+.auth-form .button {
+  margin-top: 10px;
+}
+.auth-form p {
+  font-size: 13px;
+}
+.studio-grid {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 25px;
+}
+.record-list {
+  border: 1px solid var(--line);
+  padding: 18px;
+  border-radius: 8px;
+  max-height: 850px;
+  overflow: auto;
+}
+.record-list h2 {
+  font-size: 25px;
+}
+.record {
+  width: 100%;
+  text-align: left;
+  padding: 14px 8px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  display: block;
+  overflow-wrap: anywhere;
+}
+.record span {
+  display: block;
+  font-size: 10px;
+  margin-top: 5px;
+}
+.record[aria-pressed="true"] {
+  background: #ede7d6;
+}
+.editor-panel {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffefa;
+  margin-bottom: 30px;
+  min-width: 0;
+}
+.editor-panel h2 {
+  font-size: 29px;
+  margin-bottom: 15px;
+}
+.editor-panel h3 {
+  margin: 20px 0 12px;
+}
+.editor-panel fieldset {
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  margin: 20px 0;
+  display: grid;
+  gap: 15px;
+}
+.editor-panel fieldset:disabled {
+  opacity: 0.7;
+}
+.editor-panel label {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0;
+}
+.editor-panel textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+.editor-panel .large-textarea {
+  min-height: 320px;
+  font-family: monospace;
+  font-size: 13px;
+}
+.editor-panel .check-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 400;
+}
+.editor-panel .check-label input {
+  width: auto;
+  margin-top: 5px;
+}
+.editor-panel p {
+  overflow-wrap: anywhere;
+}
+.review-panel {
+  border-top: 1px solid var(--line);
+  margin-top: 25px;
+  padding-top: 10px;
+}
+.choice-editor {
+  border-bottom: 1px solid var(--line);
+  padding: 8px 0;
+}
+.edition-row {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.edition-row p {
+  font-size: 11px;
+}
+.editor-panel .actions {
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+.studio .feedback:empty {
+  display: none;
+}
+.record-list + .editor-panel .actions h2 {
+  margin-right: auto;
+}
+.header-inner nav {
+  flex-wrap: wrap;
+}
+@media (max-width: 900px) {
+  .studio-grid {
+    grid-template-columns: 1fr;
+  }
+  .record-list {
+    max-height: 260px;
+  }
+  .editor-panel {
+    padding: 20px;
+  }
+  .header-inner nav {
+    gap: 15px;
+  }
+  .header-inner {
+    flex-wrap: wrap;
+    padding-block: 18px;
+  }
+  .header-inner nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .studio .tabs {
+    gap: 6px;
+  }
+  .studio .tabs .button {
+    padding: 10px 14px;
+  }
+  .editor-panel .button {
+    max-width: 100%;
+  }
+}
