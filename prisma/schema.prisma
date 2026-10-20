@@ -208,15 +208,29 @@ model PdfEdition {
   @@index([kind, publishedAt])
 }
 
+enum ExamMode {
+  PRACTICE
+  MOCK
+}
+
+enum ExamAccess {
+  FREE
+  PREMIUM
+}
+
 model ExamTemplate {
-  id              String    @id @default(cuid())
-  slug            String    @unique
+  id              String     @id @default(cuid())
+  slug            String     @unique
   title           String
   level           Level
+  mode            ExamMode   @default(MOCK)
+  access          ExamAccess @default(PREMIUM)
+  topics          String[]   @default([])
   questionCount   Int
   durationSeconds Int
-  version         Int       @default(1)
-  active          Boolean   @default(false)
+  version         Int        @default(1)
+  active          Boolean    @default(false)
+  updatedAt       DateTime   @default(now()) @updatedAt
   attempts        Attempt[]
 }
 
@@ -228,16 +242,21 @@ model Attempt {
   template         ExamTemplate  @relation(fields: [templateId], references: [id], onDelete: Restrict)
   status           AttemptStatus @default(IN_PROGRESS)
   startedAt        DateTime      @default(now())
-  deadlineAt       DateTime
+  deadlineAt       DateTime?
   submittedAt      DateTime?
   score            Int?
   totalQuestions   Int
   // Immutable server-only snapshots include version, choices, rationale and correct label.
   // Never serialize this JSON to a client before grading.
   questionSnapshot Json
+  templateSnapshot Json?
+  startKey         String?
+  revision         Int           @default(0)
   responses        Response[]
 
+  @@unique([userId, startKey])
   @@index([userId, startedAt])
+  @@index([status, deadlineAt])
 }
 
 model Response {

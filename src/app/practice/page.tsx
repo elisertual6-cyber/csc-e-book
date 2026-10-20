@@ -1,6 +1,10 @@
 import PracticeDemo from "@/components/practice-demo";
+import ExamLobby from "@/components/exam-lobby";
+import { currentUser } from "@/lib/auth";
+import Link from "next/link";
 export const metadata = { title: "Practice studio" };
-export default function Practice() {
+export default async function Practice() {
+  const user = await currentUser();
   return (
     <section className="shell section page-content">
       <div className="eyebrow">A SPACE TO THINK IT THROUGH</div>
@@ -11,9 +15,20 @@ export default function Practice() {
         Start small. Focus on the reasoning. Give yourself room to try again.
       </p>
       <div className="notice">
-        Foundation demo · Full topic practice, timed exams and saved history are
-        not yet available.
+        Topic practice and timed mock sessions use reviewed questions and save
+        progress to your account. Counts, timers and results are practice
+        settings, not official CSC specifications.
       </div>
+      {user ? (
+        <ExamLobby />
+      ) : (
+        <p className="notice">
+          <Link className="text-link" href="/login">
+            Sign in for reviewed sessions and saved history →
+          </Link>{" "}
+          The ungraded draft exercise below needs no account.
+        </p>
+      )}
       <PracticeDemo />
     </section>
   );

@@ -50,7 +50,8 @@ export default function PracticeDemo() {
       </p>
       <p className="fine-print">
         Draft teaching demo. No account, timer, stored result or official score.
-        The secure, server-graded exam simulator is planned for a later phase.
+        For graded practice, sign in and choose an available reviewed session
+        above.
       </p>
     </div>
   );

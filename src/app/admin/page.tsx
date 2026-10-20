@@ -19,6 +19,13 @@ export default async function Admin() {
       <Link className="text-link" href="/account">
         ← Your account
       </Link>
+      {actor.role === "ADMIN" && (
+        <p>
+          <Link className="text-link" href="/admin/exams">
+            Configure reviewed exam templates →
+          </Link>
+        </p>
+      )}
       <div className="notice">
         Seed samples remain DRAFT and have no human approval. Never mark
         automated test fixtures or AI-generated material as reviewed without

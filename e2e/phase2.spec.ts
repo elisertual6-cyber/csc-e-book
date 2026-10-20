@@ -9,6 +9,25 @@ import path from "node:path";
 import { stringify } from "csv-stringify/sync";
 import { PDFDocument, PDFName, PDFDict } from "pdf-lib";
 import { hashPassword, digest } from "../src/lib/security";
+// Concurrent fixture writers may receive PostgreSQL serialization conflicts.
+// Retry only the generic transaction-conflict response for otherwise valid writes.
+async function transactionWrite(
+  ctx: APIRequestContext,
+  url: string,
+  options: NonNullable<Parameters<APIRequestContext["post"]>[1]>,
+) {
+  let response = await ctx.post(url, options);
+  for (let retry = 0; retry < 5 && response.status() === 409; retry++) {
+    if (
+      (await response.json()).error !==
+      "The record conflicts with another change. Refresh and try again."
+    )
+      break;
+    await new Promise((resolve) => setTimeout(resolve, 100 * (retry + 1)));
+    response = await ctx.post(url, options);
+  }
+  return response;
+}
 test("role boundaries, independent review, atomic import and protected PDF publication", async ({
   playwright,
   browser,
@@ -259,12 +278,12 @@ test("role boundaries, independent review, atomic import and protected PDF publi
         { label: "D", text: "24", isCorrect: false },
       ],
     };
-    const qResponse = await admin.post("/api/admin/questions", {
+    const qResponse = await transactionWrite(admin, "/api/admin/questions", {
       data: { action: "create", data: qData },
     });
     expect(qResponse.status()).toBe(201);
     let question = await qResponse.json();
-    const saved = await admin.post("/api/admin/questions", {
+    const saved = await transactionWrite(admin, "/api/admin/questions", {
       data: {
         action: "save",
         id: question.id,
@@ -303,7 +322,8 @@ test("role boundaries, independent review, atomic import and protected PDF publi
     const csv = await admin.get("/api/admin/questions/transfer?format=csv");
     expect(csv.status()).toBe(200);
     expect(await csv.text()).toContain("correctLabel");
-    const before = await db.question.count();
+    const ownQuestions = { key: { startsWith: prefix } };
+    const before = await db.question.count({ where: ownQuestions });
     const invalid = {
       ...qData,
       key: `${prefix}-bad`,
@@ -311,7 +331,7 @@ test("role boundaries, independent review, atomic import and protected PDF publi
     };
     expect(
       (
-        await admin.post("/api/admin/questions/transfer", {
+        await transactionWrite(admin, "/api/admin/questions/transfer", {
           data: {
             format: "json",
             data: JSON.stringify([
@@ -327,19 +347,24 @@ test("role boundaries, independent review, atomic import and protected PDF publi
         })
       ).status(),
     ).toBe(400);
-    expect(await db.question.count()).toBe(before);
-    const imported = await admin.post("/api/admin/questions/transfer", {
-      data: {
-        format: "json",
-        data: JSON.stringify([
-          {
-            ...qData,
-            key: `${prefix}-import`,
-            prompt: "Isolated import: Calculate three groups of five counters.",
-          },
-        ]),
+    expect(await db.question.count({ where: ownQuestions })).toBe(before);
+    const imported = await transactionWrite(
+      admin,
+      "/api/admin/questions/transfer",
+      {
+        data: {
+          format: "json",
+          data: JSON.stringify([
+            {
+              ...qData,
+              key: `${prefix}-import`,
+              prompt:
+                "Isolated import: Calculate three groups of five counters.",
+            },
+          ]),
+        },
       },
-    });
+    );
     expect(imported.status()).toBe(201);
     expect(
       await db.question.count({
@@ -368,7 +393,7 @@ test("role boundaries, independent review, atomic import and protected PDF publi
     );
     expect(
       (
-        await admin.post("/api/admin/questions/transfer", {
+        await transactionWrite(admin, "/api/admin/questions/transfer", {
           data: { format: "csv", data: csvImport },
         })
       ).status(),

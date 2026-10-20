@@ -2,17 +2,23 @@
 
 An independent, unofficial learning platform for Professional and Subprofessional preparation. **Not affiliated with, endorsed by, or approved by the CSC. No passing guarantee.** Official 2027 coverage, dates, durations and scoring remain unverified.
 
-## Current development stage: editorial and PDF workflows
+## Current development stage: reviewed practice and exam simulation
 
 Next.js App Router + TypeScript + Tailwind, PostgreSQL + Prisma, Zod validation, Vitest and Playwright. Includes a responsive landing page, configurable illustrative PHP catalog, track-based curriculum, Markdown lesson preview, ungraded interactive arithmetic exercise, policy drafts and database health endpoint.
 
-The 25-chapter curriculum is an outline, with **one original draft lesson and one draft bank question**. Content is not independently reviewed or approved for commercial publication. Phase 2 adds customer sign-in, an editorial dashboard, independent review and protected PDF generation. Paid downloads, checkout and server-graded exams remain unimplemented. No real gateway is integrated; `PAYMENT_PROVIDER=mock` reserves a later development setting, not an implemented payment flow.
+The 25-chapter curriculum is an outline, with **one original draft lesson and one draft bank question**. Content is not independently reviewed or approved for commercial publication. Phase 2 adds customer sign-in, an editorial dashboard, independent review and protected PDF generation. Phase 3 adds server-owned practice/mock attempts, saved responses, deadline enforcement, grading, explanations and history. Paid downloads and checkout remain unimplemented. No real gateway is integrated; `PAYMENT_PROVIDER=mock` reserves a later development setting, not an implemented payment flow.
 
 ## Accounts and editorial workflow
 
 Open /register to create a synthetic development customer account, or /login to sign in. Customer accounts cannot access /admin. Staff bootstrap, review, import/export and PDF release procedures are documented in [docs/EDITORIAL_OPERATIONS.md](docs/EDITORIAL_OPERATIONS.md). There are no default staff passwords; operator-created authors and independent reviewers must use separate accounts. Public registration is disabled by default in production until explicitly enabled.
 
 PDF generation uses Node and Chromium, stores files privately outside public/, and exposes only an explicitly released, independently reviewed free preview. No reviewer content is automatically approved during setup. Full commercial editions require 500 unique reviewed questions and remain inaccessible to customers pending the commerce phase.
+
+## Practice sessions and reports
+
+Signed-in learners use /practice and /practice/history. Admins configure inactive templates at /admin/exams, then activate them only after enough independently reviewed questions are published. Topic practice supports validated smaller counts and optional untimed sessions; mock exams use operator-defined fixed counts/timers. No official 2027 timing, coverage or scoring is implied.
+
+Answer keys stay server-side until submission/expiry. Attempts retain immutable question/settings snapshots, progress is acknowledged after server saves, and row locks/revisions prevent stale writes or repeated grading. Premium content requires a current purchased entitlement and coherent paid/verified financial records; no checkout or entitlement fulfillment exists yet. No real templates, approvals or paid records are seeded. See [docs/EXAM_OPERATIONS.md](docs/EXAM_OPERATIONS.md).
 
 ## Local setup
 
@@ -58,7 +64,7 @@ To run the production server locally: `npm run build`, then `npm start`. Develop
 ## Project map
 
 - `src/app`: public pages, account/editorial UI, protected APIs, free preview route and `/api/health`.
-- `src/lib`: database-backed sessions, password hashing, authorization, content workflow, PDF worker, curriculum and price validation.
+- `src/lib`: database-backed sessions, password hashing, authorization, content workflow, PDF worker, exam snapshots/grading, curriculum and price validation.
 - `content/`: editable original Markdown and a DRAFT question fixture. Not under `public/`.
 - `prisma/`: relational schema, checked-in migration and idempotent draft seed.
 - `tests/`, `e2e/`: content/configuration unit tests and desktop/mobile browser tests.
@@ -69,4 +75,4 @@ To run the production server locally: `npm run build`, then `npm start`. Develop
 
 ## Next phase
 
-Phase 3: implement the server-owned exam simulator, timed attempts, response persistence, server-side grading and reports. Do not enable sales before the 500-question review target, authoritative source checks, legal policies, private file delivery and payment sandbox verification are complete.
+Phase 4: implement product/price administration, orders, a development mock payment adapter, verified fulfillment, customer entitlements and private paid downloads. Do not enable sales before the 500-question review target, authoritative source checks, legal policies, private file delivery and payment sandbox verification are complete.

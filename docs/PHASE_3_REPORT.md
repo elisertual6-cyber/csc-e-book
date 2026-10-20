@@ -1,0 +1,7 @@
+# Phase 3: reviewed exam sessions
+
+Implemented reviewed-question practice and mock sessions, independent Professional/Subprofessional selection, immutable question/template snapshots, PostgreSQL-clock deadlines, revision-controlled saved answers and flags, idempotent starts/submission, server grading, explanations after completion, topic reports and account history. Admins configure inactive templates and activate them only against an eligible independently reviewed bank. Premium access checks require coherent paid orders, verified payments and live entitlements; mock payments never grant production access.
+
+Validation: lint, TypeScript, 16 unit tests, draft-content validation, production build, database health/migration repeatability and all 12 isolated Playwright tests passed on 20 October 2026. Browser tests exercised desktop/mobile use and persistence; security tests covered answer leakage, tampering, ownership, concurrent writes/starts/submits, immutable versions, clock manipulation, expiry and purchase revocation. Synthetic editorial approvals existed only in disposable test databases.
+
+No actual exam template was activated and no development content was approved. The bank still contains one draft sample question. Timing and scores are study features, not official CSC specifications or passing guarantees. Commerce fulfillment is the next milestone. See EXAM_OPERATIONS.md for operational details.

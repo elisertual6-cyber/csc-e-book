@@ -1,6 +1,6 @@
 # Deployment and operations
 
-Phase 2 is a development service and is not cleared for commercial launch. Do not collect customer data or accept payments.
+Phase 3 is a development service and is not cleared for commercial launch. Do not collect customer data or accept payments.
 
 ## Web deployment
 
@@ -22,9 +22,11 @@ For development, Compose volumes retain data on container restarts; they are not
 - Choose a Philippine-compatible provider; store credentials securely, verify sandbox flows and signature validation, and test idempotent payment/entitlement changes.
 - Add private object storage, signed short-lived downloads, a PDF worker and email delivery with retry handling.
 - Current auth/editorial/PDF routes use PostgreSQL rate counters and sanitized errors. Add operational alerts, request identifiers, retention scheduling and capacity tuning without logging credentials or unnecessary personal information.
-- Test server-side grading, deadlines, concurrency, unauthorized access and stale/revoked entitlements.
+- The server-side exam engine has deadline/concurrency/ownership/entitlement tests. Extend these through the real payment/webhook flow, then load-test and review production operations.
 - Re-run accessibility, browser, security and restore tests. Review CSP/nonces and HSTS for the deployment host before enabling them.
 
 Server-side PDF routes are implemented for a Node/container worker with installed Chromium and a durable private PDF_PRIVATE_DIR. They are not supported on edge runtime or a default Vercel web deployment without an appropriate browser/worker/storage integration. The development private-disk adapter is not provisioned object storage. No email or payment service is configured. See EDITORIAL_OPERATIONS.md.
 
 Set APP_URL to the exact HTTPS deployment origin. Production session cookies are Secure and host-only. Registration defaults off in production; REGISTRATION_ENABLED=true is an explicit operator choice after privacy/recovery readiness. Maintain backups of both PostgreSQL and private edition files. Schedule npm run maintenance to remove expired sessions and rate counters. Never use a production/customer database for browser tests: the test runner needs a separate database-creation-capable role and provisions its own disposable database.
+
+Exam details and graded results must use authenticated no-store routes. Schedule/monitoring decisions for unattended expiration are still operational work: the current service finalizes overdue attempts on read/write/history/start cleanup, using the database clock. Do not add a client-controlled grade endpoint or cache private snapshots at a CDN. See EXAM_OPERATIONS.md.

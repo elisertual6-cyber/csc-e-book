@@ -7,6 +7,8 @@ Keep content marked DRAFT until independently reviewed. Never describe demo prog
 Every admin endpoint must enforce and test authentication and role authorization. Keep production checkout and paid delivery disabled until entitlement checks and provider signature verification are implemented and tested. Never commit .env or secrets.
 Phase 2 adds custom database sessions, editorial review and a private-disk PDF worker; read docs/EDITORIAL_OPERATIONS.md before operating them. The product is still a development service, not a production commerce launch. Public registration defaults off in production. Browser/security tests must use npm run test:e2e, which provisions a disposable database; never run bare playwright test against development/customer data. Simulated test approvals do not count as human review.
 
+Phase 3 exam operations are documented in docs/EXAM_OPERATIONS.md. Preserve database-clock deadlines, immutable snapshots, owner/entitlement checks, idempotent start/submit and revision-controlled saves. Keep client question DTOs separate from private grading snapshots. No real questions or templates may be auto-approved/activated by setup or tests.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know

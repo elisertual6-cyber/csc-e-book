@@ -14,7 +14,7 @@ export default defineConfig({
     { name: "desktop", use: { ...devices["Desktop Chrome"] } },
     {
       name: "mobile",
-      testIgnore: /phase2\.spec\.ts/,
+      testIgnore: /phase[23]\.spec\.ts/,
       use: { ...devices["iPhone 13"], defaultBrowserType: "chromium" },
     },
   ],
