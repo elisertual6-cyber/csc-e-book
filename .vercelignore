@@ -1,0 +1,14 @@
+# Upload application source only; never send local credentials or customer data.
+.env
+.env.*
+.local
+.git
+.next
+node_modules
+.vercel
+.npm-cache
+playwright-report
+test-results
+coverage
+*.log
+*.tsbuildinfo
