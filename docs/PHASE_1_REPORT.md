@@ -1,45 +1,48 @@
-# Phase 1 report
+# Phase 1 completion report
 
-Recorded 2026-10-20. Foundation source is implemented; complete cloud/database onboarding remains blocked by the engine-download network rule.
+Verified 2026-10-20. Phase 1 is complete in the current cloud environment. The earlier engine-download restriction is resolved; no Phase 1 setup blockers remain. Publication and restoration into a new cloud task have not been performed.
 
-## Implemented
+## Completed features and files
 
-- Next.js 16 App Router, TypeScript, Tailwind 4, navy/ivory/gold responsive design and keyboard focus/skip navigation.
-- Landing page, planned product catalog with validated configurable PHP prices, track-filtered curriculum, original Markdown draft lesson and ungraded retryable arithmetic exercise.
-- Independence and provisional-coverage notices, honest development labels, policy/support drafts; no fabricated account or progress statistics.
-- Prisma 7 schema and SQL migration with 21 PostgreSQL tables including relations for identity, content/review, questions, exam attempts, products/prices, orders/payments, entitlements, downloads and audit events.
-- Local PostgreSQL Compose, random-password ignored local environment setup, repeatable non-overwriting draft seed and ORM integration-check script.
-- Required README, AGENTS, architecture, roadmap, content standards, CSC verification register, environment example and deployment/backup guidance.
+- Next.js 16 App Router, TypeScript, Tailwind 4, responsive navy/ivory/gold interface, keyboard focus and skip navigation in src/app.
+- Landing page, configurable illustrative PHP catalog, track-filtered curriculum, Markdown draft lesson, ungraded arithmetic exercise and policy drafts.
+- Provisional 25-chapter outline, one original draft lesson and one question-bank fixture in content/. Content remains unreviewed and unavailable for commercial publication.
+- Prisma 7 schema, deployed migration, 21 PostgreSQL tables, idempotent draft seed and ORM integration checks in prisma/ and scripts/.
+- Local PostgreSQL 17 Compose service, secure ignored local .env creation and reproducible startup instructions.
+- README.md, AGENTS.md, architecture, roadmap, content standards, CSC source-verification register, deployment/backup guidance and .env.example.
 
-## Commands and evidence
+The completion commit updates README.md and this report. The application source and locked dependencies remain as implemented in the foundation commit.
+
+## Commands and results
 
 | Command/check | Result |
 | --- | --- |
-| npm run lint | Passed, zero warnings |
+| npm ci --cache /workspace/.npm-cache | Passed from a clean dependency install; postinstall generated matching Prisma Client 7.10.1; lockfile unchanged |
+| npm run db:generate | Passed with normal artifact/checksum verification |
+| npm run local:env | Existing local configuration preserved |
+| npm run db:up | PostgreSQL 17 healthy |
+| npm run db:migrate | Foundation migration deployed; repeated run reports no pending migrations |
+| npm run db:seed (repeated) | Passed; existing content preserved, no duplicate prices, products inactive and questions/lessons DRAFT |
+| npm run test:db | Passed: 25 chapters, relational lesson/question data, one correct choice, explanation, inactive catalog and unique prices |
+| npm run db:down then npm run db:up | Passed; retained volume data verified by migration and integration checks after restart |
+| npm run lint | Passed with zero warnings |
 | npm run typecheck | Passed |
 | npm test | 8 tests passed |
-| npm run content:check | 1 DRAFT question and 1 DRAFT lesson validated structurally; not human-approved |
-| npm run build | Public production build passed using current installed files; this does not establish a clean ORM install |
-| PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:e2e | 6 tests passed: desktop/mobile navigation and track selection, lesson rendering, ungraded exercise retry/explanation and invalid-policy 404 |
-| npm run local:env; npm run db:up | Local .env created securely; PostgreSQL 17 container healthy |
-| npm run test:db | Failed before queries: older cached generated client is incompatible with Prisma 7 runtime; regeneration is blocked by the engine-host rule |
-| Generated migration executed through psql in BEGIN/ROLLBACK | All 21 tables and constraints created successfully, then rolled back; no migration deployed or data seeded |
-| npm run dev -- --port 3000 | Started; home rendered and title verified; desktop screenshot inspected |
-| GET /api/health | HTTP 503 with sanitized unavailable-database response; full readiness is not established |
-| npm audit --omit=dev --audit-level=high | Zero reported production dependency vulnerabilities at check time |
+| npm run content:check | One draft bank question and one draft lesson validated structurally; human review still pending |
+| npm run build | Production build passed after the clean install and matching Prisma generation |
+| PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:e2e | All 6 desktop/mobile browser tests passed |
+| npm start -- --port 3200 | Production startup passed; home, curriculum, preview and practice returned HTTP 200 with expected content |
+| Production GET /api/health | HTTP 200; status=ok, database=connected, Cache-Control=no-store |
+| npm run dev -- --port 3000 | Development startup and representative page requests verified; database health HTTP 200 |
 
-## Diagnosed failures and remaining prerequisite
+The temporary production server was stopped after validation. The development app and local PostgreSQL are running in this instance. Live processes and Docker volumes must not be assumed to survive publication or a new cloud machine.
 
-Initial Prisma 6 engine generation was blocked by HTTP 403 from binaries.prisma.sh. Its JavaScript migration alternative could generate a client but failed on PostgreSQL's native name type. The project now pins Prisma/Client/adapter 7.10.1 and uses standard migration configuration. Regenerating the matching Prisma 7 client requires the blocked engine host; the locally cached older generated client is not a verified Prisma 7 installation. Database-dependent operations remain unavailable. No TLS or checksum checks were disabled, and the old experimental migration configuration is not retained.
+## Reusable configuration
 
-The first desktop browser run timed out waiting for a link to settle while smooth scrolling was active. Removing smooth scrolling resolved the failure; the final run passed all six tests. A Playwright browser download was denied by network policy; existing system Chromium was used successfully instead.
+Saved install_script and start_skill contain the verified setup, restart and readiness steps. The network draft retains binaries.prisma.sh alongside the existing package-manager presets; engine access works in the current machine. No secret values were saved to configuration or committed. Review and save the updated configuration in environment settings, then publish the prepared environment when desired. Draft persistence is not publication or proof of restoration.
 
-Saved environment draft fields: network.allowed_domains adds binaries.prisma.sh; install_script; start_skill. Saving these does not apply runtime settings or publish. Review/save the network change in environment settings; publish the environment only after the outstanding database checks succeed. No secrets were requested or saved.
+## Limitations and next phase
 
-After network access is applied, rerun npm ci, npm run db:generate, npm run db:migrate, npm run db:seed twice, and npm run test:db. Rebuild and repeat /api/health; require HTTP 200. This regeneration and the full migration/seed workflow have not passed yet. npm ci must preserve package-lock.json. Existing .env and user-edited database records must be preserved.
+This is a functional foundation demo, not a commercial launch. Accounts, authenticated dashboards, content administration, PDF generation, graded exams, private paid files, checkout, payments and email belong to later phases. There are 25 chapter outlines, one draft lesson and one bank question; commercial launch still requires at least 500 independently checked original questions. Official 2027 information, legal/historical source claims and commercial policies require human review. No gateway or production deployment is configured, and commits have not been pushed to GitHub.
 
-## Limits and next phase
-
-Only one sample lesson and one question-bank fixture exist; the 25 chapters are outlines. There are no accounts, authenticated dashboards, admin writes, actual exams, PDFs, entitlements, downloads, email or payments. Official 2027 information, legal/historical source claims and draft commercial policies await human review. No gateway is connected. No production deployment, environment publication, fresh-task restoration or GitHub push has been performed.
-
-Finish database validation, then proceed to Phase 2: authentication, role-protected editorial review and PDF generation. The commercial launch gate remains at least 500 independently checked original questions and the remaining security/integration/legal checks in ROADMAP.md.
+Next: Phase 2 authentication, role-protected editorial review and PDF generation, following docs/ROADMAP.md.

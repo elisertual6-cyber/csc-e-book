@@ -12,7 +12,7 @@ The 25-chapter curriculum is an outline, with **one original draft lesson and on
 
 Requires Node.js 24 (see .nvmrc), npm, Docker with Compose, and port 5432 available. Use this existing checkout; cloud tasks are already isolated.
 
-**Current cloud blocker:** allow `binaries.prisma.sh` in environment network settings before a clean install or database setup. That change is saved in the environment draft but has not been applied or published. The public demo runs; ORM regeneration, migration deployment and seeding remain unverified. See docs/PHASE_1_REPORT.md for exact results.
+**Phase 1 database setup is verified:** clean installation, matching Prisma client generation, migration deployment, repeatable seeding and ORM integration all pass. Engine downloads require `binaries.prisma.sh`, which is now reachable in this environment. See docs/PHASE_1_REPORT.md for validation details. Publication and restoration into a new cloud task are separate steps.
 
 ```bash
 cd /workspace/csc-e-book
