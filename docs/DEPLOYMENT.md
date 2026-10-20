@@ -12,6 +12,8 @@ Review each schema migration on a staging copy, back up first, and test applicat
 
 ## Backup and restore
 
+The local Compose backup and isolated restore drill are implemented. Read [BACKUP_OPERATIONS.md](BACKUP_OPERATIONS.md) for `backup:local`, `backup:verify` and `test:backup`, including write-pause, private-file, separate-key and production recovery requirements. Local archives are unencrypted and are not off-site backups.
+
 For development, Compose volumes retain data on container restarts; they are not backups or portable cloud snapshots. Use managed PostgreSQL automated encrypted backups/PITR for production. Maintain separate encrypted off-site copies, retention and access controls. Periodically restore into an isolated database and verify migrations, counts and representative records. Treat dumps as personal-data-bearing secrets. Do not commit dumps, tokens or customer records. Include private artifact storage and publication manifests in the recovery plan.
 
 ## Before production commerce

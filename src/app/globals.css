@@ -6,7 +6,7 @@
 :root {
   --navy: #132b43;
   --ink: #24384a;
-  --muted: #627078;
+  --muted: #56636b;
   --gold: #ac7b2a;
   --paper: #fbfaf6;
   --line: #e2e4df;
@@ -455,7 +455,7 @@ h3 {
 .track-number {
   font-family: Georgia, serif;
   font-size: 34px;
-  color: #b4a78b;
+  color: #877753;
   line-height: 1;
 }
 .track-card h3 {
@@ -732,7 +732,7 @@ footer {
   font:
     25px Georgia,
     serif;
-  color: #a99a77;
+  color: #877753;
   min-width: 32px;
 }
 .chapter h2 {

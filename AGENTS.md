@@ -13,6 +13,8 @@ Read docs/COMMERCE_OPERATIONS.md for development checkout. Never enable mock pur
 
 Read docs/GCASH_OPERATIONS.md before payment changes. GCash uses a sandbox-only PayMongo adapter. Live keys/mode and production checkout are rejected. Keep raw-body signature verification, canonical amount/currency/method/intent/order binding, monotonic refunds and idempotent fulfillment. Never treat redirect queries, screenshots or unsigned events as payment proof. paymongo_test records must never grant production customer access. The local fixture is not actual merchant sandbox evidence.
 
+Read docs/BACKUP_OPERATIONS.md before recovery operations. Backup commands target only the local Compose service and require paused application/worker writes; never point restore commands at customer data. Local archives are sensitive and unencrypted. Verify only trusted archives and preserve separately managed encryption keys. Accessibility checks use npm run test:a11y through the disposable database wrapper; never disable failing axe rules to make a scan pass or claim automated scans establish conformance.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know

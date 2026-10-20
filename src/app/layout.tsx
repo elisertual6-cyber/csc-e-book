@@ -27,11 +27,11 @@ export default function RootLayout({
         </div>
         <header className="site-header">
           <div className="shell header-inner">
-            <Link href="/" className="brand" aria-label="CSC Study home">
+            <Link href="/" className="brand" aria-label="CSC study. home">
               <span className="brand-icon">
                 <BookOpen size={22} />
               </span>{" "}
-              CSC<span className="brand-light">study</span>
+              CSC <span className="brand-light">study</span>
               <span className="brand-dot">.</span>
             </Link>
             <nav aria-label="Main navigation">
@@ -45,7 +45,7 @@ export default function RootLayout({
             </Link>
           </div>
         </header>
-        <main id="main">{children}</main>
+        <main id="main" tabIndex={-1}>{children}</main>
         <footer>
           <div className="shell footer-top">
             <div>

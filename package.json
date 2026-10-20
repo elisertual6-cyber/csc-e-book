@@ -27,7 +27,11 @@
     "postinstall": "prisma generate",
     "test:commerce": "node scripts/e2e.mjs --config playwright.commerce.config.ts",
     "mail:work": "tsx scripts/mail-worker.ts",
-    "test:gcash": "node scripts/e2e.mjs --config playwright.gcash.config.ts"
+    "test:gcash": "node scripts/e2e.mjs --config playwright.gcash.config.ts",
+    "backup:local": "node scripts/backup.mjs create",
+    "backup:verify": "node scripts/backup.mjs verify",
+    "test:a11y": "node scripts/e2e.mjs accessibility.spec.ts",
+    "test:backup": "node scripts/check-backup.mjs"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",
@@ -47,6 +51,7 @@
     "zod": "^4.1.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@eslint/eslintrc": "^3.3.0",
     "@playwright/test": "^1.56.0",
     "@tailwindcss/postcss": "^4.1.0",
