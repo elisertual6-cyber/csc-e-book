@@ -5,14 +5,14 @@ import { getAttempt, saveResponses, submitAttempt } from "@/lib/exams";
 type Context = { params: Promise<{ id: string }> };
 const idSchema = z.string().min(1).max(100);
 export async function GET(_request: Request, { params }: Context) {
-  return api(async () => {
+  return api("exam", async () => {
     const actor = await requireUser();
     await rateLimit("exam-read", actor.id, 90);
     return json(await getAttempt(actor, idSchema.parse((await params).id)));
   });
 }
 export async function PATCH(request: Request, { params }: Context) {
-  return api(async () => {
+  return api("exam", async () => {
     assertMutation(request);
     const actor = await requireUser();
     await rateLimit("exam-save", actor.id, 120);
@@ -26,7 +26,7 @@ export async function PATCH(request: Request, { params }: Context) {
   });
 }
 export async function POST(request: Request, { params }: Context) {
-  return api(async () => {
+  return api("exam", async () => {
     assertMutation(request);
     const actor = await requireUser();
     await rateLimit("exam-submit", actor.id, 20);

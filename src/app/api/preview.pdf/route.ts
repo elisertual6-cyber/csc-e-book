@@ -1,7 +1,7 @@
 import { api } from "@/lib/http";
 import { publicPreview } from "@/lib/pdf";
 export async function GET() {
-  return api(async () => {
+  return api("preview", async () => {
     const { bytes } = await publicPreview();
     return new Response(new Uint8Array(bytes), {
       headers: {

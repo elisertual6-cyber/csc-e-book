@@ -6,7 +6,7 @@ export async function GET(
   _request: Request,
   { params }: { params: Promise<{ token: string }> },
 ) {
-  return api(async () => {
+  return api("commerce", async () => {
     const actor = await requireUser();
     await rateLimit("download-consume", actor.id, 30);
     const bytes = await consumeDownload(actor, (await params).token);

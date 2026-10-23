@@ -1,4 +1,5 @@
 import { ZodError } from "zod";
+import { requestObservation, type ApiOperation, type FailureCategory } from "./observability";
 export class HttpError extends Error {
   constructor(
     public status: number,
@@ -45,36 +46,45 @@ export async function readJson(request: Request) {
     throw new HttpError(400, "Invalid JSON.");
   }
 }
-export async function api(action: () => Promise<Response>) {
+export async function api(operation: ApiOperation, action: () => Promise<Response>) {
+  const observation = requestObservation(operation);
+  let failure: FailureCategory | undefined;
+  let response: Response;
   try {
-    return await action();
+    response = await action();
   } catch (error) {
     if (error instanceof HttpError) {
-      const response = json({ error: error.message }, error.status);
+      failure = "expected";
+      response = json({ error: error.message }, error.status);
       if (error.status === 429) response.headers.set("Retry-After", "60");
-      return response;
-    }
-    if (error instanceof ZodError)
-      return json(
+    } else if (error instanceof ZodError) {
+      failure = "validation";
+      response = json(
         {
           error:
             "Invalid input. Check required fields, lengths and option values.",
         },
         400,
       );
-    const code = (error as { code?: string })?.code;
-    if (code === "P2025") return json({ error: "Record not found." }, 404);
-    if (code === "P2002" || code === "P2034" || code === "P2003")
-      return json(
-        {
-          error:
-            "The record conflicts with another change. Refresh and try again.",
-        },
-        409,
-      );
-    console.error("Request failed", {
-      type: error instanceof Error ? error.name : "unknown",
-    });
-    return json({ error: "The request could not be completed." }, 500);
+    } else {
+      const code = (error as { code?: string })?.code;
+      if (code === "P2025") {
+        failure = "not_found";
+        response = json({ error: "Record not found." }, 404);
+      } else if (code === "P2002" || code === "P2034" || code === "P2003") {
+        failure = "conflict";
+        response = json(
+          {
+            error:
+              "The record conflicts with another change. Refresh and try again.",
+          },
+          409,
+        );
+      } else {
+        failure = "internal";
+        response = json({ error: "The request could not be completed." }, 500);
+      }
+    }
   }
+  return observation.complete(response, failure);
 }

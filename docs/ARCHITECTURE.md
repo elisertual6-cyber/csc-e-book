@@ -1,5 +1,7 @@
 # Architecture
 
+Current operational boundary: API handlers use a shared error/response wrapper with generated request references and fixed-category private completion/error events. `/api/live` is Node uptime; `/api/health` checks actual database connectivity through a separately bounded one-connection diagnostic pool without changing business transaction limits. Hosted demo availability is distinct from database/provider/content readiness. See OPERATIONS_MONITORING.md for log coverage, privacy and load-test limits.
+
 The Phase 1 boundary is a public educational demo. Next.js App Router renders pages on the server. Tailwind and local CSS provide navy, ivory and gold styling without government marks or external fonts. Only the ungraded arithmetic demo uses client state; it has no assessment answer key or score. Original Markdown lessons live in content/lessons. A typed curriculum index connects common subjects, Professional analytical topics and Subprofessional clerical topics.
 
 PostgreSQL 17 is the system of record. Prisma models identity/roles, editorial versions and reviews, sources, exams/attempts/responses, catalog/prices, orders/payments/entitlements, protected artifacts and audit events. src/lib/db.ts is server-only. The public demo uses local draft data deliberately and never impersonates a logged-in account. /api/health checks connectivity with SELECT 1 and reports 503 without leaking connection errors. A running landing page alone does not establish database readiness.

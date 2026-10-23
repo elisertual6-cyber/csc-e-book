@@ -20,7 +20,7 @@ const generate = z
   })
   .strict();
 export async function GET() {
-  return api(async () => {
+  return api("admin", async () => {
     await requireUser(staffRoles);
     return json(
       await getDb().pdfEdition.findMany({
@@ -39,7 +39,7 @@ export async function GET() {
   });
 }
 export async function POST(request: Request) {
-  return api(async () => {
+  return api("admin", async () => {
     assertMutation(request);
     const actor = await requireUser(staffRoles);
     const body = await readJson(request);

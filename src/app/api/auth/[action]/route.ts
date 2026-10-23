@@ -31,7 +31,7 @@ export async function POST(
   request: Request,
   { params }: { params: Promise<{ action: string }> },
 ) {
-  return api(async () => {
+  return api("auth", async () => {
     assertMutation(request);
     const { action } = await params;
     if (

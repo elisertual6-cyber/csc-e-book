@@ -7,7 +7,7 @@ import { staffRoles, writerRoles } from "@/lib/security";
 import { getDb } from "@/lib/db";
 import { createDrafts, questionInput } from "@/lib/editorial";
 export async function GET(request: Request) {
-  return api(async () => {
+  return api("admin", async () => {
     await requireUser(staffRoles);
     const questions = await getDb().question.findMany({
       include: { choices: true, explanation: true },
@@ -65,7 +65,7 @@ export async function GET(request: Request) {
   });
 }
 export async function POST(request: Request) {
-  return api(async () => {
+  return api("admin", async () => {
     assertMutation(request);
     const actor = await requireUser(writerRoles);
     await rateLimit("import", actor.id, 5);

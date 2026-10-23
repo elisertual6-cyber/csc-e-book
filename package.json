@@ -31,7 +31,9 @@
     "backup:local": "node scripts/backup.mjs create",
     "backup:verify": "node scripts/backup.mjs verify",
     "test:a11y": "node scripts/e2e.mjs accessibility.spec.ts",
-    "test:backup": "node scripts/check-backup.mjs"
+    "test:backup": "node scripts/check-backup.mjs",
+    "test:load": "node scripts/e2e.mjs --config playwright.load.config.ts",
+    "test:readiness": "node scripts/e2e.mjs --config playwright.readiness.config.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",

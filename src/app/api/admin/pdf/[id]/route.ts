@@ -7,7 +7,7 @@ export async function GET(
   _request: Request,
   { params }: { params: Promise<{ id: string }> },
 ) {
-  return api(async () => {
+  return api("admin", async () => {
     await requireUser(staffRoles);
     const { id } = await params;
     const edition = await getDb().pdfEdition.findUnique({ where: { id } });

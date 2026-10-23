@@ -5,7 +5,7 @@ export async function POST(
   request: Request,
   { params }: { params: Promise<{ id: string }> },
 ) {
-  return api(async () => {
+  return api("commerce", async () => {
     assertMutation(request);
     const actor = await requireUser();
     await rateLimit("order-action", actor.id, 20);

@@ -3,7 +3,7 @@ import { processGcashWebhook } from "@/lib/gcash";
 import { paymongoConfig } from "@/lib/paymongo";
 export const runtime = "nodejs";
 export async function POST(request: Request) {
-  return api(async () => {
+  return api("commerce", async () => {
     paymongoConfig();
     const reader = request.body?.getReader();
     if (!reader) throw new HttpError(400, "A payment event is required.");

@@ -1,16 +1,10 @@
+import { api, json } from "@/lib/http";
+import { checkDatabaseReadiness } from "@/lib/readiness";
 export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 export async function GET() {
-  try {
-    const { getDb } = await import("@/lib/db");
-    await getDb().$queryRaw`SELECT 1`;
-    return Response.json(
-      { status: "ok", database: "connected", phase: "foundation" },
-      { headers: { "Cache-Control": "no-store" } },
-    );
-  } catch {
-    return Response.json(
-      { status: "degraded", database: "unavailable", phase: "foundation" },
-      { status: 503, headers: { "Cache-Control": "no-store" } },
-    );
-  }
+  return api("health", async () => {
+    const ready = await checkDatabaseReadiness();
+    return json({ status: ready ? "ok" : "degraded", database: ready ? "connected" : "unavailable" }, ready ? 200 : 503);
+  });
 }

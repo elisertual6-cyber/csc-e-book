@@ -13,7 +13,7 @@ export async function GET(
   _request: Request,
   { params }: { params: Promise<{ resource: string }> },
 ) {
-  return api(async () => {
+  return api("admin", async () => {
     await requireUser(staffRoles);
     const { resource } = await params;
     const db = getDb();
@@ -42,7 +42,7 @@ export async function POST(
   request: Request,
   { params }: { params: Promise<{ resource: string }> },
 ) {
-  return api(async () => {
+  return api("admin", async () => {
     assertMutation(request);
     const actor = await requireUser(staffRoles);
     await rateLimit("editorial", actor.id, 60);

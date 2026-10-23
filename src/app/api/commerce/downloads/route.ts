@@ -3,7 +3,7 @@ import { requireUser, rateLimit } from "@/lib/auth";
 import { issueDownload } from "@/lib/commerce";
 import { getDb } from "@/lib/db";
 export async function GET() {
-  return api(async () => {
+  return api("commerce", async () => {
     const actor = await requireUser();
     return json(
       await getDb().download.findMany({
@@ -22,7 +22,7 @@ export async function GET() {
   });
 }
 export async function POST(request: Request) {
-  return api(async () => {
+  return api("commerce", async () => {
     assertMutation(request);
     const actor = await requireUser();
     await rateLimit("download-issue", actor.id, 15);

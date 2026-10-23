@@ -4,6 +4,8 @@ Phase 3 is a development service and is not cleared for commercial launch. Do no
 
 ## Web deployment
 
+Read [OPERATIONS_MONITORING.md](OPERATIONS_MONITORING.md) for `/api/live` versus database readiness, request references and safe operational logging. Optional `OBSERVABILITY_LOGS=true` enables completion events; no external monitoring service is configured.
+
 Use Node 24 on Vercel or equivalent Node hosting. Install with npm ci; build with npm run build. Server hosting can use npm start. No secrets are required to build public demo pages. Inject DATABASE_URL for authentication, editorial data and health checks using a managed PostgreSQL database's supported TLS/pool settings. Never disable certificate verification. Do not upload .env.
 
 Run npm run db:migrate in a controlled release job with a migration-capable database role, then npm run db:seed only for a deliberate draft/demo environment. The app runtime should use a separate least-privilege role. Do not run migration commands in request handlers. Verify /api/health returns 200; tests of a public landing page alone are insufficient.

@@ -73,6 +73,7 @@ To run the production server locally: `npm run build`, then `npm start`. Develop
 - `docs/CONTENT_STANDARDS.md`, `docs/CSC_VERIFICATION.md`: editorial gates and unverified source register.
 - `docs/DEPLOYMENT.md`: release, backup and production prerequisites.
 - `docs/BACKUP_OPERATIONS.md`: local backups, isolated restore verification and recovery limitations.
+- `docs/OPERATIONS_MONITORING.md`: uptime/readiness, private request diagnostics and bounded local load tests.
 
 Run `npm run test:a11y` after building for automated public-page WCAG AA and keyboard checks; it uses the same disposable database/browser runner as the full suite. Chromium can be selected with `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium` on this cloud. These checks do not replace manual screen-reader, zoom, authenticated-state or WCAG conformance review.
 

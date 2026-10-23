@@ -3,7 +3,7 @@ import { requireUser, rateLimit } from "@/lib/auth";
 import { manageAccess } from "@/lib/commerce";
 import { getDb } from "@/lib/db";
 export async function GET() {
-  return api(async () => {
+  return api("admin", async () => {
     await requireUser(["ADMIN"]);
     return json(
       await getDb().order.findMany({
@@ -37,7 +37,7 @@ export async function GET() {
   });
 }
 export async function POST(request: Request) {
-  return api(async () => {
+  return api("admin", async () => {
     assertMutation(request);
     const actor = await requireUser(["ADMIN"]);
     await rateLimit("access-admin", actor.id, 30);

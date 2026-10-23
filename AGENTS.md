@@ -15,6 +15,8 @@ Read docs/GCASH_OPERATIONS.md before payment changes. GCash uses a sandbox-only 
 
 Read docs/BACKUP_OPERATIONS.md before recovery operations. Backup commands target only the local Compose service and require paused application/worker writes; never point restore commands at customer data. Local archives are sensitive and unencrypted. Verify only trusted archives and preserve separately managed encryption keys. Accessibility checks use npm run test:a11y through the disposable database wrapper; never disable failing axe rules to make a scan pass or claim automated scans establish conformance.
 
+Read docs/OPERATIONS_MONITORING.md for request references, structured logs and health probes. Never log raw requests, paths/tokens, identity, credentials or exception details. Uptime alone is not database readiness. Run test:load/test:readiness only through their isolated npm wrappers and never aim load tests at customer/production data. The short local load run is not production capacity evidence; no external alerting service is configured.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know
