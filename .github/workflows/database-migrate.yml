@@ -1,0 +1,39 @@
+name: Apply database migrations
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: database-migrations-main
+  cancel-in-progress: false
+jobs:
+  migrate:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Apply schema and check private table policies
+        env:
+          DIRECT_URL: ${{ secrets.DATABASE_MIGRATION_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_MIGRATION_URL }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$DIRECT_URL" ]]; then
+            echo "Add DATABASE_MIGRATION_URL in repository Actions secrets before running."
+            exit 1
+          fi
+          npm run db:migrate > "$RUNNER_TEMP/csc-migrate.log" 2>&1 || {
+            echo "Migration failed. Private command output was not published. Check connectivity and Prisma migration state."
+            exit 1
+          }
+          npm run db:check-schema

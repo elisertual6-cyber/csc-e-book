@@ -4,6 +4,8 @@ Phase 3 is a development service and is not cleared for commercial launch. Do no
 
 ## Web deployment
 
+For Supabase connection settings and the manually triggered GitHub migration job, follow [SUPABASE_SETUP.md](SUPABASE_SETUP.md). This repository setup does not itself create hosted tables or install Vercel secrets.
+
 Read [OPERATIONS_MONITORING.md](OPERATIONS_MONITORING.md) for `/api/live` versus database readiness, request references and safe operational logging. Optional `OBSERVABILITY_LOGS=true` enables completion events; no external monitoring service is configured.
 
 Use Node 24 on Vercel or equivalent Node hosting. Install with npm ci; build with npm run build. Server hosting can use npm start. No secrets are required to build public demo pages. Inject DATABASE_URL for authentication, editorial data and health checks using a managed PostgreSQL database's supported TLS/pool settings. Never disable certificate verification. Do not upload .env.

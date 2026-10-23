@@ -16,6 +16,8 @@ const privateDir = path.resolve(".local/e2e", name);
 const env = {
   ...process.env,
   DATABASE_URL: url.toString(),
+  // Never inherit a hosted migration connection into disposable test setup.
+  DIRECT_URL: url.toString(),
   APP_URL: "http://127.0.0.1:3100",
   PDF_PRIVATE_DIR: privateDir,
   MAIL_PRIVATE_DIR: path.join(privateDir, "mail"),

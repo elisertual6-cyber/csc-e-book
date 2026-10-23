@@ -1,5 +1,7 @@
 # Working on this project
 
+Read docs/SUPABASE_SETUP.md before hosted database setup. Preserve Prisma migration history, server-only connections and RLS on private tables. Hosted migrations use the manual main-branch workflow; builds must not migrate or seed. Disposable test setup must override both DATABASE_URL and DIRECT_URL.
+
 Use the existing checkout: cloud tasks are isolated; do not create worktrees unless asked.
 Read docs/ROADMAP.md and docs/ARCHITECTURE.md before changing scope.
 Run npm run lint, npm run typecheck, npm test, npm run content:check, and npm run build for major changes. Run npm run test:e2e for UI changes and npm run test:db for database changes.
