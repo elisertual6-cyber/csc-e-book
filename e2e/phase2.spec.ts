@@ -194,6 +194,18 @@ test("role boundaries, independent review, atomic import and protected PDF publi
           })
         ).status(),
       ).toBe(401);
+    // The allowed-attempt checks above can cross a fixed minute boundary.
+    // Set this synthetic identity at its threshold in both possible windows
+    // before asserting rejection; production clock/limits remain unchanged.
+    const minute = Math.floor(Date.now() / 60_000);
+    for (const window of [minute, minute + 1]) {
+      const key = `auth-email:${digest(limitedEmail)}:${window}`;
+      await db.rateLimitBucket.upsert({
+        where: { key },
+        create: { key, hits: 8, expiresAt: new Date((window + 2) * 60_000) },
+        update: { hits: 8 },
+      });
+    }
     expect(
       (
         await anon.post("/api/auth/login", {

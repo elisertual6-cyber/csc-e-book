@@ -3,6 +3,19 @@ import type { NextConfig } from "next";
 const config: NextConfig = {
   poweredByHeader: false,
   allowedDevOrigins: ["127.0.0.1"],
+  // Filesystem-based mail helpers can cause NFT to overtrace build output.
+  // Next removes its lock on exit; none of these artifacts belong in functions.
+  outputFileTracingExcludes: {
+    "/*": [
+      "./.next/lock",
+      "./.next/cache/**/*",
+      "./.next/dev/**/*",
+      "./.next/diagnostics/**/*",
+      "./.next/types/**/*",
+      "./.next/trace",
+      "./.next/trace-build",
+    ],
+  },
   async headers() {
     return [
       {

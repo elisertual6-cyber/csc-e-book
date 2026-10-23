@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0",
-    "build": "next build --webpack",
+    "build": "next build --webpack && node scripts/check-build-traces.mjs",
     "start": "next start --hostname 0.0.0.0",
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",
@@ -34,7 +34,8 @@
     "test:backup": "node scripts/check-backup.mjs",
     "test:load": "node scripts/e2e.mjs --config playwright.load.config.ts",
     "test:readiness": "node scripts/e2e.mjs --config playwright.readiness.config.ts",
-    "content:export": "tsx scripts/export-draft-pack.ts"
+    "content:export": "tsx scripts/export-draft-pack.ts",
+    "build:check": "node scripts/check-build-traces.mjs"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",
