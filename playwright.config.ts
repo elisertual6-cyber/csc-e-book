@@ -17,6 +17,7 @@ export default defineConfig({
       name: "mobile",
       testIgnore: [
         /phase[23]\.spec\.ts/,
+        /editorial-drafts\.spec\.ts/,
         /(?:commerce|account-recovery|gcash|load|readiness-unavailable)\.spec\.ts/,
       ],
       use: { ...devices["iPhone 13"], defaultBrowserType: "chromium" },

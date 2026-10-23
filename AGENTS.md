@@ -17,6 +17,8 @@ Read docs/BACKUP_OPERATIONS.md before recovery operations. Backup commands targe
 
 Read docs/OPERATIONS_MONITORING.md for request references, structured logs and health probes. Never log raw requests, paths/tokens, identity, credentials or exception details. Uptime alone is not database readiness. Run test:load/test:readiness only through their isolated npm wrappers and never aim load tests at customer/production data. The short local load run is not production capacity evidence; no external alerting service is configured.
 
+Read docs/DRAFT_LESSONS.md for the five public numerical previews and 20-question source review pack. Public previews are ungraded drafts with teaching solutions, not published editorial versions. The source repository is public; do not put private paid banks there. No new questions/lessons are automatically seeded, reviewed or activated. content:export prepares inputs only; real imports and independent approval remain separate. Preserve the fixed lesson filename allowlist and do not import the assessment pack into public/client routes.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know

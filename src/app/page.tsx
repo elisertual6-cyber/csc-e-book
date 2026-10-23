@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { getCatalog, formatPHP } from "@/lib/catalog";
 import { disclaimer } from "@/lib/curriculum";
+import { draftLessons } from "@/lib/lesson-catalog";
 export const dynamic = "force-dynamic";
 export default function Home() {
   return (
@@ -172,11 +173,11 @@ export default function Home() {
           <div className="eyebrow">TRY A SMALL STEP TODAY</div>
           <h2>Good preparation starts with understanding.</h2>
           <p>
-            Explore an original draft lesson on arithmetic. No account needed.
+            Explore {draftLessons.length} original draft lessons on numerical foundations. No account needed.
           </p>
         </div>
-        <Link className="button button-light" href="/preview">
-          Open the free lesson <ArrowUpRight size={17} />
+        <Link className="button button-light" href="/lessons">
+          Browse draft lessons <ArrowUpRight size={17} />
         </Link>
       </section>
       <section className="shell section" id="reviewers">

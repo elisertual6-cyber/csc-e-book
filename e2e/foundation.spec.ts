@@ -27,7 +27,7 @@ test("landing page is honest, navigable and fits the viewport", async ({
   await expect(
     page.getByRole("heading", { name: "Logical reasoning", exact: true }),
   ).toHaveCount(0);
-  await page.getByRole("link", { name: /Read draft/ }).click();
+  await page.getByRole("link", { name: /Read draft/ }).first().click();
   await expect(
     page.getByRole("heading", { name: "Learning objectives" }),
   ).toBeVisible();

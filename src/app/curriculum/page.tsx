@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, BookOpen } from "lucide-react";
 import { chaptersFor, type Track } from "@/lib/curriculum";
+import { draftLessons, findDraftLesson } from "@/lib/lesson-catalog";
 export const metadata = { title: "The curriculum" };
 export default async function Curriculum({
   searchParams,
@@ -22,8 +23,8 @@ export default async function Curriculum({
         ahead.
       </p>
       <div className="notice">
-        Provisional outline · 25 planned chapters across both tracks · 1 draft
-        lesson available. Official 2027 coverage remains unverified.
+        Provisional outline · 25 planned chapters across both tracks · {draftLessons.length} draft
+        lessons available. Official 2027 coverage remains unverified.
       </div>
       <nav className="tabs" aria-label="Learning track">
         {(["PROFESSIONAL", "SUBPROFESSIONAL"] as const).map((t) => (
@@ -49,8 +50,8 @@ export default async function Curriculum({
               </span>
               <h2>{c.title}</h2>
             </div>
-            {c.slug === "arithmetic" ? (
-              <Link className="text-link" href="/preview">
+            {findDraftLesson(c.slug) ? (
+              <Link className="text-link" href={`/lessons/${c.slug}`} aria-label={`Read draft: ${c.title}`}>
                 <BookOpen size={16} /> Read draft <ArrowUpRight size={16} />
               </Link>
             ) : (

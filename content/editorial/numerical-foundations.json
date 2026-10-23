@@ -1,0 +1,668 @@
+{
+  "title": "Numerical foundations — original editorial review pack",
+  "version": 1,
+  "status": "DRAFT",
+  "reviewStatus": "PENDING_INDEPENDENT_REVIEW",
+  "questions": [
+    {
+      "key": "fractions-101",
+      "version": 1,
+      "prompt": "A box contains 80 blank study cards. Three-eighths are assigned to a vocabulary activity. How many cards are assigned to that activity?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/fractions.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "Compute 80 × 3/8 = 10 × 3 = 30 cards. Checking 30/80 gives 3/8, so the selected share matches the stated fraction.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "20 cards",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "30 cards",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "40 cards",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "50 cards",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "fractions-102",
+      "version": 1,
+      "prompt": "Which fraction in simplest form is equal to the decimal 0.45?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/fractions.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "Write 0.45 as 45/100. Dividing numerator and denominator by 5 gives 9/20; 9 and 20 have no common factor greater than 1.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "4/5",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "9/25",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "9/20",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "45/10",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "fractions-103",
+      "version": 1,
+      "prompt": "A printing job costs ₱600 before a 12% discount. There are no other charges. What is the amount paid after the discount?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/fractions.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "The discount is ₱600 × 0.12 = ₱72. Subtracting it gives ₱600 − ₱72 = ₱528. Alternatively, 88% of ₱600 is ₱528.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "₱528",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "₱588",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "₱672",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "₱72",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "fractions-104",
+      "version": 1,
+      "prompt": "A reading target rises from 120 pages to 150 pages. What is the percentage increase relative to the original target?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/fractions.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "The increase is 150 − 120 = 30 pages. Divide by the original 120 pages: 30/120 = 0.25, or a 25% increase.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "20%",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "30%",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "125%",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "25%",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "fractions-105",
+      "version": 1,
+      "prompt": "A learner completes 1/4 of a project on Monday and another 2/5 of the same project on Tuesday. The portions do not overlap. What fraction is completed in total?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/fractions.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "Use denominator 20: 1/4 = 5/20 and 2/5 = 8/20. The nonoverlapping portions total 5/20 + 8/20 = 13/20 of the project.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "3/9",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "13/20",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "3/20",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "7/20",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "ratios-101",
+      "version": 1,
+      "prompt": "Two groups share 72 blank cards in the ratio 5:3. How many cards does the group receiving the larger share get?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/ratios.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "The ratio has 5 + 3 = 8 equal parts. Each part is 72/8 = 9 cards, so the larger share is 5 × 9 = 45 cards. The other share is 27.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "27 cards",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "40 cards",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "45 cards",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "48 cards",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "ratios-102",
+      "version": 1,
+      "prompt": "Eight identical pens cost ₱120. At the same unit price and with no extra fees, how much do six pens cost?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/ratios.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "The unit price is ₱120/8 = ₱15 per pen. Six pens cost 6 × ₱15 = ₱90. The assumption of an unchanged unit price is stated.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "₱90",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "₱96",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "₱160",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "₱720",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "ratios-103",
+      "version": 1,
+      "prompt": "Four learners each read 10 pages. Six other learners each read 15 pages. What is the mean number of pages read across all ten learners?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/ratios.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "The total is 4 × 10 + 6 × 15 = 40 + 90 = 130 pages. Dividing by all 10 learners gives 13 pages per learner; group sizes are unequal.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "12 pages",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "12.5 pages",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "14 pages",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "13 pages",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "ratios-104",
+      "version": 1,
+      "prompt": "The ratio of red folders to blue folders is 3:5. If there are 18 red folders, how many blue folders are there?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/ratios.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "Three ratio parts represent 18 red folders, so one part represents 6 folders. Five parts therefore represent 5 × 6 = 30 blue folders.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "10 folders",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "30 folders",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "24 folders",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "48 folders",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "ratios-105",
+      "version": 1,
+      "prompt": "Seven reading sessions have a mean duration of 12 minutes. One session lasting 18 minutes is removed from the data. What is the mean of the remaining six sessions?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/ratios.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "The original total is 7 × 12 = 84 minutes. Removing 18 minutes leaves 66 minutes across 6 sessions. The new mean is 66/6 = 11 minutes.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "9 minutes",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "10 minutes",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "11 minutes",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "13 minutes",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "sequences-101",
+      "version": 1,
+      "prompt": "An arithmetic sequence begins 6, 11, 16, 21. Under the stated arithmetic rule, what is the next term?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/sequences.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "The common difference is +5 at every displayed transition. Adding 5 to the final term gives 21 + 5 = 26, under the stated arithmetic rule.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "26",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "25",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "27",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "42",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "sequences-102",
+      "version": 1,
+      "prompt": "A geometric sequence begins 160, 80, 40, 20. Under the stated geometric rule, what is the next term?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/sequences.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "The common factor is 1/2: each term is half the preceding term. Multiplying 20 by 1/2 gives the next term, 10.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "0",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "5",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "15",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "10",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "sequences-103",
+      "version": 1,
+      "prompt": "Starting at 3, repeatedly add 4, then multiply by 2. The terms shown are 3, 7, 14, 18, 36. What is the next term under that rule?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/sequences.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "The displayed steps are +4, ×2, +4, ×2. The next operation returns to +4, so 36 + 4 = 40. Multiplication follows after that term.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "72",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "40",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "38",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "44",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "sequences-104",
+      "version": 1,
+      "prompt": "An arithmetic sequence has first term 9 and common difference 3. What is its eighth term?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/sequences.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "Reaching the eighth term takes 7 steps after the first term. Compute 9 + 7 × 3 = 30. Using 8 increments would incorrectly skip the first term.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "24",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "33",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "30",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "27",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "sequences-105",
+      "version": 1,
+      "prompt": "A geometric sequence has first term 2 and common factor 3. What is its fifth term?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/sequences.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "Four multiplications lead from the first term to the fifth: 2, 6, 18, 54, 162. Equivalently, compute 2 × 3^4 = 162.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "162",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "54",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "30",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "486",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "word-problems-101",
+      "version": 1,
+      "prompt": "A bicycle moves at a constant 16 kilometres per hour for 45 minutes without stopping. How far does it travel?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/word-problems.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "Convert 45 minutes to 45/60 = 0.75 hour. Distance equals speed times time: 16 kilometres/hour × 0.75 hour = 12 kilometres.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "9 kilometres",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "10 kilometres",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "16 kilometres",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "12 kilometres",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "word-problems-102",
+      "version": 1,
+      "prompt": "A printing service charges a fixed ₱25 fee plus ₱3 per page. A bill is exactly ₱160 with no other fees. How many pages were printed?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/word-problems.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "Let p be the page count. From 25 + 3p = 160, subtract 25 to obtain 3p = 135. Then p = 45. Checking 25 + 3 × 45 gives ₱160.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "53 pages",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "45 pages",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "55 pages",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "135 pages",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "word-problems-103",
+      "version": 1,
+      "prompt": "One machine completes a job in 6 hours and another completes the same-sized job in 3 hours. At constant independent rates, how long do they take together?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/word-problems.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "Their rates are 1/6 and 1/3 job per hour. The sum is 1/2 job per hour, so one job takes 1 ÷ (1/2) = 2 hours. The jobs are assumed identical.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "9 hours",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "3 hours",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "2 hours",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "4.5 hours",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "word-problems-104",
+      "version": 1,
+      "prompt": "Three identical notebooks plus a ₱15 delivery fee cost ₱150. With no other charges, what is the price of one notebook?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/word-problems.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "Subtract the fixed fee before dividing: (₱150 − ₱15)/3 = ₱135/3 = ₱45 per notebook. Check: 3 × ₱45 + ₱15 = ₱150.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "₱45",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "₱50",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "₱55",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "₱135",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "word-problems-105",
+      "version": 1,
+      "prompt": "A tank holds 18 litres. It fills at a constant rate of 3 litres per minute, with no outflow. How long does it take to fill from empty?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "status": "DRAFT",
+      "sourceNotes": "Original project teaching draft; see content/lessons/word-problems.md for the method. Independent human correctness/originality review pending. Not an actual CSC question.",
+      "explanation": "Time equals required volume divided by filling rate: 18 litres ÷ (3 litres/minute) = 6 minutes. The stated assumptions exclude outflow and changing rates.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "15 minutes",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "9 minutes",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "54 minutes",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "6 minutes",
+          "isCorrect": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,10 +1,11 @@
 import AxeBuilder from "@axe-core/playwright";
 import { test, expect } from "@playwright/test";
+import { draftLessons } from "../src/lib/lesson-catalog";
 
 test("public learning and account pages meet automated WCAG AA checks", async ({ page }) => {
   test.setTimeout(120_000);
   const violations = [];
-  for (const route of ["/", "/curriculum", "/preview", "/practice", "/shop", "/login", "/register", "/forgot-password", "/reset-password", "/verify-email", "/policies/privacy", "/policies/terms", "/policies/refunds", "/policies/support"]) {
+  for (const route of ["/", "/curriculum", "/preview", "/practice", "/shop", "/login", "/register", "/forgot-password", "/reset-password", "/verify-email", "/policies/privacy", "/policies/terms", "/policies/refunds", "/policies/support", "/lessons", ...draftLessons.map(lesson => `/lessons/${lesson.slug}`)]) {
     await page.goto(route);
     await expect(page.locator("main")).toBeVisible();
     const results = await new AxeBuilder({ page })
