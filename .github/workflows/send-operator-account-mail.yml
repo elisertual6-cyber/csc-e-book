@@ -1,0 +1,52 @@
+name: Process operator account email
+on:
+  workflow_dispatch:
+    inputs:
+      authorize_send:
+        description: 'I authorize sending queued verification/reset/password-change email to the configured administrator account I control.'
+        required: true
+        default: false
+        type: boolean
+permissions:
+  contents: read
+concurrency:
+  group: operator-account-mail-main
+  cancel-in-progress: false
+jobs:
+  dispatch:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Require operator send authorization
+        env:
+          AUTHORIZE_SEND: ${{ inputs.authorize_send }}
+        run: |
+          if [ "$AUTHORIZE_SEND" != "true" ]; then
+            echo 'Explicit authorization is required to dispatch operator account email.'
+            exit 1
+          fi
+      - run: npm ci
+      - name: Dispatch only the configured administrator account mail
+        env:
+          NODE_ENV: production
+          DATABASE_URL: ${{ secrets.DATABASE_MIGRATION_URL }}
+          ADMIN_BOOTSTRAP_EMAIL: ${{ secrets.ADMIN_BOOTSTRAP_EMAIL }}
+          DATABASE_CA_PEM: ${{ secrets.RECOVERY_SOURCE_CA_PEM }}
+          MAIL_TRANSPORT: smtp
+          SMTP_ALLOW_INSECURE: 'false'
+          APP_URL: https://csc-e-book.vercel.app
+          MAIL_ENCRYPTION_KEY: ${{ secrets.MAIL_ENCRYPTION_KEY }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+        run: npm run mail:operator:work -- --send

@@ -2,6 +2,8 @@ import "dotenv/config";
 import { test, expect } from "@playwright/test";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { spawn } from "node:child_process";
+import { once } from "node:events";
 import { randomUUID, randomBytes } from "node:crypto";
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
@@ -451,5 +453,52 @@ test("verify mailbox, reset safely, revoke sessions and deliver private transact
     await other.dispose();
     await anon.dispose();
     await db.$disconnect();
+  }
+});
+
+
+test("operator mail worker requires authorization, scopes account mail and reports retry failures", async () => {
+  test.setTimeout(90000);
+  const url = new URL(process.env.DATABASE_URL!);
+  expect(url.pathname).toMatch(/^\/csc_e2e_[a-f0-9]{16}$/);
+  url.searchParams.set("sslmode", "disable");
+  const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL }) });
+  const smtp = await localSmtp();
+  const key = Buffer.from(process.env.MAIL_ENCRYPTION_KEY!, "hex");
+  const prefix = `operator-mail-${randomUUID()}`;
+  const users = await Promise.all((["ADMIN", "CUSTOMER"] as const).map(role => db.user.create({ data: { email: `${prefix}-${role.toLowerCase()}@example.test`, role, name: "Synthetic operator dispatch", passwordHash: "synthetic-not-a-login-password" } })));
+  const env: NodeJS.ProcessEnv = { ...process.env, NODE_ENV: "development", DATABASE_URL: url.toString(), DIRECT_URL: url.toString(),
+    ADMIN_BOOTSTRAP_EMAIL: users[0].email, APP_URL: "http://127.0.0.1:3100", MAIL_TRANSPORT: "smtp",
+    SMTP_HOST: "127.0.0.1", SMTP_PORT: String(smtp.port), SMTP_ALLOW_INSECURE: "true",
+    SMTP_USER: "", SMTP_PASSWORD: "", MAIL_FROM: "fixture-sender@example.test", DATABASE_CA_PEM: "",
+  };
+  async function worker(args: string[], overrides: Record<string, string> = {}) {
+    const child = spawn(process.execPath, ["node_modules/tsx/dist/cli.mjs", "scripts/operator-mail-worker.ts", ...args], { env: { ...env, ...overrides }, stdio: ["ignore", "pipe", "pipe"] });
+    let output = "";
+    child.stdout.on("data", bytes => { output += bytes.toString(); }); child.stderr.on("data", bytes => { output += bytes.toString(); });
+    const [status] = await once(child, "exit");
+    expect(output).not.toContain(users[0].email); expect(output).not.toContain(users[1].email); expect(output).not.toContain(key.toString("hex"));
+    return { status, output };
+  }
+  async function message(index: number, purpose: string) {
+    return db.mailMessage.create({ data: { userId: users[index].id, purpose, transport: "smtp", expiresAt: new Date(Date.now() + 600000), availableAt: new Date(0), encryptedPayload: encryptMail({ to: users[index].email, subject: "Synthetic account notice", text: "Synthetic operator dispatch fixture" }, key) } });
+  }
+  try {
+    const other = await message(1, "PASSWORD_CHANGED");
+    const purchase = await message(0, "PURCHASE_READY");
+    const own = await message(0, "PASSWORD_CHANGED");
+    const denied = await worker([]); expect(denied.status).toBe(1); expect(denied.output).toContain('"stage":"authorization"');
+    expect((await worker(["--send"], { ADMIN_BOOTSTRAP_EMAIL: users[1].email })).status).toBe(1);
+    expect(smtp.messages).toHaveLength(0);
+    const result = await worker(["--send"]); expect(result.status).toBe(0); expect(result.output).toContain('"sent":1');
+    expect(smtp.messages).toHaveLength(1); expect(smtp.messages[0]).toContain(users[0].email); expect(smtp.messages[0]).not.toContain(users[1].email);
+    expect((await db.mailMessage.findUniqueOrThrow({ where: { id: own.id } })).encryptedPayload).toBeNull();
+    for (const id of [other.id, purchase.id]) expect((await db.mailMessage.findUniqueOrThrow({ where: { id } })).status).toBe("PENDING");
+    await message(0, "PASSWORD_CHANGED");
+    const failed = await worker(["--send"], { MAIL_ENCRYPTION_KEY: randomBytes(32).toString("hex") });
+    expect(failed.status).toBe(1); expect(failed.output).toContain('"retried":1'); expect(smtp.messages).toHaveLength(1);
+  } finally {
+    await db.mailMessage.updateMany({ where: { userId: { in: users.map(user => user.id) }, status: { in: ["PENDING", "PROCESSING"] } }, data: { status: "CANCELLED", encryptedPayload: null, leaseKey: null, leaseUntil: null } });
+    await smtp.close(); await db.$disconnect();
   }
 });

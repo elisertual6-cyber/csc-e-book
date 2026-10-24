@@ -9,7 +9,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import nodemailer from "nodemailer";
 import { z } from "zod";
-import type { PrismaClient, Prisma } from "@prisma/client";
+import { Prisma, type PrismaClient } from "@prisma/client";
 import { HttpError } from "./http";
 import { paymentAllowedInRuntime } from "./payment-policy";
 
@@ -256,14 +256,16 @@ function eligibleNotice(order: NoticeOrder, userId: string, time: Date) {
     )
   );
 }
-export async function processMailBatch(db: PrismaClient, limit = 25) {
+export async function processMailBatch(db: PrismaClient, limit = 25, accountUserId?: string) {
+  if (accountUserId !== undefined && !accountUserId.trim()) throw new Error("An account scope is required.");
+  const scope = accountUserId === undefined ? Prisma.empty : Prisma.sql`AND "userId"=${accountUserId} AND purpose IN ('VERIFY_EMAIL','RESET_PASSWORD','PASSWORD_CHANGED')`;
   const counts = { sent: 0, retried: 0, failed: 0, cancelled: 0 };
   const maximum = Math.max(1, Math.min(100, Math.trunc(limit)));
   for (let i = 0; i < maximum; i++) {
     const claim = await db.$transaction(async (tx) => {
       const rows = await tx.$queryRaw<
         { id: string }[]
-      >`SELECT id FROM "MailMessage" WHERE ((status='PENDING' AND "availableAt"<=clock_timestamp()) OR (status='PROCESSING' AND "leaseUntil"<=clock_timestamp())) ORDER BY "availableAt",id FOR UPDATE SKIP LOCKED LIMIT 1`;
+      >`SELECT id FROM "MailMessage" WHERE ((status='PENDING' AND "availableAt"<=clock_timestamp()) OR (status='PROCESSING' AND "leaseUntil"<=clock_timestamp())) ${scope} ORDER BY "availableAt",id FOR UPDATE SKIP LOCKED LIMIT 1`;
       if (!rows.length) return null;
       const key = randomUUID();
       const clock = (

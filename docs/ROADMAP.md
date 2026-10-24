@@ -72,3 +72,7 @@ A manual source-snapshot, encrypted database/PDF capture and isolated restore wo
 ## Current milestone: Phase 5I — account email readiness
 
 Added offline SMTP configuration checks and a main-only connection-verification Action that sends no messages and accesses no database. The zero-extra-cost setup can use an owner-authorized existing Gmail account and App password, within provider/runner limits. Real sender authorization, provider configuration, dispatcher deployment and verification/reset inbox tests remain pending; mail and public registration stay disabled. See [MAIL_SETUP.md](MAIL_SETUP.md).
+
+### Phase 5I delivery pilot
+
+The operator supplied a successful no-send SMTP check #5 at cfe2e04 and reports saving web settings. Added an explicitly authorized, administrator-only manual dispatcher for controlled verification/reset inbox tests, preserving current-account scope, encrypted payloads and existing token/lease gates. Actual hosted message receipt/link consumption and a reliable unattended public dispatcher remain pending. Keep registration closed; use [MAIL_SETUP.md](MAIL_SETUP.md) for the pilot.

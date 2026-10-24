@@ -51,3 +51,25 @@ Use [ACCOUNT_SECURITY.md](ACCOUNT_SECURITY.md) for queue leases/retries, token b
 Local evidence: lint/type checking, 108 unit tests, content checks and production build passed for the readiness tooling. A loopback SMTP negotiation test received no messages; mocked transport checks also assert sendMail is never invoked. No hosted provider login or delivery was attempted by this task.
 
 Configuration failures now include an `issues` array containing only allowlisted setting names and fixed format hints (for example MAIL_ENCRYPTION_KEY / expected_64_hex_characters, or MAIL_FROM / expected_plain_email_address). No actual values, value lengths, addresses or credentials are printed. Gmail requires both SMTP_USER and SMTP_PASSWORD before verification. If a run fails during configuration, start a new run on main to get these diagnostics; do not regenerate or replace keys merely because a generic configuration check failed. Preserve any key already used to encrypt queued mail.
+
+## Controlled operator delivery pilot
+
+Operator evidence now shows **Verify SMTP setup without sending #5** succeeded at commit `cfe2e04`. This proves the configured connection/login check, not inbox delivery. The operator also reports copying the same SMTP/mail-key settings into Vercel Production while retaining MAIL_TRANSPORT=disabled.
+
+A separate manual **Process operator account email** Action now provides a bounded, zero-extra-infrastructure pilot. It uses existing GitHub secrets, strict SMTP TLS and the public Supabase CA for the database connection. No new paid provider, persistent server, recurring schedule or extra secret is installed. The workflow requires an explicit checkbox authorizing delivery to the configured administrator account the operator controls.
+
+Scope is deliberately limited: the current ADMIN matching ADMIN_BOOTSTRAP_EMAIL, at most five due VERIFY_EMAIL, RESET_PASSWORD or PASSWORD_CHANGED messages. The claim SQL filters by that user and those purposes before acquiring leases. Other users and purchase notifications are never claimed/materialized by this job. Existing token expiry, purpose/address/auth-generation, cancellation, encryption and lease checks still apply. A non-admin/missing operator or missing --send authorization fails before dispatch. SMTP retry/terminal failure makes the job fail; a green run with sent:0 is not proof of a delivered email. It may mean no due message, cooldown, cancellation, expiry or an already-verified account.
+
+### Run the verification test
+
+1. Confirm the administrator account email is an inbox you control and matches the configured ADMIN_BOOTSTRAP_EMAIL. Keep public registration closed.
+2. In Vercel Production, after saving the SAME SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, MAIL_FROM and MAIL_ENCRYPTION_KEY that passed the GitHub check, change **MAIL_TRANSPORT to smtp** and redeploy the latest main commit. APP_URL remains the existing HTTPS application origin. Do not regenerate the mail key.
+3. Open `/account`, sign in as that administrator, then click **Send verification email** (wording may vary). This explicitly queues your account message. It does not automatically send through this pilot.
+4. Immediately open GitHub **Actions → Process operator account email → Run workflow → main**, tick the authorization checkbox and run. The job may send legitimate queued account messages only for that configured administrator. It never returns a credential link in logs.
+5. Check the job aggregate counts and your inbox/spam folder. Open the verification link and explicitly confirm it. Verify the account page shows email verified. Report the result without posting credential URLs, fragments, message bodies or passwords.
+
+If the address is already verified, no verification message is queued. A later controlled password-reset test can use `/forgot-password` for the same operator; dispatch within the 30-minute token expiry, confirm a chosen new password and verify old sessions are signed out. Keep the new credential in your password manager. Do not run recovery tests on another person's account.
+
+The pilot is **manual**, not an unattended mail service. GitHub job delays/failures can outlast a reset token; it is not suitable as the advertised public password-recovery dispatcher. Other users' queued mail remains untouched. After inbox and link tests, continue to deploy/validate a reliable event-driven or scheduled dispatcher, retry monitoring and bounce handling before public registration/commercial launch. The original `mail:work` general worker remains separately available for a reviewed full deployment; this pilot does not start it.
+
+Logs show fixed stages/reasons and aggregate counts only. No recipient, credential, provider response or SMTP body is printed; there are no mail artifacts. A `retried`/`failed` result can indicate provider rejection, a different web/worker encryption key or transport mismatch; inspect secure settings without exposing them. Preserve keys needed to decrypt pending messages.
