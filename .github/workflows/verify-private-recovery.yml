@@ -1,0 +1,69 @@
+name: Verify encrypted database and PDF recovery
+on:
+  workflow_dispatch:
+    inputs:
+      objects_stable:
+        description: 'I will not delete/replace source PDF objects or change bucket settings during this drill. Normal app writes may continue.'
+        required: true
+        default: false
+        type: boolean
+permissions:
+  contents: read
+concurrency:
+  group: database-migrations-main
+  cancel-in-progress: false
+jobs:
+  recovery:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      restore:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_PASSWORD: disposable-recovery-only
+        options: >-
+          --label csc.recovery=temporary
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Require stable source objects
+        env:
+          OBJECTS_STABLE: ${{ inputs.objects_stable }}
+        run: |
+          if [ "$OBJECTS_STABLE" != "true" ]; then
+            echo 'Confirm source objects will not be deleted/replaced or made public during the recovery drill.'
+            exit 1
+          fi
+      - run: npm ci
+      - name: Capture encrypted backup and verify isolated recovery
+        env:
+          RECOVERY_SOURCE_URL: ${{ secrets.DATABASE_MIGRATION_URL }}
+          RECOVERY_CONTAINER_ID: ${{ job.services.restore.id }}
+          RECOVERY_REVISION: ${{ github.sha }}
+          BACKUP_ENCRYPTION_KEY: ${{ secrets.BACKUP_ENCRYPTION_KEY }}
+          PDF_STORAGE: supabase
+          PDF_SUPABASE_URL: ${{ secrets.PDF_SUPABASE_URL }}
+          PDF_SUPABASE_BUCKET: ${{ secrets.PDF_SUPABASE_BUCKET }}
+          PDF_SUPABASE_SERVICE_KEY: ${{ secrets.PDF_SUPABASE_SERVICE_KEY }}
+        run: npm run backup:remote:drill -- --apply --objects-stable
+      - name: Retain encrypted backup only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: encrypted-recovery-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .local/recovery-output/*/private-recovery.cscbak
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Remove runner archive copy
+        if: always()
+        run: rm -f .local/recovery-output/*/private-recovery.cscbak

@@ -28,3 +28,5 @@ Production still requires encrypted managed PostgreSQL backups/PITR, durable pri
 ## Remote PDF adapter
 
 The optional Supabase private PDF adapter is documented in [PDF_STORAGE.md](PDF_STORAGE.md). The existing local Compose archive/restore commands do **not** back up Supabase Storage bytes. Do not treat their success as remote object recovery evidence. Remote rollout needs a separately tested encrypted object backup plus the corresponding database manifests and isolated checksum/access-denial restore checks.
+
+Hosted PDF/database recovery now has a separate encrypted snapshot/rehearsal workflow: see [REMOTE_RECOVERY.md](REMOTE_RECOVERY.md). It uses a source read-only snapshot, disposable database and separate private bucket; it does not change the local-only commands above or establish hosted success until the operator runs it.

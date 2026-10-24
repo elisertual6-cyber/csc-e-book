@@ -41,7 +41,9 @@
     "test:content-import": "node scripts/e2e.mjs --config playwright.operator-import.config.ts",
     "test:a11y:authenticated": "node scripts/e2e.mjs --config playwright.auth-a11y.config.ts",
     "pdf:render": "node --conditions=react-server --import tsx scripts/pdf-worker.ts",
-    "pdf:storage:check": "node --conditions=react-server --import tsx scripts/check-pdf-storage.ts"
+    "pdf:storage:check": "node --conditions=react-server --import tsx scripts/check-pdf-storage.ts",
+    "backup:remote:drill": "node --conditions=react-server --import tsx scripts/remote-recovery.ts",
+    "test:remote-recovery": "node scripts/check-remote-recovery.mjs"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",

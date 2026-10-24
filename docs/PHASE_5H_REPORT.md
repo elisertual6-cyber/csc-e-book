@@ -1,0 +1,13 @@
+# Phase 5H — encrypted recovery rehearsal tooling
+
+Implemented the roadmap's database/private artifact backup-and-restore rehearsal. The operator has demonstrated hosted private PDF rendering/retrieval and signed-out denial; **hosted recovery has not run** because this session has neither the saved GitHub/Supabase credentials nor an authenticated connector. The new main-only manual workflow is ready for secure operator configuration and execution.
+
+The job captures a shared repeatable-read, read-only public-schema database snapshot and all referenced remote PDF bytes; validates hashes; encrypts the bounded bundle with an independently retained AES-256-GCM key; reads/authenticates the saved archive; then restores into a generated database inside a marked disposable PostgreSQL container and a generated private bucket. It compares every application/history table count and RLS state, migration checksums, complete PdfEdition metadata/manifests and byte hashes, and checks credential-free object denial. Cleanup failure is a failed rehearsal. No source database/object mutation, production restore target, publication or app/worker cutover is offered.
+
+Existing encrypted archives can be rehearsed without a source database connection. Only encrypted artifacts are retained, for seven days; keys/environment configuration and non-public schemas are excluded. This is not managed PITR, recurring backup scheduling, permanent off-site retention, restored mail/payment reconciliation or a production failover plan.
+
+Validation covers 80 unit tests, including authenticated archive round trips, random nonces, wrong key/tampering/truncation rejection, unsafe/duplicate/missing files and inconsistent metadata/counts. The disposable Docker integration provisions its own credentials/database, applies eight migrations and inserts one synthetic private edition. Simulated Storage rejects actual provider HTTP/source mutations. It verifies snapshot capture, all 29 restored table counts/RLS, eight migration checksums, exact metadata and PDF integrity, anonymous denial, independent saved-archive recovery without a source connection, corruption rejection with cleanup, source preservation and removal of its generated resources. No hosted/customer data or credentials are used in local tests.
+
+Read [REMOTE_RECOVERY.md](REMOTE_RECOVERY.md) for secure key setup, workflow operation, size/retention limits and remaining hosted/release evidence.
+
+Final checks passed: lint, type checking, all 80 unit tests, content validation, the disposable capture/saved-archive/corruption recovery integration, and production build with all 48 trace manifests verified. Backup tooling changed no UI, application API or database schema; hosted execution remains pending.

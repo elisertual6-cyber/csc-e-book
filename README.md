@@ -102,3 +102,5 @@ Account email verification, `/forgot-password` and `/reset-password` are impleme
 GCash is the chosen customer payment method through PayMongo-hosted checkout. A sandbox-only adapter, signed-event verification, canonical payment checks, reconciliation and refund/access handling are implemented and tested locally. Actual merchant sandbox calls and live payments are **not verified or enabled**. PayMongo credentials, merchant GCash activation, current API contract verification and the other launch gates remain required. See [GCASH_OPERATIONS.md](docs/GCASH_OPERATIONS.md). `npm run test:gcash` exercises only disposable local protocol fixtures on desktop/mobile.
 
 Private PDF storage and separate rendering: [operator setup and remaining hosted checks](docs/PDF_STORAGE.md).
+
+Encrypted database/private PDF recovery rehearsal: [secure operator setup and limits](docs/REMOTE_RECOVERY.md).

@@ -1,6 +1,6 @@
 # Private PDF storage and separate rendering
 
-The remote adapter and operator-run worker are implemented. Hosted bucket provisioning, authenticated provider smoke tests, deployed access-denial checks and restore evidence remain pending. This is not a commerce launch or proof of real Supabase delivery.
+The remote adapter and operator-run worker are implemented. Operator screenshots now confirm hosted storage verification, a successful private render, signed-in PDF retrieval and signed-out denial. Hosted restore evidence remains pending; the encrypted recovery workflow is documented in [REMOTE_RECOVERY.md](REMOTE_RECOVERY.md). This is not a commerce launch or proof of real Supabase delivery.
 
 ## Boundaries
 

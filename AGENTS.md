@@ -1,3 +1,5 @@
+Read docs/REMOTE_RECOVERY.md before remote backups. Source DB access is read-only; restore only to generated databases in marked disposable containers and generated private buckets. Never upload unencrypted archives, reuse provider credentials as encryption keys, log source output or restore over customer data. Run test:remote-recovery for capture/restore changes; its fixture must never inherit hosted credentials.
+
 Read docs/PDF_STORAGE.md before PDF/storage changes. Preserve backend references, private bucket checks, create-only writes, checksums and all release/access gates. Never inherit remote storage credentials into isolated test runs. Vercel must not render Chromium or silently use local disk.
 
 # Working on this project
