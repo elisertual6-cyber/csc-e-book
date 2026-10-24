@@ -2,7 +2,7 @@
 
 This manual workflow captures the application's hosted **public-schema database** and all database-referenced remote PDF objects, encrypts the bundle, then restores it into a generated PostgreSQL database inside a marked disposable Docker container and a new private Supabase bucket. It never restores over the original database/bucket, switches app settings, starts mail/payment workers, approves content or releases editions.
 
-The software has passed local disposable integration tests. **The hosted recovery job has not run yet.** Prior operator screenshots establish successful storage verification, private draft rendering, signed-in retrieval and signed-out denial; they do not establish backup recovery. This tool is a bounded rehearsal and a seven-day encrypted archive, not managed PITR, an automated backup schedule or a production failover service.
+The software has passed local disposable integration tests. **Operator-confirmed hosted evidence:** recovery run #3 succeeded at commit `4ac862a`, with an encrypted artifact shown in the workflow summary. Prior operator screenshots establish successful storage verification, private draft rendering, signed-in retrieval and signed-out denial; they do not establish backup recovery. This tool is a bounded rehearsal and a seven-day encrypted archive, not managed PITR, an automated backup schedule or a production failover service.
 
 ## One new secure setting
 
@@ -90,3 +90,5 @@ The workflow accepts the complete PEM certificate text, including BEGIN CERTIFIC
 Validation now includes 97 unit tests plus a real TLS-enabled disposable PostgreSQL test: a generated unknown CA is rejected at source-connect, then the same capture/dump/restore succeeds with the provided CA and strict verification in both clients. Test private keys/certificates are generated locally and removed; no provider credentials/certificates or customer data are used in the test.
 
 The operator has now supplied the dashboard's `prod-ca-2021.crt`. Its CA constraint, self-signature, fingerprint and validity were checked. The public certificate is committed as `.github/certs/supabase-root-2021.crt` (see the adjacent README for fingerprint/expiry). Recovery uses it automatically when RECOVERY_SOURCE_CA_PEM is empty/unset. Existing secrets are sufficient; no new CA secret or Vercel setting is needed for this project. An explicit CA override still takes precedence for rotation/different providers. Start a new workflow run on main after this certificate change; older job reruns retain their original source revision. A hosted successful recovery remains pending.
+
+Hosted outcome update: the operator supplied the successful run #3 summary (1m 39s, commit 4ac862a, one encrypted artifact). This records one successful hosted rehearsal, not recurring backup scheduling, permanent retention or production failover readiness.

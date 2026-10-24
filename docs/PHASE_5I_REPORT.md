@@ -1,0 +1,9 @@
+# Phase 5I — no-send account mail readiness
+
+Advanced the roadmap's account-email infrastructure after operator-confirmed hosted database/PDF recovery. The requested zero-extra-cost path uses an existing owner-authorized Gmail account and App password, within account/provider/runner limits, rather than configuring any paid mail service/domain/subscription. Account authorization and credential entry remain operator actions.
+
+Added `mail:check` for offline validation and `mail:check -- --connect` for SMTP/TLS/login verification. The main-only manual **Verify SMTP setup without sending** Action has no database secret, queue dispatcher or recipient input. It retains production TLS requirements, rejects missing/invalid mail encryption keys and unsafe origins before connecting, and closes the transport on success/failure. Diagnostics expose only fixed stage/reason values. It does not call sendMail, modify queue records, enable Vercel mail or open public registration.
+
+Validation passed: lint, TypeScript, 108 unit tests, content checks and production build/48 trace-manifest checks. Nine added tests cover offline/no-send behavior, production TLS, cleanup, redacted provider failures and unsafe configuration. A real loopback SMTP receiver separately verifies negotiation succeeds without receiving any message. No real provider account/recipient, database fixture or SMTP credential was used. Application UI/API and database schema were unchanged, so no additional browser/database suite was needed for this operator check.
+
+Remaining: owner authorization, matching web/worker provider and independent encryption-key configuration, reliable dispatcher deployment, explicit controlled send authorization, actual verification/reset inbox and link-consumption tests, provider monitoring/limits and all other launch gates. A green SMTP verify result proves neither sender authorization nor inbox delivery. Read [MAIL_SETUP.md](MAIL_SETUP.md) before configuration.

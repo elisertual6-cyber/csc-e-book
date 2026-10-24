@@ -1,0 +1,35 @@
+name: Verify SMTP setup without sending
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: smtp-readiness-main
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Verify configuration and SMTP connection without submitting email
+        env:
+          NODE_ENV: production
+          MAIL_TRANSPORT: smtp
+          SMTP_ALLOW_INSECURE: 'false'
+          APP_URL: https://csc-e-book.vercel.app
+          MAIL_ENCRYPTION_KEY: ${{ secrets.MAIL_ENCRYPTION_KEY }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+        run: npm run mail:check -- --connect
