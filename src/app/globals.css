@@ -1571,3 +1571,35 @@ button:disabled {
 }
 
 .account-security{padding:1.5rem;border:1px solid var(--line);border-radius:16px;margin:2rem 0;background:white}.account-security h2{margin-top:0}.account-security p[role="status"]:empty{display:none}
+
+.planner-controls { margin: 2rem 0 1rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: 12px; min-width: 0; }
+.planner-controls legend { padding: 0 .5rem; font-weight: 700; }
+.planner-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.planner-fields label { display: grid; gap: .5rem; font-weight: 600; }
+.planner-fields select, .planner-fields input { width: 100%; min-width: 0; padding: .75rem; border: 1px solid var(--muted); border-radius: 6px; background: white; color: var(--navy); font: inherit; }
+.planner-save { display: flex; align-items: center; gap: .6rem; margin-top: 1.5rem; }
+.planner-save input { width: 1.2rem; height: 1.2rem; flex-shrink: 0; }
+.planner-summary { margin: 1.5rem 0; }
+.study-planner > [role="status"]:empty { display: none; }
+.planner-day-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .5rem; margin: 1.5rem 0; }
+.planner-day-grid button { min-height: 48px; padding: .7rem .3rem; border: 1px solid var(--navy); border-radius: 7px; color: var(--navy); background: white; font: inherit; font-weight: 600; cursor: pointer; }
+.planner-day-grid button[aria-pressed="true"] { color: white; background: var(--navy); }
+.planner-detail { padding: 1.5rem; border: 1px solid var(--line); border-radius: 12px; background: white; }
+.planner-detail h2 { margin-top: .5rem; }
+.planner-lessons { padding-left: 1.25rem; }
+.planner-lessons li { margin-bottom: .65rem; }
+.planner-detail .actions { flex-wrap: wrap; }
+.planner-budget { padding: 1rem; background: var(--ivory, #f7f4eb); border-radius: 6px; }
+.planner-help { margin-top: 1.5rem; }
+.planner-print { display: none; }
+@media (max-width: 720px) { .planner-fields { grid-template-columns: 1fr; } .planner-day-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .planner-controls, .planner-detail { padding: 1rem; } }
+@media print {
+  body:has(.planner-page) .site-header, body:has(.planner-page) .announcement, body:has(.planner-page) footer, .planner-page .planner-controls, .planner-page .planner-day-grid, .planner-page .planner-detail, .planner-page .planner-help, .planner-page [role="status"] { display: none !important; }
+  .planner-page { padding: 0; }
+  .planner-page h1 { font-size: 25pt; }
+  .planner-page .lead, .planner-page .notice { font-size: 10pt; }
+  .planner-page .planner-print { display: block; }
+  .planner-print table { width: 100%; border-collapse: collapse; font-size: 10pt; }
+  .planner-print th, .planner-print td { text-align: left; padding: 5pt; border-bottom: 1px solid #aaa; }
+  .planner-print tr { break-inside: avoid; }
+}

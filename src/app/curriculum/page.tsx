@@ -54,6 +54,8 @@ export default async function Curriculum({
               <Link className="text-link" href={`/lessons/${c.slug}`} aria-label={`Read draft: ${c.title}`}>
                 <BookOpen size={16} /> Read draft <ArrowUpRight size={16} />
               </Link>
+            ) : c.slug === "study-methods" || c.slug === "study-plan" ? (
+              <Link className="text-link" href="/study-plan">Open study planner <ArrowUpRight size={16} /></Link>
             ) : (
               <span className="draft-label">Outline only</span>
             )}

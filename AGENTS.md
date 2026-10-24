@@ -1,5 +1,7 @@
 # Working on this project
 
+Read docs/STUDY_PLANNER.md before changing planner progress. Browser saving is optional, limited to planner settings/day numbers and separate from accounts or graded attempts. Never place question content, answers, credentials or tokens in planner storage. Completing a plan is not exam readiness or editorial review.
+
 Read docs/SUPABASE_SETUP.md before hosted database setup. Preserve Prisma migration history, server-only connections and RLS on private tables. Hosted migrations use the manual main-branch workflow; builds must not migrate or seed. Disposable test setup must override both DATABASE_URL and DIRECT_URL.
 
 Use the existing checkout: cloud tasks are isolated; do not create worktrees unless asked.

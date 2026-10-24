@@ -1,5 +1,7 @@
 # Implementation plan
 
+The public study planner adds a personal 30-day routine for available draft lessons, track-specific links, adjustable minutes, optional browser-only completion saving and a printable schedule. It creates no exam results, accounts or editorial records and leaves the content totals unchanged. See STUDY_PLANNER.md. Official coverage, content review and production launch gates remain pending.
+
 The track expansion adds three Professional reasoning/data lessons, two Subprofessional clerical lessons and 25 unapproved questions, with explicit track labels and a separate manual import. Totals are 15 public lesson drafts and 70 review-pack questions. Official scope, independent review and the remaining launch gates stay pending. See TRACK_DRAFTS.md.
 
 The paragraph/reading expansion adds two public teaching drafts and a ten-question original DRAFT pack, bringing the catalog to ten lessons and the review packs to 45 questions. Its separate manual reading import preserves existing content and never approves or publishes it. Independent review and the remaining curriculum/launch work are still pending. See READING_DRAFTS.md.

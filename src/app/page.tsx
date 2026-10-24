@@ -181,6 +181,7 @@ export default function Home() {
         </Link>
       </section>
       <section className="shell section" id="reviewers">
+        <p className="center-heading"><Link className="text-link" href="/study-plan">Build your personal 30-day study plan →</Link></p>
         <div className="center-heading">
           <div className="eyebrow">YOUR STUDY COMPANIONS</div>
           <h2>Choose the way you learn.</h2>
