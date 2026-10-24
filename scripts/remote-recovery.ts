@@ -65,7 +65,10 @@ async function boundedBytes(response: Response) {
 }
 const payload = (bytes: Buffer) => ({ sha256: recoveryHash(bytes), base64: bytes.toString("base64") });
 async function capture(): Promise<RecoveryBundle> {
-  const settings = recoverySourceConfiguration(process.env.RECOVERY_SOURCE_URL!, process.env.RECOVERY_SOURCE_CA_PEM ?? "");
+  // Public CA supplied by the operator from the official Supabase dashboard.
+  // An explicitly configured provider bundle takes precedence for certificate rotation.
+  const ca = process.env.RECOVERY_SOURCE_CA_PEM?.trim() || await readFile(new URL("../.github/certs/supabase-root-2021.crt", import.meta.url), "utf8");
+  const settings = recoverySourceConfiguration(process.env.RECOVERY_SOURCE_URL!, ca);
   const password = settings.connection.password as string;
   docker(["sh", "-c", 'umask 077; set -C; cat > "$1"', "recovery", passfile], `*:*:*:*:${password.replaceAll("\\", "\\\\").replaceAll(":", "\\:")}\n`);
   createdPassfile = true;
