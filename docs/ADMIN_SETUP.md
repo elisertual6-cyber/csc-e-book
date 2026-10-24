@@ -26,7 +26,9 @@ No redeployment is needed for a newly created database account. Keep public regi
 
 ## If the job or login fails
 
-The CLI deliberately gives a generic failure without logging identities or provider exceptions. Check the secret names, email format, password length, database connection and migration job status. If the account already exists, try signing in with its original password. Re-running this workflow cannot reset it or promote an existing customer. Use the separately documented operator procedures for intentional role changes or recovery; do not delete accounts to bypass the check.
+The CLI reports fixed error categories without logging identities, secret values or provider exceptions: invalid email, invalid password length, existing account, hashing failure or database write failure. Email input is trimmed and lowercased; passwords are not trimmed apart from a final stdin line ending. Check the named Actions secret when a validation category appears. If the account already exists, try signing in with its original password. Re-running this workflow cannot reset it or promote an existing customer. Use the separately documented operator procedures for intentional role changes or recovery; do not delete accounts to bypass the check.
+
+After a workflow source fix, start a **new Run workflow on main**. GitHub's **Re-run jobs** on an old run uses that old commit and will not include updated diagnostics.
 
 If the browser reports an origin error, confirm Vercel's production `APP_URL` is exactly `https://csc-e-book.vercel.app` and redeploy after correcting it. Email verification remains pending until an authorized mail service is configured; this workflow never bypasses it.
 
