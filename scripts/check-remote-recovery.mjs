@@ -1,14 +1,17 @@
 import { randomBytes, randomUUID, createHash } from "node:crypto";
 import { spawnSync, spawn } from "node:child_process";
 import { createServer } from "node:net";
-import { readFile, rm } from "node:fs/promises";
+import { readFile, rm, mkdtemp, writeFile } from "node:fs/promises";
 import { Client } from "pg";
 import { once } from "node:events";
+import path from "node:path";
+import { tmpdir } from "node:os";
+process.umask(0o077);
 
 // A new Postgres container and new key/credentials for every test. Never reads .env.
 const name = `csc-recovery-test-${randomUUID()}`;
 const password = randomBytes(32).toString("hex");
-let container, client;
+let container, client, tlsDirectory;
 const archives = new Set();
 function docker(args, input) {
   const result = spawnSync("docker", args, { input, encoding: "utf8", maxBuffer: 16 * 1024 * 1024, env: { ...process.env, POSTGRES_PASSWORD: password } });
@@ -44,7 +47,7 @@ try {
   }
   if (!client) throw new Error("Disposable recovery database did not start.");
   const env = { ...process.env, DATABASE_URL: url, DIRECT_URL: url, RECOVERY_SOURCE_URL: url,
-    RECOVERY_CONTAINER_ID: container, RECOVERY_REVISION: "a".repeat(40), BACKUP_ENCRYPTION_KEY: randomBytes(32).toString("hex"),
+    RECOVERY_CONTAINER_ID: container, RECOVERY_REVISION: "a".repeat(40), BACKUP_ENCRYPTION_KEY: randomBytes(32).toString("hex"), RECOVERY_SOURCE_CA_PEM: "",
     PDF_STORAGE: "supabase", PDF_SUPABASE_URL: "https://abcdefghijklmnopqrst.supabase.co", PDF_SUPABASE_BUCKET: "private-editions",
     PDF_SUPABASE_SERVICE_KEY: "fixture-recovery-key", RECOVERY_TEST_MODE: "disposable", RECOVERY_TEST_CORRUPT_RESTORE: "false", VERCEL: "", RECOVERY_TARGET_PORT: String(port),
   };
@@ -68,15 +71,50 @@ try {
   const badSource = new URL(url); badSource.username = "missing_recovery_role"; badSource.password = randomBytes(32).toString("hex");
   const deniedOutput = await run(["--conditions=react-server", "--import", "./scripts/recovery-test-storage.mjs", "--import", "tsx", "scripts/remote-recovery.ts", "--apply", "--objects-stable"], { ...env, RECOVERY_SOURCE_URL: badSource.toString() }, 1);
   if (!deniedOutput.includes('"stage":"source-connect"') || !deniedOutput.includes('"reason":"database_authentication"') || deniedOutput.includes(badSource.password) || deniedOutput.includes(badSource.username)) throw new Error("Failed source connection was not safely diagnosed.");
+  // Exercise the real Node + libpq TLS paths against a private fixture CA.
+  tlsDirectory = await mkdtemp(path.join(tmpdir(), "csc-recovery-tls-"));
+  const caKey = path.join(tlsDirectory, "ca.key"), caCert = path.join(tlsDirectory, "ca.pem");
+  const serverKey = path.join(tlsDirectory, "server.key"), csr = path.join(tlsDirectory, "server.csr"), serverCert = path.join(tlsDirectory, "server.pem"), extensions = path.join(tlsDirectory, "server.ext");
+  function openssl(args) {
+    const result = spawnSync("openssl", args, { stdio: "ignore", timeout: 30_000 });
+    if (result.error || result.status !== 0) throw new Error("Disposable TLS certificate generation failed.");
+  }
+  openssl(["req", "-x509", "-newkey", "rsa:2048", "-nodes", "-days", "2", "-keyout", caKey, "-out", caCert, "-subj", "/CN=CSC Recovery Test CA", "-addext", "basicConstraints=critical,CA:TRUE"]);
+  openssl(["req", "-newkey", "rsa:2048", "-nodes", "-keyout", serverKey, "-out", csr, "-subj", "/CN=localhost"]);
+  await writeFile(extensions, "subjectAltName=DNS:localhost,IP:127.0.0.1\nbasicConstraints=CA:FALSE\nkeyUsage=digitalSignature,keyEncipherment\nextendedKeyUsage=serverAuth\n", { mode: 0o600 });
+  openssl(["x509", "-req", "-in", csr, "-CA", caCert, "-CAkey", caKey, "-CAcreateserial", "-out", serverCert, "-days", "2", "-extfile", extensions]);
+  for (const [local, remote] of [[serverKey, "/tmp/csc-recovery-fixture.key"], [serverCert, "/tmp/csc-recovery-fixture.pem"]]) {
+    docker(["exec", "-i", container, "sh", "-c", 'umask 077; cat > "$1"; chown postgres:postgres "$1"', "fixture", remote], await readFile(local));
+  }
+  await client.query("ALTER SYSTEM SET ssl_cert_file = '/tmp/csc-recovery-fixture.pem'");
+  await client.query("ALTER SYSTEM SET ssl_key_file = '/tmp/csc-recovery-fixture.key'");
+  await client.query("ALTER SYSTEM SET ssl = 'on'");
+  await client.query("SELECT pg_reload_conf()");
+  const ca = await readFile(caCert, "utf8");
+  let tlsReady = false;
+  for (let attempt = 0; attempt < 30; attempt++) {
+    const check = new Client({ host: "127.0.0.1", port, user: "postgres", password, database: "postgres", ssl: { ca, rejectUnauthorized: true } });
+    try { await check.connect(); tlsReady = true; break; }
+    catch { await new Promise(resolve => setTimeout(resolve, 100)); }
+    finally { await check.end().catch(() => {}); }
+  }
+  if (!tlsReady) throw new Error("Disposable TLS server did not start.");
+  const tlsUrl = new URL(url); tlsUrl.searchParams.set("sslmode", "verify-full");
+  const captureArgs = ["--conditions=react-server", "--import", "./scripts/recovery-test-storage.mjs", "--import", "tsx", "scripts/remote-recovery.ts", "--apply", "--objects-stable"];
+  const untrustedOutput = await run(captureArgs, { ...env, RECOVERY_SOURCE_URL: tlsUrl.toString() }, 1);
+  if (!untrustedOutput.includes('"reason":"tls_certificate"')) throw new Error("Unknown CA was not rejected.");
+  const trustedOutput = await run(captureArgs, { ...env, RECOVERY_SOURCE_URL: tlsUrl.toString(), RECOVERY_SOURCE_CA_PEM: ca });
+  if (!trustedOutput.includes('"recovery":"verified"') || trustedOutput.includes("SECURITY WARNING")) throw new Error("Verified Node/libpq TLS recovery failed.");
   const after = await client.query('SELECT row_to_json(p) AS value FROM "PdfEdition" p');
   if (JSON.stringify(before.rows) !== JSON.stringify(after.rows)) throw new Error("Source edition records changed.");
   const leftovers = (await client.query("SELECT datname FROM pg_database WHERE datname LIKE 'csc_restore_%'")).rows;
   if (leftovers.length) throw new Error("Temporary restore database was not removed.");
   const archive = await readFile(`.local/recovery-output/${archiveId}/private-recovery.cscbak`);
   if (archive.includes(Buffer.from("Synthetic recovery proof")) || archive.includes(Buffer.from(password))) throw new Error("Backup was not encrypted.");
-  console.log("Disposable recovery passed: shared snapshot dump, 29 restored table counts/RLS, 8 migration checksums, exact edition metadata and PDF bytes, anonymous denial, encrypted archive and source/cleanup isolation.");
+  console.log("Disposable recovery passed: shared snapshot dump, 29 restored table counts/RLS, 8 migration checksums, exact edition metadata and PDF bytes, anonymous denial, encrypted archive, rejected unknown CA and verified Node/libpq TLS with source/cleanup isolation.");
 } finally {
   await client?.end().catch(() => {});
   if (container) docker(["rm", "-f", "-v", container]);
+  if (tlsDirectory) await rm(tlsDirectory, { recursive: true, force: true });
   for (const archiveId of archives) if (/^[a-f0-9-]{36}$/.test(archiveId)) await rm(`.local/recovery-output/${archiveId}`, { recursive: true, force: true });
 }

@@ -48,6 +48,7 @@ jobs:
       - name: Capture encrypted backup and verify isolated recovery
         env:
           RECOVERY_SOURCE_URL: ${{ secrets.DATABASE_MIGRATION_URL }}
+          RECOVERY_SOURCE_CA_PEM: ${{ secrets.RECOVERY_SOURCE_CA_PEM }}
           RECOVERY_CONTAINER_ID: ${{ job.services.restore.id }}
           RECOVERY_REVISION: ${{ github.sha }}
           BACKUP_ENCRYPTION_KEY: ${{ secrets.BACKUP_ENCRYPTION_KEY }}

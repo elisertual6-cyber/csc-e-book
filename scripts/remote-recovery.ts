@@ -6,6 +6,7 @@ import { mkdir, readFile, readdir, writeFile, lstat } from "node:fs/promises";
 import path from "node:path";
 import { readPrivatePdf } from "../src/lib/pdf-storage";
 import { recoveryFailureReason } from "../src/lib/recovery-errors";
+import { recoverySourceConfiguration } from "../src/lib/recovery-source";
 import { canonical, recoveryHash, recoveryPayload, recoveryTables, sealRecoveryBundle, openRecoveryBundle, type RecoveryBundle } from "../src/lib/recovery-bundle";
 
 // Explicit hosted SOURCE reads; all database restores use a disposable Docker container.
@@ -15,6 +16,8 @@ const started = Date.now();
 const target = `csc_restore_${id.replaceAll("-", "")}`;
 const bucket = `csc-restore-${id}`;
 const passfile = `/tmp/csc-recovery-${id}.pgpass`;
+const cafile = `/tmp/csc-recovery-${id}.crt`;
+let createdCafile = false;
 let archiveCreated = false;
 let stage = "configuration", container = "", createdDb = false, createdBucket = false, createdPassfile = false;
 let source: Client | undefined;
@@ -62,18 +65,15 @@ async function boundedBytes(response: Response) {
 }
 const payload = (bytes: Buffer) => ({ sha256: recoveryHash(bytes), base64: bytes.toString("base64") });
 async function capture(): Promise<RecoveryBundle> {
-  const url = new URL(process.env.RECOVERY_SOURCE_URL!);
-  if (!["postgres:", "postgresql:"].includes(url.protocol) || !url.hostname || !url.username || !url.password) throw new Error("Source configuration required.");
-  const password = decodeURIComponent(url.password);
-  if (/[\r\n\0]/.test(password)) throw new Error("Unsupported source password format.");
+  const settings = recoverySourceConfiguration(process.env.RECOVERY_SOURCE_URL!, process.env.RECOVERY_SOURCE_CA_PEM ?? "");
+  const password = settings.connection.password as string;
   docker(["sh", "-c", 'umask 077; set -C; cat > "$1"', "recovery", passfile], `*:*:*:*:${password.replaceAll("\\", "\\\\").replaceAll(":", "\\:")}\n`);
   createdPassfile = true;
-  // Prisma URL options are not libpq parameters. Only libpq/TLS configuration is passed to pg_dump.
-  const clean = new URL(url); clean.search = "";
-  const configuredSsl = url.searchParams.get("sslmode");
-  const sslmode = configuredSsl === "disable" && ["127.0.0.1", "localhost"].includes(url.hostname) ? "disable" : ["require", "verify-ca", "verify-full"].includes(configuredSsl ?? "") ? configuredSsl! : "require";
-  clean.searchParams.set("sslmode", sslmode);
-  source = new Client({ connectionString: clean.toString(), connectionTimeoutMillis: 15_000, query_timeout: 120_000 });
+  if (settings.sslmode !== "disable") {
+    docker(["sh", "-c", 'umask 077; set -C; cat > "$1"', "recovery", cafile], settings.ca);
+    createdCafile = true;
+  }
+  source = new Client(settings.connection);
   source.on("error", () => { /* Later queries fail safely; never log source errors. */ });
   stage = "source-connect";
   await source.connect();
@@ -92,8 +92,9 @@ async function capture(): Promise<RecoveryBundle> {
   const editions = (await source.query('SELECT row_to_json(p) AS value FROM public."PdfEdition" p ORDER BY id')).rows.map(row => row.value);
   stage = "source-dump";
   const dump = docker(["pg_dump", "--format=custom", "--schema=public", "--no-owner", "--no-acl", `--snapshot=${snapshot}`, "--lock-wait-timeout=10000"], undefined, [
-    `PGHOST=${url.hostname}`, `PGPORT=${url.port || "5432"}`, `PGUSER=${decodeURIComponent(url.username)}`,
-    `PGDATABASE=${decodeURIComponent(url.pathname.slice(1))}`, `PGPASSFILE=${passfile}`, `PGSSLMODE=${clean.searchParams.get("sslmode")}`,
+    `PGHOST=${settings.connection.host}`, `PGPORT=${settings.connection.port}`, `PGUSER=${settings.connection.user}`,
+    `PGDATABASE=${settings.connection.database}`, `PGPASSFILE=${passfile}`, `PGSSLMODE=${settings.sslmode}`,
+    ...(createdCafile ? [`PGSSLROOTCERT=${cafile}`] : []),
     "PGOPTIONS=-c default_transaction_read_only=on -c statement_timeout=120000", "PGTZ=UTC",
   ]);
   await source.query("COMMIT"); await source.end(); source = undefined;
@@ -148,6 +149,7 @@ async function cleanup() {
   let failed = false;
   if (source) { try { await source.end(); } catch { failed = true; } }
   if (createdPassfile) { try { docker(["rm", "--", passfile]); } catch { failed = true; } }
+  if (createdCafile) { try { docker(["rm", "--", cafile]); } catch { failed = true; } }
   if (createdDb) { try { docker(["dropdb", "-U", "postgres", "--force", target]); } catch { failed = true; } }
   if (createdBucket) {
     try {
