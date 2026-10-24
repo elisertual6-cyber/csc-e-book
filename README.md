@@ -75,6 +75,7 @@ To run the production server locally: `npm run build`, then `npm start`. Develop
 - [docs/SUPABASE_SETUP.md](docs/SUPABASE_SETUP.md): private connection configuration and the manual GitHub migration workflow.
 - [docs/ADMIN_SETUP.md](docs/ADMIN_SETUP.md): manual administrator creation using private repository secrets.
 - [docs/NUMERICAL_IMPORT.md](docs/NUMERICAL_IMPORT.md): manual import of unapproved numerical content with existing-record preservation.
+- [docs/ENGLISH_DRAFTS.md](docs/ENGLISH_DRAFTS.md): three English teaching drafts, 15 review-pack questions and a separate manual import job.
 - `docs/BACKUP_OPERATIONS.md`: local backups, isolated restore verification and recovery limitations.
 - `docs/OPERATIONS_MONITORING.md`: uptime/readiness, private request diagnostics and bounded local load tests.
 

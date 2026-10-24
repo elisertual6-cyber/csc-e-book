@@ -1,5 +1,7 @@
 # Content standards
 
+The English expansion adds three unapproved teaching drafts and 15 unapproved sample questions, bringing the public lesson catalog to eight and the two editorial packs to 35 questions. The one-question demo seed remains unchanged. See ENGLISH_DRAFTS.md; automated checks are not independent review.
+
 All original educational material begins as DRAFT and is a clearly labeled editorial preview, unavailable to paid exams/PDF publication. Require a separate qualified human review before REVIEWED; publication requires approval and an immutable version. Store author/reviewer identity, time, source notes, level, topic, difficulty, explanation and version. AI generation alone is not review.
 
 Each assessment question has four distinct options and exactly one defensible correct answer. Validate duplicate normalized prompts, option identifiers, missing explanations/source notes, incomplete metadata and version/review status. An automated check cannot certify factual accuracy or originality; independent checking remains required. Use UTF-8 English and Filipino.

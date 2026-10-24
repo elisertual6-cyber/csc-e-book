@@ -4,7 +4,7 @@ test("learners can browse all draft lessons and continue in reading order", asyn
   await page.goto("/");
   await page.getByRole("link", { name: "Browse draft lessons" }).click();
   await expect(page.getByRole("heading", { name: "Free draft lessons." })).toBeVisible();
-  await expect(page.getByText(/All 5 lessons are original editorial drafts/)).toBeVisible();
+  await expect(page.getByText(/All 8 lessons are original editorial drafts/)).toBeVisible();
   for (const lesson of draftLessons) {
     await page.getByRole("link", { name: `Read lesson: ${lesson.title} →` }).click();
     await expect(page.getByRole("heading", { name: lesson.title, exact: true })).toBeVisible();
@@ -21,7 +21,8 @@ test("learners can browse all draft lessons and continue in reading order", asyn
   await expect(page).toHaveURL(/\/lessons\/arithmetic$/);
   for (const path of ["/lessons/not-a-lesson", "/lessons/questions.json", "/content/editorial/numerical-foundations.json"]) expect((await request.get(path)).status()).toBe(404);
   await page.goto("/curriculum?track=SUBPROFESSIONAL");
-  await expect(page.getByRole("link", { name: /Read draft:/ })).toHaveCount(5);
+  await expect(page.getByRole("link", { name: /Read draft:/ })).toHaveCount(8);
   await page.getByRole("link", { name: "Read draft: Mathematical word problems", exact: true }).click();
   await expect(page).toHaveURL(/\/lessons\/word-problems$/);
+  expect((await request.get("/content/editorial/english-foundations.json")).status()).toBe(404);
 });

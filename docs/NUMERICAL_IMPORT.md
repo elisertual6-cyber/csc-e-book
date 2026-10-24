@@ -2,6 +2,8 @@
 
 The public lesson pages and the administrator's database library are separate. This manual operation imports existing teaching drafts; it does not generate new reviewed content. It uses the same editorial validation, author attribution, duplicate-prompt checks and creation audit events as the API.
 
+The numerical job remains limited to its five numerical lessons and 20 questions even as the public catalog grows. The separate English job is documented in [ENGLISH_DRAFTS.md](ENGLISH_DRAFTS.md). The shared CLI defaults to the numerical pack; only `--pack language` selects the additional material.
+
 ## Run the import
 
 1. Keep `DATABASE_MIGRATION_URL` and `ADMIN_BOOTSTRAP_EMAIL` in [repository Actions secrets](https://github.com/elisertual6-cyber/csc-e-book/settings/secrets/actions). The email must match your existing ADMIN account. No administrator login password is needed; keep the removed password secret deleted.

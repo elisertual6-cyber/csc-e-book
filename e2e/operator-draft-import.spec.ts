@@ -13,8 +13,8 @@ test("operator draft import requires ADMIN, rolls back conflicts, preserves exis
   const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: url.toString() }) });
   const identity = `${randomUUID()}@example.test`;
   const customerEmail = `${randomUUID()}@example.test`;
-  const run = (email: string, apply = true) => spawnSync(process.execPath, [
-    "--conditions=react-server", "--import", "tsx", "scripts/import-numerical-drafts.ts", ...(apply ? ["--apply"] : []),
+  const run = (email: string, apply = true, pack = "numerical") => spawnSync(process.execPath, [
+    "--conditions=react-server", "--import", "tsx", "scripts/import-numerical-drafts.ts", "--pack", pack, ...(apply ? ["--apply"] : []),
   ], { env: { ...process.env, ADMIN_EMAIL: email }, encoding: "utf8", timeout: 25000 });
   try {
     const admin = await db.user.create({ data: { email: identity, role: "ADMIN" } });
@@ -65,5 +65,22 @@ test("operator draft import requires ADMIN, rolls back conflicts, preserves exis
     expect(await db.product.count({ where: { active: true } })).toBe(0);
     expect(await db.examTemplate.count()).toBe(0);
     expect(await db.auditEvent.count({ where: { actorId: admin.id, action: "operator.numerical-drafts.import" } })).toBe(2);
+    const unknownPack = run(identity, true, "../../questions");
+    expect(unknownPack.status).toBe(1);
+    expect(unknownPack.stderr).toContain("supported editorial pack");
+    expect(run(customerEmail, true, "language").status).toBe(1);
+    const language = run(identity, true, "language");
+    expect(language.status).toBe(0);
+    expect(language.stdout).toContain("0 chapters, 3 lessons and 15 questions created");
+    expect(await db.lesson.count()).toBe(8);
+    expect(await db.question.count()).toBe(36);
+    expect(await db.question.count({ where: { authorId: admin.id, status: "DRAFT" } })).toBe(35);
+    const languageRepeat = run(identity, true, "language");
+    expect(languageRepeat.status).toBe(0);
+    expect(languageRepeat.stdout).toContain("0 chapters, 0 lessons and 0 questions created");
+    expect(await db.review.count()).toBe(0);
+    expect(await db.question.count({ where: { status: { not: "DRAFT" } } })).toBe(0);
+    expect(await db.lesson.findUniqueOrThrow({ where: { id: before.id } })).toEqual(before);
+    expect(await db.auditEvent.count({ where: { actorId: admin.id, action: "operator.language-drafts.import" } })).toBe(2);
   } finally { await db.$disconnect(); }
 });

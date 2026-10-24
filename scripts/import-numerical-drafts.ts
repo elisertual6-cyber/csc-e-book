@@ -1,5 +1,6 @@
 import "dotenv/config";
 import { readFileSync } from "node:fs";
+import { parseArgs } from "node:util";
 import { z } from "zod";
 import { getDb } from "../src/lib/db";
 import { createContent, chapterInput, lessonInput, questionInput } from "../src/lib/editorial";
@@ -7,25 +8,32 @@ import { curriculum } from "../src/lib/curriculum";
 import { draftLessons } from "../src/lib/lesson-catalog";
 import { checkLesson } from "../src/lib/content-validation";
 import { questionImportRows } from "../src/lib/draft-pack";
+import { editorialPacks } from "../src/lib/editorial-packs";
 
 class ImportError extends Error {}
 const db = getDb();
 async function main() {
-  if (process.argv.slice(2).join(" ") !== "--apply")
+  const { values } = parseArgs({ options: { apply: { type: "boolean" }, pack: { type: "string", default: "numerical" } } });
+  if (!values.apply)
     throw new ImportError("Use --apply for an intentional draft import.");
+  const selection = z.enum(["numerical", "language"]).safeParse(values.pack);
+  if (!selection.success) throw new ImportError("Choose a supported editorial pack: numerical or language.");
+  const packName = selection.data;
+  const pack = editorialPacks[packName];
   if (!process.env.DATABASE_URL)
     throw new ImportError("Supply the intended DATABASE_URL privately before importing drafts.");
   const email = z.email().max(254).safeParse(process.env.ADMIN_EMAIL?.trim());
   if (!email.success) throw new ImportError("Save a valid ADMIN_BOOTSTRAP_EMAIL repository secret first.");
   const chapters = curriculum.map((c, i) => chapterInput.parse({ slug: c.slug, title: c.title, position: i + 1, level: c.track }));
-  const lessons = draftLessons.map(lesson => {
+  const lessons = draftLessons.filter(lesson => (pack.lessons as readonly string[]).includes(lesson.slug)).map(lesson => {
     const markdown = readFileSync(`content/lessons/${lesson.slug}.md`, "utf8");
     checkLesson(markdown);
     const section = markdown.split("## Learning objectives\n")[1]?.split(/\n## /)[0] ?? "";
     const objectives = section.split("\n").filter(line => line.startsWith("- ")).map(line => line.slice(2).trim());
     return lessonInput.parse({ slug: `${lesson.slug}-intro`, title: lesson.title, chapterSlug: lesson.slug, objectives, markdown });
   });
-  const questions = questionImportRows(JSON.parse(readFileSync("content/editorial/numerical-foundations.json", "utf8"))).map(q => questionInput.parse(q));
+  if (lessons.length !== pack.lessons.length) throw new ImportError("The selected lesson manifest is incomplete.");
+  const questions = questionImportRows(JSON.parse(readFileSync(`content/editorial/${pack.file}`, "utf8"))).map(q => questionInput.parse(q));
   const counts = await db.$transaction(async tx => {
     await tx.$executeRaw`SELECT pg_advisory_xact_lock(73642021)`;
     // Lock the operator identity while checking its current role and importing.
@@ -36,7 +44,7 @@ async function main() {
     for (const c of chapters) {
       if (await tx.chapter.findUnique({ where: { slug: c.slug } })) continue;
       const chapter = await tx.chapter.create({ data: c });
-      await tx.auditEvent.create({ data: { actorId: actor.id, action: "chapter.create", targetId: chapter.id, metadata: { source: "operator.numerical-drafts" } } });
+      await tx.auditEvent.create({ data: { actorId: actor.id, action: "chapter.create", targetId: chapter.id, metadata: { source: `operator.${packName}-drafts` } } });
       created.chapters++;
     }
     for (const lesson of lessons) {
@@ -49,7 +57,7 @@ async function main() {
       await createContent(tx, actor, "questions", question);
       created.questions++;
     }
-    await tx.auditEvent.create({ data: { actorId: actor.id, action: "operator.numerical-drafts.import", targetId: actor.id, metadata: { source: "public-numerical-foundations-v1", created, existingKeys: "preserved", status: "DRAFT" } } });
+    await tx.auditEvent.create({ data: { actorId: actor.id, action: `operator.${packName}-drafts.import`, targetId: actor.id, metadata: { source: pack.source, created, existingKeys: "preserved", status: "DRAFT" } } });
     return created;
   // Hosted Mumbai DB round trips from a GitHub runner can exceed one minute.
   }, { isolationLevel: "Serializable", timeout: 180000 });

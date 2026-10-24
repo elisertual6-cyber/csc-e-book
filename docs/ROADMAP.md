@@ -1,5 +1,7 @@
 # Implementation plan
 
+The English draft expansion adds vocabulary, grammar and sentence construction to the public teaching library, plus a separate 15-question original DRAFT pack and manual English import job. Totals are eight public lessons and 35 review-pack questions; human correctness/source review and the broader curriculum remain pending. See ENGLISH_DRAFTS.md. Existing numerical import scope and seeds remain unchanged.
+
 Supabase deployment preparation adds a manual GitHub Actions migration workflow, separate migration/runtime connection configuration and private-table RLS. Hosted database migration, Vercel secret configuration and customer readiness are not implied by these repository changes. See SUPABASE_SETUP.md.
 
 The operator draft-import job can deliberately populate provisional chapter headings, five numerical teaching drafts and 20 existing sample questions under a current ADMIN identity. It preserves existing keys, uses the editorial creation service and never creates reviews or releases. See NUMERICAL_IMPORT.md. Preparing the job does not mean the hosted import has run.

@@ -1,0 +1,503 @@
+{
+  "title": "English language foundations — original editorial drafts",
+  "version": 1,
+  "status": "DRAFT",
+  "reviewStatus": "PENDING_INDEPENDENT_REVIEW",
+  "questions": [
+    {
+      "key": "english-meticulous",
+      "prompt": "The assistant was meticulous: she checked every page for missing signatures. Which meaning of meticulous best fits this context?",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Definition clue in context. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "The explanation after the colon describes careful checking of every page. It supports careful and thorough, rather than speed, indifference or uncertainty.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "hurried",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "careful and thorough",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "uninterested",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "uncertain",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "english-provisional",
+      "prompt": "The arrangement is provisional; it will be replaced when the permanent plan is approved. What does provisional mean here?",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Contrast between temporary and permanent. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "Replacement by a permanent plan contrasts with the current arrangement. That supports temporary. Nothing in the sentence establishes cost, secrecy or obligation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "expensive",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "confidential",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "compulsory",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "temporary",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "english-concise",
+      "prompt": "The editor requested a concise notice containing only the essential instructions. Which phrase best explains concise in this sentence?",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Contextual meaning and precision. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "Keeping only essential instructions supports a brief, clear notice. It does not imply repetition, humor or an unfinished message. Brevity should preserve the necessary meaning.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "brief and clear",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "long and repetitive",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "informal and humorous",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "vague and unfinished",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "english-arid",
+      "prompt": "The field was arid; its soil was dry and cracked after weeks without rain. Which word is closest in meaning to arid here?",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Restatement clue in context. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "Dry soil and the absence of rain directly support dry. Humid, damp and moist instead suggest the presence of moisture.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "humid",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "damp",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "dry",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "moist",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "english-ambiguous",
+      "prompt": "The directions were ambiguous, so two readers interpreted them differently. Which description best fits ambiguous in this sentence?",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Result clue and interpretation. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "The different interpretations indicate more than one possible meaning. The sentence gives no evidence about length, optional compliance or enforcement.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "unnecessarily lengthy",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "open to more than one meaning",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "optional for all readers",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "strictly enforced",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "english-each-agreement",
+      "prompt": "Choose the present-tense verb that follows formal subject–verb agreement: Each of the application forms ___ numbered.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Agreement with each in formal edited English. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "Each is the singular subject. Of the application forms is a modifying phrase. Is agrees with each and completes is numbered; the nearby plural forms does not control agreement.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "is",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "are",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "were",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "have",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "english-past-time",
+      "prompt": "Choose the simple-past form: Yesterday, the clerk ___ the file before the meeting began.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Simple past with an explicit time clue. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "Reviewed is the simple-past form and fits yesterday and the completed sequence before the meeting began. Reviewing would require an auxiliary to form a complete verb phrase.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "reviews",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "reviewing",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "reviewed",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "review",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "english-compound-subject",
+      "prompt": "Complete the present-tense sentence in formal edited English: Both the writer and the reviewer ___ responsible for checking the draft.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Agreement with a compound subject. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "Both the writer and the reviewer names two people joined by and, so the subject is plural. Are agrees with that subject in the stated present tense.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "is",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "was",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "has",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "are",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "english-count-nouns",
+      "prompt": "Choose the word suited to the plural count noun in formal prose: The revised report contains ___ spelling errors than the first draft.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Fewer with a plural count noun. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "Errors is a plural count noun, so fewer is the standard formal choice. Less commonly modifies uncountable quantities; little and much do not fit this plural count-noun comparison.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "less",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "fewer",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "little",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "much",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "english-complete-clause",
+      "prompt": "Which option is a complete declarative sentence in formal edited English?",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Independent clauses and fragments. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "The office closed at five has a subject and a finite verb in an independent clause. The because clause is dependent, and the other two options lack a complete independent clause.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Because the office closed early.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "After the final meeting.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The office closed at five.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Waiting beside the counter.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "english-consequence",
+      "prompt": "Choose the transition that explicitly presents the pause as a consequence: The printer ran out of ink; ___, the team paused printing.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Consequence expressed by a transitional adverb. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "Therefore marks the second statement as a consequence of the first. However signals contrast, meanwhile signals simultaneous timing, and similarly signals comparison.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "however",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "therefore",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "meanwhile",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "similarly",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "english-concession",
+      "prompt": "Choose the connector that expresses a concession: The team continued along the covered walkway, ___ it was raining.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Concession rather than cause or timing. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "Although states that the activity continued despite the rain. Because and since can introduce a reason, while when mainly locates the event in time. The task specifically requires a concession.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "because",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "since",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "when",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "although",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "english-parallel-verbs",
+      "prompt": "Choose the form that keeps the three actions parallel: The checklist asks staff to record the date, verify the amount and ___ the folder.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Parallel base-form verbs. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "Label is the base form, matching record and verify after asks staff to. The shared to applies to all three actions; the other offered forms break that structure.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "label",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "labeling",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "labeled",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "labels",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "english-modifier-actor",
+      "prompt": "Choose the completion that clearly identifies the person who checked the totals: After checking the totals, ___.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Clear attachment of an introductory modifier. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "The clerk is the person who can perform checking, so placing that subject immediately after the introductory phrase makes the actor clear. The other subjects do not identify the person who checked.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "the report was ready for signing",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "the clerk signed the report",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "the filing cabinet remained locked",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "the figures appeared on the page",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "english-plural-reference",
+      "prompt": "Choose the pronoun that refers to both clerks: Both clerks said ___ were ready.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original draft example. Rule focus: Explicit plural antecedent and agreeing subject pronoun. Independent human correctness/originality review pending. Not an official CSC item; external reference checks pending.",
+      "explanation": "They is the plural subject pronoun that refers to both clerks and agrees with were. He, she and it are singular and cannot refer to both people as the stated plural antecedent.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "he",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "she",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "it",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "they",
+          "isCorrect": true
+        }
+      ]
+    }
+  ]
+}

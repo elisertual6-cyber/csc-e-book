@@ -1,5 +1,7 @@
 # Numerical lesson previews and editorial pack
 
+The subsequent English expansion adds three more public drafts and a separate 15-question pack. The library now has eight teaching drafts; the numerical pack and its five-lesson import scope remain unchanged. See [ENGLISH_DRAFTS.md](ENGLISH_DRAFTS.md) for the additional content and manual import job.
+
 The public library at `/lessons` contains five original teaching drafts: arithmetic; fractions/decimals/percentages; ratios/averages/proportions; sequences; and word-problem modelling. `/lessons/<catalog-slug>` renders the corresponding Markdown lesson with objectives, explanation, worked example, paper practice, rationale and reflection. The curriculum links to available lessons for both tracks. Each page explicitly labels the material unapproved and ungraded; worked solutions are included for learning. The existing `/preview` arithmetic/PDF-availability page remains available.
 
 The catalog is a fixed allowlist, not a filesystem browser. Unknown slugs return 404 and cannot choose arbitrary files. The reader is a Server Component; raw HTML and images are disabled. Lesson pages are prerendered at build time and work without the database on a Vercel demo. These pages do not create accounts, store progress, grade attempts, publish editorial records or grant entitlements. Update the catalog and rebuild/redeploy when adding a public preview.
