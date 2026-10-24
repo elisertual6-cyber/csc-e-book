@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { editionInput } from "@/lib/pdf-input";
 type Option = {
   id: string;
   title?: string;
@@ -25,7 +26,8 @@ export default function PdfStudio({ admin }: { admin: boolean }) {
     [kind, setKind] = useState("DRAFT"),
     [message, setMessage] = useState(""),
     [busy, setBusy] = useState(false),
-    [confirmed, setConfirmed] = useState(false);
+    [confirmed, setConfirmed] = useState(false),
+    [workerJob, setWorkerJob] = useState("");
   async function refresh() {
     const responses = await Promise.all([
       fetch("/api/admin/lessons"),
@@ -77,6 +79,22 @@ export default function PdfStudio({ admin }: { admin: boolean }) {
       setBusy(false);
     }
   }
+  async function copyWorkerJob() {
+    const result = editionInput.safeParse({ title, version, kind, lessonIds, questionIds });
+    if (kind !== "DRAFT" || !result.success) {
+      setWorkerJob("");
+      setMessage("Choose a private draft, at least one lesson, a title of 5–150 characters and a version using only letters, numbers, dots or hyphens (up to 50 characters).");
+      return;
+    }
+    const job = JSON.stringify(result.data);
+    setWorkerJob(job);
+    try {
+      await navigator.clipboard.writeText(job);
+      setMessage("Worker job copied. Paste it into the job field in Render private PDF draft on GitHub Actions. This has not generated or published a PDF.");
+    } catch {
+      setMessage("Automatic copying is unavailable. Select and copy the worker job below, then paste it into Render private PDF draft on GitHub Actions.");
+    }
+  }
   return (
     <section className="editor-panel">
       <h2>PDF workspace</h2>
@@ -87,6 +105,7 @@ export default function PdfStudio({ admin }: { admin: boolean }) {
         paid downloads are enabled.
       </p>
       <form
+        onChange={() => { setWorkerJob(""); setMessage(""); }}
         onSubmit={(e) => {
           e.preventDefault();
           void post({ title, version, kind, lessonIds, questionIds });
@@ -160,6 +179,23 @@ export default function PdfStudio({ admin }: { admin: boolean }) {
             </label>
           ))}
         </fieldset>
+        <p>
+          For hosted rendering, choose a private draft and copy its worker job.
+          Open <a className="text-link" href="https://github.com/elisertual6-cyber/csc-e-book/actions/workflows/render-private-draft.yml" target="_blank" rel="noreferrer">Render private PDF draft on GitHub Actions</a>,
+          choose main, paste into the job field and run the workflow.
+          After it succeeds, refresh this workspace and open the protected PDF.
+          Only the selected version IDs and edition settings are copied.
+        </p>
+        <button type="button" className="button button-light" disabled={busy || !lessonIds.length || kind !== "DRAFT"} onClick={() => void copyWorkerJob()}>
+          Copy worker job
+        </button>
+        {workerJob && (
+          <label>
+            Worker job JSON
+            <textarea readOnly value={workerJob} rows={6} spellCheck={false} onFocus={(event) => event.currentTarget.select()} />
+          </label>
+        )}
+        <p>Direct generation below requires a Node host with Chromium; Vercel uses the worker workflow above.</p>
         <button className="button" disabled={busy || !lessonIds.length}>
           {busy ? "Working…" : "Generate private PDF"}
         </button>

@@ -24,7 +24,11 @@ The service accepts only `https://<20-character-project-ref>.supabase.co` endpoi
 3. The web server retains its runtime DATABASE_URL. The worker needs its own server-side database connection and `PDF_OPERATOR_EMAIL` matching a current staff account. Do not supply a login password. Redeploy the web app after setting its environment.
 4. For the supplied manual **Render private PDF draft** GitHub Action, reuse `DATABASE_MIGRATION_URL` and `ADMIN_BOOTSTRAP_EMAIL`; add `PDF_SUPABASE_URL`, `PDF_SUPABASE_BUCKET` and `PDF_SUPABASE_SERVICE_KEY` as repository Actions secrets. The workflow fixes PDF_STORAGE to supabase and installs Chromium on its separate runner. It never uploads PDFs as public workflow artifacts. Run only on trusted main; repository administrators/workflow editors can access job secrets.
 
-Choose exact lesson/question version IDs from the staff workspace and submit a job such as:
+In `/admin` → **PDF workspace**, choose **Private editorial draft**, enter the title/version and select at least one lesson (questions are optional). Click **Copy worker job**. The workspace validates the shared job schema and shows a read-only JSON fallback if clipboard access is blocked. Editing the selection/settings clears the prepared job. Copying does not generate/publish anything and includes only IDs/settings, never question bodies or answer keys.
+
+Open **Render private PDF draft** using the workspace link, choose `main`, paste the copied JSON into the **job** field and run. After success, refresh `/admin` and use **Open protected PDF**. The manual Action accepts DRAFT only; candidate/release operations stay separate.
+
+The job format is:
 
 ```json
 {"kind":"DRAFT","version":"private-proof-001","title":"Private editorial proof","lessonIds":["replace-with-existing-lesson-version-id"],"questionIds":[]}

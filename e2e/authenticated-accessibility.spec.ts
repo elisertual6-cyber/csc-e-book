@@ -101,6 +101,7 @@ test("signed-in learner screens and keyboard attempt flow meet automated accessi
 
 test("administrator, editor and independent reviewer workspaces meet automated accessibility checks", async ({ page, context, playwright }) => {
   test.setTimeout(240000);
+  page.setDefaultTimeout(15000);
   guard();
   const f = await examFixture(playwright);
   const findings: Finding[] = [];
@@ -118,6 +119,42 @@ test("administrator, editor and independent reviewer workspaces meet automated a
       await page.goto("/admin");
       await expect(page.getByRole("heading", { name: "Make every explanation count.", exact: true })).toBeVisible();
       await expect(page.getByRole("heading", { name: "PDF workspace", exact: true })).toBeVisible();
+      const pdfPanel = page.locator("section").filter({ has: page.getByRole("heading", { name: "PDF workspace", exact: true }) }).last();
+      const copyJob = pdfPanel.getByRole("button", { name: "Copy worker job", exact: true });
+      await expect(copyJob).toBeDisabled();
+      const lessonResponse = await session.get("/api/admin/lessons");
+      const lessonOptions = await lessonResponse.json();
+      const editionCount = await f.db.pdfEdition.count();
+      await pdfPanel.getByRole("group", { name: "Include lessons", exact: true }).locator('input[type="checkbox"]').first().check();
+      await page.evaluate(() => {
+        Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => {} } });
+      });
+      await copyJob.focus();
+      await page.keyboard.press("Enter");
+      const jobText = pdfPanel.getByRole("textbox", { name: "Worker job JSON", exact: true });
+      await expect(jobText).toBeVisible();
+      const job = JSON.parse(await jobText.inputValue());
+      expect(job).toEqual({ title: "Philippine Civil Service Exam Reviewer 2027", version: "0.2.0-draft.1", kind: "DRAFT", lessonIds: [lessonOptions[0].id], questionIds: [] });
+      await expect(pdfPanel.getByRole("status")).toContainText("Worker job copied");
+      await expect(copyJob).toBeFocused();
+      await pdfPanel.getByRole("textbox", { name: "Publication version", exact: true }).fill("invalid version");
+      await expect(jobText).toHaveCount(0);
+      await copyJob.click();
+      await expect(pdfPanel.getByRole("status")).toContainText("version using only");
+      await expect(jobText).toHaveCount(0);
+      await pdfPanel.getByRole("textbox", { name: "Publication version", exact: true }).fill("proof-001");
+      if (role === "ADMIN") {
+        await pdfPanel.getByRole("combobox").selectOption("PREVIEW");
+        await expect(copyJob).toBeDisabled();
+        await pdfPanel.getByRole("combobox").selectOption("DRAFT");
+      }
+      await page.evaluate(() => {
+        Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async () => { throw new Error("Clipboard blocked"); } } });
+      });
+      await copyJob.click();
+      await expect(pdfPanel.getByRole("status")).toContainText("Automatic copying is unavailable");
+      await expect(jobText).toHaveValue(JSON.stringify({ kind: "DRAFT", version: "proof-001", title: "Philippine Civil Service Exam Reviewer 2027", lessonIds: [lessonOptions[0].id], questionIds: [] }));
+      expect(await f.db.pdfEdition.count()).toBe(editionCount);
       await scan(page, `${role}:lesson-workspace`, findings);
       const questions = page.getByRole("group", { name: "Content type" }).getByRole("button", { name: "Questions", exact: true });
       await questions.focus();
