@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { scheduleAccountMail } from "@/lib/account-mail-delivery";
 import { getDb } from "@/lib/db";
 import { api, assertMutation, readJson, json, HttpError } from "@/lib/http";
 import {
@@ -15,6 +16,8 @@ import {
   verifyEmail,
   resetPassword,
 } from "@/lib/account-security";
+export const runtime = "nodejs";
+export const maxDuration = 60;
 const credentials = z
   .object({
     email: z
@@ -49,7 +52,8 @@ export async function POST(
           .strict()
           .parse(await readJson(request));
         await rateLimit("email-verification", user.id, 3);
-        await requestAccountToken("VERIFY_EMAIL", { userId: user.id });
+        const messageId = await requestAccountToken("VERIFY_EMAIL", { userId: user.id });
+        scheduleAccountMail(messageId);
         return json(
           {
             message:
@@ -61,7 +65,8 @@ export async function POST(
       if (action === "request-reset") {
         const { email } = emailInput.parse(await readJson(request));
         await rateLimit("password-reset-request", email, 3);
-        await requestAccountToken("RESET_PASSWORD", { email });
+        const messageId = await requestAccountToken("RESET_PASSWORD", { email });
+        scheduleAccountMail(messageId);
         return json(
           {
             message:
@@ -77,7 +82,8 @@ export async function POST(
             "Your email address is verified. You can return to your account.",
         });
       }
-      await resetPassword(await readJson(request));
+      const messageId = await resetPassword(await readJson(request));
+      scheduleAccountMail(messageId);
       await destroySession();
       return json({
         message:

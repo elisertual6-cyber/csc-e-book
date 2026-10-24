@@ -12,7 +12,7 @@ The current priority is **Phase 5: launch hardening**. The application is a deve
 | 4. Commerce | Server-priced development orders, atomic fulfillment, access/download checks, encrypted mail queue and GCash sandbox adapter | Real merchant sandbox proof/current API verification, recurring artifact recovery/retention, authorized SMTP delivery and separate live-payment implementation |
 | 5. Launch hardening | Local recovery drill, rate limiting, safe logs, readiness/uptime probes, public accessibility and bounded local load tests | Authenticated accessibility work below, manual usability/security review, deployed monitoring/recovery, legal/support readiness and all content/provider gates |
 
-Operator screenshots and reports have confirmed Vercel deployment, Supabase migration/connectivity, administrator login and manual draft imports. They do not verify paid delivery, real email, merchant GCash testing or human content approval. A subsequent operator screenshot confirms hosted encrypted recovery run #3 succeeded with an encrypted artifact. Hosted connections and dashboard changes still require an available authenticated connector or the operator's secure setup steps.
+Operator screenshots and reports have confirmed Vercel deployment, Supabase migration/connectivity, administrator login and manual draft imports. Subsequent operator reports confirm manual SMTP verification/reset receipt and successful link use; paid delivery, merchant GCash testing and human content approval remain unverified. A subsequent operator screenshot confirms hosted encrypted recovery run #3 succeeded with an encrypted artifact. Hosted connections and dashboard changes still require an available authenticated connector or the operator's secure setup steps.
 
 ## Phase 5F — authenticated accessibility
 
@@ -30,7 +30,7 @@ Acceptance criteria:
 
 1. Complete the remaining Phase 5F manual and deployed accessibility review, including screen readers, zoom/reflow and conditional payment/download/error states. Local automated coverage is delivered; it is not a conformance claim.
 2. Continue recurring encrypted backups and protected long-term retention for the Phase 2/4 private artifacts. Hosted storage, manual rendering, signed-in retrieval/signed-out denial and one isolated encrypted restore rehearsal are operator-confirmed. Preserve checksums, entitlement checks, immutable manifests and repeatable recovery evidence; see [PDF_STORAGE.md](PDF_STORAGE.md) and [REMOTE_RECOVERY.md](REMOTE_RECOVERY.md).
-3. Complete authorized SMTP sender/worker deployment and real verification/recovery delivery checks. An email address alone does not authorize sending.
+3. Activate and observe automatic account-mail dispatch/retries after operator-confirmed manual verification/reset delivery. Verify hosted latency, failures, provider limits and monitoring before opening registration; see MAIL_SETUP.md.
 4. Verify the current PayMongo Checkout contract and merchant sandbox, including authentic GCash events, retries, reconciliation and refunds. Local fixtures are not merchant proof. Live checkout needs a separate reviewed implementation/release.
 5. Extend production-like capacity, authenticated security and recovery exercises, then configure external monitoring/alerts and verify the deployed configuration.
 
@@ -50,7 +50,7 @@ All import jobs preserve existing records and create only drafts under a current
 
 ## Delivered hardening and operational references
 
-- **5A — Account verification/recovery:** hashed single-use credentials, session revocation, encrypted mail queue and strict-TLS SMTP adapter. Real provider authorization/delivery remains pending. [ACCOUNT_SECURITY.md](ACCOUNT_SECURITY.md).
+- **5A — Account verification/recovery:** hashed single-use credentials, session revocation, encrypted mail queue and strict-TLS SMTP adapter. Manual hosted verification/reset is operator-confirmed; automatic hosted delivery and monitoring remain pending. [ACCOUNT_SECURITY.md](ACCOUNT_SECURITY.md).
 - **5B — GCash sandbox software:** canonical payment/signature verification, reconciliation, idempotency and refund access handling. Production and live keys remain blocked. [GCASH_OPERATIONS.md](GCASH_OPERATIONS.md).
 - **5C — Local recovery and public accessibility:** private local backups, isolated restore tests and public-page/keyboard scans. Hosted encrypted backups/PITR, real-file recovery and manual assistive-technology review remain pending. [PHASE_5C_REPORT.md](PHASE_5C_REPORT.md), [BACKUP_OPERATIONS.md](BACKUP_OPERATIONS.md).
 - **5D — Operational diagnostics:** redacted request references/logs, separate uptime/connectivity probes and isolated short load checks. External alerting and production capacity proof remain pending. [PHASE_5D_REPORT.md](PHASE_5D_REPORT.md), [OPERATIONS_MONITORING.md](OPERATIONS_MONITORING.md).
@@ -69,10 +69,8 @@ The Supabase private PDF adapter, backend-tagged immutable references, shared va
 
 A manual source-snapshot, encrypted database/PDF capture and isolated restore workflow is implemented with local security/integration evidence. The operator supplied a screenshot of hosted recovery run #3 succeeding at commit `4ac862a`, with an encrypted artifact available. Independent key retention and protected long-term backup storage remain operator responsibilities. No production data is restored in place. Scheduling/PITR, durable off-site retention, full-service secret/provider reconciliation and cutover remain separate work. See [REMOTE_RECOVERY.md](REMOTE_RECOVERY.md) and [PHASE_5H_REPORT.md](PHASE_5H_REPORT.md).
 
-## Current milestone: Phase 5I — account email readiness
+## Current milestone: Phase 5I — account email automation
 
-Added offline SMTP configuration checks and a main-only connection-verification Action that sends no messages and accesses no database. The zero-extra-cost setup can use an owner-authorized existing Gmail account and App password, within provider/runner limits. Real sender authorization, provider configuration, dispatcher deployment and verification/reset inbox tests remain pending; mail and public registration stay disabled. See [MAIL_SETUP.md](MAIL_SETUP.md).
+The no-send SMTP check, strict-TLS/encrypted queue and administrator-only manual dispatcher are implemented. The operator confirmed hosted manual verification email receipt/link consumption and successful password recovery. This establishes the controlled manual flow, not general Inbox placement or automatic delivery.
 
-### Phase 5I delivery pilot
-
-The operator supplied a successful no-send SMTP check #5 at cfe2e04 and reports saving web settings. Added an explicitly authorized, administrator-only manual dispatcher for controlled verification/reset inbox tests, preserving current-account scope, encrypted payloads and existing token/lease gates. Actual hosted message receipt/link consumption and a reliable unattended public dispatcher remain pending. Keep registration closed; use [MAIL_SETUP.md](MAIL_SETUP.md) for the pilot.
+Automatic request delivery now attempts only the account message committed by the current request after returning its response. A separate main-only retry workflow sweeps at most ten due account messages on a best-effort five-minute schedule. Web and GitHub activation flags default off; existing SMTP and mail-key settings are reused. Purchase dispatch and public registration remain closed. Local disposable security/protocol tests cover isolation, failures/retries, concurrency and existing recovery gates. Hosted automatic receipt/latency, retry observation, provider limits, bounce monitoring and launch readiness remain pending. See [MAIL_SETUP.md](MAIL_SETUP.md) and [PHASE_5I_REPORT.md](PHASE_5I_REPORT.md).

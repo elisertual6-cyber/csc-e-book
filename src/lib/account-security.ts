@@ -68,7 +68,7 @@ export async function requestAccountToken(
     select: { id: true },
   });
   if (!initial) return;
-  await db.$transaction(async (tx) => {
+  return db.$transaction(async (tx) => {
     const user = await lockUser(tx, initial.id);
     if (
       (purpose === "VERIFY_EMAIL" && user.emailVerifiedAt) ||
@@ -103,7 +103,7 @@ export async function requestAccountToken(
     });
     const route =
       purpose === "VERIFY_EMAIL" ? "verify-email" : "reset-password";
-    await enqueueMail(
+    const message = await enqueueMail(
       tx,
       {
         userId: user.id,
@@ -129,6 +129,7 @@ export async function requestAccountToken(
         metadata: {},
       },
     });
+    return message.id;
   });
 }
 async function tokenOwner(token: string) {
@@ -224,7 +225,7 @@ export async function resetPassword(raw: unknown) {
     );
   const passwordHash = await hashPassword(password);
   const setup = await mailSetup();
-  await getDb().$transaction(async (tx) => {
+  return getDb().$transaction(async (tx) => {
     const user = await lockUser(tx, userId),
       time = await now(tx);
     await validToken(tx, token, user, "RESET_PASSWORD", time);
@@ -234,7 +235,7 @@ export async function resetPassword(raw: unknown) {
     });
     await tx.session.deleteMany({ where: { userId: user.id } });
     await cancelTokens(tx, user.id, time);
-    await enqueueMail(
+    const message = await enqueueMail(
       tx,
       {
         userId: user.id,
@@ -256,5 +257,6 @@ export async function resetPassword(raw: unknown) {
         metadata: { sessionsRevoked: true },
       },
     });
+    return message.id;
   });
 }

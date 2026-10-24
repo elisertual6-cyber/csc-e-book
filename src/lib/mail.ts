@@ -256,9 +256,14 @@ function eligibleNotice(order: NoticeOrder, userId: string, time: Date) {
     )
   );
 }
-export async function processMailBatch(db: PrismaClient, limit = 25, accountUserId?: string) {
-  if (accountUserId !== undefined && !accountUserId.trim()) throw new Error("An account scope is required.");
-  const scope = accountUserId === undefined ? Prisma.empty : Prisma.sql`AND "userId"=${accountUserId} AND purpose IN ('VERIFY_EMAIL','RESET_PASSWORD','PASSWORD_CHANGED')`;
+export type AccountMailScope = { accountOnly: true; messageId?: string };
+export async function processMailBatch(db: PrismaClient, limit = 25, accountScope?: string | AccountMailScope) {
+  if (typeof accountScope === "string" && !accountScope.trim()) throw new Error("An account scope is required.");
+  if (typeof accountScope === "object" && accountScope.messageId !== undefined && !accountScope.messageId.trim()) throw new Error("A message scope is required.");
+  const purposes = Prisma.sql`AND purpose IN ('VERIFY_EMAIL','RESET_PASSWORD','PASSWORD_CHANGED')`;
+  const scope = accountScope === undefined ? Prisma.empty : typeof accountScope === "string"
+    ? Prisma.sql`AND "userId"=${accountScope} ${purposes}`
+    : Prisma.sql`${purposes} ${accountScope.messageId === undefined ? Prisma.empty : Prisma.sql`AND id=${accountScope.messageId}`}`;
   const counts = { sent: 0, retried: 0, failed: 0, cancelled: 0 };
   const maximum = Math.max(1, Math.min(100, Math.trunc(limit)));
   for (let i = 0; i < maximum; i++) {
