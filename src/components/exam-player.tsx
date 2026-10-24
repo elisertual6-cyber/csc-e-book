@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { AttemptView } from "@/lib/exam-types";
 export default function ExamPlayer({ id }: { id: string }) {
@@ -10,6 +10,18 @@ export default function ExamPlayer({ id }: { id: string }) {
     [message, setMessage] = useState(""),
     [clock, setClock] = useState(0),
     [offset, setOffset] = useState(0);
+  const pendingFocus = useRef<{ element: HTMLInputElement; questionKey: string } | null>(null);
+  useEffect(() => {
+    if (busy) return;
+    const pending = pendingFocus.current;
+    pendingFocus.current = null;
+    // Native disabled controls lose focus while a save is in flight. Restore
+    // only the original question/control, never steal focus after navigation.
+    if (pending && !needsReload && view?.status === "IN_PROGRESS" &&
+      view.questions[Math.min(index, view.questions.length - 1)]?.questionKey === pending.questionKey &&
+      pending.element.isConnected && !pending.element.matches(":disabled") &&
+      document.activeElement === document.body) pending.element.focus({ preventScroll: true });
+  }, [busy, needsReload, view, index]);
   const accept = useCallback((data: AttemptView) => {
     setView(data);
     setOffset(Date.parse(data.serverNow) - Date.now());
@@ -93,6 +105,10 @@ export default function ExamPlayer({ id }: { id: string }) {
   }, [view, busy, needsReload, offset, reload]);
   async function write(body: unknown, submit = false) {
     if (!view) return;
+    const focused = document.activeElement;
+    pendingFocus.current = !submit && focused instanceof HTMLInputElement && focused.closest(".exam-question")
+      ? { element: focused, questionKey: view.questions[Math.min(index, view.questions.length - 1)].questionKey }
+      : null;
     setBusy(true);
     setMessage("");
     try {
@@ -321,7 +337,7 @@ export default function ExamPlayer({ id }: { id: string }) {
           {view.result.byTopic.map((t) => (
             <div className="topic-report" key={t.topic}>
               <span>{t.topic}</span>
-              <progress value={t.correct} max={t.total} />
+              <progress aria-label={`Correct answers for ${t.topic}`} value={t.correct} max={t.total} />
               <strong>
                 {t.correct}/{t.total}
               </strong>

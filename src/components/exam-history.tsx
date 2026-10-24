@@ -50,7 +50,7 @@ export default function ExamHistory() {
         data.byTopic.map((t) => (
           <div className="topic-report" key={t.topic}>
             <span>{t.topic}</span>
-            <progress value={t.correct} max={t.total} />
+            <progress aria-label={`Correct answers for ${t.topic}`} value={t.correct} max={t.total} />
             <strong>
               {t.correct}/{t.total}
             </strong>

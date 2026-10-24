@@ -1,5 +1,7 @@
 # Working on this project
 
+Read docs/PHASE_5F_REPORT.md for signed-in accessibility coverage. Run test:a11y:authenticated through its disposable database wrapper for learner/staff UI changes. Preserve answer-save locks and focus after acknowledged saves without stealing focus after navigation. Automated scans never count as manual conformance review.
+
 Read docs/STUDY_PLANNER.md before changing planner progress. Browser saving is optional, limited to planner settings/day numbers and separate from accounts or graded attempts. Never place question content, answers, credentials or tokens in planner storage. Completing a plan is not exam readiness or editorial review.
 
 Read docs/SUPABASE_SETUP.md before hosted database setup. Preserve Prisma migration history, server-only connections and RLS on private tables. Hosted migrations use the manual main-branch workflow; builds must not migrate or seed. Disposable test setup must override both DATABASE_URL and DIRECT_URL.

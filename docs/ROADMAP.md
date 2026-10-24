@@ -1,37 +1,62 @@
-# Implementation plan
+# Implementation roadmap
 
-The public study planner adds a personal 30-day routine for available draft lessons, track-specific links, adjustable minutes, optional browser-only completion saving and a printable schedule. It creates no exam results, accounts or editorial records and leaves the content totals unchanged. See STUDY_PLANNER.md. Official coverage, content review and production launch gates remain pending.
+The current priority is **Phase 5: launch hardening**. The application is a development preview. Implemented software and passing local tests do not establish commercial or production readiness. This roadmap separates code that exists, verified test evidence and work that still needs infrastructure, provider credentials or qualified human review.
 
-The track expansion adds three Professional reasoning/data lessons, two Subprofessional clerical lessons and 25 unapproved questions, with explicit track labels and a separate manual import. Totals are 15 public lesson drafts and 70 review-pack questions. Official scope, independent review and the remaining launch gates stay pending. See TRACK_DRAFTS.md.
+## Phase status
 
-The paragraph/reading expansion adds two public teaching drafts and a ten-question original DRAFT pack, bringing the catalog to ten lessons and the review packs to 45 questions. Its separate manual reading import preserves existing content and never approves or publishes it. Independent review and the remaining curriculum/launch work are still pending. See READING_DRAFTS.md.
+| Phase | Software delivered | Remaining release work |
+| --- | --- | --- |
+| 1. Foundation | Next.js, responsive public shell, curriculum, draft readers, PostgreSQL/Prisma and controlled deployment workflows | Official scope/source verification and production operational review |
+| 2. Editorial and PDF | Authenticated editorial roles, versioned drafts, independent-review workflow, imports/exports and protected PDF generation | Complete/proofread curriculum, actual independent review, deployed browser worker and durable private storage |
+| 3. Exam engine | Server-owned attempts, deadlines, immutable snapshots, grading, reports/history and entitlement checks | Reviewed production bank/templates, real payment integration evidence, capacity and recovery checks |
+| 4. Commerce | Server-priced development orders, atomic fulfillment, access/download checks, encrypted mail queue and GCash sandbox adapter | Real merchant sandbox proof/current API verification, private hosted artifacts, authorized SMTP delivery and separate live-payment implementation |
+| 5. Launch hardening | Local recovery drill, rate limiting, safe logs, readiness/uptime probes, public accessibility and bounded local load tests | Authenticated accessibility work below, manual usability/security review, deployed monitoring/recovery, legal/support readiness and all content/provider gates |
 
-The English draft expansion adds vocabulary, grammar and sentence construction to the public teaching library, plus a separate 15-question original DRAFT pack and manual English import job. Totals are eight public lessons and 35 review-pack questions; human correctness/source review and the broader curriculum remain pending. See ENGLISH_DRAFTS.md. Existing numerical import scope and seeds remain unchanged.
+Operator screenshots and reports have confirmed Vercel deployment, Supabase migration/connectivity, administrator login and manual draft imports. They do not verify paid delivery, real email, merchant GCash testing, hosted recovery or human content approval. Hosted connections and dashboard changes still require an available authenticated connector or the operator's secure setup steps.
 
-Supabase deployment preparation adds a manual GitHub Actions migration workflow, separate migration/runtime connection configuration and private-table RLS. Hosted database migration, Vercel secret configuration and customer readiness are not implied by these repository changes. See SUPABASE_SETUP.md.
+## Current milestone: Phase 5F — authenticated accessibility
 
-The operator draft-import job can deliberately populate provisional chapter headings, five numerical teaching drafts and 20 existing sample questions under a current ADMIN identity. It preserves existing keys, uses the editorial creation service and never creates reviews or releases. See NUMERICAL_IMPORT.md. Preparing the job does not mean the hosted import has run.
+**Automated implementation verified locally.** Extended Phase 5C's public-page work to signed-in learners, administrators, editors and independent reviewers. Fixed keyboard focus lost during answer/flag autosaves, unnamed subject progress bars, ambiguous answer-key controls and missing editorial selection state. The dedicated suite scans 22 configured states per viewport on desktop and mobile. See [PHASE_5F_REPORT.md](PHASE_5F_REPORT.md) for exact scope and remaining manual/deployed work.
 
-1. **Foundation (complete):** Next.js App Router, TypeScript, Tailwind, responsive public shell, curriculum browsing, Markdown sample lesson, interactive ungraded exercise, PostgreSQL/Prisma schema and migration, idempotent draft seed, validation and setup docs. No user accounts or purchases.
-2. **Editorial and PDF (implemented):** secure authentication and role checks; chapter/question CRUD; validated import/export; independent reviewer approval; publication state machine; Playwright PDF worker; cover, linked contents, print layout, headers, footers, preview and private full editions. Validate PDF searchability, links, layout and access boundaries.
-3. **Exam engine (implemented):** server-owned attempts, snapshot question versions, strip correct answers, persisted responses, deadline enforcement, idempotent submission/grading, subject reports and history. Test tampering, concurrency, expired attempts, and entitlement checks.
-4. **Commerce (development milestone implemented):** product/price administration, authenticated orders, server-side mock payment boundary, atomic fulfillment, entitlements, private-disk artifacts, short-lived downloads, development notification outbox and audit logs. Real signed webhook/refund processing, remote private object storage and actual email delivery remain production integration work. Mock events must never grant production access.
-5. **Launch hardening:** independently checked bank of at least 500 original questions, verified legal/CSC references, 2027 human review, provider sandbox proof, privacy/refund/support review, backups and restore drill, rate limiting, observability, accessibility, load and security tests.
+Acceptance criteria:
 
-Each milestone requires lint, typecheck, relevant tests, production build and a manual review. Later phases are not silently treated as completed by scaffolding tables. Prices, counts and simulated durations are configuration, never official promises.
+- Run automated WCAG A/AA checks on account/security, orders, practice lobby, active attempts, graded results and populated history.
+- Check editorial lessons/questions/chapters, submitted-version review controls, PDF selection controls, product forms and exam-template administration under their real roles.
+- Verify keyboard answer selection, flags, saving, submission and editorial view/answer-choice selection.
+- Keep participant accounts, simulated review and test templates in generated disposable databases; no production fixtures, automatic approvals or product activation.
+- Keep manual screen-reader, zoom/reflow and broader commerce/error-state review explicitly pending. Automated scans are not conformance certification.
 
-Phase 2 implements the editorial/PDF software; it does not complete human review of the curriculum. The full edition content gate remains unmet. See EDITORIAL_OPERATIONS.md for bootstrap and release procedures.
+## Next engineering priorities
 
-Phase 3 implements server-owned reviewed sessions, grade/history reports and entitlement checks. No exam templates are automatically activated, and commerce/gateway fulfillment is still Phase 4. Read EXAM_OPERATIONS.md for access and timing semantics.
+1. Complete the remaining Phase 5F manual and deployed accessibility review, including screen readers, zoom/reflow and conditional payment/download/error states. Local automated coverage is delivered; it is not a conformance claim.
+2. Implement and deploy durable private artifact storage and the separate browser/PDF worker needed by Phase 2/4. Preserve checksums, entitlement checks, immutable manifests, private delivery and recovery evidence. Default Vercel disk is insufficient.
+3. Complete authorized SMTP sender/worker deployment and real verification/recovery delivery checks. An email address alone does not authorize sending.
+4. Verify the current PayMongo Checkout contract and merchant sandbox, including authentic GCash events, retries, reconciliation and refunds. Local fixtures are not merchant proof. Live checkout needs a separate reviewed implementation/release.
+5. Extend production-like capacity, authenticated security and recovery exercises, then configure external monitoring/alerts and verify the deployed configuration.
 
-Phase 4 supplies server-priced mock checkout, idempotent transactional fulfillment, purchase entitlements, admin order/access controls, owner-bound short-lived downloads and a development notification outbox. A real signed payment/refund adapter, actual mail delivery and remote storage remain explicit integration work; no production gateway is claimed. See COMMERCE_OPERATIONS.md.
+Content and operator work proceeds alongside these engineering tasks: finish the curriculum; independently review at least 500 original questions; check official 2027 sources and legal/historical/Filipino material; finalize privacy/refund/support information and monitored contacts. No software job may manufacture those attestations.
 
-Phase 5A adds email verification, password recovery with session-generation invalidation, an encrypted mail queue, a Node SMTP submission worker and eligible purchase notifications. Local SMTP and private file delivery are tested; a real provider remains unconfigured. See ACCOUNT_SECURITY.md. Remaining Phase 5 work includes backups/restore, accessibility/load/security, observability and production integration evidence.
+## Content and learner tools
 
-Phase 5B adds the requested GCash customer method through a sandbox-only PayMongo hosted-checkout adapter, signature/canonical verification, reconciliation and refund access revocation. Local protocol tests are not provider sandbox evidence. Current Checkout API documentation, merchant GCash activation, real sandbox credentials/webhooks and eventual live implementation/release remain pending. Read GCASH_OPERATIONS.md.
+The public catalog contains **15 unapproved teaching drafts** and four manually imported review packs contain **70 draft questions**. The unchanged one-question demo seed is separate. Chapter headings are a provisional 25-area outline, not 25 completed lessons. The existing samples are public-source educational drafts, not confidential/exclusive paid banks.
 
-Phase 5C adds private local Compose database/PDF backups, checksum verification, an isolated restore drill and automated public-page WCAG AA/keyboard checks on desktop and mobile. Production encrypted off-site backups/PITR and recovery rehearsals, authenticated-state accessibility/manual assistive-technology review, load tests and observability remain pending. See BACKUP_OPERATIONS.md and PHASE_5C_REPORT.md.
+- Numerical: five lessons and 20 questions; see [DRAFT_LESSONS.md](DRAFT_LESSONS.md) and [NUMERICAL_IMPORT.md](NUMERICAL_IMPORT.md).
+- English: three lessons and 15 questions; see [ENGLISH_DRAFTS.md](ENGLISH_DRAFTS.md).
+- Paragraphs/reading: two lessons and ten questions; see [READING_DRAFTS.md](READING_DRAFTS.md).
+- Professional reasoning/data and Subprofessional clerical: five lessons and 25 questions; see [TRACK_DRAFTS.md](TRACK_DRAFTS.md).
+- Personal study planner: track-specific routines, optional browser-only progress and printing; see [STUDY_PLANNER.md](STUDY_PLANNER.md). This creates neither exam results nor additional approved content.
 
-Phase 5D adds uncached uptime/readiness separation, bounded diagnostic database connections, generated API request references, private structured completion/error logs and bounded local read/rejected-mutation load checks. Missing/unreachable database checks preserve honest readiness reporting for Vercel demo hosting. External monitoring/alerts, sustained production-like load, authenticated capacity/security review and the remaining content/provider/storage launch gates remain pending. See OPERATIONS_MONITORING.md and PHASE_5D_REPORT.md.
+All import jobs preserve existing records and create only drafts under a current ADMIN identity. Publication, independently checked versions, paid editions and exam activation remain separate controlled operations.
 
-Phase 5E expands numerical teaching previews to five lessons with a public library/reader and a 20-question original DRAFT review pack. It adds cross-bank content checks, numerical answer checks and a lifecycle-free editorial export. Real database seeds, approvals and exam/product activation remain unchanged. The complete curriculum, 500 independently reviewed questions, legal/source checks and provider/infrastructure evidence remain pending. See DRAFT_LESSONS.md and PHASE_5E_REPORT.md.
+## Delivered hardening and operational references
+
+- **5A — Account verification/recovery:** hashed single-use credentials, session revocation, encrypted mail queue and strict-TLS SMTP adapter. Real provider authorization/delivery remains pending. [ACCOUNT_SECURITY.md](ACCOUNT_SECURITY.md).
+- **5B — GCash sandbox software:** canonical payment/signature verification, reconciliation, idempotency and refund access handling. Production and live keys remain blocked. [GCASH_OPERATIONS.md](GCASH_OPERATIONS.md).
+- **5C — Local recovery and public accessibility:** private local backups, isolated restore tests and public-page/keyboard scans. Hosted encrypted backups/PITR, real-file recovery and manual assistive-technology review remain pending. [PHASE_5C_REPORT.md](PHASE_5C_REPORT.md), [BACKUP_OPERATIONS.md](BACKUP_OPERATIONS.md).
+- **5D — Operational diagnostics:** redacted request references/logs, separate uptime/connectivity probes and isolated short load checks. External alerting and production capacity proof remain pending. [PHASE_5D_REPORT.md](PHASE_5D_REPORT.md), [OPERATIONS_MONITORING.md](OPERATIONS_MONITORING.md).
+- **5E — Draft content tools:** source checks, public readers and manual unapproved import packs. These do not satisfy human review or the 500-question gate. [PHASE_5E_REPORT.md](PHASE_5E_REPORT.md) and the expansion documents above.
+- **Hosted setup:** [SUPABASE_SETUP.md](SUPABASE_SETUP.md), [ADMIN_SETUP.md](ADMIN_SETUP.md), [DEPLOYMENT.md](DEPLOYMENT.md). Builds never migrate, seed, create staff or activate products.
+
+## Definition of a completed milestone
+
+Run lint, type checking, relevant unit/content/database checks, production build and the applicable isolated browser/security suites. State what was verified and which external or manual work remains. Never describe simulated approvals, placeholder configurations or local provider fixtures as real-world release evidence. Prices, counts, durations and study schedules are practice configuration, not official CSC promises.

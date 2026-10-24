@@ -79,6 +79,7 @@ To run the production server locally: `npm run build`, then `npm start`. Develop
 - [docs/READING_DRAFTS.md](docs/READING_DRAFTS.md): paragraph organization, reading comprehension and ten additional draft questions.
 - [docs/TRACK_DRAFTS.md](docs/TRACK_DRAFTS.md): Professional reasoning/data and Subprofessional clerical drafts with a separate manual import job.
 - [docs/STUDY_PLANNER.md](docs/STUDY_PLANNER.md): personal 30-day schedules, optional browser progress and printable plans.
+- [docs/PHASE_5F_REPORT.md](docs/PHASE_5F_REPORT.md): authenticated accessibility, keyboard focus fixes and remaining manual review.
 - `docs/BACKUP_OPERATIONS.md`: local backups, isolated restore verification and recovery limitations.
 - `docs/OPERATIONS_MONITORING.md`: uptime/readiness, private request diagnostics and bounded local load tests.
 

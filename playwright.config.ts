@@ -2,7 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
-  testIgnore: /(?:commerce|account-recovery|gcash|load|readiness-unavailable|operator-draft-import)\.spec\.ts/,
+  testIgnore: /(?:commerce|account-recovery|gcash|load|readiness-unavailable|operator-draft-import|authenticated-accessibility)\.spec\.ts/,
   retries: 0,
   use: {
     baseURL: "http://127.0.0.1:3100",
@@ -21,6 +21,7 @@ export default defineConfig({
         /database-policy\.spec\.ts/,
         /operator-account\.spec\.ts/,
         /operator-draft-import\.spec\.ts/,
+        /authenticated-accessibility\.spec\.ts/,
         /(?:commerce|account-recovery|gcash|load|readiness-unavailable)\.spec\.ts/,
       ],
       use: { ...devices["iPhone 13"], defaultBrowserType: "chromium" },

@@ -185,6 +185,7 @@ export default function EditorialStudio({
           <button
             className={`button ${kind === k ? "" : "button-light"}`}
             key={k}
+            aria-pressed={kind === k}
             onClick={() => {
               setKind(k);
               setSelected(null);
@@ -381,6 +382,8 @@ export default function EditorialStudio({
                       ))}
                     </select>
                   </label>
+                  <fieldset>
+                    <legend>Answer choices and correct answer</legend>
                   {question.choices.map((choice, i) => (
                     <div className="choice-editor" key={choice.label}>
                       <label>
@@ -413,10 +416,11 @@ export default function EditorialStudio({
                             })
                           }
                         />{" "}
-                        Correct answer
+                        Correct answer: {choice.label}
                       </label>
                     </div>
                   ))}
+                  </fieldset>
                   <label>
                     Answer rationale
                     <textarea

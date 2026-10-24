@@ -38,7 +38,8 @@
     "build:check": "node scripts/check-build-traces.mjs",
     "db:check-schema": "tsx scripts/check-schema.ts",
     "content:import-drafts": "node --conditions=react-server --import tsx scripts/import-numerical-drafts.ts",
-    "test:content-import": "node scripts/e2e.mjs --config playwright.operator-import.config.ts"
+    "test:content-import": "node scripts/e2e.mjs --config playwright.operator-import.config.ts",
+    "test:a11y:authenticated": "node scripts/e2e.mjs --config playwright.auth-a11y.config.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",
