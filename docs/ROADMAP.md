@@ -2,6 +2,8 @@
 
 Supabase deployment preparation adds a manual GitHub Actions migration workflow, separate migration/runtime connection configuration and private-table RLS. Hosted database migration, Vercel secret configuration and customer readiness are not implied by these repository changes. See SUPABASE_SETUP.md.
 
+The operator draft-import job can deliberately populate provisional chapter headings, five numerical teaching drafts and 20 existing sample questions under a current ADMIN identity. It preserves existing keys, uses the editorial creation service and never creates reviews or releases. See NUMERICAL_IMPORT.md. Preparing the job does not mean the hosted import has run.
+
 1. **Foundation (complete):** Next.js App Router, TypeScript, Tailwind, responsive public shell, curriculum browsing, Markdown sample lesson, interactive ungraded exercise, PostgreSQL/Prisma schema and migration, idempotent draft seed, validation and setup docs. No user accounts or purchases.
 2. **Editorial and PDF (implemented):** secure authentication and role checks; chapter/question CRUD; validated import/export; independent reviewer approval; publication state machine; Playwright PDF worker; cover, linked contents, print layout, headers, footers, preview and private full editions. Validate PDF searchability, links, layout and access boundaries.
 3. **Exam engine (implemented):** server-owned attempts, snapshot question versions, strip correct answers, persisted responses, deadline enforcement, idempotent submission/grading, subject reports and history. Test tampering, concurrency, expired attempts, and entitlement checks.

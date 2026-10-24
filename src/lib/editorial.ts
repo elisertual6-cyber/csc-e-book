@@ -135,7 +135,8 @@ export async function audit(
     data: { actorId: actor?.id ?? null, action, targetId, metadata },
   });
 }
-async function createContent(
+// Operator imports share the same validation, author and audit rules as the API.
+export async function createContent(
   tx: Prisma.TransactionClient,
   actor: Actor,
   kind: ContentKind,

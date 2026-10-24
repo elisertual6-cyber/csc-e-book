@@ -12,6 +12,8 @@ This repository is public, so the sample pack's source and answer keys are publi
 
 ## Validate and prepare an editorial import
 
+For a deliberate hosted import of chapter headings, lesson drafts and the 20-question pack under your ADMIN identity, follow [NUMERICAL_IMPORT.md](NUMERICAL_IMPORT.md). Its manual job is separate from migrations and seeds; it preserves all existing keys and never creates reviews or publications.
+
 ```sh
 npm run content:check
 npm run content:export

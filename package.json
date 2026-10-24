@@ -36,7 +36,9 @@
     "test:readiness": "node scripts/e2e.mjs --config playwright.readiness.config.ts",
     "content:export": "tsx scripts/export-draft-pack.ts",
     "build:check": "node scripts/check-build-traces.mjs",
-    "db:check-schema": "tsx scripts/check-schema.ts"
+    "db:check-schema": "tsx scripts/check-schema.ts",
+    "content:import-drafts": "node --conditions=react-server --import tsx scripts/import-numerical-drafts.ts",
+    "test:content-import": "node scripts/e2e.mjs --config playwright.operator-import.config.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",
