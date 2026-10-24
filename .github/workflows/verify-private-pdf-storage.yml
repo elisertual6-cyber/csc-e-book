@@ -1,0 +1,29 @@
+name: Verify private PDF storage
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pdf-storage-verification-main
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Verify synthetic private upload, integrity, anonymous denial and cleanup
+        env:
+          PDF_STORAGE: supabase
+          PDF_SUPABASE_URL: ${{ secrets.PDF_SUPABASE_URL }}
+          PDF_SUPABASE_BUCKET: ${{ secrets.PDF_SUPABASE_BUCKET }}
+          PDF_SUPABASE_SERVICE_KEY: ${{ secrets.PDF_SUPABASE_SERVICE_KEY }}
+        run: npm run pdf:storage:check -- --apply

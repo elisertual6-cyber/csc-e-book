@@ -107,3 +107,36 @@ export async function removePrivatePdf(value: string) {
   });
   if (!response.ok) throw unavailable();
 }
+
+// Operator diagnostics only: no credential is attached to either denial probe.
+export async function checkAnonymousPdfDenial(value: string) {
+  const { remote, name } = reference(value);
+  if (!remote) throw unavailable();
+  const { url, bucket } = remoteConfig();
+  for (const endpoint of ["public", "authenticated"]) {
+    let response: Response;
+    try {
+      response = await fetch(`${url}/storage/v1/object/${endpoint}/${bucket}/${name}`, {
+        redirect: "error", cache: "no-store", signal: AbortSignal.timeout(20_000),
+      });
+    } catch { throw unavailable(); }
+    await response.body?.cancel().catch(() => {});
+    // Network errors and provider outages must not count as access denial.
+    if (![400, 401, 403, 404].includes(response.status)) throw unavailable();
+  }
+}
+
+export async function confirmPrivatePdfRemoved(value: string) {
+  const { remote, name } = reference(value);
+  if (!remote) throw unavailable();
+  const bucket = await privateBucket();
+  const response = await remoteRequest(`object/authenticated/${bucket}/${name}`);
+  if (response.status === 404) { await response.body?.cancel(); return; }
+  // Storage may wrap a not-found error in HTTP 400. No other failure proves removal.
+  if (response.status === 400) {
+    let data;
+    try { data = await response.json(); } catch { throw unavailable(); }
+    if (String(data?.statusCode) === "404") return;
+  } else await response.body?.cancel().catch(() => {});
+  throw unavailable();
+}

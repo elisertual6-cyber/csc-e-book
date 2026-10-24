@@ -32,6 +32,20 @@ Choose exact lesson/question version IDs from the staff workspace and submit a j
 
 Workflow inputs are visible in workflow history: include only version IDs/title/version, never content or credentials. The workflow permits DRAFT only. Choose a clear version label for each proof; repeating a job creates another edition rather than overwriting its bytes. On success, open `/admin`, refresh the PDF workspace and open the private proof. Anonymous and customer requests must remain denied. The application generation button on Vercel returns an explicit separate-worker requirement; it does not pretend to queue a job.
 
+## Verify the hosted bucket before rendering
+
+After saving the three repository secrets above, open GitHub **Actions → Verify private PDF storage → Run workflow**, choose `main`, and run it. This workflow needs no database connection, staff password or Chromium. It creates one synthetic private PDF, checks authenticated byte integrity and credential-free denial on both public/authenticated object endpoints, deletes only that temporary object, then confirms object-not-found through authenticated storage. It does not create editions, import content, publish files or activate products.
+
+A green run emits only fixed check names/statuses. Provider outages, redirects, successful anonymous responses, corrupted bytes and failed cleanup make the job fail. Failures report a safe stage (`configuration`, `upload`, `integrity`, `anonymous-denial`, `cleanup`); they never print response bodies, object keys or secrets. If cleanup fails, inspect recent objects privately and remove only the synthetic probe after identifying it; never bulk-delete editions. An ambiguous failed upload can also leave a probe object requiring operator reconciliation.
+
+Equivalent trusted-host command:
+
+```bash
+npm run pdf:storage:check -- --apply
+```
+
+The explicit flag is required because this diagnostic temporarily writes to remote storage. It rejects local/disk mode. A passing run verifies only that configured bucket and service credential at that time. It does not verify logged-in customer RLS policies, application roles/entitlements, Vercel settings, backup restoration or paid delivery. Keep those separate rollout gates pending. After this check passes, run **Render private PDF draft** with real selected version IDs and verify staff-only application retrieval as described above.
+
 ## Worker command
 
 On a trusted Node 24 host with installed Playwright Chromium, use a private JSON job file:
