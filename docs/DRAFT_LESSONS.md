@@ -1,5 +1,7 @@
 # Numerical lesson previews and editorial pack
 
+The current catalog also includes paragraph organization and reading comprehension, for ten public teaching drafts and three review packs totaling 45 questions. See [READING_DRAFTS.md](READING_DRAFTS.md). The numerical job still imports only its original five lessons and 20 questions.
+
 The subsequent English expansion adds three more public drafts and a separate 15-question pack. The library now has eight teaching drafts; the numerical pack and its five-lesson import scope remain unchanged. See [ENGLISH_DRAFTS.md](ENGLISH_DRAFTS.md) for the additional content and manual import job.
 
 The public library at `/lessons` contains five original teaching drafts: arithmetic; fractions/decimals/percentages; ratios/averages/proportions; sequences; and word-problem modelling. `/lessons/<catalog-slug>` renders the corresponding Markdown lesson with objectives, explanation, worked example, paper practice, rationale and reflection. The curriculum links to available lessons for both tracks. Each page explicitly labels the material unapproved and ungraded; worked solutions are included for learning. The existing `/preview` arithmetic/PDF-availability page remains available.

@@ -82,5 +82,23 @@ test("operator draft import requires ADMIN, rolls back conflicts, preserves exis
     expect(await db.question.count({ where: { status: { not: "DRAFT" } } })).toBe(0);
     expect(await db.lesson.findUniqueOrThrow({ where: { id: before.id } })).toEqual(before);
     expect(await db.auditEvent.count({ where: { actorId: admin.id, action: "operator.language-drafts.import" } })).toBe(2);
+    expect(run(customerEmail, true, "reading").status).toBe(1);
+    const reading = run(identity, true, "reading");
+    expect(reading.status).toBe(0);
+    expect(reading.stdout).toContain("0 chapters, 2 lessons and 10 questions created");
+    expect(await db.lesson.count()).toBe(10);
+    expect(await db.question.count()).toBe(46);
+    expect(await db.question.count({ where: { authorId: admin.id, status: "DRAFT" } })).toBe(45);
+    const readingRepeat = run(identity, true, "reading");
+    expect(readingRepeat.status).toBe(0);
+    expect(readingRepeat.stdout).toContain("0 chapters, 0 lessons and 0 questions created");
+    expect(await db.review.count()).toBe(0);
+    expect(await db.lesson.count({ where: { status: { not: "DRAFT" } } })).toBe(0);
+    expect(await db.question.count({ where: { status: { not: "DRAFT" } } })).toBe(0);
+    expect(await db.lesson.findUniqueOrThrow({ where: { id: before.id } })).toEqual(before);
+    expect((await db.question.findUniqueOrThrow({ where: { id: imported.id } })).prompt).toContain("Preserve this operator edit.");
+    expect(await db.product.count({ where: { active: true } })).toBe(0);
+    expect(await db.examTemplate.count()).toBe(0);
+    expect(await db.auditEvent.count({ where: { actorId: admin.id, action: "operator.reading-drafts.import" } })).toBe(2);
   } finally { await db.$disconnect(); }
 });

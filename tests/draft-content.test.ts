@@ -3,12 +3,24 @@ import { readFileSync } from "node:fs";
 import pack from "../content/editorial/numerical-foundations.json";
 import seed from "../content/questions.json";
 import english from "../content/editorial/english-foundations.json";
+import reading from "../content/editorial/reading-foundations.json";
 import { editorialPacks } from "../src/lib/editorial-packs";
 import { questionImportRows, validateDraftPack } from "../src/lib/draft-pack";
 import { checkLesson, validateBank } from "../src/lib/content-validation";
 import { draftLessons, findDraftLesson } from "../src/lib/lesson-catalog";
 
 describe("original draft teaching content", () => {
+  it("keeps reading questions self-contained, unapproved and unique across all packs", () => {
+    const result = validateDraftPack(reading);
+    expect(result.questions).toHaveLength(10);
+    expect(validateBank([...seed, ...pack.questions, ...english.questions, ...result.questions])).toHaveLength(46);
+    expect(new Set(result.questions.map(q => q.topic))).toEqual(new Set(["paragraphs", "reading"]));
+    for (const q of result.questions) {
+      expect(q.status).toBe("DRAFT");
+      expect(q.sourceNotes).toContain("Independent human correctness/originality review pending");
+      if (q.topic === "reading") expect(q.prompt).toContain("In this invented example");
+    }
+  });
   it("keeps English drafts distinct across packs and resolves every allowlisted lesson", () => {
     const language = validateDraftPack(english);
     expect(language.questions).toHaveLength(15);
@@ -19,10 +31,11 @@ describe("original draft teaching content", () => {
       expect(question.sourceNotes).toContain("Independent human correctness/originality review pending");
     }
     const slugs = Object.values(editorialPacks).flatMap(p => [...p.lessons]);
-    expect(new Set(slugs).size).toBe(8);
+    expect(new Set(slugs).size).toBe(10);
     expect(slugs.every(slug => findDraftLesson(slug))).toBe(true);
     expect(editorialPacks.numerical.lessons).toHaveLength(5);
     expect(editorialPacks.language.lessons).toHaveLength(3);
+    expect(editorialPacks.reading.lessons).toHaveLength(2);
   });
   it("keeps the review pack distinct from seeded items and in draft state", () => {
     const result = validateDraftPack(pack);
@@ -60,7 +73,7 @@ describe("original draft teaching content", () => {
   });
 
   it("keeps lesson files complete and addresses limited to the public catalog", () => {
-    expect(draftLessons).toHaveLength(8);
+    expect(draftLessons).toHaveLength(10);
     expect(new Set(draftLessons.map(l => l.slug)).size).toBe(draftLessons.length);
     for (const lesson of draftLessons) {
       const markdown = readFileSync(`content/lessons/${lesson.slug}.md`, "utf8");

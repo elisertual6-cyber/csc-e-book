@@ -1,5 +1,7 @@
 # English language draft expansion
 
+The subsequent paragraph/reading expansion brings the catalog to ten lessons and the three review packs to 45 questions. Its separate job is documented in [READING_DRAFTS.md](READING_DRAFTS.md); this English job keeps its original three-lesson/15-question scope.
+
 Three original teaching drafts add vocabulary in context, formal English grammar and sentence construction to the public library. Each has objectives, explanation, worked example, paper practice, rationale and reflection. The reader remains ungraded and requires no account. The catalog now has eight lessons: five numerical and three English. These are eight of the 25 provisional chapter areas, not a complete reviewer or verified official coverage.
 
 `content/editorial/english-foundations.json` contains 15 original DRAFT multiple-choice items, five per English topic. Each includes four distinct options, one proposed key, a rationale and specific rule-focus notes. Their correctness, originality, distractor quality, language and external references still need independent human review. Formal edited English is the target convention, not a claim that all dialects follow one rule. Grammar/context checks do not establish official examination content.

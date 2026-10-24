@@ -8,6 +8,8 @@ export const draftLessons = [
   { slug: "vocabulary", title: "Let the sentence guide the meaning", summary: "Use definitions, examples and contrasts to infer a word's meaning in context." },
   { slug: "grammar", title: "Find the subject before choosing the verb", summary: "Check agreement, time clues, count nouns and sentence completeness in formal English." },
   { slug: "sentences", title: "Connect ideas without losing the structure", summary: "Choose clear connectors, parallel forms and well-joined clauses." },
+  { slug: "paragraphs", title: "Give each sentence a clear place", summary: "Follow controlling ideas, action sequences and references to organize a paragraph." },
+  { slug: "reading", title: "Support the answer with the passage", summary: "Separate stated details from inferences and preserve the passage's limits." },
 ] as const;
 
 export function findDraftLesson(slug: string) {

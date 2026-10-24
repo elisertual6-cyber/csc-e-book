@@ -1,0 +1,338 @@
+{
+  "title": "Paragraph and reading foundations — original editorial drafts",
+  "version": 1,
+  "status": "DRAFT",
+  "reviewStatus": "PENDING_INDEPENDENT_REVIEW",
+  "questions": [
+    {
+      "key": "reading-seed-sequence",
+      "prompt": "Arrange these planting instructions in the order indicated by their time markers and action dependencies: A. Finally, place the planted pot in a suitable bright location. B. First, fill the pot with soil. C. Next, put the seed into the soil and cover it lightly. D. Then, water the planted soil gently.",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Time markers and action dependencies. Independent human correctness/originality review pending. Not an official CSC item; reference and distractor review pending.",
+      "explanation": "B supplies the soil before C places the seed into it. D waters the planted soil after C. A explicitly marks the final step. Both the time markers and references to planted soil support B–C–D–A.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "B–C–D–A",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "C–B–A–D",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "A–D–B–C",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "D–A–C–B",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "reading-controlling-idea",
+      "prompt": "A fictional sorting station has clearly labeled bins, posters explaining what belongs in each bin, and staff who answer sorting questions. Which topic sentence best covers these details without adding an unsupported result?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Controlling idea within the evidence supplied. Independent human correctness/originality review pending. Not an official CSC item; reference and distractor review pending.",
+      "explanation": "The bins, posters and staff all provide guidance, so the second option covers the given details. The passage does not establish perfect behavior or nationwide results, and staff contradict the claim that posters are the only information source.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Every visitor always sorts every item correctly.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The station provides several forms of sorting guidance.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "The station has reduced waste throughout the entire country.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Posters are the only source of information at the station.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "reading-irrelevant-detail",
+      "prompt": "A paragraph explains how to protect a book during packing: use a firm box, fill gaps around the book, and close the box securely. Which additional sentence is unrelated to that packing purpose?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Relevance to a stated paragraph purpose. Independent human correctness/originality review pending. Not an official CSC item; reference and distractor review pending.",
+      "explanation": "The bus schedule concerns transport timing rather than how to pack and protect the book. The other sentences directly address movement, padding or closure within the packing task.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A loose book can move inside an oversized box.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Padding can separate the book from the box edges.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The town bus departs at six each morning.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "A secure closure helps keep the contents inside the box.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "reading-sign-sequence",
+      "prompt": "Arrange these sentences into the sequence signaled by their wording: A. After a week with the new signs, staff compared requests for directions. B. At first, visitors could not read the small signs easily. C. Next, the team replaced those signs with larger ones. D. Finally, after that comparison, the team decided to retain the larger signs.",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Time sequence and identifiable references. Independent human correctness/originality review pending. Not an official CSC item; reference and distractor review pending.",
+      "explanation": "B describes the initial difficulty. C replaces those small signs. A explicitly occurs after a week with the replacement signs, and D follows that comparison. These references support B–C–A–D.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A–C–B–D",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "C–D–A–B",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "B–D–C–A",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "B–C–A–D",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "reading-supported-conclusion",
+      "prompt": "An invented office trial replaced small signs with larger lettering. Staff then recorded fewer requests for directions during that trial. Which concluding sentence stays within the reported evidence?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Conclusion without exaggerated scope. Independent human correctness/originality review pending. Not an official CSC item; reference and distractor review pending.",
+      "explanation": "The first option summarizes the reported sequence and limited trial result. It does not claim a guarantee, nationwide adoption or permanent elimination of requests. The observation alone also does not rule out other explanations.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The trial reported fewer direction requests after the signs changed.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Larger lettering guarantees that every visitor understands every sign.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "All offices must already have adopted the same lettering.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "No visitor will ever need directions again.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "reading-explicit-day",
+      "prompt": "In this invented example, a help desk recorded morning waiting times during a five-day trial. On Friday it opened a second counter. Staff will compare the five days before deciding whether to keep the second counter. According to the passage, on which day did the additional counter open?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Explicit detail from an invented passage. Independent human correctness/originality review pending. Not an official CSC item; reference and distractor review pending.",
+      "explanation": "Friday is stated explicitly. The passage supplies no opening on the other listed days, so the answer does not require assumptions about the desk's usual schedule.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Monday",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Friday",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Wednesday",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Tuesday",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "reading-comparison-purpose",
+      "prompt": "In this invented example, a help desk recorded morning waiting times during a five-day trial. On Friday it opened a second counter. Staff will compare the five days before deciding whether to keep the second counter. What is the stated purpose of comparing the recorded days?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Stated purpose and decision context. Independent human correctness/originality review pending. Not an official CSC item; reference and distractor review pending.",
+      "explanation": "The passage says staff will compare the days before deciding whether to keep the counter. It neither announces permanence nor proves equal visitor numbers or a plan to cancel service.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "To announce that two counters are already permanent.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "To prove that visitor numbers are identical every day.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "To inform whether to keep the second counter.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "To cancel every morning service.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "reading-evidence-limit",
+      "prompt": "In this invented example, a help desk recorded morning waiting times during a five-day trial. On Friday it opened a second counter. Staff will compare the five days before deciding whether to keep the second counter. Which conclusion best respects the limits of the information provided?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Distinguishing limited evidence from universal causation. Independent human correctness/originality review pending. Not an official CSC item; reference and distractor review pending.",
+      "explanation": "The passage describes recording and comparison but supplies neither measured values nor information controlling other influences. It therefore cannot establish a numerical reduction or a universal causal rule. This does not prove that a second counter is ineffective.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A second counter always eliminates every queue.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "All five days had exactly the same arrival numbers.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The trial proves that Friday staffing caused a particular numerical reduction.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The passage gives no waiting-time values and does not establish a universal causal result.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "reading-reservation-detail",
+      "prompt": "In this invented example, a mobile library will visit three stops during a six-week pilot. Residents may reserve books online or by submitting a paper form at the reading center. The team may extend the pilot if recorded use justifies it. Which reservation option is explicitly available without using the online channel?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Alternative stated directly in the passage. Independent human correctness/originality review pending. Not an official CSC item; reference and distractor review pending.",
+      "explanation": "The passage explicitly offers a paper form at the reading center as an alternative to online reservation. It does not describe a shop-based method, telephone number or requirement to wait until the pilot ends.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Submitting a paper form at the reading center.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Sending an unnamed person to any shop.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Calling a number that is not provided.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Waiting until the pilot has permanently ended.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "reading-conditional-extension",
+      "prompt": "In this invented example, a mobile library will visit three stops during a six-week pilot. Residents may reserve books online or by submitting a paper form at the reading center. The team may extend the pilot if recorded use justifies it. What does the passage say about extending the pilot?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Preserving a modal and an explicit condition. Independent human correctness/originality review pending. Not an official CSC item; reference and distractor review pending.",
+      "explanation": "May extend expresses a possibility, and if recorded use justifies it states a condition. Neither guaranteed continuation nor an already completed extension is asserted; no later removal of paper reservation is stated.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Extension is guaranteed regardless of use.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Extension is possible if recorded use justifies it.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "The pilot has already been extended indefinitely.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Only online reservations will be accepted after the first day.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

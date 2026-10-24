@@ -10,4 +10,9 @@ export const editorialPacks = {
     lessons: ["vocabulary", "grammar", "sentences"],
     source: "public-english-foundations-v1",
   },
+  reading: {
+    file: "reading-foundations.json",
+    lessons: ["paragraphs", "reading"],
+    source: "public-reading-foundations-v1",
+  },
 } as const;

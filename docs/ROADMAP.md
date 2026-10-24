@@ -1,5 +1,7 @@
 # Implementation plan
 
+The paragraph/reading expansion adds two public teaching drafts and a ten-question original DRAFT pack, bringing the catalog to ten lessons and the review packs to 45 questions. Its separate manual reading import preserves existing content and never approves or publishes it. Independent review and the remaining curriculum/launch work are still pending. See READING_DRAFTS.md.
+
 The English draft expansion adds vocabulary, grammar and sentence construction to the public teaching library, plus a separate 15-question original DRAFT pack and manual English import job. Totals are eight public lessons and 35 review-pack questions; human correctness/source review and the broader curriculum remain pending. See ENGLISH_DRAFTS.md. Existing numerical import scope and seeds remain unchanged.
 
 Supabase deployment preparation adds a manual GitHub Actions migration workflow, separate migration/runtime connection configuration and private-table RLS. Hosted database migration, Vercel secret configuration and customer readiness are not implied by these repository changes. See SUPABASE_SETUP.md.
