@@ -1,5 +1,5 @@
 // Loaded only by the disposable recovery test subprocess. No real provider HTTP is permitted.
-if (process.env.RECOVERY_TEST_MODE !== "disposable" || (!process.argv.includes("--restore-archive") && !/^postgresql:\/\/postgres:[a-f0-9]+@127\.0\.0\.1:\d+\/postgres\?sslmode=disable$/.test(process.env.RECOVERY_SOURCE_URL ?? ""))) throw new Error("Disposable recovery fixture required.");
+if (process.env.RECOVERY_TEST_MODE !== "disposable" || (!process.argv.includes("--restore-archive") && !/^postgresql:\/\/(?:postgres|missing_recovery_role):[a-f0-9]+@127\.0\.0\.1:\d+\/postgres\?sslmode=disable$/.test(process.env.RECOVERY_SOURCE_URL ?? ""))) throw new Error("Disposable recovery fixture required.");
 const origin = "https://abcdefghijklmnopqrst.supabase.co";
 const filename = "12345678-1234-1234-1234-123456789abc.pdf";
 const original = Buffer.from("%PDF-synthetic-recovery-proof");

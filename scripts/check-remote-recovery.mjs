@@ -65,6 +65,9 @@ try {
   if (!restoredOutput.includes('"encryptedArchive":"authenticated"')) throw new Error("Saved archive recovery failed.");
   const failedOutput = await run(restoreArgs, { ...env, RECOVERY_SOURCE_URL: "", RECOVERY_TEST_CORRUPT_RESTORE: "true" }, 1);
   if (!failedOutput.includes('"stage":"restore-storage"') || failedOutput.includes("fixture isolation/cleanup check failed")) throw new Error("Corrupted restore was not safely refused/cleaned.");
+  const badSource = new URL(url); badSource.username = "missing_recovery_role"; badSource.password = randomBytes(32).toString("hex");
+  const deniedOutput = await run(["--conditions=react-server", "--import", "./scripts/recovery-test-storage.mjs", "--import", "tsx", "scripts/remote-recovery.ts", "--apply", "--objects-stable"], { ...env, RECOVERY_SOURCE_URL: badSource.toString() }, 1);
+  if (!deniedOutput.includes('"stage":"source-connect"') || !deniedOutput.includes('"reason":"database_authentication"') || deniedOutput.includes(badSource.password) || deniedOutput.includes(badSource.username)) throw new Error("Failed source connection was not safely diagnosed.");
   const after = await client.query('SELECT row_to_json(p) AS value FROM "PdfEdition" p');
   if (JSON.stringify(before.rows) !== JSON.stringify(after.rows)) throw new Error("Source edition records changed.");
   const leftovers = (await client.query("SELECT datname FROM pg_database WHERE datname LIKE 'csc_restore_%'")).rows;

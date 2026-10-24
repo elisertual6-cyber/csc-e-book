@@ -11,3 +11,5 @@ Validation covers 80 unit tests, including authenticated archive round trips, ra
 Read [REMOTE_RECOVERY.md](REMOTE_RECOVERY.md) for secure key setup, workflow operation, size/retention limits and remaining hosted/release evidence.
 
 Final checks passed: lint, type checking, all 80 unit tests, content validation, the disposable capture/saved-archive/corruption recovery integration, and production build with all 48 trace manifests verified. Backup tooling changed no UI, application API or database schema; hosted execution remains pending.
+
+Hosted diagnostic follow-up: the first hosted run failed at the old source-snapshot stage. Added granular source substeps and allowlisted failure categories, preserving raw-error/credential redaction and existing TLS verification. Local validation includes 90 passing unit tests and an actual rejected source login against the generated test database, checking the safe reason and absence of credentials/identity in output, alongside all prior snapshot/restore/cleanup checks. Hosted root cause and successful recovery remain unverified until a new run supplies diagnostics.

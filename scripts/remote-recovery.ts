@@ -5,6 +5,7 @@ import { spawnSync } from "node:child_process";
 import { mkdir, readFile, readdir, writeFile, lstat } from "node:fs/promises";
 import path from "node:path";
 import { readPrivatePdf } from "../src/lib/pdf-storage";
+import { recoveryFailureReason } from "../src/lib/recovery-errors";
 import { canonical, recoveryHash, recoveryPayload, recoveryTables, sealRecoveryBundle, openRecoveryBundle, type RecoveryBundle } from "../src/lib/recovery-bundle";
 
 // Explicit hosted SOURCE reads; all database restores use a disposable Docker container.
@@ -74,14 +75,17 @@ async function capture(): Promise<RecoveryBundle> {
   clean.searchParams.set("sslmode", sslmode);
   source = new Client({ connectionString: clean.toString(), connectionTimeoutMillis: 15_000, query_timeout: 120_000 });
   source.on("error", () => { /* Later queries fail safely; never log source errors. */ });
-  stage = "source-snapshot";
+  stage = "source-connect";
   await source.connect();
+  stage = "source-transaction";
   await source.query("BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY");
   await source.query("SET LOCAL TIME ZONE 'UTC'");
+  stage = "source-export-snapshot";
   const exported = (await source.query("SELECT pg_export_snapshot() AS id, transaction_timestamp() AS captured")).rows[0];
   const snapshot = exported.id as string;
   const capturedAt = (exported.captured as Date).toISOString();
   if (!/^[a-f0-9-]+$/i.test(snapshot)) throw new Error("Invalid exported snapshot.");
+  stage = "source-read-records";
   const counts = {} as RecoveryBundle["counts"];
   for (const table of recoveryTables) counts[table] = Number((await source.query(`SELECT count(*) AS count FROM public."${table}"`)).rows[0].count);
   if (!counts.PdfEdition || counts.PdfEdition > 100) throw new Error("A nonempty bounded PDF set is required.");
@@ -158,6 +162,7 @@ async function cleanup() {
   if (failed) throw new Error("Generated recovery resources require private operator cleanup.");
 }
 async function main() {
+  let reason = "unknown";
   let failure: string | undefined, result: Awaited<ReturnType<typeof restore>> | undefined;
   try {
     const args = process.argv.slice(2);
@@ -196,10 +201,10 @@ async function main() {
     const recovered = openRecoveryBundle(archive, process.env.BACKUP_ENCRYPTION_KEY!);
     if (recovered.revision !== process.env.RECOVERY_REVISION) throw new Error("Restore requires the backup's trusted source revision.");
     result = await restore(recovered);
-  } catch { failure = stage; }
-  finally { try { await cleanup(); } catch { failure = "cleanup"; } }
+  } catch (error) { failure = stage; reason = recoveryFailureReason(error); }
+  finally { try { await cleanup(); } catch { failure = "cleanup"; reason = "cleanup_failed"; } }
   if (failure) {
-    console.error(JSON.stringify({ recovery: "failed", stage: failure, recoveryId: id }));
+    console.error(JSON.stringify({ recovery: "failed", stage: failure, reason, recoveryId: id }));
     process.exitCode = 1;
   } else console.log(JSON.stringify({ recovery: "verified", recoveryId: id, ...result, encryptedArchive: archiveCreated ? "created" : "authenticated", isolatedResources: "removed", durationMs: Date.now() - started }));
 }
