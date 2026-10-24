@@ -1,0 +1,37 @@
+name: Create administrator account
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: database-migrations-main
+  cancel-in-progress: false
+jobs:
+  create-admin:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Check schema and create administrator without overwriting accounts
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_MIGRATION_URL }}
+          ADMIN_EMAIL: ${{ secrets.ADMIN_BOOTSTRAP_EMAIL }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_BOOTSTRAP_PASSWORD }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$DATABASE_URL" || -z "$ADMIN_EMAIL" || -z "$ADMIN_PASSWORD" ]]; then
+            echo "Save DATABASE_MIGRATION_URL, ADMIN_BOOTSTRAP_EMAIL and ADMIN_BOOTSTRAP_PASSWORD as repository Actions secrets first."
+            exit 1
+          fi
+          npm run db:check-schema
+          printf '%s' "$ADMIN_PASSWORD" | node node_modules/tsx/dist/cli.mjs scripts/create-user.ts --email "$ADMIN_EMAIL" --role ADMIN

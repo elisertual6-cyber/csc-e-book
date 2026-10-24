@@ -4,6 +4,8 @@ Phase 2 implements local password authentication, an editorial review workflow a
 
 ## Start and bootstrap staff
 
+For the hosted Supabase/Vercel installation, use the manual secret-backed job in [ADMIN_SETUP.md](ADMIN_SETUP.md). It calls the same account CLI described below and does not open public registration or overwrite existing identities.
+
 Use Node 24 in /workspace/csc-e-book. Run npm ci, npm run local:env, npm run db:up, npm run db:migrate, npm run db:seed and npm run dev. APP_URL must equal the exact trusted browser origin (scheme, host and port); its local default is http://localhost:3000. Production requires HTTPS. Authenticated JSON mutations reject any other Origin and require the browser client's X-CSC-Action header. Do not weaken this check to accommodate a misconfigured host.
 
 Public registration creates CUSTOMER accounts only. It defaults to enabled in development and disabled in production. REGISTRATION_ENABLED can override that default; enable production registration only after operator/privacy/recovery readiness. Staff roles can only be set by an operator with local database access, never via public registration.

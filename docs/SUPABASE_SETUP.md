@@ -38,6 +38,8 @@ Use a separate test database or Supabase branch for Preview deployments. Do not 
 
 ## Private tables and authentication
 
+After migration and runtime connectivity are confirmed, follow [ADMIN_SETUP.md](ADMIN_SETUP.md) to create the operator account using a separate manual workflow. A successful health check does not create an account.
+
 This application uses its existing server-side authentication and Prisma authorization. No Supabase browser SDK or Supabase Auth migration is needed. The eighth migration enables row-level security and revokes PUBLIC, anon and authenticated grants on the app tables and migration ledger. It creates no browser-access policies. The server's table-owner connection retains access. A future dedicated non-owner runtime role needs explicitly reviewed grants and RLS policies; do not solve access errors by granting browser roles access to private records. New application tables must receive equivalent protection in their own migration.
 
 Paid files, PDF/mail workers, real SMTP and PayMongo merchant sandbox verification still need separate deployment work. GCash remains disabled in production. Creating the tables does not complete the content review or commerce launch gates.

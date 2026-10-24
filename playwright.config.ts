@@ -19,6 +19,7 @@ export default defineConfig({
         /phase[23]\.spec\.ts/,
         /editorial-drafts\.spec\.ts/,
         /database-policy\.spec\.ts/,
+        /operator-account\.spec\.ts/,
         /(?:commerce|account-recovery|gcash|load|readiness-unavailable)\.spec\.ts/,
       ],
       use: { ...devices["iPhone 13"], defaultBrowserType: "chromium" },

@@ -73,6 +73,7 @@ To run the production server locally: `npm run build`, then `npm start`. Develop
 - `docs/CONTENT_STANDARDS.md`, `docs/CSC_VERIFICATION.md`: editorial gates and unverified source register.
 - `docs/DEPLOYMENT.md`: release, backup and production prerequisites.
 - [docs/SUPABASE_SETUP.md](docs/SUPABASE_SETUP.md): private connection configuration and the manual GitHub migration workflow.
+- [docs/ADMIN_SETUP.md](docs/ADMIN_SETUP.md): manual administrator creation using private repository secrets.
 - `docs/BACKUP_OPERATIONS.md`: local backups, isolated restore verification and recovery limitations.
 - `docs/OPERATIONS_MONITORING.md`: uptime/readiness, private request diagnostics and bounded local load tests.
 
