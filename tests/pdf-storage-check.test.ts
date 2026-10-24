@@ -3,7 +3,7 @@ vi.mock("server-only", () => ({}));
 import { checkPrivatePdfStorage } from "../src/lib/pdf-storage-check";
 const probe = Buffer.from("%PDF-synthetic-fixture");
 const origin = "https://abcdefghijklmnopqrst.supabase.co";
-function fixture(options: { publicStatus?: number; corrupt?: boolean; deleteFails?: boolean; stillExists?: boolean; wrapped404?: boolean; missingStatus?: number } = {}) {
+function fixture(options: { publicStatus?: number; corrupt?: boolean; deleteFails?: boolean; stillExists?: boolean; wrapped404?: boolean; missingStatus?: number; staleCache?: boolean } = {}) {
   vi.stubEnv("PDF_STORAGE", "supabase");
   vi.stubEnv("PDF_SUPABASE_URL", origin);
   vi.stubEnv("PDF_SUPABASE_BUCKET", "private-editions");
@@ -20,6 +20,8 @@ function fixture(options: { publicStatus?: number; corrupt?: boolean; deleteFail
     const headers = init.headers as Record<string, string> | undefined;
     if (!headers?.Authorization) return new Response(null, { status: options.publicStatus ?? 400 });
     if (!object) {
+      if (options.staleCache && !new URL(url).searchParams.has("cacheNonce"))
+        return new Response(new Uint8Array(probe));
       if (options.wrapped404) return Response.json({ statusCode: "404" }, { status: 400 });
       return new Response(null, { status: options.missingStatus ?? 404 });
     }
@@ -58,6 +60,12 @@ describe("private storage rollout check", () => {
   it("recognizes a provider's wrapped object-not-found response", async () => {
     fixture({ wrapped404: true });
     await expect(checkPrivatePdfStorage(probe)).resolves.toHaveProperty("cleanup", "ok");
+  });
+  it("bypasses cached integrity bytes when confirming deletion", async () => {
+    const fetcher = fixture({ staleCache: true });
+    await expect(checkPrivatePdfStorage(probe)).resolves.toHaveProperty("cleanup", "ok");
+    const confirmation = new URL(fetcher.mock.calls.at(-1)![0]);
+    expect(confirmation.searchParams.get("cacheNonce")).toMatch(/^[a-f0-9-]{36}$/);
   });
   it("refuses local mode without network or file writes", async () => {
     const fetcher = fixture(); vi.stubEnv("PDF_STORAGE", "disk");

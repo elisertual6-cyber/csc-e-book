@@ -1,6 +1,7 @@
 import "server-only";
 import { mkdir, readFile, writeFile, unlink } from "node:fs/promises";
 import path from "node:path";
+import { randomUUID } from "node:crypto";
 import { HttpError } from "./http";
 
 const MAX_BYTES = 32 * 1024 * 1024;
@@ -130,7 +131,9 @@ export async function confirmPrivatePdfRemoved(value: string) {
   const { remote, name } = reference(value);
   if (!remote) throw unavailable();
   const bucket = await privateBucket();
-  const response = await remoteRequest(`object/authenticated/${bucket}/${name}`);
+  // A prior integrity read can remain cached at the CDN after deletion.
+  // Supabase cacheNonce forces this confirmation to fetch from the origin.
+  const response = await remoteRequest(`object/authenticated/${bucket}/${name}?cacheNonce=${randomUUID()}`);
   if (response.status === 404) { await response.body?.cancel(); return; }
   // Storage may wrap a not-found error in HTTP 400. No other failure proves removal.
   if (response.status === 400) {
