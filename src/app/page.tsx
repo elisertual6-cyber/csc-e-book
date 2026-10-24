@@ -173,7 +173,7 @@ export default function Home() {
           <div className="eyebrow">TRY A SMALL STEP TODAY</div>
           <h2>Good preparation starts with understanding.</h2>
           <p>
-            Explore {draftLessons.length} original draft lessons on English language and numerical skills. No account needed.
+            Explore {draftLessons.length} original draft lessons on language, numerical, reasoning and clerical skills. No account needed.
           </p>
         </div>
         <Link className="button button-light" href="/lessons">

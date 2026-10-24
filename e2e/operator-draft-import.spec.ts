@@ -100,5 +100,24 @@ test("operator draft import requires ADMIN, rolls back conflicts, preserves exis
     expect(await db.product.count({ where: { active: true } })).toBe(0);
     expect(await db.examTemplate.count()).toBe(0);
     expect(await db.auditEvent.count({ where: { actorId: admin.id, action: "operator.reading-drafts.import" } })).toBe(2);
+    expect(run(customerEmail, true, "tracks").status).toBe(1);
+    const tracks = run(identity, true, "tracks");
+    expect(tracks.status).toBe(0);
+    expect(tracks.stdout).toContain("0 chapters, 5 lessons and 25 questions created");
+    expect(await db.lesson.count()).toBe(15);
+    expect(await db.question.count()).toBe(71);
+    expect(await db.question.count({ where: { authorId: admin.id, status: "DRAFT" } })).toBe(70);
+    expect(await db.question.count({ where: { level: "PROFESSIONAL" } })).toBe(15);
+    expect(await db.question.count({ where: { level: "SUBPROFESSIONAL" } })).toBe(10);
+    const tracksRepeat = run(identity, true, "tracks");
+    expect(tracksRepeat.status).toBe(0);
+    expect(tracksRepeat.stdout).toContain("0 chapters, 0 lessons and 0 questions created");
+    expect(await db.review.count()).toBe(0);
+    expect(await db.question.count({ where: { status: { not: "DRAFT" } } })).toBe(0);
+    expect(await db.lesson.count({ where: { status: { not: "DRAFT" } } })).toBe(0);
+    expect(await db.lesson.findUniqueOrThrow({ where: { id: before.id } })).toEqual(before);
+    expect(await db.product.count({ where: { active: true } })).toBe(0);
+    expect(await db.examTemplate.count()).toBe(0);
+    expect(await db.auditEvent.count({ where: { actorId: admin.id, action: "operator.tracks-drafts.import" } })).toBe(2);
   } finally { await db.$disconnect(); }
 });

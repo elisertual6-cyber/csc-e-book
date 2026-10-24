@@ -1,5 +1,7 @@
 # Implementation plan
 
+The track expansion adds three Professional reasoning/data lessons, two Subprofessional clerical lessons and 25 unapproved questions, with explicit track labels and a separate manual import. Totals are 15 public lesson drafts and 70 review-pack questions. Official scope, independent review and the remaining launch gates stay pending. See TRACK_DRAFTS.md.
+
 The paragraph/reading expansion adds two public teaching drafts and a ten-question original DRAFT pack, bringing the catalog to ten lessons and the review packs to 45 questions. Its separate manual reading import preserves existing content and never approves or publishes it. Independent review and the remaining curriculum/launch work are still pending. See READING_DRAFTS.md.
 
 The English draft expansion adds vocabulary, grammar and sentence construction to the public teaching library, plus a separate 15-question original DRAFT pack and manual English import job. Totals are eight public lessons and 35 review-pack questions; human correctness/source review and the broader curriculum remain pending. See ENGLISH_DRAFTS.md. Existing numerical import scope and seeds remain unchanged.

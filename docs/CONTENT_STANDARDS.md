@@ -1,6 +1,6 @@
 # Content standards
 
-The numerical, English and reading expansions provide ten unapproved public teaching drafts and 45 unapproved sample questions in three separate import packs. The one-question demo seed remains unchanged. See DRAFT_LESSONS.md, ENGLISH_DRAFTS.md and READING_DRAFTS.md; automated checks are not independent review.
+The numerical, English, reading and track expansions provide 15 unapproved public teaching drafts and 70 unapproved sample questions in four separate import packs. The one-question demo seed remains unchanged. See DRAFT_LESSONS.md, ENGLISH_DRAFTS.md, READING_DRAFTS.md and TRACK_DRAFTS.md; automated checks are not independent review.
 
 All original educational material begins as DRAFT and is a clearly labeled editorial preview, unavailable to paid exams/PDF publication. Require a separate qualified human review before REVIEWED; publication requires approval and an immutable version. Store author/reviewer identity, time, source notes, level, topic, difficulty, explanation and version. AI generation alone is not review.
 

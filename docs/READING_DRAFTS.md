@@ -1,5 +1,7 @@
 # Paragraph and reading draft expansion
 
+The subsequent reasoning/clerical expansion brings the catalog to 15 drafts and the four review packs to 70 questions. See [TRACK_DRAFTS.md](TRACK_DRAFTS.md); this reading job still imports only its original two lessons and ten questions.
+
 Two original teaching drafts cover paragraph organization and passage-based reading. Each includes objectives, explanation, worked example, paper practice, rationale and reflection. Their public URLs are `/lessons/paragraphs` and `/lessons/reading`, available after the pushed Vercel deployment is Ready. The public library now has ten ungraded lesson previews across ten provisional chapter areas; the 25 chapter headings still do not represent a finished curriculum.
 
 `content/editorial/reading-foundations.json` adds ten original DRAFT questions: five about paragraph organization and five about reading comprehension. Reading passages are included in each question prompt and explicitly labeled invented examples. They do not describe actual government programs. Source notes identify the reasoning target and pending independent checks. The three packs together contain 45 sample questions; the unchanged one-question demo seed gives local seeded environments 46. No automatic review, publication, examination activation or seed change occurs.

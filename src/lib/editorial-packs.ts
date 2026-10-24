@@ -15,4 +15,9 @@ export const editorialPacks = {
     lessons: ["paragraphs", "reading"],
     source: "public-reading-foundations-v1",
   },
+  tracks: {
+    file: "track-foundations.json",
+    lessons: ["analogies", "logic", "data", "filing", "spelling"],
+    source: "public-track-foundations-v1",
+  },
 } as const;

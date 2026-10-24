@@ -26,6 +26,7 @@ export default async function Lesson({ params }: Props) {
         <span className="status-pill">DRAFT · NOT EDITORIALLY APPROVED</span>
       </div>
       <div className="notice">Free editorial preview with worked solutions. This lesson is awaiting independent review and is not part of a graded exam or a released paid edition.</div>
+      <p className="eyebrow">{lesson.track === "COMMON" ? "SHARED FOUNDATION" : `${lesson.track} TRACK`} · PROVISIONAL CURRICULUM</p>
       <article className="prose"><ReactMarkdown skipHtml components={{ img: () => null }}>{lesson.markdown}</ReactMarkdown></article>
       <div className="lesson-end">
         <h2>Choose your next step.</h2>

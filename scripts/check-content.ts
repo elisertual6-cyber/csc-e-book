@@ -3,12 +3,17 @@ import { validateBank, checkLesson } from "../src/lib/content-validation";
 import { validateDraftPack } from "../src/lib/draft-pack";
 import { draftLessons } from "../src/lib/lesson-catalog";
 import { editorialPacks } from "../src/lib/editorial-packs";
+import { curriculum } from "../src/lib/curriculum";
 const bank = validateBank(
   JSON.parse(readFileSync("content/questions.json", "utf8")),
 );
 const questions = Object.values(editorialPacks).flatMap(pack => validateDraftPack(JSON.parse(readFileSync(`content/editorial/${pack.file}`, "utf8"))).questions);
 validateBank([...bank, ...questions]);
+for (const question of [...bank, ...questions]) {
+  if (curriculum.find(c => c.slug === question.topic)?.track !== question.level) throw new Error("Question topic/track mismatch.");
+}
 for (const lesson of draftLessons) {
+  if (curriculum.find(c => c.slug === lesson.slug)?.track !== lesson.track) throw new Error("Lesson topic/track mismatch.");
   const markdown = readFileSync(`content/lessons/${lesson.slug}.md`, "utf8");
   checkLesson(markdown);
   if (!markdown.startsWith(`# ${lesson.title}\n`) || !markdown.includes("Draft editorial")) throw new Error("Lesson catalog/title or draft label mismatch.");

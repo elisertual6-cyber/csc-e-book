@@ -4,12 +4,33 @@ import pack from "../content/editorial/numerical-foundations.json";
 import seed from "../content/questions.json";
 import english from "../content/editorial/english-foundations.json";
 import reading from "../content/editorial/reading-foundations.json";
+import tracks from "../content/editorial/track-foundations.json";
+import { curriculum } from "../src/lib/curriculum";
 import { editorialPacks } from "../src/lib/editorial-packs";
 import { questionImportRows, validateDraftPack } from "../src/lib/draft-pack";
 import { checkLesson, validateBank } from "../src/lib/content-validation";
 import { draftLessons, findDraftLesson } from "../src/lib/lesson-catalog";
 
 describe("original draft teaching content", () => {
+  it("keeps Professional and Subprofessional content in their declared curriculum tracks", () => {
+    const result = validateDraftPack(tracks);
+    expect(result.questions).toHaveLength(25);
+    expect(validateBank([...seed, ...pack.questions, ...english.questions, ...reading.questions, ...result.questions])).toHaveLength(71);
+    expect(result.questions.filter(q => q.level === "PROFESSIONAL")).toHaveLength(15);
+    expect(result.questions.filter(q => q.level === "SUBPROFESSIONAL")).toHaveLength(10);
+    for (const q of result.questions) {
+      expect(q.level).toBe(curriculum.find(c => c.slug === q.topic)?.track);
+      expect(q.status).toBe("DRAFT");
+      expect(q.sourceNotes).toContain("Independent human correctness/originality review pending");
+    }
+    for (const lesson of draftLessons) expect(lesson.track).toBe(curriculum.find(c => c.slug === lesson.slug)?.track);
+  });
+  it("recalculates the five invented data-table answers without using their rationales", () => {
+    const [monday, tuesday, wednesday] = [24, 30, 36];
+    const total = monday + tuesday + wednesday;
+    const answers = tracks.questions.filter(q => q.topic === "data").map(q => q.choices.find(c => c.isCorrect)?.text);
+    expect(answers.slice(0, 4)).toEqual([`${total} forms`, `${total / 3} forms per day`, `${wednesday / total * 100}%`, `${(tuesday - monday) / monday * 100}%`]);
+  });
   it("keeps reading questions self-contained, unapproved and unique across all packs", () => {
     const result = validateDraftPack(reading);
     expect(result.questions).toHaveLength(10);
@@ -31,11 +52,12 @@ describe("original draft teaching content", () => {
       expect(question.sourceNotes).toContain("Independent human correctness/originality review pending");
     }
     const slugs = Object.values(editorialPacks).flatMap(p => [...p.lessons]);
-    expect(new Set(slugs).size).toBe(10);
+    expect(new Set(slugs).size).toBe(15);
     expect(slugs.every(slug => findDraftLesson(slug))).toBe(true);
     expect(editorialPacks.numerical.lessons).toHaveLength(5);
     expect(editorialPacks.language.lessons).toHaveLength(3);
     expect(editorialPacks.reading.lessons).toHaveLength(2);
+    expect(editorialPacks.tracks.lessons).toHaveLength(5);
   });
   it("keeps the review pack distinct from seeded items and in draft state", () => {
     const result = validateDraftPack(pack);
@@ -73,7 +95,7 @@ describe("original draft teaching content", () => {
   });
 
   it("keeps lesson files complete and addresses limited to the public catalog", () => {
-    expect(draftLessons).toHaveLength(10);
+    expect(draftLessons).toHaveLength(15);
     expect(new Set(draftLessons.map(l => l.slug)).size).toBe(draftLessons.length);
     for (const lesson of draftLessons) {
       const markdown = readFileSync(`content/lessons/${lesson.slug}.md`, "utf8");

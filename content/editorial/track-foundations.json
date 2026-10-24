@@ -1,0 +1,833 @@
+{
+  "title": "Reasoning and clerical foundations — original editorial drafts",
+  "version": 1,
+  "status": "DRAFT",
+  "reviewStatus": "PENDING_INDEPENDENT_REVIEW",
+  "questions": [
+    {
+      "key": "tracks-part-whole",
+      "prompt": "Use the relationship part to whole, in that direction: wheel is to bicycle as page is to ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Part-to-whole direction. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "A wheel is part of a bicycle, and a page is part of a book. Ink is material associated with a page, reading is an activity, and a margin is part of a page, reversing the intended direction.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ink",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "reading",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "book",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "margin",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-tool-function",
+      "prompt": "Use the relationship tool to its ordinary function: scissors are to cutting as a broom is to ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Tool-to-function relationship. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "Sweeping is the ordinary function of a broom, just as cutting is the ordinary function of scissors. The other offered actions do not preserve that stated tool-function relationship.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "measuring",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "sweeping",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "printing",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "heating",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-opposites",
+      "prompt": "Use the relationship one action to its opposite: expand is to contract as increase is to ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Opposite actions. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "Expand and contract describe opposing changes. Increase and decrease preserve that opposition in the same direction; repeating, measuring and collecting are not the stated opposite of increase.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "repeat",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "measure",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "collect",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "decrease",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "tracks-worker-product",
+      "prompt": "Use the relationship maker to a product they can make: potter is to pot as carpenter is to ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Maker-to-product relationship. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "A potter can make a pot, and a carpenter can make a wooden table. The other choices do not identify a product a carpenter makes under the stated relationship.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "wooden table",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "ink",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "cloud",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "fever",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-instrument-quantity",
+      "prompt": "Use the relationship instrument to measured quantity: thermometer is to temperature as a ruler is to ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Instrument-to-quantity relationship. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "A ruler measures length, preserving instrument to measured quantity. Sound level, elapsed time and mass call for different measuring instruments.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "sound level",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "elapsed time",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "length",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "mass",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-contrapositive",
+      "prompt": "Premise for this exercise: If a file is urgent, it receives a red tag. File K has no red tag. Which conclusion follows?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Contrapositive of an implication. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "Under the premise, urgency requires a red tag. A file without that tag cannot be urgent without violating the given implication. The conclusion is limited to K and does not classify every other file.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "File K is urgent.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "File K is not urgent.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Every red-tagged file is urgent.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "No file can be urgent.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-converse-limit",
+      "prompt": "Premise for this exercise: Every urgent file receives a red tag. File M has a red tag. What can be concluded about whether M is urgent?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Rejecting an unsupported converse. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "The premise says urgent implies red-tagged, not red-tagged implies urgent. Other reasons for a red tag have not been excluded, so neither urgency nor non-urgency follows for M.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The premise alone does not establish whether M is urgent.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "M must be urgent.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "M cannot be urgent.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "All non-urgent files lack red tags.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-existential-chain",
+      "prompt": "Premises for this exercise: All approved forms are signed. Some approved forms are archived. Which conclusion must follow?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Existence and universal inclusion. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "Some approved forms are archived supplies at least one approved, archived form. All approved forms are signed makes that form signed, establishing some archived forms are signed. The universal converse statements do not follow.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All archived forms are approved.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "No archived form is signed.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Every signed form is archived.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Some archived forms are signed.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "tracks-exclusive-choice",
+      "prompt": "For this exercise, exactly one of boxes A and B contains a card. Box A contains no card. What follows?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: An explicitly exclusive choice. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "Exactly one of the two specified boxes contains a card. Since A does not, B must. The premise excludes neither and both; a third box does not satisfy the specified choice.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Neither box contains a card.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Both boxes contain a card.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Box B contains a card.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "The card must be in a third box instead.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-transitive-order",
+      "prompt": "A task plan requires A before B and B before C. No adjacency requirement is stated. Which statement must be true?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Transitive ordering without adjacency. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "Before is transitive in the stated task order: A before B and B before C imply A before C. Nothing requires adjacency, and the remaining options contradict the stated order.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "C occurs before A.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "A occurs before C.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "A and C are immediately adjacent.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "C occurs before B.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-table-total",
+      "prompt": "Use this invented table of completed forms on three separate days: Monday 24, Tuesday 30, Wednesday 36. What is the total number of forms across the three days?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Adding compatible separate-day counts. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "Add the separate daily counts: 24 + 30 + 36 = 90 forms. The unit remains forms, and no count is omitted or treated as a cumulative total.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "90 forms",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "66 forms",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "60 forms",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "36 forms",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-table-mean",
+      "prompt": "Use this invented table of completed forms on three separate days: Monday 24, Tuesday 30, Wednesday 36. What is the arithmetic mean number of forms per day over these three days?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Arithmetic mean and denominator. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "The total is 90 forms across three days, so the arithmetic mean is 90 divided by 3, or 30 forms per day. The total and individual extremes are not the requested mean.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "24 forms per day",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "36 forms per day",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "30 forms per day",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "90 forms per day",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-table-share",
+      "prompt": "Use this invented table of completed forms on three separate days: Monday 24, Tuesday 30, Wednesday 36. What percentage of the three-day total was completed on Wednesday?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Category share of a total. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "Wednesday contributed 36 of the 90 forms. The requested share is 36 divided by 90 times 100, which equals 40 percent. The denominator is the three-day total.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "25%",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "30%",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "36%",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "40%",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "tracks-table-change",
+      "prompt": "Use this invented table of completed forms on three separate days: Monday 24, Tuesday 30, Wednesday 36. What was the percentage increase from Monday to Tuesday?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Percentage change from a stated base. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "The increase is 30 minus 24, or 6 forms. Dividing by the starting Monday count gives 6 divided by 24 times 100, or 25 percent. Dividing by Tuesday instead would answer a different comparison.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "20%",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "25%",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "30%",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "6%",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-table-inference",
+      "prompt": "Use this invented table of completed forms on three separate days: Monday 24, Tuesday 30, Wednesday 36. Which statement respects the information supplied?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Descriptive counts versus unsupported performance claims. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "The displayed count is largest on Wednesday. Efficiency requires relevant inputs or denominators, such as staff hours and workload, which are not supplied. No universal future pattern or identical staffing is established.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Wednesday workers are proved more efficient than all other workers.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The table proves that staffing was identical on all three days.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Wednesday has the largest output count, but efficiency cannot be determined without further information.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "The table establishes the same daily output for every future week.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-prefix-first",
+      "prompt": "For this exercise only, compare uppercase A–Z keys character by character; when one key is an exact prefix, put the shorter key first. Which key comes first among ALTO, ALBA and AL?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: A declared exact-prefix filing rule. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "AL is an exact prefix of the other two keys, so the declared rule puts it first. ALTO and ALBA contain additional characters and are not identical to AL.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "AL",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "ALTO",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "ALBA",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "All three keys are identical.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-first-difference",
+      "prompt": "For this exercise only, compare uppercase A–Z keys character by character; when one key is an exact prefix, put the shorter key first. Which key comes first when comparing ABLE and ABEL?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: First differing character. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "The first two letters match. At the third position ABEL has E while ABLE has L, and E comes before L. The two keys have equal length, so a length comparison would not decide their order.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ABLE",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "ABEL",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "The rule always puts the longer key first.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The keys contain no different letters at any position.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-numeric-suffix",
+      "prompt": "For this exercise only, all codes share prefix F-, and their suffixes are ordered by numerical value. Which order is correct for F-12, F-3 and F-8?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: A declared numerical-suffix rule. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "The stated rule compares numerical values: 3 is less than 8, and 8 is less than 12. Therefore F-3, F-8, F-12 is correct. Text ordering is not the declared rule.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "F-12, F-3, F-8",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "F-8, F-12, F-3",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "F-3, F-8, F-12",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "F-3, F-12, F-8",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-source-copy",
+      "prompt": "Source identifier: R-4726. Which copy matches every character of the source exactly?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Exact identifier preservation. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "R-4726 reproduces the entire source identifier. The other options transpose digits or replace a digit, even though each remains a plausible-looking code.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "R-4762",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "R-4728",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "R-4276",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "R-4726",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "tracks-insert-key",
+      "prompt": "For this exercise only, compare uppercase A–Z keys character by character; when one key is an exact prefix, put the shorter key first. Insert MAP into the ordered list MAL, MANA, MARS. Which resulting list follows the rule?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Insertion under a declared comparison rule. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "The first two letters MA match. Compare the next letters L, N, P and R: their order gives MAL, MANA, MAP, MARS. Length alone does not move MAP ahead of MANA.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "MAP, MAL, MANA, MARS",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "MAL, MANA, MAP, MARS",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "MAL, MAP, MANA, MARS",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "MAL, MANA, MARS, MAP",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-accommodation",
+      "prompt": "Which option gives the conventional edited-English spelling of the word for lodging or an adjustment to meet a need?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Conventional spelling of accommodation. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "Accommodation has double c and double m. The other offered forms omit one or both of those repeated consonants. A qualified reviewer should verify spelling examples against the chosen language reference.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "acommodation",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "accommodation",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "accomodation",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "acomodation",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-necessary",
+      "prompt": "Which option gives the conventional edited-English spelling meaning required or needed?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Conventional spelling of necessary. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "Necessary is spelled n-e-c-e-s-s-a-r-y: one c and two s letters. The other forms add or omit a consonant or change the written vowel sequence.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "neccessary",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "necesary",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "neccessery",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "necessary",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "tracks-separate",
+      "prompt": "Which option gives the conventional edited-English spelling meaning to set apart?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Conventional spelling of separate. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "Separate uses a in the middle syllable and a single r. The distractors change that vowel or duplicate r. This word-specific observation is not a universal spelling rule.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "separate",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "seperate",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "separrate",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "seperete",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-receive",
+      "prompt": "Which option gives the conventional edited-English spelling meaning to get or accept something sent?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Conventional spelling of receive. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "Receive is the conventional spelling among these choices. The other forms reverse the vowel sequence or substitute or duplicate a letter. This example should not be generalized into an exception-free spelling rule.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "recieve",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "receeve",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "receive",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "receivve",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "tracks-exact-code",
+      "prompt": "Source identifier: Q-5831. For an exact-transcription task, which option matches the source?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original invented teaching example. Rule focus: Exact transcription rather than spelling correction. Independent human correctness/originality review pending. Track placement is provisional; not an official CSC item. Reference and distractor review pending.",
+      "explanation": "Q-5831 matches the source character for character. The other codes transpose digits or replace the final digit. Familiarity or numerical plausibility cannot substitute for an exact comparison.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Q-5381",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Q-5831",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Q-5837",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Q-8531",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}
