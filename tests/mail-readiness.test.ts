@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 const mocked = vi.hoisted(() => ({ verify: vi.fn(), close: vi.fn(), create: vi.fn(), send: vi.fn() }));
 vi.mock("nodemailer", () => ({ default: { createTransport: mocked.create } }));
-import { checkMailReadiness } from "../src/lib/mail-readiness";
+import { checkMailReadiness, mailConfigurationIssues } from "../src/lib/mail-readiness";
 function setup() {
   vi.stubEnv("NODE_ENV", "production"); vi.stubEnv("MAIL_TRANSPORT", "smtp");
   vi.stubEnv("MAIL_ENCRYPTION_KEY", "a".repeat(64)); vi.stubEnv("APP_URL", "https://example.test");
@@ -12,6 +12,20 @@ function setup() {
 }
 afterEach(() => { vi.unstubAllEnvs(); vi.resetAllMocks(); });
 describe("mail readiness without sending", () => {
+  it("identifies invalid field names without exposing secret values or lengths", () => {
+    const issues = mailConfigurationIssues({ NODE_ENV: "production", MAIL_TRANSPORT: "smtp", APP_URL: "https://example.test", SMTP_HOST: "smtp.gmail.com", SMTP_PORT: "private-invalid-port", SMTP_USER: "private-address@example.test", SMTP_PASSWORD: "private-password", MAIL_FROM: "private-invalid-address", MAIL_ENCRYPTION_KEY: "private-invalid-key" });
+    expect(issues).toEqual([
+      { field: "MAIL_ENCRYPTION_KEY", problem: "expected_64_hex_characters" },
+      { field: "SMTP_PORT", problem: "expected_valid_port" },
+      { field: "MAIL_FROM", problem: "expected_plain_email_address" },
+    ]);
+    expect(JSON.stringify(issues)).not.toContain("private-");
+  });
+  it("reports the missing Gmail app-password field before connection", async () => {
+    setup(); vi.stubEnv("SMTP_PASSWORD", "");
+    await expect(checkMailReadiness(true)).rejects.toMatchObject({ issues: [{ field: "SMTP_PASSWORD", problem: "required" }] });
+    expect(mocked.create).not.toHaveBeenCalled();
+  });
   it("checks configuration offline without opening a transport or submitting mail", async () => {
     setup(); expect(await checkMailReadiness()).toMatchObject({ configuration: "ready", smtpConnection: "not_checked", delivery: "not_tested" });
     expect(mocked.create).not.toHaveBeenCalled(); expect(mocked.send).not.toHaveBeenCalled();

@@ -8,7 +8,7 @@ async function main() {
   }
   try { console.log(JSON.stringify(await checkMailReadiness(args[0] === "--connect"))); }
   catch (error) {
-    console.error(JSON.stringify({ mailReadiness: "failed", stage: error instanceof MailReadinessError ? error.stage : "configuration", reason: error instanceof MailReadinessError ? error.reason : "unknown" }));
+    console.error(JSON.stringify({ mailReadiness: "failed", stage: error instanceof MailReadinessError ? error.stage : "configuration", reason: error instanceof MailReadinessError ? error.reason : "unknown", ...(error instanceof MailReadinessError && error.issues.length ? { issues: error.issues } : {}) }));
     process.exitCode = 1;
   }
 }
