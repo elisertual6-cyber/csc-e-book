@@ -1,3 +1,5 @@
+Read docs/PDF_STORAGE.md before PDF/storage changes. Preserve backend references, private bucket checks, create-only writes, checksums and all release/access gates. Never inherit remote storage credentials into isolated test runs. Vercel must not render Chromium or silently use local disk.
+
 # Working on this project
 
 Read docs/PHASE_5F_REPORT.md for signed-in accessibility coverage. Run test:a11y:authenticated through its disposable database wrapper for learner/staff UI changes. Preserve answer-save locks and focus after acknowledged saves without stealing focus after navigation. Automated scans never count as manual conformance review.

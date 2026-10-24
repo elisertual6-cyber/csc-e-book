@@ -1,3 +1,5 @@
+Current PDF storage/worker update: see [PDF_STORAGE.md](PDF_STORAGE.md). The private Supabase adapter and separate operator worker now exist; older local-only descriptions below describe the original milestone. Hosted provisioning and recovery evidence remain pending.
+
 # Architecture
 
 Current operational boundary: API handlers use a shared error/response wrapper with generated request references and fixed-category private completion/error events. `/api/live` is Node uptime; `/api/health` checks actual database connectivity through a separately bounded one-connection diagnostic pool without changing business transaction limits. Hosted demo availability is distinct from database/provider/content readiness. See OPERATIONS_MONITORING.md for log coverage, privacy and load-test limits.

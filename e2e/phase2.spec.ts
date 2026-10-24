@@ -501,6 +501,25 @@ test("role boundaries, independent review, atomic import and protected PDF publi
     });
     expect(full.status()).toBe(409);
     expect((await full.json()).error).toContain("500");
+    // A separate process renders a private proof using the same service/guards.
+    const jobPath = path.join(process.env.PDF_PRIVATE_DIR!, `${prefix}-job.json`);
+    await mkdir(process.env.PDF_PRIVATE_DIR!, { recursive: true });
+    await writeFile(jobPath, JSON.stringify({
+      kind: "DRAFT", version: `${prefix}-worker`, title: "Separate worker proof",
+      lessonIds: [lesson.id], questionIds: [question.id],
+    }), { mode: 0o600 });
+    const workerArgs = ["--conditions=react-server", "--import", "tsx", "scripts/pdf-worker.ts", jobPath];
+    const workerResult = JSON.parse(execFileSync(process.execPath, workerArgs, {
+      env: { ...process.env, PDF_OPERATOR_EMAIL: users[0].email }, encoding: "utf8", timeout: 100_000,
+    }));
+    const workerEdition = await db.pdfEdition.findUniqueOrThrow({ where: { id: workerResult.editionId } });
+    expect(workerEdition.kind).toBe("DRAFT");
+    expect(workerEdition.publishedAt).toBeNull();
+    expect(workerEdition.creatorId).toBe(users[0].id);
+    expect((await admin.get(`/api/admin/pdf/${workerEdition.id}`)).status()).toBe(200);
+    expect(() => execFileSync(process.execPath, workerArgs, {
+      env: { ...process.env, PDF_OPERATOR_EMAIL: users[3].email }, stdio: "pipe", timeout: 30_000,
+    })).toThrow();
     const generated = await admin.post("/api/admin/pdf", {
       data: {
         kind: "PREVIEW",

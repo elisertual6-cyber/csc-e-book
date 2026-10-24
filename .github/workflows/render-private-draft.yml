@@ -1,0 +1,54 @@
+name: Render private PDF draft
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: 'JSON object: kind DRAFT, version, title, lessonIds, questionIds. IDs only; never credentials or content.'
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: pdf-render-main
+  cancel-in-progress: false
+jobs:
+  render:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Install worker browser
+        run: npx playwright install --with-deps chromium
+      - name: Validate explicit draft job
+        env:
+          PDF_JOB: ${{ inputs.job }}
+        run: |
+          node --import tsx --input-type=module <<'JS'
+          import { writeFileSync } from 'node:fs';
+          import { editionInput } from './src/lib/pdf-input.ts';
+          try {
+            const input = editionInput.parse(JSON.parse(process.env.PDF_JOB));
+            if (input.kind !== 'DRAFT') throw new Error();
+            writeFileSync(process.env.RUNNER_TEMP + '/pdf-job.json', JSON.stringify(input), { mode: 0o600 });
+          } catch { console.error('A valid DRAFT job is required.'); process.exit(1); }
+          JS
+      - name: Render and store private proof without publishing
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_MIGRATION_URL }}
+          PDF_OPERATOR_EMAIL: ${{ secrets.ADMIN_BOOTSTRAP_EMAIL }}
+          PDF_STORAGE: supabase
+          PDF_SUPABASE_URL: ${{ secrets.PDF_SUPABASE_URL }}
+          PDF_SUPABASE_BUCKET: ${{ secrets.PDF_SUPABASE_BUCKET }}
+          PDF_SUPABASE_SERVICE_KEY: ${{ secrets.PDF_SUPABASE_SERVICE_KEY }}
+        run: npm run pdf:render -- "$RUNNER_TEMP/pdf-job.json"
+      - name: Remove private job input
+        if: always()
+        run: rm -f "$RUNNER_TEMP/pdf-job.json"

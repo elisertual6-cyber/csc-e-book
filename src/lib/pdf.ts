@@ -2,9 +2,7 @@ import "server-only";
 import { chromium, type Browser } from "playwright";
 import MarkdownIt from "markdown-it";
 import { randomUUID } from "node:crypto";
-import { mkdir, readFile, writeFile, unlink } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import path from "node:path";
 import type { EditionKind, Prisma } from "@prisma/client";
 import { getDb } from "@/lib/db";
 import {
@@ -18,6 +16,7 @@ import {
 import { digest } from "@/lib/security";
 import { HttpError } from "@/lib/http";
 import { disclaimer } from "@/lib/curriculum";
+import { writePrivatePdf, readPrivatePdf, removePrivatePdf, pdfStorageMode } from "./pdf-storage";
 const md = new MarkdownIt({ html: false, linkify: false }).disable("image");
 md.validateLink = (href) => /^(https?:|mailto:|#)/i.test(href);
 const escape = (value: string) =>
@@ -28,15 +27,6 @@ const escape = (value: string) =>
         c
       ]!,
   );
-const directory = () => {
-  const result = path.resolve(
-    process.env.PDF_PRIVATE_DIR ?? path.join(process.cwd(), ".local/editions"),
-  );
-  for (const exposed of [path.resolve("public"), path.resolve(".next/static")])
-    if (result === exposed || result.startsWith(exposed + path.sep))
-      throw new HttpError(500, "PDF storage must be private.");
-  return result;
-};
 type Manifest = {
   lessons: { id: string; hash: string }[];
   questions: { id: string; hash: string }[];
@@ -130,6 +120,11 @@ export async function generateEdition(
     questionIds: string[];
   },
 ) {
+  if (process.env.VERCEL)
+    throw new HttpError(503, "PDF generation requires the separate browser worker.");
+  pdfStorageMode();
+  if (!["ADMIN", "EDITOR", "REVIEWER"].includes(actor.role))
+    throw new HttpError(403, "Staff access is required.");
   if (!input.lessonIds.length)
     throw new HttpError(400, "Select at least one lesson.");
   if (input.kind !== "DRAFT" && actor.role !== "ADMIN")
@@ -202,12 +197,7 @@ export async function generateEdition(
       footerTemplate: `<div style="font-size:8px;width:100%;text-align:center;color:#687078">${escape(input.version)} · ${input.kind === "DRAFT" ? "PRIVATE DRAFT · " : ""}<span class="pageNumber"></span> / <span class="totalPages"></span></div>`,
     });
     clearTimeout(timer);
-    const filename = `${randomUUID()}.pdf`;
-    await mkdir(directory(), { recursive: true, mode: 0o700 });
-    await writeFile(path.join(directory(), filename), bytes, {
-      mode: 0o600,
-      flag: "wx",
-    });
+    const filename = await writePrivatePdf(`${randomUUID()}.pdf`, bytes);
     try {
       const edition = await getDb().$transaction(async (tx) => {
         const result = await tx.pdfEdition.create({
@@ -229,7 +219,7 @@ export async function generateEdition(
       });
       return edition;
     } catch (error) {
-      await unlink(path.join(directory(), filename));
+      await removePrivatePdf(filename);
       throw error;
     }
   } finally {
@@ -292,17 +282,7 @@ export async function readEdition(edition: {
   filename: string;
   sha256: string;
 }) {
-  if (!/^[a-f0-9-]{36}\.pdf$/.test(edition.filename))
-    throw new HttpError(404, "PDF file unavailable.");
-  let bytes: Buffer;
-  try {
-    bytes = await readFile(path.join(directory(), edition.filename));
-  } catch {
-    throw new HttpError(
-      404,
-      "The private PDF file is unavailable on this worker.",
-    );
-  }
+  const bytes = await readPrivatePdf(edition.filename);
   if (digest(bytes) !== edition.sha256)
     throw new HttpError(409, "PDF integrity check failed.");
   return bytes;

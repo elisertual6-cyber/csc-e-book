@@ -1,3 +1,5 @@
+Current PDF storage/worker update: see [PDF_STORAGE.md](PDF_STORAGE.md). The private Supabase adapter and separate operator worker now exist; older local-only descriptions below describe the original milestone. Hosted provisioning and recovery evidence remain pending.
+
 # Development commerce operations
 
 This milestone implements a development storefront and mock purchase lifecycle. It is not a commercial launch. No real gateway, outbound mail service or remote object-storage integration is configured. Production checkout is deliberately unavailable, including when PAYMENT_PROVIDER=mock. No card data is requested or stored.

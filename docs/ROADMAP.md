@@ -29,7 +29,7 @@ Acceptance criteria:
 ## Next engineering priorities
 
 1. Complete the remaining Phase 5F manual and deployed accessibility review, including screen readers, zoom/reflow and conditional payment/download/error states. Local automated coverage is delivered; it is not a conformance claim.
-2. Implement and deploy durable private artifact storage and the separate browser/PDF worker needed by Phase 2/4. Preserve checksums, entitlement checks, immutable manifests, private delivery and recovery evidence. Default Vercel disk is insufficient.
+2. Deploy and verify durable private artifact storage and the separate browser/PDF worker needed by Phase 2/4. The Supabase private adapter, explicit worker CLI and manual draft-render Action are now implemented; hosted configuration, provider smoke tests and object backup/restore remain pending (see [PDF_STORAGE.md](PDF_STORAGE.md)). Preserve checksums, entitlement checks, immutable manifests, private delivery and recovery evidence. Default Vercel disk is insufficient.
 3. Complete authorized SMTP sender/worker deployment and real verification/recovery delivery checks. An email address alone does not authorize sending.
 4. Verify the current PayMongo Checkout contract and merchant sandbox, including authentic GCash events, retries, reconciliation and refunds. Local fixtures are not merchant proof. Live checkout needs a separate reviewed implementation/release.
 5. Extend production-like capacity, authenticated security and recovery exercises, then configure external monitoring/alerts and verify the deployed configuration.
@@ -60,3 +60,7 @@ All import jobs preserve existing records and create only drafts under a current
 ## Definition of a completed milestone
 
 Run lint, type checking, relevant unit/content/database checks, production build and the applicable isolated browser/security suites. State what was verified and which external or manual work remains. Never describe simulated approvals, placeholder configurations or local provider fixtures as real-world release evidence. Prices, counts, durations and study schedules are practice configuration, not official CSC promises.
+
+## Phase 5G — private storage/worker implementation
+
+The Supabase private PDF adapter, backend-tagged immutable references, shared validated job schema, separate Node/Chromium CLI and main-only manual private-draft Action are implemented. Vercel fails closed for local rendering/disk, and isolated tests explicitly erase inherited remote storage credentials. This advances Phase 2/4 infrastructure without marking hosted infrastructure complete. See [PDF_STORAGE.md](PDF_STORAGE.md) for secure settings, rollout checks and object/database recovery requirements, and [PHASE_5G_REPORT.md](PHASE_5G_REPORT.md) for validation evidence. No bucket or credential is provisioned automatically; no existing files are migrated or editions released.

@@ -1,3 +1,5 @@
+Current PDF storage/worker update: see [PDF_STORAGE.md](PDF_STORAGE.md). The private Supabase adapter and separate operator worker now exist; older local-only descriptions below describe the original milestone. Hosted provisioning and recovery evidence remain pending.
+
 # Editorial and account operations
 
 Phase 2 implements local password authentication, an editorial review workflow and a Node/Chromium PDF worker. No email provider, external identity provider, paid download storage or payment gateway is configured. Use synthetic development accounts until the operator completes privacy, support, email verification and recovery work.

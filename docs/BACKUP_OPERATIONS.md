@@ -24,3 +24,7 @@ This creates its own backup, completes the restore drill, corrupts that generate
 Mail inbox file copies and encryption keys are deliberately excluded. Keep `MAIL_ENCRYPTION_KEY` (or the development `.local/mail/encryption.key`), database credentials, provider secrets and deployment configuration in a separate secure secret-manager recovery plan. Without the matching mail key, an encrypted restored queue cannot be recovered. No `.env` is copied.
 
 Production still requires encrypted managed PostgreSQL backups/PITR, durable private artifact storage with versioning, retention and deletion policies, encrypted off-site copies, restricted backup access, a measured recovery-point/recovery-time objective, and a staging recovery rehearsal with the matching application revision and separately recovered keys. Before reconnecting a restored service, reconcile external payment state, invalidate old sessions/account/download tokens, and review pending mail to avoid stale messages or duplicate submissions. This command is a verification drill, not an automated production cutover or an off-site backup service.
+
+## Remote PDF adapter
+
+The optional Supabase private PDF adapter is documented in [PDF_STORAGE.md](PDF_STORAGE.md). The existing local Compose archive/restore commands do **not** back up Supabase Storage bytes. Do not treat their success as remote object recovery evidence. Remote rollout needs a separately tested encrypted object backup plus the corresponding database manifests and isolated checksum/access-denial restore checks.

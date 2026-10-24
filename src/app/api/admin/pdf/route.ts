@@ -3,22 +3,10 @@ import { api, assertMutation, readJson, json } from "@/lib/http";
 import { requireUser, rateLimit } from "@/lib/auth";
 import { staffRoles } from "@/lib/security";
 import { getDb } from "@/lib/db";
+import { editionInput } from "@/lib/pdf-input";
 import { generateEdition, publishPreview } from "@/lib/pdf";
 export const runtime = "nodejs";
 export const maxDuration = 60;
-const generate = z
-  .object({
-    kind: z.enum(["DRAFT", "PREVIEW", "FULL"]),
-    version: z
-      .string()
-      .min(1)
-      .max(50)
-      .regex(/^[a-zA-Z0-9.-]+$/),
-    title: z.string().trim().min(5).max(150),
-    lessonIds: z.array(z.string().min(1)).min(1).max(100),
-    questionIds: z.array(z.string().min(1)).max(1000),
-  })
-  .strict();
 export async function GET() {
   return api("admin", async () => {
     await requireUser(staffRoles);
@@ -61,7 +49,7 @@ export async function POST(request: Request) {
       );
     await rateLimit("pdf-worker", "global", 4);
     await rateLimit("pdf-user", actor.id, 2);
-    const result = await generateEdition(actor, generate.parse(body));
+    const result = await generateEdition(actor, editionInput.parse(body));
     return json(
       { id: result.id, kind: result.kind, version: result.version },
       201,
