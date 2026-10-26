@@ -11,6 +11,8 @@ describe("personal study planner", () => {
       const covered = new Set(days.filter(d => d.kind === "lesson").flatMap(d => d.lessons.map(l => l.slug)));
       expect(covered).toEqual(new Set(eligible.map(l => l.slug)));
       expect(days.filter(d => d.kind === "lesson")).toHaveLength(16);
+      expect(days.filter(d => d.kind === "lesson").every(d => d.lessons.length >= 1 && d.lessons.length <= 2)).toBe(true);
+      expect(days.filter(d => d.kind === "lesson").flatMap(d => d.lessons).length).toBe(eligible.length);
       expect(days.filter(d => d.kind === "catch-up").map(d => d.day)).toEqual([7, 14, 21, 28]);
       expect(days.at(-1)?.kind).toBe("reflection");
       for (const day of days) expect(day.lessons.every(l => l.track === "COMMON" || l.track === track)).toBe(true);

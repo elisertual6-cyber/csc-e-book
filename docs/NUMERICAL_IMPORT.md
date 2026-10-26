@@ -1,5 +1,7 @@
 # Add the prepared numerical drafts to the hosted library
 
+Current catalog update: [PRACTICE_EXPANSION.md](PRACTICE_EXPANSION.md) adds eight lessons and 160 questions, bringing totals to 23 draft lessons and 230 editorial questions. Counts below describe this earlier pack; its import scope remains unchanged.
+
 The public lesson pages and the administrator's database library are separate. This manual operation imports existing teaching drafts; it does not generate new reviewed content. It uses the same editorial validation, author attribution, duplicate-prompt checks and creation audit events as the API.
 
 The numerical job remains limited to its five numerical lessons and 20 questions even as the public catalog grows. The separate English job is documented in [ENGLISH_DRAFTS.md](ENGLISH_DRAFTS.md). The shared CLI defaults to the numerical pack; only `--pack language` selects the additional material.

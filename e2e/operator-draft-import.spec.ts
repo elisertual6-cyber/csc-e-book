@@ -7,7 +7,7 @@ import { readFileSync } from "node:fs";
 import { questionImportRows } from "../src/lib/draft-pack";
 
 test("operator draft import requires ADMIN, rolls back conflicts, preserves existing records and remains unapproved", async () => {
-  test.setTimeout(60000);
+  test.setTimeout(120000);
   const url = new URL(process.env.DATABASE_URL ?? "");
   expect(url.pathname).toMatch(/^\/csc_e2e_[a-f0-9]{16}$/);
   const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: url.toString() }) });
@@ -15,7 +15,7 @@ test("operator draft import requires ADMIN, rolls back conflicts, preserves exis
   const customerEmail = `${randomUUID()}@example.test`;
   const run = (email: string, apply = true, pack = "numerical") => spawnSync(process.execPath, [
     "--conditions=react-server", "--import", "tsx", "scripts/import-numerical-drafts.ts", "--pack", pack, ...(apply ? ["--apply"] : []),
-  ], { env: { ...process.env, ADMIN_EMAIL: email }, encoding: "utf8", timeout: 25000 });
+  ], { env: { ...process.env, ADMIN_EMAIL: email }, encoding: "utf8", timeout: 40000 });
   try {
     const admin = await db.user.create({ data: { email: identity, role: "ADMIN" } });
     await db.user.create({ data: { email: customerEmail, role: "CUSTOMER" } });
@@ -119,5 +119,47 @@ test("operator draft import requires ADMIN, rolls back conflicts, preserves exis
     expect(await db.product.count({ where: { active: true } })).toBe(0);
     expect(await db.examTemplate.count()).toBe(0);
     expect(await db.auditEvent.count({ where: { actorId: admin.id, action: "operator.tracks-drafts.import" } })).toBe(2);
+    expect(run(customerEmail, true, "practice-core").status).toBe(1);
+    const core = run(identity, true, "practice-core");
+    expect(core.status).toBe(0);
+    expect(core.stdout).toContain("0 chapters, 2 lessons and 80 questions created");
+    expect(await db.lesson.count()).toBe(17);
+    expect(await db.question.count()).toBe(151);
+    const extendedItem = questionImportRows(JSON.parse(readFileSync("content/editorial/practice-extended.json", "utf8")))[0];
+    const extendedConflict = await db.question.create({ data: { key: `extended-conflict-${randomUUID()}`, prompt: extendedItem.prompt, topic: extendedItem.topic, level: extendedItem.level, difficulty: extendedItem.difficulty, sourceNotes: extendedItem.sourceNotes } });
+    const extendedFailed = run(identity, true, "practice-extended");
+    expect(extendedFailed.status).toBe(1);
+    expect(extendedFailed.stderr).toContain("transaction was rolled back");
+    expect(extendedFailed.stdout + extendedFailed.stderr).not.toContain(extendedItem.prompt);
+    expect(await db.lesson.count()).toBe(17);
+    expect(await db.question.count()).toBe(152);
+    await db.question.delete({ where: { id: extendedConflict.id } });
+    expect(run(customerEmail, true, "practice-extended").status).toBe(1);
+    const extended = run(identity, true, "practice-extended");
+    expect(extended.status).toBe(0);
+    expect(extended.stdout).toContain("0 chapters, 6 lessons and 80 questions created");
+    expect(await db.lesson.count()).toBe(23);
+    expect(await db.question.count()).toBe(231);
+    expect(await db.question.count({ where: { authorId: admin.id, status: "DRAFT" } })).toBe(230);
+    for (const pack of ["practice-core", "practice-extended"]) {
+      const repeated = run(identity, true, pack);
+      expect(repeated.status).toBe(0);
+      expect(repeated.stdout).toContain("0 chapters, 0 lessons and 0 questions created");
+      const file = pack === "practice-core" ? "practice-core.json" : "practice-extended.json";
+      for (const input of questionImportRows(JSON.parse(readFileSync(`content/editorial/${file}`, "utf8")))) {
+        const record = await db.question.findFirstOrThrow({ where: { key: input.key }, include: { choices: true, explanation: true } });
+        expect(record.explanation?.rationale).toBe(input.explanation);
+        expect(record.choices.filter(c => c.isCorrect).map(c => c.text)).toEqual(input.choices.filter(c => c.isCorrect).map(c => c.text));
+      }
+      expect(await db.auditEvent.count({ where: { actorId: admin.id, action: `operator.${pack}-drafts.import` } })).toBe(2);
+    }
+    expect(await db.question.count()).toBe(231);
+    expect(await db.review.count()).toBe(0);
+    expect(await db.question.count({ where: { status: { not: "DRAFT" } } })).toBe(0);
+    expect(await db.lesson.count({ where: { status: { not: "DRAFT" } } })).toBe(0);
+    expect(await db.lesson.findUniqueOrThrow({ where: { id: before.id } })).toEqual(before);
+    expect((await db.question.findUniqueOrThrow({ where: { id: imported.id } })).prompt).toContain("Preserve this operator edit.");
+    expect(await db.product.count({ where: { active: true } })).toBe(0);
+    expect(await db.examTemplate.count()).toBe(0);
   } finally { await db.$disconnect(); }
 });

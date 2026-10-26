@@ -1,5 +1,7 @@
 # Reasoning and clerical draft expansion
 
+Current catalog update: [PRACTICE_EXPANSION.md](PRACTICE_EXPANSION.md) adds eight lessons and 160 questions, bringing totals to 23 draft lessons and 230 editorial questions. Counts below describe this earlier pack; its import scope remains unchanged.
+
 Five original, ungraded teaching drafts add analogies, logic and data interpretation under the provisional Professional track, and filing and spelling under the provisional Subprofessional track. Every lesson includes objectives, explanation, worked example, practice, rationale and reflection. The library and reader now label each lesson's track; the curriculum continues to show shared lessons plus only the selected track's focus chapters. Track labels describe this product's provisional outline, not verified official CSC coverage.
 
 The public catalog now has 15 lesson drafts: ten shared foundations, three Professional topics and two Subprofessional topics. Its Professional curriculum view links to 13 available lessons and its Subprofessional view links to 12. The other outline areas remain unfinished.

@@ -15,6 +15,14 @@ export const draftLessons = [
   { track: "PROFESSIONAL", slug: "data", title: "Read the labels before calculating", summary: "Use units and denominators to interpret invented tables carefully." },
   { track: "SUBPROFESSIONAL", slug: "filing", title: "Apply the stated filing rule consistently", summary: "Order declared keys and numeric suffixes without changing source identifiers." },
   { track: "SUBPROFESSIONAL", slug: "spelling", title: "Compare carefully instead of guessing from appearance", summary: "Check conventional spelling and exact transcription as different tasks." },
+  {"track": "COMMON", "slug": "study-methods", "title": "Practise a method, then examine the evidence", "summary": "Build a repeatable routine using retrieval, explanation and an error log."},
+  {"track": "COMMON", "slug": "filipino", "title": "Iugnay ang salita sa gamit at konteksto", "summary": "Unawain ang pananda, pang-ugnay at pahiwatig ng kahulugan sa Filipino."},
+  {"track": "COMMON", "slug": "constitution", "title": "Read constitutional principles with their article references", "summary": "Locate basic constitutional allocations and rights without inventing case-specific rules."},
+  {"track": "COMMON", "slug": "ethics", "title": "Connect public-service choices with the stated norm", "summary": "Use RA 6713 as a referenced starting point for public-interest and accountability exercises."},
+  {"track": "COMMON", "slug": "rights", "title": "Identify a rights principle without overstating it", "summary": "Read selected UDHR principles while distinguishing their text from local case-specific law."},
+  {"track": "COMMON", "slug": "environment", "title": "Prevent waste and compare environmental claims carefully", "summary": "Distinguish reduction, reuse, appropriate recovery and evidence-based resource comparisons."},
+  {"track": "COMMON", "slug": "solutions", "title": "Use the key to reconstruct a solution", "summary": "Check the reasoning behind a proposed answer rather than memorising letters."},
+  {"track": "COMMON", "slug": "study-plan", "title": "Plan review sessions with room to revise", "summary": "Build a flexible 30-day practice plan from your available time and error log."},
 ] as const;
 
 export function findDraftLesson(slug: string) {

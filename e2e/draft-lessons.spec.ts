@@ -4,7 +4,7 @@ test("learners can browse all draft lessons and continue in reading order", asyn
   await page.goto("/");
   await page.getByRole("link", { name: "Browse draft lessons" }).click();
   await expect(page.getByRole("heading", { name: "Free draft lessons." })).toBeVisible();
-  await expect(page.getByText(/All 15 lessons are original editorial drafts/)).toBeVisible();
+  await expect(page.getByText(/All 23 lessons are original editorial drafts/)).toBeVisible();
   await expect(page.getByText(/· PROFESSIONAL TRACK$/)).toHaveCount(3);
   await expect(page.getByText(/· SUBPROFESSIONAL TRACK$/)).toHaveCount(2);
   for (const lesson of draftLessons) {
@@ -23,15 +23,17 @@ test("learners can browse all draft lessons and continue in reading order", asyn
   await expect(page).toHaveURL(/\/lessons\/arithmetic$/);
   for (const path of ["/lessons/not-a-lesson", "/lessons/questions.json", "/content/editorial/numerical-foundations.json"]) expect((await request.get(path)).status()).toBe(404);
   await page.goto("/curriculum?track=SUBPROFESSIONAL");
-  await expect(page.getByRole("link", { name: /Read draft:/ })).toHaveCount(12);
+  await expect(page.getByRole("link", { name: /Read draft:/ })).toHaveCount(20);
   await expect(page.getByRole("link", { name: "Read draft: Logical reasoning", exact: true })).toHaveCount(0);
   await page.getByRole("link", { name: "Read draft: Mathematical word problems", exact: true }).click();
   await expect(page).toHaveURL(/\/lessons\/word-problems$/);
   expect((await request.get("/content/editorial/english-foundations.json")).status()).toBe(404);
   expect((await request.get("/content/editorial/reading-foundations.json")).status()).toBe(404);
   expect((await request.get("/content/editorial/track-foundations.json")).status()).toBe(404);
+  expect((await request.get("/content/editorial/practice-core.json")).status()).toBe(404);
+  expect((await request.get("/content/editorial/practice-extended.json")).status()).toBe(404);
   await page.goto("/curriculum?track=PROFESSIONAL");
-  await expect(page.getByRole("link", { name: /Read draft:/ })).toHaveCount(13);
+  await expect(page.getByRole("link", { name: /Read draft:/ })).toHaveCount(21);
   await expect(page.getByRole("link", { name: "Read draft: Alphabetical and numerical filing", exact: true })).toHaveCount(0);
   await page.getByRole("link", { name: "Read draft: Logical reasoning", exact: true }).click();
   await expect(page).toHaveURL(/\/lessons\/logic$/);

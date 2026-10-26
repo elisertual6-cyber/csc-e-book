@@ -16,8 +16,8 @@ async function main() {
   const { values } = parseArgs({ options: { apply: { type: "boolean" }, pack: { type: "string", default: "numerical" } } });
   if (!values.apply)
     throw new ImportError("Use --apply for an intentional draft import.");
-  const selection = z.enum(["numerical", "language", "reading", "tracks"]).safeParse(values.pack);
-  if (!selection.success) throw new ImportError("Choose a supported editorial pack: numerical, language, reading or tracks.");
+  const selection = z.enum(["numerical", "language", "reading", "tracks", "practice-core", "practice-extended"]).safeParse(values.pack);
+  if (!selection.success) throw new ImportError("Choose a supported editorial pack: numerical, language, reading, tracks, practice-core or practice-extended.");
   const packName = selection.data;
   const pack = editorialPacks[packName];
   if (!process.env.DATABASE_URL)
@@ -60,7 +60,7 @@ async function main() {
     await tx.auditEvent.create({ data: { actorId: actor.id, action: `operator.${packName}-drafts.import`, targetId: actor.id, metadata: { source: pack.source, created, existingKeys: "preserved", status: "DRAFT" } } });
     return created;
   // Hosted Mumbai DB round trips from a GitHub runner can exceed one minute.
-  }, { isolationLevel: "Serializable", timeout: 180000 });
+  }, { isolationLevel: "Serializable", timeout: questions.length > 25 ? 300000 : 180000 });
   console.log(`Draft import complete: ${counts.chapters} chapters, ${counts.lessons} lessons and ${counts.questions} questions created. Existing keys were preserved. No reviews, publications, products or exams were activated.`);
 }
 main().catch((error: unknown) => {

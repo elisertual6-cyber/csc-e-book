@@ -1,5 +1,7 @@
 # Numerical lesson previews and editorial pack
 
+Current catalog update: [PRACTICE_EXPANSION.md](PRACTICE_EXPANSION.md) adds eight lessons and 160 questions, bringing totals to 23 draft lessons and 230 editorial questions. Counts below describe this earlier pack; its import scope remains unchanged.
+
 The latest reasoning/clerical expansion brings the catalog to 15 drafts and the four review packs to 70 sample questions. See [TRACK_DRAFTS.md](TRACK_DRAFTS.md). Each prior import job retains its original scope.
 
 The current catalog also includes paragraph organization and reading comprehension, for ten public teaching drafts and three review packs totaling 45 questions. See [READING_DRAFTS.md](READING_DRAFTS.md). The numerical job still imports only its original five lessons and 20 questions.

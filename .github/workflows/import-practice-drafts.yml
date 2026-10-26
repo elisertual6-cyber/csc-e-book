@@ -1,0 +1,41 @@
+name: Import 160 practice drafts
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: database-migrations-main
+  cancel-in-progress: false
+jobs:
+  import-drafts:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Validate all source drafts and schema
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_MIGRATION_URL }}
+        run: |
+          npm run content:check
+          npm run db:check-schema
+      - name: Import two unapproved 80-question packs
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_MIGRATION_URL }}
+          ADMIN_EMAIL: ${{ secrets.ADMIN_BOOTSTRAP_EMAIL }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$DATABASE_URL" || -z "$ADMIN_EMAIL" ]]; then
+            echo "Save DATABASE_MIGRATION_URL and ADMIN_BOOTSTRAP_EMAIL repository secrets first."
+            exit 1
+          fi
+          npm run content:import-drafts -- --pack practice-core --apply
+          npm run content:import-drafts -- --pack practice-extended --apply

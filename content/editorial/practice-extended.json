@@ -1,0 +1,2648 @@
+{
+  "title": "Practice expansion extended — 80 original educational drafts",
+  "version": 1,
+  "status": "DRAFT",
+  "reviewStatus": "PENDING_INDEPENDENT_REVIEW",
+  "questions": [
+    {
+      "key": "practice160-reading-01",
+      "prompt": "In this invented example: A learning centre opens its reading room from 9 a.m. to 4 p.m. on weekdays. It closes the room on public holidays. According to the passage, when is the room explicitly closed?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The passage directly states that the room closes on public holidays. It gives no noon closure, Monday exception or December-only restriction.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Every weekday at noon",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Every Monday for the full day",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Only during December",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "On public holidays",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-reading-02",
+      "prompt": "In this invented example: The pilot provided shaded seats at one bus stop for two weeks. Interviewed passengers said the seats were more comfortable. No travel-time measurements were taken. Which conclusion is supported?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The passage reports the interviewed passengers’ comfort and explicitly excludes travel-time measurement. It does not support citywide coverage or traffic and journey-time claims.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Interviewed passengers reported greater comfort; faster trips were not measured.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "The seats reduced every bus journey by ten minutes.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "All stops in the city now have shaded seats.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The pilot established that traffic congestion ended.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-reading-03",
+      "prompt": "In this invented example: Ana borrowed a reference book, copied its catalogue number into her notes and returned it before leaving. She later used the number to locate the same title. What was the practical purpose of noting the number?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The final sentence links the recorded number with locating the same title later. Nothing suggests ownership transfer, a changed author or identical numbers across titles.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "To help locate the title again",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "To obtain ownership of the book",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "To change the book’s author",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "To prove that every title had the same number",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-reading-04",
+      "prompt": "In this invented example: Six of eight invited teams sent a representative. The organisers did not record why the other teams were absent. Which statement goes beyond the passage?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The passage supplies no reason for absence. Attributing dislike and deliberate refusal adds unsupported motives, whereas the other choices restate the supplied facts.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The reasons for absence were not recorded.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The two absent teams refused to participate because they disliked the topic.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Eight teams were invited.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Six invited teams sent a representative.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-reading-05",
+      "prompt": "In this invented example: Two draft notices gave different room numbers. The coordinator withheld both notices, checked the booking record and then issued a corrected notice. Which description best captures the coordinator’s approach?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The coordinator checks the record before issuing corrected information. The sequence models verification rather than choosing by length or publishing both conflicting notices.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Assume the longer notice is automatically correct",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Avoid consulting the booking record",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Verify conflicting information before releasing it",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Distribute both conflicting versions immediately",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-reading-06",
+      "prompt": "In this invented example: A short report states, The bins were clearly labelled, but some users still put paper in the food-scrap bin. What relationship does but signal?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "But introduces a contrast: clarity of labels did not eliminate the reported mistakes. The sentence does not establish causation or make a prediction.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A definition of the word paper",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "A prediction that errors will never recur",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "A contrast between clear labels and remaining sorting errors",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "A claim that labels caused all sorting errors",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-reading-07",
+      "prompt": "In this invented example: The workshop offered optional practice after the main session. Of 20 attendees, 12 stayed for practice. The passage does not compare later performance. Which statement is justified?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Only the participation choice and counts are given. The text explicitly lacks later-performance data, so achievement and failure claims are unsupported.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Twelve attendees chose to stay, but later performance cannot be compared from this passage.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "The 12 who stayed necessarily outperformed the others.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "All 20 attendees were required to stay.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The eight who left failed the workshop.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-reading-08",
+      "prompt": "In this invented example: The note says, Keep the original log intact. If a correction is needed, add a dated correction entry instead of erasing the original. Which action follows the note?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The instruction requires both preserving the original and recording a dated correction. Erasure, discarding the log or altering unrelated dates conflicts with that stated procedure.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Discard the entire log whenever one entry is wrong",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Change all earlier dates to today’s date",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Add a dated correction while preserving the original entry",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Erase the original and leave no record of the correction",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-filipino-01",
+      "prompt": "Piliin ang wastong salita: Maingat ___ sinuri ni Liza ang mga bilang sa talaan.",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Filipino usage exercise; qualified language proofreading and authoritative reference checking remain pending.",
+      "explanation": "Ang maingat na sinuri ay gumagamit ng pang-angkop na na upang iugnay ang panuring sa kasunod na parirala. Kailangang suriin ng isang kwalipikadong tagasuri ang gamit at linaw bago aprubahan.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "mga",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "na",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "ng",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "nang",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-filipino-02",
+      "prompt": "Piliin ang wastong salita sa puwang: Umalis siya ___ matapos ang pulong.",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Filipino usage exercise; qualified language proofreading and authoritative reference checking remain pending.",
+      "explanation": "Nang ang ginagamit dito bilang pangatnig na panahunan: umalis siya nang matapos ang pulong. Hindi nito tinutukoy ang pagmamay-ari o isang pangkat ng tao.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ng",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "mga",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "kina",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "nang",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-filipino-03",
+      "prompt": "Piliin ang wastong salita: Nagdala si Marco ___ dalawang lapis.",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Filipino usage exercise; qualified language proofreading and authoritative reference checking remain pending.",
+      "explanation": "Ng ang pananda sa layong dalawang lapis sa pangungusap. Hindi ito ang nang na maaaring magpakilala ng panahunan o paraan.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ng",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "nang",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "kay",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "kina",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-filipino-04",
+      "prompt": "Sa pangungusap na Malinaw ang panuto kaya madaling nasunod ng pangkat ang mga hakbang, ano ang ipinahahayag ng kaya?",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Filipino usage exercise; qualified language proofreading and authoritative reference checking remain pending.",
+      "explanation": "Ipinakikilala ng kaya ang bunga ng malinaw na panuto: madaling nasunod ang mga hakbang. Hindi ito panandang pasalungat o patanong.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pagsalungat",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Pagtatanong",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Pag-aalinlangan",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Bunga o resulta",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-filipino-05",
+      "prompt": "Ano ang pinakamalapit na kahulugan ng masinop sa pangungusap na Masinop na inayos ni Tala ang mga resibo ayon sa petsa?",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Filipino usage exercise; qualified language proofreading and authoritative reference checking remain pending.",
+      "explanation": "Ang pag-aayos ng mga resibo ayon sa petsa ang kontekstong nagpapahiwatig ng pagiging maingat at maayos. Hindi angkop ang mga pagpipiliang nagpapakita ng kapabayaan.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Walang pakialam",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Magulo at pabaya",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Maingat at maayos",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Padalus-dalos",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-filipino-06",
+      "prompt": "Aling salita ang panghalip sa pangungusap na Siya ang nagbalik ng aklat?",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Filipino usage exercise; qualified language proofreading and authoritative reference checking remain pending.",
+      "explanation": "Siya ang panghalip na panao na maaaring humalili sa pangalan ng tao. Nagbalik ang pandiwa, aklat ang pangngalan at ang ay pananda.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "nagbalik",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "aklat",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "ang",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Siya",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-filipino-07",
+      "prompt": "Piliin ang pang-ugnay na nagpapakita ng pagsalungat: Nais niyang sumama, ___ kailangan niyang tapusin ang gawain.",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Filipino usage exercise; qualified language proofreading and authoritative reference checking remain pending.",
+      "explanation": "Ngunit ang malinaw na panandang pasalungat sa pagnanais na sumama at sa pangangailangang tapusin ang gawain. Sapagkat ay sanhi, kaya ay bunga at upang ay layunin.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "upang",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "ngunit",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "sapagkat",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "kaya",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-filipino-08",
+      "prompt": "Basahin ang kathang-isip na paalala: Ibalik ang hiniram na kagamitan bago mag-alas singko ng hapon. Ano ang tuwirang hinihingi ng paalala?",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Filipino usage exercise; qualified language proofreading and authoritative reference checking remain pending.",
+      "explanation": "Tuwirang sinasabi ng paalala na isauli ang hiniram bago mag-alas singko. Wala itong utos na bumili, magpahiram muli o magpaliban hanggang kinabukasan.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Itago ang kagamitan hanggang kinabukasan",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Ibalik ang kagamitan bago ang takdang oras",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Bilhin ang kagamitan bago umuwi",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Ipahiram muli ang kagamitan sa ibang tao",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-analogies-01",
+      "prompt": "Use the relationship instrument to the quantity it measures: thermometer : temperature :: speedometer : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "A thermometer measures temperature, while a speedometer indicates speed. The relation is the measured quantity, not every quantity associated with a vehicle.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "speed",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "distance already travelled",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "fuel capacity",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "air pressure",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-analogies-02",
+      "prompt": "Use the relationship whole to one of its parts: book : chapter :: year : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "A chapter is part of a book and a month is part of a year. Century would reverse the scale because a year is part of a century.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "calendar",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "century",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "clock",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "month",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-analogies-03",
+      "prompt": "Use the relationship occupation to a usual workplace: librarian : library :: baker : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "A library is a usual workplace for a librarian, and a bakery is a usual workplace for a baker. The relationship does not claim that a worker can never work elsewhere.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "courtroom",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "harbour",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "observatory",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "bakery",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-analogies-04",
+      "prompt": "Use the relationship action to its opposite: attach : detach :: include : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Detach reverses attaching, and exclude contrasts with include in the same action-to-opposite direction. The other choices do not express the stated opposition.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "combine",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "contain",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "exclude",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "collect",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-analogies-05",
+      "prompt": "Use the relationship maker to created work: composer : symphony :: sculptor : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "A composer creates a symphony, and a sculptor creates a statue. A chisel is a tool, a gallery a display place and an audience a group of viewers.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "gallery",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "audience",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "statue",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "chisel",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-analogies-06",
+      "prompt": "Use the relationship word to a close synonym: rapid : swift :: silent : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Rapid and swift both describe speed; silent and quiet are close synonyms in the intended ordinary context. Noisy instead expresses a contrast.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "crowded",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "lengthy",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "quiet",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "noisy",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-analogies-07",
+      "prompt": "Use the relationship material to a typical product made from it: clay : pottery :: wool : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Pottery can be made from clay and a sweater can be made from wool. Sheep is a source of wool, reversing the stated material-to-product direction.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "pasture",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "loom",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "sweater",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "sheep",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-analogies-08",
+      "prompt": "Use the relationship adult animal to its young: dog : puppy :: cat : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "A puppy is a young dog and a kitten is a young cat. The other young-animal terms belong to different adult animals and do not preserve the pair.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "foal",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "kitten",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "cub of a bear",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "calf",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-logic-01",
+      "prompt": "In an invented system, every urgent file has a red tag. File K has no red tag. What must follow under that rule?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "If K were urgent, the rule would require a red tag. Its absence therefore rules out urgency for K, but says nothing universal about every other file.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "No file in the system is urgent.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "K is not urgent.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "K is urgent.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Every red-tagged file is urgent.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-logic-02",
+      "prompt": "Treat these as invented premises: All approved requests are signed. Some approved requests are electronic. Which conclusion must follow?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The second premise supplies at least one approved electronic request. The first makes that request signed, establishing some electronic requests are signed without asserting the converse.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All signed requests are approved.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "No electronic request is approved.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "All electronic requests are approved.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Some electronic requests are signed.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-logic-03",
+      "prompt": "In an invented sorting task, exactly one of boxes A, B and C holds a card. A is empty and B is empty. What follows?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Exactly one occupied box is required, and A and B are excluded. C is therefore the sole possible occupied box under the stated premises.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "C is also empty.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Both A and C hold cards.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The premises require two cards.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "C holds the card.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-logic-04",
+      "prompt": "An invented schedule has four tasks: A must precede B, B must precede C, and D must follow C. Which order satisfies all constraints?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The first two constraints give A before B before C. Placing D after C gives the only valid order among the options: A-B-C-D.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A-C-B-D",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "D-A-B-C",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "A-B-C-D",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "B-A-C-D",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-logic-05",
+      "prompt": "In an invented rule set, no archived file is editable. File M is editable. What must follow?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Archived and editable are disjoint under the premise. Since M is editable, it cannot be archived. The premise does not say all unarchived files are editable.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Every unarchived file is editable.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "No other file can be editable.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "M is not archived.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "M is archived.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-logic-06",
+      "prompt": "For an invented exercise, P or Q or both is true. P is false. Which conclusion follows?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Inclusive or requires at least one of P and Q. With P false, Q must be true for the premise to hold. The phrase or both does not require both.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Q is true.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Q is false.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Both P and Q are false.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The statement forces P to be true.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-logic-07",
+      "prompt": "An invented policy says: If a record is verified, it may be archived. A record may be archived. What can be concluded about its verification from these statements alone?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Inferring verification from permission to archive affirms the consequent. The stated rule supplies a sufficient condition, not the only possible source of permission or evidence of actual archiving.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Every record has already been archived.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Verification is not established; another permission rule may apply.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "It must have been verified.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "It must be unverified.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-logic-08",
+      "prompt": "An invented puzzle defines a valid badge as one that is both blue and numbered. Badge R is blue but unnumbered. Which conclusion follows?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The definition requires both conditions. R fails the numbering condition, so blue colour alone cannot make it valid. Neither universal colour claim is supplied.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "R is valid because it is blue.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "All numbered badges are blue.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Every blue badge is valid.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "R is not valid under this definition.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-filing-01",
+      "prompt": "For this exercise, compare the displayed surname keys letter by letter, A to Z. Which comes first: Ramos, Reyes, Rivera or Ruiz?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "All keys begin with R. Their next letters are a, e, i and u, so Ramos precedes the others under the explicitly stated rule.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Rivera",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Ruiz",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Ramos",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Reyes",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-filing-02",
+      "prompt": "For this exercise, shorter keys precede longer keys when all letters of the shorter key match the start of the longer. Which ordering is correct?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Tan comes before its longer extensions. Between Tang and Tanto, g precedes t after Tan. Tao follows the Tan group because o follows n at the third letter.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Tao, Tan, Tang, Tanto",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Tan, Tao, Tang, Tanto",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Tan, Tang, Tanto, Tao",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Tang, Tan, Tanto, Tao",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-filing-03",
+      "prompt": "Compare the numeric suffixes as integers, ignoring leading zeroes for ordering only. Which record is last: R-004, R-12, R-030 or R-9?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The suffix values are 4, 12, 30 and 9. The largest is 30, so R-030 is last. The identifier is preserved even though its comparison value is numerical.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "R-12",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "R-9",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "R-004",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "R-030",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-filing-04",
+      "prompt": "Sort these exercise identifiers by letter prefix A to Z, then integer suffix from smallest to largest. Which order is correct?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "All A-prefixed records precede B-prefixed records. Within A, integer 2 precedes 10; within B, 1 precedes 3. This is not whole-string lexicographic ordering.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A-2, B-1, A-10, B-3",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "A-2, A-10, B-1, B-3",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "A-10, A-2, B-1, B-3",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "B-1, B-3, A-2, A-10",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-filing-05",
+      "prompt": "Arrange the following dates from earliest to latest, interpreting them as YYYY-MM-DD. Which order is correct?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Compare year, then month, then day. Both February dates precede November, and February 9 precedes February 19. The declared ISO-style format removes month/day ambiguity.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "2026-02-09, 2026-11-02, 2026-02-19",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "2026-02-09, 2026-02-19, 2026-11-02",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "2026-11-02, 2026-02-09, 2026-02-19",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "2026-02-19, 2026-02-09, 2026-11-02",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-filing-06",
+      "prompt": "For this exercise only, ignore spaces and compare A-to-Z letters. Which key comes first: De Leon, Delos, Diaz or Dizon?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Ignoring spaces gives DeLeon, Delos, Diaz and Dizon. De precedes Di; within the De group, the e after Del in DeLeon precedes the o in Delos. This is an exercise rule, not an asserted official name-filing standard.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Delos",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Diaz",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Dizon",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "De Leon",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-filing-07",
+      "prompt": "For this exercise, use numeric ascending order. Which identifier belongs immediately after C-19 among C-7, C-19, C-21 and C-103?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The suffixes in ascending order are 7, 19, 21 and 103. Therefore C-21 immediately follows C-19 among the supplied identifiers.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "C-19",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "C-21",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "C-7",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "C-103",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-filing-08",
+      "prompt": "An exercise sorts by surname first and given name second, both A to Z. Which entry comes first?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Cruz precedes Dela by surname. Within the Cruz entries, Ana precedes Ben by given name. Given names do not override the primary surname comparison.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Cruz, Ben",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Dela, Ada",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Dela, Ben",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Cruz, Ana",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-spelling-01",
+      "prompt": "Which spelling is conventional in edited English for a group appointed to perform a task?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Committee has double m, double t and a final double e. The other options omit one of those required letters in the conventional spelling.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "committe",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "committee",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "commitee",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "comittee",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-spelling-02",
+      "prompt": "Choose the conventional edited-English spelling of the word meaning to provide lodging or make room for someone.",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Accommodate has double c and double m, followed by odate. The alternatives omit a consonant or replace the second o with a.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "accommodate",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "accomodate",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "acommodate",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "accommadate",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-spelling-03",
+      "prompt": "Choose the conventional spelling of the adjective meaning needed or required.",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Necessary is spelled with one c and double s. The distractors add a c, omit an s or replace the c with an s.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "neccessary",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "necesary",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "nessesary",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "necessary",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-spelling-04",
+      "prompt": "Which word correctly completes this sentence in conventional edited English: Keep the two categories ___.",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Separate contains a after the first r and only one r in that position. The other options change that vowel or add an extra r.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "seperrate",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "separrate",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "separate",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "seperate",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-spelling-05",
+      "prompt": "Which is the conventional spelling of the verb meaning to get or be given something?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Receive is spelled r-e-c-e-i-v-e. This item checks that particular conventional word; a mnemonic should not be treated as a universal rule without exceptions.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "receve",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "receive",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "recieve",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "receeve",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-spelling-06",
+      "prompt": "Which is the conventional spelling of the word for work that keeps equipment in good condition?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Maintenance is spelled m-a-i-n-t-e-n-a-n-c-e. It is not formed by simply appending ance to the full spelling of maintain.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "maintenance",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "maintainance",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "maintenence",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "maintanence",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-spelling-07",
+      "prompt": "Exact copying is required, without correcting identifiers. Which option reproduces the source AB-5071-Q exactly?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Only AB-5071-Q preserves every character and its position. The other choices transpose digits, replace digit 1 with letter I, or replace Q with O.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "AB-5701-Q",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "AB-507I-Q",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "AB-5071-O",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "AB-5071-Q",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-spelling-08",
+      "prompt": "Copy this exercise reference exactly, including the slash and leading zeroes: TX/0084/26. Which copy matches?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The exact reference contains two slashes, two leading zeroes in 0084 and final digits 26. Removing a zero, reversing the final digits or changing the final digit is a transcription error.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "TX/084/26",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "TX/0084/62",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "TX/0084/28",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "TX/0084/26",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-constitution-01",
+      "prompt": "Under Article II, Section 1 of the 1987 Philippine Constitution, where does sovereignty reside?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. 1987 Philippine Constitution: https://lawphil.net/consti/cons1987.html . Verify the cited article against the primary text before approval.",
+      "explanation": "Article II, Section 1 identifies the Philippines as a democratic and republican State and states that sovereignty resides in the people, from whom government authority emanates.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "In foreign governments",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "In the people",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Exclusively in the Cabinet",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Only in appointed judges",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-constitution-02",
+      "prompt": "Which protection is expressly stated in Article III, Section 1 of the 1987 Philippine Constitution?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. 1987 Philippine Constitution: https://lawphil.net/consti/cons1987.html . Verify the cited article against the primary text before approval.",
+      "explanation": "Article III, Section 1 protects against deprivation of life, liberty or property without due process and denial of equal protection. It does not guarantee identical outcomes, appointments or immunity from law.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Exemption from every law for all citizens",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Due process of law and equal protection of the laws",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "A guarantee that every private dispute has the same outcome",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Automatic appointment to public office",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-constitution-03",
+      "prompt": "Which subject is addressed by Article III, Section 2 of the 1987 Philippine Constitution?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. 1987 Philippine Constitution: https://lawphil.net/consti/cons1987.html . Verify the cited article against the primary text before approval.",
+      "explanation": "Article III, Section 2 concerns security of persons, houses, papers and effects against unreasonable searches and seizures and sets constitutional warrant requirements. The item does not ask about exceptions or particular cases.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The official size of ballot paper",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Security against unreasonable searches and seizures",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "The number of members in the Cabinet",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The national budget calendar",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-constitution-04",
+      "prompt": "Which freedom is expressly protected by Article III, Section 4 of the 1987 Philippine Constitution?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. 1987 Philippine Constitution: https://lawphil.net/consti/cons1987.html . Verify the cited article against the primary text before approval.",
+      "explanation": "Article III, Section 4 protects speech, expression, the press, and peaceable assembly and petition. This identification is not a claim that every possible exercise is free from all lawful limits.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A right to disregard every court order",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "A guarantee of a government job",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Freedom of speech and expression",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "A private right to issue criminal judgments",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-constitution-05",
+      "prompt": "Subject to the constitutional reservation to the people through initiative and referendum, Article VI, Section 1 vests legislative power in which institution?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. 1987 Philippine Constitution: https://lawphil.net/consti/cons1987.html . Verify the cited article against the primary text before approval.",
+      "explanation": "Article VI, Section 1 vests legislative power in Congress, consisting of the Senate and House of Representatives, except to the extent reserved to the people through initiative and referendum.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The Cabinet alone",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The Supreme Court alone",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The Commission on Audit alone",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Congress, consisting of the Senate and House of Representatives",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-constitution-06",
+      "prompt": "Under Article VII, Section 1 of the 1987 Philippine Constitution, executive power is vested in whom?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. 1987 Philippine Constitution: https://lawphil.net/consti/cons1987.html . Verify the cited article against the primary text before approval.",
+      "explanation": "Article VII, Section 1 vests executive power in the President of the Philippines. The other named officers have different constitutional functions.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The President of the Philippines",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "The Chief Justice alone",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The Senate President alone",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The Ombudsman alone",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-constitution-07",
+      "prompt": "Article VIII, Section 1 of the 1987 Philippine Constitution vests judicial power in which bodies?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. 1987 Philippine Constitution: https://lawphil.net/consti/cons1987.html . Verify the cited article against the primary text before approval.",
+      "explanation": "Article VIII, Section 1 identifies one Supreme Court and lower courts that may be established by law as repositories of judicial power. The other options do not state that allocation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Only provincial governors",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Only the two houses of Congress",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Every private company’s board",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "One Supreme Court and such lower courts as may be established by law",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-constitution-08",
+      "prompt": "Which principle opens Article XI, Section 1 of the 1987 Philippine Constitution?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. 1987 Philippine Constitution: https://lawphil.net/consti/cons1987.html . Verify the cited article against the primary text before approval.",
+      "explanation": "Article XI, Section 1 begins with the principle that public office is a public trust and connects it with accountability and responsible public service. It is not a private-property entitlement.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Public accountability is optional.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Public authority belongs permanently to an individual family.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Public office is a public trust.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Public office is private property.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ethics-01",
+      "prompt": "RA 6713, Section 4(a), concerns commitment to public interest. Which fictional action most directly reflects that norm?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Republic Act No. 6713: https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html . Verify the cited section and current applicable guidance before approval.",
+      "explanation": "Section 4(a) gives priority to public interest and calls for efficient, effective, honest and economical use of government resources. The other actions divert resources to private ends.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Using office supplies for an unrelated private business",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Giving public equipment to a friend for personal use",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Treating public resources as personal property",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Using public resources efficiently for their authorised public purpose",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-ethics-02",
+      "prompt": "Under RA 6713, Section 4(b), which norm calls for a high degree of excellence, professionalism, intelligence and skill in performing duties?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Republic Act No. 6713: https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html . Verify the cited section and current applicable guidance before approval.",
+      "explanation": "Section 4(b) addresses professionalism, including excellence, intelligence and skill in the performance of duties. The distractors do not identify that statutory norm.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Personal enrichment",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Concealment of all work",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Professionalism",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Partisan favouritism",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ethics-03",
+      "prompt": "A fictional service desk processes comparable applications fairly regardless of political party preference. Which RA 6713 Section 4 norm does this illustrate?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Republic Act No. 6713: https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html . Verify the cited section and current applicable guidance before approval.",
+      "explanation": "Section 4(d) calls for service without unfair discrimination regardless of party affiliation or preference. Fair comparable treatment illustrates political neutrality, not partisan advantage.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Ownership of public office",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Automatic promotion by affiliation",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Political neutrality",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Preference for a governing party",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ethics-04",
+      "prompt": "A fictional employee gives a visitor prompt, courteous and adequate assistance about a service request. Which RA 6713 Section 4 norm is most directly illustrated?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Republic Act No. 6713: https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html . Verify the cited section and current applicable guidance before approval.",
+      "explanation": "Section 4(e) addresses responsiveness to the public and prompt, courteous and adequate service. The other choices describe conduct contrary to that norm.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Refusal to explain any process",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Deliberate delay of every inquiry",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Responsiveness to the public",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Exclusive attention to relatives",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ethics-05",
+      "prompt": "RA 6713, Section 4(h), addresses simple living. Which statement best expresses that norm?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Republic Act No. 6713: https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html . Verify the cited section and current applicable guidance before approval.",
+      "explanation": "Section 4(h) describes modest living appropriate to position and income and avoidance of extravagance or ostentatious wealth. It does not impose the absolute claims in the other choices.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Lead a modest life appropriate to one’s position and income, without ostentatious display of wealth.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Treat every public employee as prohibited from owning any personal item.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Require every employee to have identical household expenses.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Replace financial disclosures with a verbal promise.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ethics-06",
+      "prompt": "Under the text of RA 6713, Section 5(a), within how many working days from receipt should public officials and employees respond to letters and other communications from the public?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Republic Act No. 6713: https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html . Verify the cited section and current applicable guidance before approval.",
+      "explanation": "Section 5(a) states fifteen working days from receipt and requires the reply to contain the action taken on the request. This item identifies the statutory text; current implementing rules require separate review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "60 working days",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "No response period is stated",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "15 working days",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "15 calendar months",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ethics-07",
+      "prompt": "In a fictional scenario, an applicant offers money in exchange for favourable action on a pending official transaction. Which response is consistent with the gift restriction in RA 6713, Section 7(d)?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Republic Act No. 6713: https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html . Verify the cited section and current applicable guidance before approval.",
+      "explanation": "Section 7(d) prohibits solicitation or acceptance of gifts or benefits in the covered official contexts. Renaming an offered quid-pro-quo payment does not make the described exchange acceptable; this is not a claim that every token in every context has identical legal treatment.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Accept it if the transaction is still pending.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Request a larger amount before deciding.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Refuse the offered payment for favourable official action.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Accept it if it is called a thank-you fee.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ethics-08",
+      "prompt": "What is the principal transparency purpose of the sworn disclosure required by RA 6713, Section 8?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Republic Act No. 6713: https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html . Verify the cited section and current applicable guidance before approval.",
+      "explanation": "Section 8 provides for statements and disclosures concerning assets, liabilities, net worth and financial or business interests. Disclosure is not immunity, a substitute for every audit or authority to expose passwords.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Making every employee’s bank password public",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Disclosing assets, liabilities, net worth and specified financial or business interests",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Giving the filer automatic immunity from investigation",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Replacing every government audit with a private note",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-rights-01",
+      "prompt": "Which idea is expressed in Article 1 of the Universal Declaration of Human Rights?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Universal Declaration of Human Rights: https://www.un.org/en/about-us/universal-declaration-of-human-rights . This is an instrument-based learning exercise, not a statement of Philippine case law.",
+      "explanation": "UDHR Article 1 states the equal freedom, dignity and rights of human beings. The alternatives condition dignity or rights on status or possessions, contrary to that principle.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Rights are granted only to people who own land.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "All human beings are born free and equal in dignity and rights.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Human dignity depends only on income.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Only public officials possess human rights.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-rights-02",
+      "prompt": "UDHR Article 2 concerns entitlement to the Declaration’s rights without specified forms of distinction. Which fictional action best illustrates that principle?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Universal Declaration of Human Rights: https://www.un.org/en/about-us/universal-declaration-of-human-rights . This is an instrument-based learning exercise, not a statement of Philippine case law.",
+      "explanation": "Article 2 states nondiscriminatory entitlement to the rights in the Declaration, including without distinction as to race or religion. The other options condition treatment on the distinctions the principle rejects.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Assessing comparable service requests without discrimination based on religion or race",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Refusing comparable requests solely because of race",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Granting rights only to one religious group",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Treating personal wealth as the source of human dignity",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-rights-03",
+      "prompt": "Which practice does UDHR Article 5 expressly reject?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Universal Declaration of Human Rights: https://www.un.org/en/about-us/universal-declaration-of-human-rights . This is an instrument-based learning exercise, not a statement of Philippine case law.",
+      "explanation": "Article 5 rejects torture and cruel, inhuman or degrading treatment or punishment. The other choices describe different matters and do not identify its subject.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Every request for information",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Torture and cruel, inhuman or degrading treatment or punishment",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "All opportunities to present evidence",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Every peaceful public discussion",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-rights-04",
+      "prompt": "UDHR Article 9 protects against which of the following?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Universal Declaration of Human Rights: https://www.un.org/en/about-us/universal-declaration-of-human-rights . This is an instrument-based learning exercise, not a statement of Philippine case law.",
+      "explanation": "Article 9 states that no one shall be subjected to arbitrary arrest, detention or exile. Arbitrary does not mean that every lawful legal process is prohibited.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All criticism of a public proposal",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Every form of tax assessment",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Arbitrary arrest, detention or exile",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Every lawful requirement to attend a hearing",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-rights-05",
+      "prompt": "Which hearing standard is described by UDHR Article 10?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Universal Declaration of Human Rights: https://www.un.org/en/about-us/universal-declaration-of-human-rights . This is an instrument-based learning exercise, not a statement of Philippine case law.",
+      "explanation": "Article 10 describes full equality in a fair and public hearing by an independent and impartial tribunal in the matters it covers. Fairness does not guarantee victory to a particular party.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A fair and public hearing by an independent and impartial tribunal",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "A decision based only on an official’s personal preference",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "A rule that no party may be heard",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "A requirement that the complainant must always win",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-rights-06",
+      "prompt": "Under UDHR Article 11(1), a person charged with a penal offence has which protection?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Universal Declaration of Human Rights: https://www.un.org/en/about-us/universal-declaration-of-human-rights . This is an instrument-based learning exercise, not a statement of Philippine case law.",
+      "explanation": "Article 11(1) describes presumption of innocence and a public trial with necessary defence guarantees. Accusation, repetition and rumour do not replace proof under that principle.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Loss of all opportunity to defend the charge",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "A rule that rumours alone conclusively establish guilt",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Presumption of innocence until proved guilty according to law with the necessary defence guarantees",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Automatic guilt once an accusation is repeated",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-rights-07",
+      "prompt": "Which freedom is addressed by UDHR Article 18?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Universal Declaration of Human Rights: https://www.un.org/en/about-us/universal-declaration-of-human-rights . This is an instrument-based learning exercise, not a statement of Philippine case law.",
+      "explanation": "Article 18 concerns thought, conscience and religion, including changing religion or belief and manifesting it in the stated ways. It does not confer coercive private powers or authority to falsify records.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Ownership of every public building",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Freedom of thought, conscience and religion",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "A private authority to imprison neighbours",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "A right to falsify public records",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-rights-08",
+      "prompt": "Which subject is addressed by UDHR Article 19?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Universal Declaration of Human Rights: https://www.un.org/en/about-us/universal-declaration-of-human-rights . This is an instrument-based learning exercise, not a statement of Philippine case law.",
+      "explanation": "Article 19 concerns opinion and expression and seeking, receiving and imparting information. It does not make every opinion true or by itself settle all questions about limitations and responsibilities.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A guarantee that every opinion is factually correct",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "An exemption from all responsibilities in every circumstance",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "An exclusive right of officials to hold opinions",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Freedom of opinion and expression, including seeking, receiving and imparting information",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-environment-01",
+      "prompt": "Which action is an example of reducing waste rather than reusing or recycling an existing item?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. General environmental-literacy exercise; RA 9003 for the stated waste-management rules: https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html . Verify primary references before approval.",
+      "explanation": "Reduction prevents or avoids waste at its source. Reusing a jar and processing paper or scraps manage materials after they already exist; all may be useful, but they are different actions.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Turning food scraps into compost",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Choosing a product with less unnecessary packaging before purchase",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Using an old jar again for storage",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Sending used paper to a recycling facility",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-environment-02",
+      "prompt": "Under the source-segregation principle of RA 9003, where should solid waste primarily be separated into appropriate categories?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. General environmental-literacy exercise; RA 9003 for the stated waste-management rules: https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html . Verify primary references before approval.",
+      "explanation": "RA 9003, Section 21, requires segregation primarily at the source. Mixing first or disposing into water does not implement that source-separation principle.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Only after all waste has been mixed indefinitely",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Only after disposal into a river",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Nowhere, because separation is prohibited",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "At the source where it is generated",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-environment-03",
+      "prompt": "In a fictional office following appropriate local collection instructions, which material is normally suitable for a food-scrap composting stream rather than the paper recycling stream?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. General environmental-literacy exercise; RA 9003 for the stated waste-management rules: https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html . Verify primary references before approval.",
+      "explanation": "Vegetable peelings are biodegradable organic material suitable for an appropriate composting process. Batteries and glass are not food scraps, and paper-stream rules do not convert these materials into compost feedstock.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A clean metal can",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Broken glass",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Vegetable peelings",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "A used battery",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-environment-04",
+      "prompt": "Which practice is expressly prohibited by RA 9003, Section 48, rather than an appropriate waste-management method?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. General environmental-literacy exercise; RA 9003 for the stated waste-management rules: https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html . Verify primary references before approval.",
+      "explanation": "Section 48 includes open burning of solid waste among prohibited acts. Source segregation, reduction and following authorised collection arrangements are not the prohibited practice described here.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Open burning of solid waste",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Keeping suitable recyclables separated at source",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Avoiding unnecessary disposable materials",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Following an authorised collection schedule",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-environment-05",
+      "prompt": "A fictional office finds a leaking tap that runs continuously even when no one uses it. Which first maintenance action most directly prevents continuing avoidable water loss?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. General environmental-literacy exercise; RA 9003 for the stated waste-management rules: https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html . Verify primary references before approval.",
+      "explanation": "Repairing the leak addresses the physical source of continuing loss. Reminders alone do not stop a damaged tap, and increasing or ignoring the flow wastes more water.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Remove every reminder about conserving water.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Arrange a safe repair of the leak.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Leave the leak running because the water is already available.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Increase the leak’s flow.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-environment-06",
+      "prompt": "Two lamps provide the same useful light output for the same period. One uses 8 watts and the other uses 12 watts. Which uses less electrical energy during that period?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. General environmental-literacy exercise; RA 9003 for the stated waste-management rules: https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html . Verify primary references before approval.",
+      "explanation": "Energy equals power multiplied by time. With equal operating time, the 8-watt lamp uses less energy. Equal useful light output does not imply equal electrical input.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The 12-watt lamp",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Both necessarily use the same energy",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Energy use cannot depend on power and time",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The 8-watt lamp",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-environment-07",
+      "prompt": "For a general watershed-literacy exercise, which effect can established vegetation provide on a slope when appropriately managed?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. General environmental-literacy exercise; RA 9003 for the stated waste-management rules: https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html . Verify primary references before approval.",
+      "explanation": "Roots and ground cover can help stabilise soil and reduce erosion. That limited benefit is not a guarantee against every landslide or a replacement for appropriate land-use and hazard planning.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Vegetation eliminates every need for land-use planning.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Roots always increase bare-soil exposure.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Roots and ground cover can help reduce soil erosion.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Every planted slope becomes immune to all landslides.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-environment-08",
+      "prompt": "A fictional workplace has used batteries awaiting disposal. Which approach is most appropriate?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. General environmental-literacy exercise; RA 9003 for the stated waste-management rules: https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html . Verify primary references before approval.",
+      "explanation": "Used batteries need the applicable designated collection and authorised handling route. Composting, open burning and water disposal are unsuitable; actual local collection instructions must be verified.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Throw them into a nearby stream.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Use the designated special-waste collection or authorised handling channel.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Mix them into a food-scrap compost pile.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Burn them in an open container.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

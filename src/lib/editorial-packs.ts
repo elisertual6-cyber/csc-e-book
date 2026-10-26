@@ -20,4 +20,14 @@ export const editorialPacks = {
     lessons: ["analogies", "logic", "data", "filing", "spelling"],
     source: "public-track-foundations-v1",
   },
+  "practice-core": {
+    file: "practice-core.json",
+    lessons: ["study-methods", "solutions"],
+    source: "public-practice-core-v1",
+  },
+  "practice-extended": {
+    file: "practice-extended.json",
+    lessons: ["filipino", "constitution", "ethics", "rights", "environment", "study-plan"],
+    source: "public-practice-extended-v1",
+  },
 } as const;

@@ -1,0 +1,2648 @@
+{
+  "title": "Practice expansion core — 80 original educational drafts",
+  "version": 1,
+  "status": "DRAFT",
+  "reviewStatus": "PENDING_INDEPENDENT_REVIEW",
+  "questions": [
+    {
+      "key": "practice160-arithmetic-01",
+      "prompt": "Evaluate 31 - 4 × 6 + 18 ÷ 3 using the standard order of operations.",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "First calculate 4 × 6 = 24 and 18 ÷ 3 = 6. Then evaluate 31 - 24 + 6 = 13; addition and subtraction proceed from left to right.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "33",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "13",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "27",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "7",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-arithmetic-02",
+      "prompt": "What is (42 - 18) ÷ 6 + 3²?",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The parentheses give 24, the power gives 9 and 24 ÷ 6 = 4. Adding 4 and 9 gives 13. The square applies only to 3.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "7",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "45",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "13",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "25",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-arithmetic-03",
+      "prompt": "A measuring tape records segments of 7.50 m and 2.80 m. A 4.65 m portion is removed from their combined length. What length remains?",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The combined length is 7.50 + 2.80 = 10.30 m. Subtracting 4.65 m leaves 5.65 m. Align decimal places and retain metres as the unit.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "10.30 m",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "4.85 m",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "5.65 m",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "6.35 m",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-arithmetic-04",
+      "prompt": "Compute 2.4 × 0.35.",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Multiplying 24 by 35 gives 840. The factors have three decimal places altogether, so the product is 0.840, or 0.84. A factor below 1 makes the result smaller than 2.4.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "0.84",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "8.4",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "0.084",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "84",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-arithmetic-05",
+      "prompt": "How many 1.2-litre containers can be filled completely from 96 litres, with no loss?",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Divide the available quantity by the capacity of each container: 96 ÷ 1.2 = 960 ÷ 12 = 80. Multiplying 80 by 1.2 checks the original 96 litres.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "115.2 containers",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "94.8 containers",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "80 containers",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "8 containers",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-arithmetic-06",
+      "prompt": "Subtract 1/4 from 5/6 and express the answer in simplest form.",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Use denominator 12: 5/6 = 10/12 and 1/4 = 3/12. Their difference is 7/12; numerator and denominator have no common factor greater than 1.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1/3",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "3/4",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "7/12",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "4/2",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-arithmetic-07",
+      "prompt": "A storeroom receives 24 boxes containing 18 envelopes each. After 57 envelopes are used, how many remain?",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The delivery contains 24 × 18 = 432 envelopes. Subtract the 57 used: 432 - 57 = 375. Boxes and individual envelopes must not be added as if they were the same unit.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "318 envelopes",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "375 envelopes",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "489 envelopes",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "399 envelopes",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-arithmetic-08",
+      "prompt": "A fictional petty-cash log starts at ₱1,250, records three payments of ₱175 each, then a receipt of ₱240. What is the final balance?",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The three payments total 3 × 175 = 525 pesos. The final balance is 1,250 - 525 + 240 = 965 pesos. The receipt increases rather than decreases the balance.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "₱1,315",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "₱1,535",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "₱965",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "₱485",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-fractions-01",
+      "prompt": "Three fifths of 150 application folders have been checked. How many folders have been checked?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "One fifth of 150 is 30, so three fifths is 3 × 30 = 90 folders. The requested quantity is the checked part, not the 60 unchecked folders.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "50 folders",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "60 folders",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "120 folders",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "90 folders",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-fractions-02",
+      "prompt": "Which fraction in simplest form is equal to 0.375?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Write 0.375 as 375/1000 and divide numerator and denominator by 125 to obtain 3/8. The decimal represents 375 thousandths, not 375 hundredths.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "5/8",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "37/100",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "3/8",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "3/5",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-fractions-03",
+      "prompt": "What is 2/3 + 5/12? Give an improper fraction in simplest form.",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Convert 2/3 to 8/12 and add 5/12 to obtain 13/12. Denominators identify equal-size parts and are not added together.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "7/12",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "11/12",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "13/12",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "7/15",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-fractions-04",
+      "prompt": "A draft printing estimate of ₱240 is reduced by 15%. What is the revised estimate?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The reduction is 0.15 × 240 = 36 pesos. Subtracting it gives 240 - 36 = 204 pesos, equivalently 85% of the original estimate.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "₱204",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "₱225",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "₱36",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "₱276",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-fractions-05",
+      "prompt": "Attendance rises from 64 learners to 80 learners. What is the percentage increase relative to the original attendance?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The increase is 80 - 64 = 16. Divide by the original 64: 16/64 × 100 = 25%. Dividing by 80 would use the wrong reference base.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "125%",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "25%",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "20%",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "16%",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-fractions-06",
+      "prompt": "An item costs ₱800 after a 20% discount on its original price. What was the original price?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "After a 20% discount, 80% of the original remains. Solve 0.80P = 800, giving P = 1,000 pesos. Adding 20% of 800 does not reverse the discount.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "₱820",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "₱1,000",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "₱960",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "₱640",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-fractions-07",
+      "prompt": "A team has completed 3/8 of a checklist. What fraction of the checklist remains incomplete?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "A complete checklist is 8/8. Subtracting the completed 3/8 leaves 5/8. The answer compares remaining work with the whole checklist.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "5/3",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "5/8",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "3/5",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "1/8",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-fractions-08",
+      "prompt": "In an invented survey, 350 of 1,400 participants choose option X. What percentage choose X?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The share is 350/1400 = 1/4. Multiplying by 100 gives 25%. This calculation describes only the invented surveyed group, not a larger population.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "75%",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "25%",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "35%",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "40%",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ratios-01",
+      "prompt": "Red and blue folders are in the ratio 3:5. There are 96 folders in all. How many are blue?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The ratio contains 8 equal parts; each part is 96/8 = 12 folders. Blue takes 5 parts, so 5 × 12 = 60 folders.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "64 folders",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "60 folders",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "36 folders",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "48 folders",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ratios-02",
+      "prompt": "A map uses a scale of 1:50,000. A straight route measures 3.2 cm on the map. What ground distance does that represent?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The ground length is 3.2 × 50,000 = 160,000 cm. There are 100,000 cm in a kilometre, so the distance is 1.6 km.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "0.16 km",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "160 km",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "1.6 km",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "16 km",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ratios-03",
+      "prompt": "Six quiz scores have an average of 72. Five scores sum to 355. What is the sixth score?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "All six scores sum to 6 × 72 = 432. The missing score is 432 - 355 = 77. Check that (355 + 77)/6 returns 72.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "67",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "77",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "72",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "83",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ratios-04",
+      "prompt": "Twelve tickets cost ₱50 each and eight other tickets cost ₱80 each. What is the mean price per ticket across all 20 tickets?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The total is 12 × 50 + 8 × 80 = 1,240 pesos for 20 tickets. Dividing gives 62 pesos per ticket. Averaging 50 and 80 ignores unequal quantities.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "₱60",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "₱68",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "₱62",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "₱65",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ratios-05",
+      "prompt": "Ten equally productive workers finish a fixed task in 12 days. At the same constant rate, how many days would 15 workers need?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The task requires 10 × 12 = 120 worker-days. With 15 workers, 120/15 = 8 days, assuming no change in individual productivity or coordination losses.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "10 days",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "6 days",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "8 days",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "18 days",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ratios-06",
+      "prompt": "Simplify the ratio 42:56 to lowest whole-number terms.",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The greatest common divisor of 42 and 56 is 14. Dividing both terms by 14 gives 3:4, preserving their original order.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "4:3",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "6:7",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "7:8",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "3:4",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-ratios-07",
+      "prompt": "A recipe uses 2.5 cups of flour for 6 servings. Keeping the same proportions, how much flour is needed for 15 servings?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The scale factor is 15/6 = 2.5. Multiply the original 2.5 cups by 2.5 to obtain 6.25 cups. The calculation assumes linear scaling of the recipe.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "3.75 cups",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "6.25 cups",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "5 cups",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "7.5 cups",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-ratios-08",
+      "prompt": "If a:b = 4:7 and b:c = 2:3, what is a:b:c in lowest whole-number terms?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Match b in both ratios using 14. The first ratio becomes 8:14 and the second becomes 14:21, so a:b:c is 8:14:21.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "8:14:21",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "4:7:3",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "4:2:3",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "8:7:21",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-sequences-01",
+      "prompt": "A sequence starts 6, 10, 14, 18 and adds 4 each time. What is its next term?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Apply the explicitly stated rule to the last term: 18 + 4 = 22. The rule is supplied because a finite list alone does not uniquely determine every continuation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "26",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "22",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "24",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "20",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-sequences-02",
+      "prompt": "Starting at 2, a sequence triples its preceding term: 2, 6, 18, 54. What comes next?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The stated recurrence multiplies by 3, so the next term is 54 × 3 = 162. Adding a fixed difference would not follow that recurrence.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "108",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "81",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "216",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "162",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-sequences-03",
+      "prompt": "A sequence is 3, 8, 15, 24. Its successive increases are the consecutive odd numbers 5, 7, 9, 11, and so on. What is the next term?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The next increase is explicitly 11, following 5, 7 and 9. Therefore the next term is 24 + 11 = 35.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "36",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "34",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "35",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "33",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-sequences-04",
+      "prompt": "The rule alternates adding 5 and subtracting 2, beginning with +5: 10, 15, 13, 18, 16. What is next?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "After the subtraction from 18 to 16, the next step is addition of 5. Thus 16 + 5 = 21. Preserve the stated alternation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "23",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "18",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "21",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "14",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-sequences-05",
+      "prompt": "The nth term is n² + 1 for positive integers n. What is the fifth term?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Substitute n = 5 into the given formula: 5² + 1 = 26. The index 5 is not the value of the term itself.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "17",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "36",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "26",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "25",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-sequences-06",
+      "prompt": "Each term after the first two is the sum of the previous two: 3, 4, 7, 11, 18. What is the sixth term?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The sixth term is the sum of the fourth and fifth terms: 11 + 18 = 29. This uses both immediately preceding terms.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "36",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "22",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "29",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "25",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-sequences-07",
+      "prompt": "An arithmetic sequence begins 9, 16, 23 and has common difference 7. What is its tenth term?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Use a10 = 9 + (10 - 1) × 7 = 72. There are nine increases from the first term to the tenth, not ten.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "72",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "79",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "63",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "70",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-sequences-08",
+      "prompt": "A savings exercise lists the first five terms 4, 8, 12, 16, 20 pesos. What is their sum?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Add the five stated amounts: 4 + 8 + 12 + 16 + 20 = 60 pesos. Pairing the outside terms also gives 24 + 24 + 12 = 60.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "₱60",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "₱40",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "₱50",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "₱80",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-word-problems-01",
+      "prompt": "A vehicle covers 72 km in 45 minutes at constant speed. What is its speed in kilometres per hour?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Convert 45 minutes to 0.75 hour, then divide 72 by 0.75 to obtain 96 km/h. The value 1.6 would be kilometres per minute, not per hour.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1.6 km/h",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "108 km/h",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "96 km/h",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "54 km/h",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-word-problems-02",
+      "prompt": "One machine completes a job in 8 hours and another completes the same job in 12 hours. Working together at independent constant rates, how long do they need?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Their combined rate is 1/8 + 1/12 = 5/24 job per hour. The time for one job is its reciprocal, 24/5 = 4.8 hours.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "20 hours",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "6 hours",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "4.8 hours",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "10 hours",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-word-problems-03",
+      "prompt": "Three identical pens and two notebooks cost ₱142. Each notebook costs ₱35. What is the price of one pen?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The notebooks cost 2 × 35 = 70 pesos, leaving 142 - 70 = 72 pesos for three pens. Each pen costs 72/3 = 24 pesos.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "₱24",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "₱36",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "₱47",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "₱72",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-word-problems-04",
+      "prompt": "A rectangle has perimeter 54 cm and length 18 cm. What is its area?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "From 2(L + W) = 54, L + W = 27, so W = 9 cm. The area is 18 × 9 = 162 cm²; perimeter alone is not an area.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "108 cm²",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "486 cm²",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "162 cm²",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "324 cm²",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-word-problems-05",
+      "prompt": "For a fictional simple-interest exercise, ₱2,500 earns 6% per year for 2 years with no compounding or fees. How much interest is earned?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Simple interest is principal × annual rate × time: 2,500 × 0.06 × 2 = 300 pesos. The principal plus interest would be 2,800, but only interest is requested.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "₱309",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "₱2,800",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "₱300",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "₱150",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-word-problems-06",
+      "prompt": "An empty tank fills at 9 litres per minute while a drain removes 3 litres per minute. How long does it take to accumulate 45 litres at these constant rates?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The net inflow is 9 - 3 = 6 litres per minute. Accumulating 45 litres takes 45/6 = 7.5 minutes, assuming both rates remain constant.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "7.5 minutes",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "5 minutes",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "15 minutes",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "3.75 minutes",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-word-problems-07",
+      "prompt": "A trip begins at 09:35 and lasts 1 hour 48 minutes on the same day. At what time does it end?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Adding one hour gives 10:35. Adding 48 minutes gives 11:23 because 35 + 48 = 83 minutes, equal to one hour and 23 minutes.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "10:83",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "11:13",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "10:23",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "11:23",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-word-problems-08",
+      "prompt": "An older sibling is three times as old as a younger sibling. Their ages total 48 years. How old is the younger sibling?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Let the younger age be x; the older is 3x. Then 4x = 48, so x = 12 years and the older is 36, which checks the total.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "12 years",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "16 years",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "24 years",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "36 years",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-data-01",
+      "prompt": "An invented weekly table records completed requests: Team A, 48; Team B, 36; Team C, 60. What is the total?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Sum the three counts, measured in the same unit: 48 + 36 + 60 = 144 completed requests. The team labels are not numerical values.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "144 requests",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "108 requests",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "156 requests",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "48 requests",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-data-02",
+      "prompt": "In an invented training log, 32 people were invited and 24 attended. What percentage of invitees attended?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Use invitees as the denominator: 24/32 × 100 = 75%. The non-attendance rate is 25%, which answers a different question.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "75%",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "25%",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "80%",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "133.33%",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-data-03",
+      "prompt": "An invented table lists quarterly report counts of 80, 100, 120 and 100. What is the arithmetic mean count per quarter?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The four counts sum to 400. Dividing by the four quarters gives 100 reports per quarter. The total and mean have different interpretations.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "400 reports",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "95 reports",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "100 reports",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "110 reports",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-data-04",
+      "prompt": "An invented status table shows North completed 45 of 60 assigned files, while South completed 70 of 100. Which statement correctly compares completion rates?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "North completed 45/60 = 75%, and South completed 70/100 = 70%. Compare shares of assignments, not raw completed counts alone.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "North: 45%; South: 70%; South has the higher rate.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Both rates are 75%.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "South has the higher rate because 70 exceeds 45.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "North: 75%; South: 70%; North has the higher rate.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-data-05",
+      "prompt": "Five invented waiting times, in increasing order, are 6, 9, 11, 14 and 20 minutes. What is their median?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "With five ordered observations, the median is the third observation, 11 minutes. The arithmetic mean is 12 minutes and is a different summary.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "9 minutes",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "11 minutes",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "12 minutes",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "14 minutes",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-data-06",
+      "prompt": "An invented survey has 18 people taking spreadsheet training, 14 taking writing training, 6 taking both and 4 taking neither. How many people were surveyed?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The union contains 18 + 14 - 6 = 26 people because the overlap was counted twice. Add the 4 outside both groups to obtain 30 in all.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "42 people",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "26 people",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "36 people",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "30 people",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-data-07",
+      "prompt": "An invented quality log records 12 errors in 600 entries for Batch A and 9 errors in 300 entries for Batch B. Which comparison is correct?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Compute errors per entry: 12/600 = 2% and 9/300 = 3%. The larger raw error count belongs to the larger batch and does not establish a higher error rate.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The error rates are equal.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "A has the higher error rate because 12 is greater than 9.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "A has the lower error rate: 2% versus 3%.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "B has the lower error rate: 9% versus 12%.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-data-08",
+      "prompt": "An invented notice says a centre logged 30 visits in April and 45 in May after moving its sign. Which conclusion is supported by these figures alone?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The table supports the observed increase of 45 - 30 = 15 visits. It does not identify visitors, control other causes or establish a future pattern.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The centre will receive exactly 60 visits in June.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Recorded visits rose by 15; the figures alone do not establish why.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Moving the sign caused every extra visit.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Each visitor in May was new to the centre.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-vocabulary-01",
+      "prompt": "The instruction was concise: it explained the entire task in two short sentences. What does concise mean here?",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The clue is that the full task is explained in just two short sentences. Concise describes economical wording, not confusion, repetition or an exclusively visual message.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Repeated many times",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Expressed only in pictures",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Brief but sufficiently clear",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Deliberately misleading",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-vocabulary-02",
+      "prompt": "Unlike the rigid old schedule, the revised schedule was flexible and allowed changes when needed. What does flexible mean in this sentence?",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The contrast with rigid and the statement that changes are allowed identify flexible as adjustable. It does not mean the schedule has been cancelled.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Permanently fixed",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Already cancelled",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Able to be adjusted",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Impossible to understand",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-vocabulary-03",
+      "prompt": "The applicant supplied corroborating evidence that supported the account already given. What does corroborating mean here?",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The sentence directly links corroborating evidence with support for an existing account. Supporting evidence need not replace every earlier statement or introduce a different topic.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Providing additional support",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Introducing an unrelated topic",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Destroying a written record",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Replacing every earlier statement",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-vocabulary-04",
+      "prompt": "The reminder was redundant because the same information appeared twice immediately above it. What does redundant mean here?",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The reason given is repetition of information already supplied. Redundant here means unnecessary duplication, not confidentiality, absence or pronunciation difficulty.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Legally confidential",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Difficult to pronounce",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Unnecessarily repetitive",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Essential but missing",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-vocabulary-05",
+      "prompt": "Before announcing a conclusion, the analyst remained impartial and assessed evidence from all sides without favouritism. What does impartial mean?",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Assessing all sides without favouritism supplies the meaning: impartial means unbiased in treatment. It does not require accepting all claims as true.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Unwilling to consider evidence",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Certain that every claim is true",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Not favouring one side unfairly",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Committed to the first speaker",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-vocabulary-06",
+      "prompt": "The team made a provisional arrangement that would be reviewed after the trial period. Which meaning best fits provisional?",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Review after a trial signals an arrangement that is not yet final. Provisional means temporary or conditional pending further assessment.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Concealed from every participant",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Temporary and subject to revision",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Final and impossible to change",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Unrelated to any trial",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-vocabulary-07",
+      "prompt": "The directions were ambiguous: two readers interpreted the same line in different reasonable ways. What does ambiguous mean?",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The two reasonable interpretations provide the clue. Ambiguous wording allows more than one meaning; font size and version identity do not resolve that issue.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Written in very large letters",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Verified beyond any doubt",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Identical to an earlier version",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Open to more than one interpretation",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-vocabulary-08",
+      "prompt": "A meticulous checker examined every digit and punctuation mark before approving the copy. What does meticulous suggest?",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Attention to every digit and mark points to detailed care. The context does not support haste, carelessness or inability to read numbers.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Concerned only with speed",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Unable to read numbers",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Very careful about detail",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Careless about minor differences",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-grammar-01",
+      "prompt": "Choose the verb that completes this formal English sentence: The list of requested supplies ___ on the desk.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The subject is the singular noun list, not the plural noun supplies in the modifying phrase. The singular verb is agrees with list.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "have been",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "is",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "are",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "were",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-grammar-02",
+      "prompt": "Choose the correct completion: Each of the four reviewers ___ a separate checklist.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Each is singular in this construction, so the verb is has. The plural noun reviewers belongs to the of-phrase and does not control agreement.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "has",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "have",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "are having been",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "were have",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-grammar-03",
+      "prompt": "Which sentence correctly describes a completed action yesterday?",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Yesterday locates a completed event in the past, so filed is the appropriate simple-past form. The other options conflict with the time cue or use a malformed verb phrase.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The assistant will file the report yesterday.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The assistant has file the report yesterday.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The assistant filed the report yesterday.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "The assistant files the report yesterday.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-grammar-04",
+      "prompt": "Choose the correct form: The new cabinet holds ___ folders than the old one.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Folders are countable plural items, so fewer expresses a smaller number in formal edited English. Less, much and little ordinarily describe non-count quantities in this comparison.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "little",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "fewer",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "less",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "much",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-grammar-05",
+      "prompt": "Choose the correct pronoun: The supervisor sent the instructions to Ana and ___.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The pronoun follows the preposition to and therefore takes the object form me. Removing Ana and leaves the grammatical phrase to me.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "me",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "I",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "my",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "mine",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-grammar-06",
+      "prompt": "Which sentence uses the possessive form for a room belonging to several teachers?",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "For the regular plural teachers, place the apostrophe after the final s: teachers’. Teacher’s instead marks a singular possessor in the ordinary reading.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The teacher’s room is upstairs.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The teacher room’s is upstairs.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The teachers’s room is upstairs.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The teachers’ room is upstairs.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-grammar-07",
+      "prompt": "Choose the correct completion: By the time the meeting began yesterday, the clerk ___ all the handouts.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Had prepared is past perfect, locating the preparation before another past event, the meeting beginning. The alternatives have incompatible tense or incomplete verb structure.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "has prepare",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "preparing",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "had prepared",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "will prepare",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-grammar-08",
+      "prompt": "Which sentence correctly uses an adverb to describe how a person works?",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Carefully is the adverb modifying works. Careful is an adjective, and care and carefulness are nouns rather than the required manner adverb.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Lina works careful.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Lina works care.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Lina works carefulness.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Lina works carefully.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-sentences-01",
+      "prompt": "Choose the connector: The form was complete; ___, its supporting receipt was missing.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "However signals a contrast between the complete form and the missing supporting document. Therefore would claim a result that the sentence does not establish.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "for example",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "however",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "therefore",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "likewise",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-sentences-02",
+      "prompt": "Which sentence uses parallel grammatical forms in a list?",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The three coordinated activities use matching -ing forms: checking, answering and preparing. The other choices mix incompatible structures or leave activities incomplete.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The role involves checking records, to answer queries and summaries.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The role involves records checking, queries and to prepare.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The role involves to check records, answering and summaries prepared.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The role involves checking records, answering queries and preparing summaries.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-sentences-03",
+      "prompt": "Which revision correctly joins two independent clauses without a comma splice?",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "A semicolon can join the two closely related independent clauses. A comma alone, no joining punctuation or a comma inside the first clause does not correctly join them.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Comma alone joining two clauses: The office opened early, the visitors entered quietly.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "No joining punctuation: The office opened early the visitors entered quietly.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Comma placed inside the first clause: The office, opened early the visitors entered quietly.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Semicolon joining two clauses: The office opened early; the visitors entered quietly.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-sentences-04",
+      "prompt": "Which sentence clearly states that Mara, rather than her supervisor, revised Mara’s own report?",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Mara is the named subject and her own explicitly links the report to Mara. The alternatives either leave pronouns ambiguous or assert a referent that the wording does not establish.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Mara’s supervisor revised Mara’s report after their conversation.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The supervisor revised her own report after speaking with Mara.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Mara revised her own report after speaking with her supervisor.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "After Mara spoke to her supervisor, she revised her report.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-sentences-05",
+      "prompt": "Choose the connector that expresses a reason: The outdoor activity was postponed ___ heavy rain made the ground unsafe.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Because introduces the reason for postponement. Although signals concession, unless a condition and whereas a contrast; those meanings do not fit the stated cause.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "although",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "unless",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "whereas",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "because",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-sentences-06",
+      "prompt": "Which option is a complete sentence rather than a fragment?",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The correct option has a subject, a finite verb and a complete main clause. The other options are a subordinate clause, a phrase or a noun phrase without a complete main assertion.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The numbers on the revised form.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The clerk checked the numbers before submitting the form.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Because the clerk checked the numbers.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Before submitting the form.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-sentences-07",
+      "prompt": "Which sentence makes it clear that the folder, not the clerk, was damaged?",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Placing damaged directly before folder clearly modifies that noun. Each other option attaches damaged to the clerk instead.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The clerk replaced the damaged folder.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Damaged, the clerk replaced the folder.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The damaged clerk replaced the folder.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The clerk, who was damaged, replaced the folder.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-sentences-08",
+      "prompt": "Choose the sentence whose meaning is that every participant submitted a form, with no exception.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "All explicitly covers every participant. Some and few cover a subset, while may describes permission or possibility rather than completed universal submission.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A participant may submit a form.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "All participants submitted a form.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Some participants submitted a form.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Few participants submitted a form.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-paragraphs-01",
+      "prompt": "Arrange these instructions: P: Seal the envelope. Q: Place the completed form inside it. R: Obtain an empty envelope. S: Write the recipient’s address on the sealed envelope. Which order follows every stated dependency?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "An envelope must be obtained before the form can be put inside; it is sealed after insertion. The last instruction explicitly requires the envelope already to be sealed, giving R-Q-P-S.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "S-R-Q-P",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "R-Q-P-S",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Q-R-S-P",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "R-P-Q-S",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-paragraphs-02",
+      "prompt": "Arrange the sentences: P: This revision removed the repeated paragraph. Q: The first draft contained the same paragraph twice. R: The editor revised that draft. Which order gives each reference a clear earlier referent?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Q introduces the draft and its problem, R introduces the revision, and P uses This revision to describe its result. Starting with P leaves that reference unsupported.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Q-R-P",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "R-P-Q",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "P-Q-R",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "P-R-Q",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-paragraphs-03",
+      "prompt": "Choose the best opening sentence for a paragraph followed by: First, list the task. Next, choose a suitable time. Finally, check whether the task was completed.",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The following sentences enumerate a routine, so an opening that previews three steps gives them a clear controlling idea. The other choices introduce unsupported judgments or unrelated claims.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The third step is always the least useful.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Completed tasks never require planning.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Planning and weather have identical effects.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "A simple planning routine has three steps.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-paragraphs-04",
+      "prompt": "An invented paragraph explains how to check totals: compare entries, recompute the sum and investigate differences. Which sentence is least relevant?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The paint colour does not develop the paragraph’s procedure for checking totals. The other sentences each elaborate a step or purpose of that procedure.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Recomputing can reveal an addition error.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "A mismatch should be investigated before approval.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The waiting room was painted blue last year.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Each entry should be matched with its source.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-paragraphs-05",
+      "prompt": "A paragraph first describes a paper filing method, then explains a digital method. Which transition best introduces a comparison of how the second method differs?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "In contrast explicitly introduces a difference and the electronic indexing detail directly concerns the second method. The alternatives are unrelated or contradict the given structure.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "For the same reason, the building has three floors.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Before any method existed, every result was identical.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "In conclusion, there is no second method to discuss.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "In contrast, the digital method indexes records electronically.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-paragraphs-06",
+      "prompt": "Arrange a short explanation: P: Therefore, the duplicate was removed. Q: The checker found two copies of the same record. R: Only one copy was required. Which order presents the finding, the governing condition and then the conclusion?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Q states the finding, R gives the relevant requirement and P states the resulting action. Therefore appropriately follows the information that supports its conclusion.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Q-P-R",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Q-R-P",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "P-Q-R",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "R-P-Q",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "practice160-paragraphs-07",
+      "prompt": "Which sentence best concludes a paragraph that explains keeping receipts, dating entries and reconciling a fictional expense log?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "The conclusion synthesizes the shared verification purpose of the described steps. It does not introduce an unrelated subject or claim that errors become impossible.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Another unrelated topic is cloud shapes.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "These steps prove that no person ever makes a mistake.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Receipts are unnecessary because the paragraph mentions them.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Together, these steps make the log easier to verify.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "practice160-paragraphs-08",
+      "prompt": "Arrange these sentences so the pronoun reference is clear: P: They then checked every label. Q: The two assistants collected the folders. R: After that check, they placed the folders on the shelf.",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original authored educational draft; invented quantities, people and scenarios where applicable. Independent human correctness/originality review pending. Not an official CSC item; topic/track placement is provisional. Review the reasoning, answer key, distractors and language before editorial approval.",
+      "explanation": "Q first identifies the two assistants. P then describes their check, and R refers back to that check as an event already completed. The other sequences disrupt at least one reference or time dependency.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Q-R-P",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Q-P-R",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "P-R-Q",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "R-Q-P",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

@@ -46,15 +46,26 @@ export function sessionBudget(minutes: StudyMinutes) {
 }
 export function buildStudyPlan(track: StudyTrack) {
   const lessons = draftLessons.filter(l => l.track === "COMMON" || l.track === track);
+  // Preserve the 16 topic-session positions and rest/review days. Additional
+  // drafts share later topic sessions rather than disappearing from the plan.
+  const groups = Array.from({ length: 16 }, (_, slot) => [lessons[slot % lessons.length]]);
+  const extra = lessons.slice(16);
+  extra.forEach((lesson, index) => groups[(Math.max(0, 16 - extra.length) + index) % 16].push(lesson));
   return Array.from({ length: 30 }, (_, index) => {
     const day = index + 1;
     if (day === 29) return { day, kind: "review", title: "Return to your difficult topics", description: "Choose up to two lessons below. Explain the method on paper, then check the worked rationale and note what still needs help.", lessons };
     if (day === 30) return { day, kind: "reflection", title: "Reflect and plan your next steps", description: "Write what became clearer, what remains uncertain and which topics need more time. Choose a realistic next week; completing this plan does not establish exam readiness.", lessons: [] };
     const week = Math.floor(index / 7);
     const position = index % 7;
-    const weekLessons = Array.from({ length: 4 }, (_, slot) => lessons[(week * 4 + slot) % lessons.length]);
-    if (position < 4) return { day, kind: "lesson", title: weekLessons[position].title, description: "Read the draft explanation, try its paper practice before checking the rationale, and write one point to revisit. A repeated topic is another pass, not extra content.", lessons: [weekLessons[position]] };
-    if (position === 4) return { day, kind: "review", title: "Review this week's ideas", description: "Choose the parts of these four lessons that need attention. Summarize the method in your own words and revisit one worked example.", lessons: weekLessons };
+    const weekGroups = groups.slice(week * 4, week * 4 + 4);
+    const weekLessons = weekGroups.flat();
+    if (position < 4) {
+      const selected = weekGroups[position];
+      return { day, kind: "lesson", title: selected[0].title, description: selected.length > 1
+        ? "This session includes two draft lessons. Try a small part of each, or spread the work over additional days. Keep time for checking the rationale; the suggested budget is not a requirement to finish both lessons."
+        : "Read the draft explanation, try its paper practice before checking the rationale, and write one point to revisit. A repeated topic is another pass, not extra content.", lessons: selected };
+    }
+    if (position === 4) return { day, kind: "review", title: "Review this week's ideas", description: "Choose the parts of this week's lessons that need attention. Summarize the method in your own words and revisit one worked example.", lessons: weekLessons };
     if (position === 5) return { day, kind: "practice", title: "Practice and check your reasoning", description: "Redo selected paper exercises from this week's lessons before reading their rationales. Record mistakes on paper; this is ungraded self-checking.", lessons: weekLessons };
     return { day, kind: "catch-up", title: "Catch up or rest", description: "Rest, or use an optional short session to revisit an unfinished lesson. Move at your own pace; a missed day is not a failed exam.", lessons: [] };
   });

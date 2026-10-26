@@ -1,5 +1,7 @@
 # Paragraph and reading draft expansion
 
+Current catalog update: [PRACTICE_EXPANSION.md](PRACTICE_EXPANSION.md) adds eight lessons and 160 questions, bringing totals to 23 draft lessons and 230 editorial questions. Counts below describe this earlier pack; its import scope remains unchanged.
+
 The subsequent reasoning/clerical expansion brings the catalog to 15 drafts and the four review packs to 70 questions. See [TRACK_DRAFTS.md](TRACK_DRAFTS.md); this reading job still imports only its original two lessons and ten questions.
 
 Two original teaching drafts cover paragraph organization and passage-based reading. Each includes objectives, explanation, worked example, paper practice, rationale and reflection. Their public URLs are `/lessons/paragraphs` and `/lessons/reading`, available after the pushed Vercel deployment is Ready. The public library now has ten ungraded lesson previews across ten provisional chapter areas; the 25 chapter headings still do not represent a finished curriculum.

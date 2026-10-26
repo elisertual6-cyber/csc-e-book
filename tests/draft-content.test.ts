@@ -52,7 +52,7 @@ describe("original draft teaching content", () => {
       expect(question.sourceNotes).toContain("Independent human correctness/originality review pending");
     }
     const slugs = Object.values(editorialPacks).flatMap(p => [...p.lessons]);
-    expect(new Set(slugs).size).toBe(15);
+    expect(new Set(slugs).size).toBe(23);
     expect(slugs.every(slug => findDraftLesson(slug))).toBe(true);
     expect(editorialPacks.numerical.lessons).toHaveLength(5);
     expect(editorialPacks.language.lessons).toHaveLength(3);
@@ -95,7 +95,7 @@ describe("original draft teaching content", () => {
   });
 
   it("keeps lesson files complete and addresses limited to the public catalog", () => {
-    expect(draftLessons).toHaveLength(15);
+    expect(draftLessons).toHaveLength(23);
     expect(new Set(draftLessons.map(l => l.slug)).size).toBe(draftLessons.length);
     for (const lesson of draftLessons) {
       const markdown = readFileSync(`content/lessons/${lesson.slug}.md`, "utf8");

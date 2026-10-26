@@ -47,7 +47,8 @@
     "mail:check": "tsx scripts/check-mail.ts",
     "mail:operator:work": "tsx scripts/operator-mail-worker.ts",
     "mail:account:work": "tsx scripts/account-mail-worker.ts",
-    "test:mail:automatic": "node scripts/e2e.mjs --config playwright.automatic-mail.config.ts"
+    "test:mail:automatic": "node scripts/e2e.mjs --config playwright.automatic-mail.config.ts",
+    "content:export-practice": "tsx scripts/export-practice-review.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",

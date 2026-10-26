@@ -1,5 +1,7 @@
 # English language draft expansion
 
+Current catalog update: [PRACTICE_EXPANSION.md](PRACTICE_EXPANSION.md) adds eight lessons and 160 questions, bringing totals to 23 draft lessons and 230 editorial questions. Counts below describe this earlier pack; its import scope remains unchanged.
+
 The subsequent paragraph/reading expansion brings the catalog to ten lessons and the three review packs to 45 questions. Its separate job is documented in [READING_DRAFTS.md](READING_DRAFTS.md); this English job keeps its original three-lesson/15-question scope.
 
 Three original teaching drafts add vocabulary in context, formal English grammar and sentence construction to the public library. Each has objectives, explanation, worked example, paper practice, rationale and reflection. The reader remains ungraded and requires no account. The catalog now has eight lessons: five numerical and three English. These are eight of the 25 provisional chapter areas, not a complete reviewer or verified official coverage.

@@ -38,12 +38,13 @@ Content and operator work proceeds alongside these engineering tasks: finish the
 
 ## Content and learner tools
 
-The public catalog contains **15 unapproved teaching drafts** and four manually imported review packs contain **70 draft questions**. The unchanged one-question demo seed is separate. Chapter headings are a provisional 25-area outline, not 25 completed lessons. The existing samples are public-source educational drafts, not confidential/exclusive paid banks.
+The public catalog contains **23 unapproved teaching drafts** and six manual review packs contain **230 draft questions**. The unchanged one-question demo seed is separate. Chapter headings are a provisional 25-area outline; 23 now have draft lesson text, while the two mock-exam areas are not completed or activated. The existing samples are public-source educational drafts, not confidential/exclusive paid banks.
 
 - Numerical: five lessons and 20 questions; see [DRAFT_LESSONS.md](DRAFT_LESSONS.md) and [NUMERICAL_IMPORT.md](NUMERICAL_IMPORT.md).
 - English: three lessons and 15 questions; see [ENGLISH_DRAFTS.md](ENGLISH_DRAFTS.md).
 - Paragraphs/reading: two lessons and ten questions; see [READING_DRAFTS.md](READING_DRAFTS.md).
 - Professional reasoning/data and Subprofessional clerical: five lessons and 25 questions; see [TRACK_DRAFTS.md](TRACK_DRAFTS.md).
+- Expanded practice: eight additional lessons and 160 new questions with proposed keys/rationales; see [PRACTICE_EXPANSION.md](PRACTICE_EXPANSION.md).
 - Personal study planner: track-specific routines, optional browser-only progress and printing; see [STUDY_PLANNER.md](STUDY_PLANNER.md). This creates neither exam results nor additional approved content.
 
 All import jobs preserve existing records and create only drafts under a current ADMIN identity. Publication, independently checked versions, paid editions and exam activation remain separate controlled operations.
@@ -69,8 +70,12 @@ The Supabase private PDF adapter, backend-tagged immutable references, shared va
 
 A manual source-snapshot, encrypted database/PDF capture and isolated restore workflow is implemented with local security/integration evidence. The operator supplied a screenshot of hosted recovery run #3 succeeding at commit `4ac862a`, with an encrypted artifact available. Independent key retention and protected long-term backup storage remain operator responsibilities. No production data is restored in place. Scheduling/PITR, durable off-site retention, full-service secret/provider reconciliation and cutover remain separate work. See [REMOTE_RECOVERY.md](REMOTE_RECOVERY.md) and [PHASE_5H_REPORT.md](PHASE_5H_REPORT.md).
 
-## Current milestone: Phase 5I — account email automation
+## Phase 5I — account email automation
 
 The no-send SMTP check, strict-TLS/encrypted queue and administrator-only manual dispatcher are implemented. The operator confirmed hosted manual verification email receipt/link consumption and successful password recovery. This establishes the controlled manual flow, not general Inbox placement or automatic delivery.
 
 Automatic request delivery now attempts only the account message committed by the current request after returning its response. A separate main-only retry workflow sweeps at most ten due account messages on a best-effort five-minute schedule. Web and GitHub activation flags default off; existing SMTP and mail-key settings are reused. Purchase dispatch and public registration remain closed. Local disposable security/protocol tests cover isolation, failures/retries, concurrency and existing recovery gates. Hosted automatic receipt/latency, retry observation, provider limits, bounce monitoring and launch readiness remain pending. See [MAIL_SETUP.md](MAIL_SETUP.md) and [PHASE_5I_REPORT.md](PHASE_5I_REPORT.md).
+
+## Current milestone: Phase 5J — expanded draft learning material
+
+Added eight lesson drafts and 160 new questions with one proposed key and rationale each, split into two 80-item fixed packs. A single manual import workflow preserves existing records and imports only drafts; a separate export prepares a numbered question booklet and matching Markdown/CSV key. The public library grows to 23 lessons and the six review packs total 230 items. Legal/source and Filipino review remain explicitly pending; primary-site retrieval was blocked in this environment. Neither the independent 500-question gate nor official coverage is satisfied. The existing automation setup is operator-reported and the latest Ready Production redeployment is screenshot-confirmed; automatic mailbox receipt remains unconfirmed. See [PRACTICE_EXPANSION.md](PRACTICE_EXPANSION.md).
