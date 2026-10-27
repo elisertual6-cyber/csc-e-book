@@ -22,7 +22,7 @@ export default async function Lesson({ params }: Props) {
   return (
     <section className="shell section page-content">
       <div className="lesson-header">
-        <Link className="text-link" href="/lessons">← All draft lessons</Link>
+        <Link className="text-link" href="/reviewers">← All reviewers</Link>
         <span className="status-pill">DRAFT · NOT EDITORIALLY APPROVED</span>
       </div>
       <div className="notice">Free editorial preview with worked solutions. This lesson is awaiting independent review and is not part of a graded exam or a released paid edition.</div>
@@ -35,7 +35,7 @@ export default async function Lesson({ params }: Props) {
           {next && <Link className="text-link" href={`/lessons/${next.slug}`}>Next: {next.title} →</Link>}
         </nav>
         <p>Try the ungraded arithmetic exercise or return to the lesson library. Worked examples do not create an exam score or saved progress.</p>
-        <div className="actions"><Link className="button" href="/practice">Open practice studio →</Link><Link className="text-link" href="/lessons">All draft lessons</Link></div>
+        <div className="actions"><Link className="button" href="/practice">Open practice studio →</Link><Link className="text-link" href="/reviewers">All reviewers</Link></div>
       </div>
     </section>
   );

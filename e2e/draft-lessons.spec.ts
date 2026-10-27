@@ -1,20 +1,21 @@
 import { test, expect } from "@playwright/test";
 import { draftLessons } from "../src/lib/lesson-catalog";
-test("learners can browse all draft lessons and continue in reading order", async ({ page, request }) => {
+test("the old lesson listing redirects to reviewers while individual lessons and reading order remain available", async ({ page, request }) => {
   await page.goto("/");
-  await page.getByRole("link", { name: "Browse draft lessons" }).click();
-  await expect(page.getByRole("heading", { name: "Free draft lessons." })).toBeVisible();
-  await expect(page.getByText(/All 23 lessons are original editorial drafts/)).toBeVisible();
-  await expect(page.getByText(/· PROFESSIONAL TRACK$/)).toHaveCount(3);
-  await expect(page.getByText(/· SUBPROFESSIONAL TRACK$/)).toHaveCount(2);
+  await page.getByRole("link", { name: "Browse subject reviewers", exact: true }).click();
+  await expect(page).toHaveURL(/\/reviewers$/);
+  await page.goto("/lessons");
+  await expect(page).toHaveURL(/\/reviewers$/);
+  await expect(page.getByRole("heading", { name: "A reviewer for every step forward.", exact: true })).toBeVisible();
   for (const lesson of draftLessons) {
-    await page.getByRole("link", { name: `Read lesson: ${lesson.title} →` }).click();
+    await page.goto(`/lessons/${lesson.slug}`);
     await expect(page.getByRole("heading", { name: lesson.title, exact: true })).toBeVisible();
     await expect(page).toHaveTitle(/draft lesson/);
     await expect(page.getByText("DRAFT · NOT EDITORIALLY APPROVED", { exact: true })).toBeVisible();
     for (const heading of ["Learning objectives", "Explanation", "Worked example", "Practice", "Rationale"]) await expect(page.getByRole("heading", { name: heading, exact: true })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole("link", { name: "← All draft lessons", exact: true }).click();
+    await page.getByRole("link", { name: "← All reviewers", exact: true }).click();
+    await expect(page).toHaveURL(/\/reviewers$/);
   }
   await page.goto("/lessons/arithmetic");
   await page.getByRole("link", { name: /Next: Different forms/ }).click();

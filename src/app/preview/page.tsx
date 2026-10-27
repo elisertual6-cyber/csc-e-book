@@ -36,7 +36,7 @@ export default async function Preview() {
         <ReactMarkdown>{markdown}</ReactMarkdown>
       </article>
       <div className="lesson-end">
-        <p><Link className="text-link" href="/lessons">Browse all draft lessons →</Link></p>
+        <p><Link className="text-link" href="/reviewers">Browse all reviewers →</Link></p>
         <h2>Reviewed PDF preview</h2>
         {pdf ? (
           <p>

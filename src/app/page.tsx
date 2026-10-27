@@ -176,8 +176,8 @@ export default function Home() {
             Explore {draftLessons.length} original draft lessons on language, numerical, reasoning and clerical skills. No account needed.
           </p>
         </div>
-        <Link className="button button-light" href="/lessons">
-          Browse draft lessons <ArrowUpRight size={17} />
+        <Link className="button button-light" href="/reviewers">
+          Browse subject reviewers <ArrowUpRight size={17} />
         </Link>
       </section>
       <section className="shell section" id="reviewers">
