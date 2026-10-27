@@ -1606,3 +1606,116 @@ button:disabled {
 /* Sequential account practice sets keep native list order and responsive cards. */
 .practice-set-list { list-style: none; padding: 0; display: grid; gap: 1.5rem; }
 .practice-set-list > li { margin: 0; min-width: 0; }
+/* Free subject-reviewer library and printable teaching guides. */
+.reviewer-hero { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .8fr); gap: 64px; align-items: center; }
+.reviewer-hero h1 { max-width: 660px; }
+.reviewer-hero .actions { margin-top: 28px; flex-wrap: wrap; }
+.reviewer-hero-note { margin-top: 20px; color: var(--muted); font-size: 12px; }
+.reviewer-start { background: var(--navy); color: #f9f5e9; padding: 34px; border-radius: 6px; }
+.reviewer-start .eyebrow { color: #dfc58b; }
+.reviewer-start h2 { color: #fffaf0; font-size: clamp(34px, 4vw, 48px); margin: 18px 0 24px; }
+.reviewer-start h2 em { color: #dfc58b; font-weight: 400; }
+.reviewer-start ol { list-style: decimal; padding-left: 20px; font-size: 13px; }
+.reviewer-start li + li { margin-top: 12px; }
+.reviewer-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 28px 0; margin: 40px 0 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.reviewer-stats > div { display: flex; flex-direction: column-reverse; padding: 0 24px; border-right: 1px solid var(--line); }
+.reviewer-stats > div:first-child { padding-left: 0; }
+.reviewer-stats > div:last-child { border: 0; }
+.reviewer-stats dt { color: var(--muted); font-size: 12px; }
+.reviewer-stats dd { font-family: Georgia, serif; font-size: 36px; color: var(--navy); margin: 0; line-height: 1.2; }
+.reviewer-library { padding-top: 36px; }
+.reviewer-section-heading { display: flex; justify-content: space-between; gap: 40px; align-items: end; margin-bottom: 26px; }
+.reviewer-section-heading h2 { margin-top: 12px; max-width: 650px; }
+.reviewer-section-heading > p { max-width: 255px; color: var(--muted); font-size: 13px; }
+.reviewer-filters { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 20px; padding: 22px; background: #f1efe7; border: 1px solid var(--line); border-radius: 6px; }
+.reviewer-filters > div { display: grid; gap: 7px; }
+.reviewer-filters label { display: grid; gap: 7px; font-size: 13px; color: var(--navy); }
+.reviewer-filters input, .reviewer-filters select { width: 100%; min-width: 0; min-height: 46px; background: #fff; border: 1px solid #a5afa9; border-radius: 4px; font: inherit; padding: 10px 12px; }
+.reviewer-filters input:focus-visible, .reviewer-filters select:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.reviewer-result-count { font-size: 12px; color: var(--muted); margin: 14px 0 22px; }
+.reviewer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.reviewer-card { min-width: 0; display: flex; flex-direction: column; border: 1px solid var(--line); background: #fffefa; border-radius: 6px; overflow: hidden; }
+.reviewer-cover { min-height: 200px; padding: 24px; background: #e9e5d9; color: var(--navy); display: flex; flex-direction: column; justify-content: space-between; gap: 12px; border-bottom: 1px solid #d8d0bc; }
+.reviewer-cover > span:first-child { font-size: 9px; letter-spacing: 1.5px; }
+.reviewer-cover > span:last-child { font-family: Georgia, serif; font-size: 22px; line-height: 1.25; max-width: 260px; }
+.reviewer-volume { font-family: Georgia, serif; color: #775519; font-size: 42px; line-height: 1; }
+.reviewer-card:nth-child(even) .reviewer-cover { background: var(--navy); color: #fffaf0; border-color: var(--navy); }
+.reviewer-card:nth-child(even) .reviewer-volume { color: #dfc58b; }
+.reviewer-card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+.reviewer-card h3 { font-family: Georgia, serif; font-size: 28px; margin: 10px 0 12px; }
+.reviewer-card-body > p:not(.eyebrow) { color: var(--muted); font-size: 13px; }
+.reviewer-topics { list-style: none; padding: 0; margin: 20px 0 24px; font-size: 12px; }
+.reviewer-topics li { padding: 7px 0; border-bottom: 1px solid var(--line); }
+.reviewer-card .button { margin-top: auto; width: 100%; }
+.reviewer-card .fine-print { margin-top: 13px; font-size: 10px; text-align: center; color: var(--muted); }
+.reviewer-empty { padding: 38px; background: #f1efe7; border-radius: 6px; }
+.reviewer-empty p { margin: 12px 0 22px; }
+.reviewer-next { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; gap: 40px; padding: 36px; margin: 48px 0; background: #eee9db; border-radius: 6px; }
+.reviewer-next h2 { margin: 12px 0 16px; }
+.reviewer-next .actions { flex-direction: column; align-items: start; gap: 18px; }
+.reviewer-next p:not(.eyebrow) { font-size: 14px; }
+.reviewer-editions { border-top: 1px solid var(--line); padding-top: 40px; }
+.reviewer-editions > h2 { margin: 12px 0 16px; }
+.reviewer-editions > p:not(.eyebrow) { color: var(--muted); max-width: 700px; }
+.reviewer-reader-header { max-width: 900px; margin-top: 35px; }
+.reviewer-reader-header .eyebrow { text-transform: uppercase; }
+.reviewer-reading-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); align-items: start; gap: 48px; }
+.reviewer-toc { position: sticky; top: 24px; border: 1px solid var(--line); border-radius: 6px; padding: 22px; }
+.reviewer-toc h2 { font-size: 23px; }
+.reviewer-toc ol { list-style: decimal; padding-left: 18px; margin: 18px 0; font-size: 13px; }
+.reviewer-toc li { padding: 7px 0; }
+.reviewer-toc a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.reviewer-chapters { min-width: 0; }
+.reviewer-chapter { padding-bottom: 38px; margin-bottom: 38px; border-bottom: 1px solid var(--line); scroll-margin-top: 30px; }
+.reviewer-chapter h2 { margin: 12px 0; font-size: clamp(28px, 3vw, 36px); }
+.reviewer-chapter-subtitle { font-family: Georgia, serif; font-size: 21px; color: var(--muted); }
+.reviewer-prose { margin: 24px 0; overflow-wrap: anywhere; }
+.reviewer-prose h3 { margin: 30px 0 12px; font-size: 22px; color: var(--navy); }
+.reviewer-prose h4 { margin: 24px 0 10px; font-size: 18px; }
+.reviewer-prose a { text-decoration: underline; }
+.reviewer-prose li { margin: 8px 0; }
+.reviewer-checkpoints { padding: 28px; background: #eee9db; border-radius: 6px; }
+.reviewer-checkpoints h2 { margin: 12px 0 18px; font-size: 30px; }
+.reviewer-checkpoints ul { list-style: disc; padding-left: 20px; margin: 16px 0; }
+.reviewer-checkpoints li { margin-bottom: 10px; }
+.reviewer-reader-end { padding-top: 40px; }
+.reviewer-reader-end > p { margin: 16px 0 24px; }
+.reviewer-reader-end .actions { flex-wrap: wrap; }
+.reviewer-reader-end .lesson-navigation { margin-top: 35px; gap: 24px; }
+@media (max-width: 1000px) {
+  .reviewer-hero { gap: 30px; }
+  .reviewer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .reviewer-reading-layout { grid-template-columns: 215px minmax(0, 1fr); gap: 28px; }
+}
+@media (max-width: 680px) {
+  .reviewer-hero, .reviewer-grid, .reviewer-filters, .reviewer-next, .reviewer-reading-layout { grid-template-columns: minmax(0, 1fr); }
+  .reviewer-start { padding: 26px; }
+  .reviewer-start h2 { font-size: 36px; }
+  .reviewer-start h2 em::before { content: " "; }
+  .reviewer-stats > div { padding-inline: 10px; }
+  .reviewer-stats dd { font-size: 30px; }
+  .reviewer-stats dt { font-size: 11px; }
+  .reviewer-section-heading { display: block; }
+  .reviewer-section-heading > p { margin-top: 16px; max-width: none; }
+  .reviewer-next { padding: 24px; gap: 24px; }
+  .reviewer-toc { position: static; }
+  .reviewer-reader .lesson-header { align-items: start; flex-wrap: wrap; }
+}
+@media print {
+  body:has(.reviewer-reader) .site-header, body:has(.reviewer-reader) .announcement, body:has(.reviewer-reader) footer, .reviewer-reader .reviewer-screen-only { display: none !important; }
+  body:has(.reviewer-reader) { background: white; color: #111; }
+  .reviewer-reader { padding: 0; max-width: none; font-size: 11pt; }
+  .reviewer-reader-header { margin-top: 0; }
+  .reviewer-reader h1 { font-size: 30pt; }
+  .reviewer-reader .notice { font-size: 9pt; padding: 10pt; margin: 16pt 0; background: white; color: #111; border-color: #aaa; }
+  .reviewer-reader .lead { font-size: 11pt; }
+  .reviewer-reading-layout { display: block; }
+  .reviewer-toc { position: static; border: 0; padding: 0; margin: 20pt 0; }
+  .reviewer-toc nav { display: block; }
+  .reviewer-chapter { margin: 20pt 0; padding-bottom: 0; }
+  .reviewer-chapter + .reviewer-chapter { break-before: page; }
+  .reviewer-chapter h2, .reviewer-prose h3, .reviewer-prose h4 { break-after: avoid; }
+  .reviewer-prose { max-width: none; line-height: 1.6; }
+  .reviewer-prose p, .reviewer-prose li { orphans: 3; widows: 3; }
+  .reviewer-checkpoints { background: white; color: #111; border: 1px solid #aaa; break-inside: avoid; }
+}

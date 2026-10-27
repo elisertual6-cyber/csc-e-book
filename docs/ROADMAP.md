@@ -88,3 +88,7 @@ Added 640 original keyed drafts to arrange five sets of 160, reusing the prior 1
 ## Operator-authorized unreviewed practice
 
 The operator subsequently requested all five sets activated without their review. A separate main-only release workflow atomically activates the five FREE fixed templates with audit-pinned question versions/hashes, preserving all DRAFT/Review states. Set cards and attempts identify unreviewed material; sequential completion and post-submission keys remain enforced. This exception does not satisfy human review or apply to ordinary topic/mock templates, paid banks or PDF releases. See PRACTICE_SERIES.md. Hosted activation run [40450960205](https://github.com/elisertual6-cyber/csc-e-book/actions/runs/40450960205) was observed successful; see [UNREVIEWED_PRACTICE_REPORT.md](UNREVIEWED_PRACTICE_REPORT.md).
+
+## Reviewer study library
+
+The Reviewers section at `/reviewers` and legacy `/shop` now arranges all 23 existing teaching drafts into six free subject guides with search, track filters, full chapter readers, contents navigation, browser printing and links to the five practice sets and study planner. Paid PDF catalog controls remain separate below the free library. No new approvals, migrations or payment changes are introduced. See [REVIEWERS.md](REVIEWERS.md).

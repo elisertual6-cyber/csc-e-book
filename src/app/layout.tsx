@@ -38,7 +38,7 @@ export default function RootLayout({
               <Link href="/curriculum">The curriculum</Link>
               <Link href="/practice">Practice studio</Link>
               <Link href="/study-plan">Study planner</Link>
-              <Link href="/shop">Reviewers</Link>
+              <Link href="/reviewers">Reviewers</Link>
               <Link href="/account">My account</Link>
             </nav>
             <Link href="/preview" className="button button-small">

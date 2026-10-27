@@ -106,3 +106,5 @@ Private PDF storage and separate rendering: [operator setup and remaining hosted
 Encrypted database/private PDF recovery rehearsal: [secure operator setup and limits](docs/REMOTE_RECOVERY.md).
 
 Sequential practice sets: [800 draft questions, proposed keys, import and release steps](docs/PRACTICE_SERIES.md). Run `test:practice-series` through its disposable wrapper after building; run browser suites sequentially.
+
+Free reviewer library: [six subject guides, 23 lesson chapters, search and printing](docs/REVIEWERS.md) at `/reviewers`; `/shop` retains compatibility and the PDF-edition catalog.

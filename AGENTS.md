@@ -31,6 +31,8 @@ Read docs/DRAFT_LESSONS.md, docs/ENGLISH_DRAFTS.md, docs/READING_DRAFTS.md, docs
 
 Read docs/PRACTICE_SERIES.md before modifying sequential practice. Preserve the five fixed 160-key manifests, complete server-owned submissions, predecessor checks, account isolation and post-submission keys. The ordinary import prepares inactive templates. The explicitly authorized unreviewed-practice workflow separately activates only the five fixed templates and records pinned content hashes in audit events; learner warnings must remain visible. Actual source questions never receive synthetic test approvals. Run test:practice-series and test:content-import through their disposable wrappers after series/import changes, sequentially with other browser servers. Source totals are now 870 editorial drafts plus one seed.
 
+Read docs/REVIEWERS.md before reviewer-library changes. The six guides compile the fixed public lesson allowlist only; never import assessment banks or expose pre-submission keys. Browser printing is not a private/released PDF edition. Preserve draft labels, original lesson routes, track mapping and commerce gates on the legacy shop URL.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know
