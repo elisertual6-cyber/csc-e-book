@@ -1,0 +1,42 @@
+name: Check live reviewer deployment
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/check-reviewer-deployment.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+  statuses: read
+  checks: read
+jobs:
+  inspect:
+    name: Read live pages and Vercel commit status
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      vercel: ${{ steps.probe.outputs.vercel }}
+      lessons: ${{ steps.probe.outputs.lessons }}
+      reviewers: ${{ steps.probe.outputs.reviewers }}
+      healthy: ${{ steps.probe.outputs.healthy }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
+        with:
+          node-version: '24'
+      - id: probe
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/check-reviewer-deployment.mjs
+  result:
+    name: '${{ needs.inspect.outputs.vercel }} | ${{ needs.inspect.outputs.lessons }} | ${{ needs.inspect.outputs.reviewers }}'
+    needs: inspect
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Require live redirect and reviewer library
+        env:
+          HEALTHY: ${{ needs.inspect.outputs.healthy }}
+        run: test "$HEALTHY" = "true"
