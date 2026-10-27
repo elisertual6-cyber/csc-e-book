@@ -84,3 +84,7 @@ Added eight lesson drafts and 160 new questions with one proposed key and ration
 ## Current milestone: Phase 5K — five sequential practice sets
 
 Added 640 original keyed drafts to arrange five sets of 160, reusing the prior 160 as Set 1. The admin set selector reports actual imported counts, and `/practice/sets` provides account-owned saves/resume, complete-submission gating and sequential unlocks without a score threshold. Online community reviewer and publisher textbook research is recorded; no source-bank text is copied. A manual workflow imports drafts and prepares inactive templates, preserving independent review and release gates. The additive schema expansion was pushed separately before the application changes. See [PRACTICE_SERIES.md](PRACTICE_SERIES.md) and [PHASE_5K_REPORT.md](PHASE_5K_REPORT.md). Hosted import/review/activation remains distinct from local implementation and automated evidence.
+
+## Operator-authorized unreviewed practice
+
+The operator subsequently requested all five sets activated without their review. A separate main-only release workflow atomically activates the five FREE fixed templates with audit-pinned question versions/hashes, preserving all DRAFT/Review states. Set cards and attempts identify unreviewed material; sequential completion and post-submission keys remain enforced. This exception does not satisfy human review or apply to ordinary topic/mock templates, paid banks or PDF releases. See PRACTICE_SERIES.md. Hosted workflow success remains to be observed.

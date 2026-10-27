@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { spawnSync } from "node:child_process";
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { PrismaClient } from "@prisma/client";
@@ -141,6 +142,88 @@ test("five 160-item sets enforce review, complete submissions, account isolation
     await db.review.deleteMany({ where: { reviewerId: users[1].id, question: { key: { in: records.map(q => q.key) } } } });
     await db.question.deleteMany({ where: { key: { in: records.map(q => q.key) } } });
     await Promise.all([...clients, anonymous].map(client => client.dispose()));
+    await db.$disconnect();
+  }
+});
+
+
+test("explicit unreviewed release activates all five drafts without fabricated approvals and preserves sequential access", async ({ playwright, page, context }) => {
+  test.setTimeout(180000);
+  expect(new URL(process.env.DATABASE_URL!).pathname).toMatch(/^\/csc_e2e_[a-f0-9]{16}$/);
+  const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL }) });
+  const prefix = randomUUID(), password = `${randomUUID()}-unreviewed`;
+  const passwordHash = await hashPassword(password);
+  const adminUser = await db.user.create({ data: { email: `release-admin-${prefix}@example.test`, role: "ADMIN", passwordHash } });
+  const learner = await db.user.create({ data: { email: `release-learner-${prefix}@example.test`, role: "CUSTOMER", passwordHash } });
+  const headers = { Origin: "http://127.0.0.1:3100", "X-CSC-Action": "1" };
+  const alice = await playwright.request.newContext({ baseURL: "http://127.0.0.1:3100", extraHTTPHeaders: headers });
+  const admin = await playwright.request.newContext({ baseURL: "http://127.0.0.1:3100", extraHTTPHeaders: headers });
+  const activate = (email = adminUser.email) => spawnSync(process.execPath, ["--conditions=react-server", "--import", "tsx", "scripts/activate-practice-series.ts", "--apply"],
+    { env: { ...process.env, ADMIN_EMAIL: email }, encoding: "utf8", timeout: 45000 });
+  const records = [1, 2, 3, 4, 5].flatMap(position => questionKeysForSet(position).map((key, index) => ({
+    id: randomUUID(), key, version: 1, authorId: adminUser.id, status: "DRAFT" as const,
+    prompt: `Synthetic unreviewed fixture ${prefix}, set ${position}, item ${index + 1}: choose the designated test option.`,
+    topic: "arithmetic", level: "COMMON" as const, difficulty: "EASY" as const, sourceNotes: "Synthetic unreviewed practice fixture, not actual editorial content or human approval.",
+  })));
+  const templates: { id: string }[] = [];
+  try {
+    await db.question.createMany({ data: records });
+    await db.choice.createMany({ data: records.flatMap(q => ["A", "B", "C", "D"].map(label => ({ questionId: q.id, label, text: `Synthetic option ${label}`, isCorrect: label === "B" }))) });
+    await db.explanation.createMany({ data: records.map(q => ({ questionId: q.id, rationale: "Synthetic fixture explanation: option B is designated, without any independent review." })) });
+    for (let position = 1; position <= 5; position++) templates.push(await db.examTemplate.create({ data: {
+      slug: `unreviewed-fixture-${prefix}-${position}`, title: `Synthetic Unreviewed Set ${position}`, seriesKey: practiceSeriesKey, setPosition: position,
+      level: "COMMON", mode: "PRACTICE", access: "FREE", durationSeconds: 0, questionCount: 160, topics: [], questionKeys: questionKeysForSet(position),
+    } }));
+    expect((await alice.post("/api/auth/login", { data: { email: learner.email, password } })).status()).toBe(200);
+    expect((await admin.post("/api/auth/login", { data: { email: adminUser.email, password } })).status()).toBe(200);
+    const reviewCount = await db.review.count();
+    const last = records.at(-1)!;
+    await db.choice.updateMany({ where: { questionId: last.id, label: "A" }, data: { isCorrect: true } });
+    expect(activate().status).toBe(1);
+    expect(await db.examTemplate.count({ where: { id: { in: templates.map(t => t.id) }, active: true } })).toBe(0);
+    expect(await db.auditEvent.count({ where: { targetId: { in: templates.map(t => t.id) }, action: "practice-series.activate-unreviewed" } })).toBe(0);
+    await db.choice.updateMany({ where: { questionId: last.id, label: "A" }, data: { isCorrect: false } });
+    expect(activate(learner.email).status).toBe(1);
+    const enabled = activate();
+    expect(enabled.status).toBe(0); expect(enabled.stdout).toContain("Activated 5 of 5 sets as UNREVIEWED practice");
+    expect(await db.review.count()).toBe(reviewCount);
+    expect(await db.question.count({ where: { id: { in: records.map(q => q.id) }, status: "DRAFT" } })).toBe(800);
+    expect(activate().stdout).toContain("Activated 0 of 5");
+    const progress = await (await alice.get("/api/exams/series")).json();
+    expect(progress.sets.every((s: { unreviewed: boolean }) => s.unreviewed)).toBe(true);
+    expect(progress.sets.map((s: { state: string }) => s.state)).toEqual(["available", "locked", "locked", "locked", "locked"]);
+    expect((await alice.post("/api/exams/attempts", { data: { templateId: templates[1].id, startKey: randomUUID() } })).status()).toBe(403);
+    await context.addCookies((await alice.storageState()).cookies);
+    await page.goto("/practice/sets");
+    await expect(page.getByText("Unreviewed practice · Questions and proposed answers may contain errors.", { exact: true })).toHaveCount(5);
+    const start = await alice.post("/api/exams/attempts", { data: { templateId: templates[0].id, startKey: randomUUID() } });
+    expect(start.status()).toBe(201);
+    const attempt = await start.json() as AttemptView;
+    expect(attempt.series?.unreviewed).toBe(true); expect(attempt.result).toBeNull();
+    expect(JSON.stringify(attempt)).not.toContain("correctLabel");
+    await page.goto(`/practice/${attempt.id}`);
+    await expect(page.getByText(/These draft questions and proposed answer keys have not been independently checked/)).toBeVisible();
+    expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze()).violations).toEqual([]);
+    expect((await alice.post(`/api/exams/attempts/${attempt.id}`, { data: { action: "submit" } })).status()).toBe(400);
+    expect((await alice.patch(`/api/exams/attempts/${attempt.id}`, { data: { revision: attempt.revision, responses: attempt.questions.map(q => ({ questionKey: q.questionKey, choiceLabel: "A", flagged: false })) } })).status()).toBe(200);
+    const submitted = await alice.post(`/api/exams/attempts/${attempt.id}`, { data: { action: "submit" } });
+    expect(submitted.status()).toBe(200); expect((await submitted.json()).result.correct).toBe(0);
+    const changed = records[160];
+    await db.question.update({ where: { id: changed.id }, data: { prompt: changed.prompt + " A deliberate later edit." } });
+    expect((await alice.post("/api/exams/attempts", { data: { templateId: templates[1].id, startKey: randomUUID() } })).status()).toBe(409);
+    expect(activate().status).toBe(0);
+    const second = await alice.post("/api/exams/attempts", { data: { templateId: templates[1].id, startKey: randomUUID() } });
+    expect(second.status()).toBe(201); expect((await second.json()).series.unreviewed).toBe(true);
+    // The exception never makes unrelated unreviewed topic/mock templates eligible.
+    const ordinary = await db.examTemplate.create({ data: { slug: `ordinary-${prefix}`, title: "Unrelated synthetic practice", level: "PROFESSIONAL", mode: "PRACTICE", access: "FREE", topics: ["arithmetic"], questionCount: 1, durationSeconds: 0 } });
+    templates.push(ordinary);
+    expect((await admin.post("/api/admin/exam-templates", { data: { action: "activate", id: ordinary.id, version: ordinary.version } })).status()).toBe(409);
+    expect(await db.review.count()).toBe(reviewCount);
+  } finally {
+    await db.attempt.deleteMany({ where: { templateId: { in: templates.map(t => t.id) } } });
+    await db.examTemplate.deleteMany({ where: { id: { in: templates.map(t => t.id) } } });
+    await db.question.deleteMany({ where: { id: { in: records.map(q => q.id) } } });
+    await Promise.all([alice.dispose(), admin.dispose()]);
     await db.$disconnect();
   }
 });

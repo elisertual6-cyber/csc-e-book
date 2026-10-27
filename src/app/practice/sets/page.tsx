@@ -8,7 +8,7 @@ export default async function Sets() {
     <p className="eyebrow">GUIDED PRACTICE · SAVED TO YOUR ACCOUNT</p>
     <h1>Five sets, one step at a time.</h1>
     <p className="lead">Each set has 160 questions. Answer every question and submit the set to unlock the next one. Your score does not determine access.</p>
-    <div className="notice">These mixed-topic sets are untimed practice, not an official CSC examination. Answer keys and explanations appear after submission. Each set requires independently reviewed content before release.</div>
+    <div className="notice">These mixed-topic sets are untimed practice, not an official CSC examination. Answer keys and explanations appear after submission. Sets labelled Unreviewed practice contain draft questions and proposed answers that have not been independently checked.</div>
     {user ? <PracticeSeries /> : <p><Link className="button" href="/login">Sign in to view your sets</Link></p>}
     <p><Link className="text-link" href="/practice">← Practice studio</Link></p>
   </section>;

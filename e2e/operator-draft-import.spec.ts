@@ -164,7 +164,7 @@ test("operator draft import requires ADMIN, rolls back conflicts, preserves exis
   } finally { await db.$disconnect(); }
 });
 
-test("five-set source import creates 800 draft members and five inactive fixed sets without approvals", async () => {
+test("five-set source import prepares inactive sets and explicitly enables unreviewed practice without approvals", async () => {
   test.setTimeout(180000);
   expect(new URL(process.env.DATABASE_URL!).pathname).toMatch(/^\/csc_e2e_[a-f0-9]{16}$/);
   const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL }) });
@@ -198,6 +198,19 @@ test("five-set source import creates 800 draft members and five inactive fixed s
     expect(await db.review.count()).toBe(0);
     expect(await db.question.count({ where: { status: { not: "DRAFT" } } })).toBe(0);
     expect(await db.examTemplate.count({ where: { active: true } })).toBe(0);
+    expect(run("scripts/activate-practice-series.ts", []).status).toBe(1);
+    expect(run("scripts/activate-practice-series.ts", ["--apply"], customer.email).status).toBe(1);
+    // Explicit opt-in releases drafts for free practice; it never invents reviews.
+    const activated = run("scripts/activate-practice-series.ts", ["--apply"]);
+    expect(activated.status).toBe(0); expect(activated.stdout).toContain("Activated 5 of 5 sets as UNREVIEWED practice");
+    expect(await db.examTemplate.count({ where: { seriesKey: "five-set-practice-v1", active: true } })).toBe(5);
+    expect(await db.review.count()).toBe(0);
+    expect(await db.question.count({ where: { status: { not: "DRAFT" } } })).toBe(0);
+    const releases = await db.auditEvent.findMany({ where: { action: "practice-series.activate-unreviewed" } });
+    expect(releases).toHaveLength(5);
+    expect(releases.every(r => (r.metadata as { reviewStatus: string }).reviewStatus === "UNREVIEWED")).toBe(true);
+    expect(run("scripts/activate-practice-series.ts", ["--apply"]).status).toBe(0);
+    expect(await db.auditEvent.count({ where: { action: "practice-series.activate-unreviewed" } })).toBe(5);
     await db.examTemplate.update({ where: { id: templates[0].id }, data: { title: "Deliberate operator edit" } });
     const conflict = run("scripts/prepare-practice-series.ts", ["--apply"]);
     expect(conflict.status).toBe(1); expect(conflict.stderr).toContain("conflicts with the fixed manifest");

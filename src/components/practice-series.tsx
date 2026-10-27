@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { SeriesProgress } from "@/lib/practice-series-policy";
 const descriptions = {
   not_prepared: "This set is being prepared.",
-  awaiting_review: "Available after independent content review and release.",
+  awaiting_review: "This set has not been activated yet.",
   locked: "Finish and submit every earlier set to unlock this one.",
   available: "Ready to start. Your answers will be saved to your account.",
   in_progress: "Continue from your saved answers.",
@@ -44,6 +44,7 @@ export default function PracticeSeries() {
     {progress && <ol className="practice-set-list">{progress.sets.map(set => <li key={set.position} className="exam-panel">
       <p className="eyebrow">SET {set.position} OF {progress.totalSets} · {set.questionCount} QUESTIONS</p>
       <h2>{set.title}</h2>
+      {set.unreviewed && <p className="notice">Unreviewed practice · Questions and proposed answers may contain errors.</p>}
       <p>{set.position === progress.totalSets && set.state === "completed" ? "All five sets are complete. You can review your answers in your history." : descriptions[set.state]}</p>
       {(set.state === "in_progress" || set.state === "completed") && <p>{set.answered} of {set.questionCount} answered</p>}
       {set.attemptId ? <Link className="button" href={`/practice/${set.attemptId}`}>Resume Set {set.position}</Link>

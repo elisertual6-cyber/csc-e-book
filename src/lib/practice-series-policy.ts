@@ -12,16 +12,18 @@ export type SeriesSettings = {
   level: string; mode: string; access: string; durationSeconds: number; questionCount: number;
 };
 export function validSeriesSettings(t: SeriesSettings) {
-  return t.seriesKey === practiceSeriesKey && Number.isInteger(t.setPosition) &&
-    t.setPosition! >= 1 && t.setPosition! <= practiceSetCount &&
-    t.questionKeys.length === practiceSetSize && new Set(t.questionKeys).size === practiceSetSize &&
-    t.questionKeys.every((key, index) => key === questionKeysForSet(t.setPosition!)[index]) && t.level === "COMMON" &&
-    t.mode === "PRACTICE" && t.access === "FREE" && t.durationSeconds === 0 && t.questionCount === practiceSetSize;
+  if (t.seriesKey !== practiceSeriesKey || !Number.isInteger(t.setPosition) ||
+    t.setPosition! < 1 || t.setPosition! > practiceSetCount ||
+    t.questionKeys.length !== practiceSetSize || new Set(t.questionKeys).size !== practiceSetSize ||
+    t.level !== "COMMON" || t.mode !== "PRACTICE" || t.access !== "FREE" ||
+    t.durationSeconds !== 0 || t.questionCount !== practiceSetSize) return false;
+  const expectedKeys = questionKeysForSet(t.setPosition!);
+  return t.questionKeys.every((key, index) => key === expectedKeys[index]);
 }
-export type SeriesMetadata = { key: string; position: number };
+export type SeriesMetadata = { key: string; position: number; unreviewed?: boolean };
 export type SeriesCard = {
   position: number; title: string; questionCount: number;
   state: "not_prepared" | "awaiting_review" | "locked" | "available" | "in_progress" | "completed";
-  templateId: string | null; attemptId: string | null; answered: number;
+  unreviewed: boolean; templateId: string | null; attemptId: string | null; answered: number;
 };
 export type SeriesProgress = { title: string; totalSets: number; completedSets: number; sets: SeriesCard[] };

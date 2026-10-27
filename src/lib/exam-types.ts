@@ -8,7 +8,7 @@ export type AttemptView = {
   id: string;
   title: string;
   level: "COMMON" | "PROFESSIONAL" | "SUBPROFESSIONAL";
-  series?: { key: string; position: number };
+  series?: { key: string; position: number; unreviewed?: boolean };
   mode: "PRACTICE" | "MOCK";
   access: "FREE" | "PREMIUM";
   status: "IN_PROGRESS" | "SUBMITTED" | "EXPIRED";

@@ -4,6 +4,7 @@ import { getDb } from "./db";
 import { HttpError } from "./http";
 import { examMetadataSchema, snapshotSchema } from "./grading";
 import { practiceSeriesKey, practiceSetCount, practiceSetSize, validSeriesSettings, type SeriesProgress, type SeriesSettings } from "./practice-series-policy";
+import { unreviewedSeriesRelease } from "./practice-series-release";
 type Tx = Prisma.TransactionClient;
 
 export async function hasCompletedSet(tx: Tx, userId: string, template: SeriesSettings & { id: string }) {
@@ -41,7 +42,7 @@ export async function practiceSeriesProgress(userId: string): Promise<SeriesProg
       const active = valid ? await tx.attempt.findFirst({ where: { userId, templateId: template.id, status: "IN_PROGRESS" }, orderBy: { startedAt: "desc" }, select: { id: true, responses: { select: { choiceLabel: true } } } }) : null;
       const state = !valid ? "not_prepared" : !predecessorsComplete ? "locked" : complete ? "completed" : active ? "in_progress" : !template.active ? "awaiting_review" : "available";
       sets.push({ position, title: template?.title ?? `Practice Set ${position}`, questionCount: practiceSetSize, state,
-        templateId: valid ? template.id : null, attemptId: predecessorsComplete ? active?.id ?? null : null,
+        unreviewed: valid ? !!await unreviewedSeriesRelease(tx, template) : false, templateId: valid ? template.id : null, attemptId: predecessorsComplete ? active?.id ?? null : null,
         answered: complete ? practiceSetSize : active?.responses.filter(r => r.choiceLabel !== null).length ?? 0 });
       if (predecessorsComplete && complete) completedSets++;
       predecessorsComplete = predecessorsComplete && complete;

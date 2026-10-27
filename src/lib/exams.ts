@@ -14,7 +14,8 @@ import {
 import { digest, staffRoles } from "@/lib/security";
 import { grade, snapshotSchema, examMetadataSchema } from "@/lib/grading";
 import { requirePreviousSets } from "@/lib/practice-series";
-import { validSeriesSettings } from "@/lib/practice-series-policy";
+import { validSeriesSettings, type SeriesSettings } from "@/lib/practice-series-policy";
+import { matchesUnreviewedRelease, unreviewedSeriesRelease } from "@/lib/practice-series-release";
 import type {
   AttemptView,
   AttemptSummary,
@@ -130,12 +131,13 @@ export async function hasExamAccess(
 }
 async function bank(
   tx: Tx,
-  template: { level: string; topics: string[]; seriesKey?: string | null; questionKeys?: string[] },
+  template: SeriesSettings & { id: string; topics: string[] },
   topic?: string,
 ) {
+  const release = await unreviewedSeriesRelease(tx, template);
   const questions = await tx.question.findMany({
     where: {
-      status: "PUBLISHED",
+      ...(release ? { OR: [{ status: "PUBLISHED" as const }, { id: { in: release.questions.map(q => q.id) }, status: { not: "ARCHIVED" as const } }] } : { status: "PUBLISHED" as const }),
       ...(template.seriesKey ? { key: { in: template.questionKeys ?? [] } } : { level: {
         in: ["COMMON", template.level as "PROFESSIONAL" | "SUBPROFESSIONAL"],
       } }),
@@ -153,7 +155,7 @@ async function bank(
   return questions.filter((q) => {
     if (
       keys.has(q.key) ||
-      !independentlyApproved(q) ||
+      !((q.status === "PUBLISHED" && independentlyApproved(q)) || matchesUnreviewedRelease(q, release)) ||
       q.choices.length !== 4 ||
       q.choices.filter((c) => c.isCorrect).length !== 1 ||
       !q.explanation?.rationale
@@ -395,7 +397,7 @@ export async function startAttempt(actor: Actor, input: unknown) {
         (candidates.length !== count || template.questionKeys.some(key => !candidates.some(q => q.key === key)))))
         throw new HttpError(
           409,
-          "There are not enough independently reviewed published questions for this selection.",
+          "The questions for this selection are not available. The administrator can check its content and release settings.",
         );
       for (let i = template.seriesKey ? 0 : candidates.length - 1; i > 0; i--) {
         const j = randomInt(i + 1);
@@ -429,7 +431,7 @@ export async function startAttempt(actor: Actor, input: unknown) {
         templateVersion: template.version,
         durationSeconds: template.durationSeconds,
         requestHash,
-        ...(template.seriesKey ? { series: { key: template.seriesKey, position: template.setPosition! } } : {}),
+        ...(template.seriesKey ? { series: { key: template.seriesKey, position: template.setPosition!, unreviewed: candidates.slice(0, count).some(q => q.status !== "PUBLISHED" || !independentlyApproved(q)) } } : {}),
       };
       const attempt = await tx.attempt.create({
         data: {

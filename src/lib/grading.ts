@@ -43,7 +43,7 @@ export const examMetadataSchema = z.object({
   access: z.enum(["FREE", "PREMIUM"]),
   templateVersion: z.number().int(),
   durationSeconds: z.number().int().nonnegative(),
-  series: z.object({ key: z.string().min(1), position: z.number().int().min(1).max(5) }).optional(),
+  series: z.object({ key: z.string().min(1), position: z.number().int().min(1).max(5), unreviewed: z.boolean().optional() }).optional(),
 });
 export type ExamSnapshot = z.infer<typeof snapshotSchema>;
 export function grade(

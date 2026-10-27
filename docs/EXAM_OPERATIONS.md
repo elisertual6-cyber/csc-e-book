@@ -65,3 +65,5 @@ Before commercial launch, finish the 500-question independent review target, ver
 ## Five fixed practice sets
 
 The separate `/practice/sets` course uses five FREE untimed 160-item templates with fixed membership and mixed-skill COMMON metadata. It requires all answers before submission and all earlier sets completed before a new start; no score threshold applies. Ordinary template/practice behavior above remains unchanged. Draft imports prepare inactive templates; all 160 members require independent review/publication before activation. See [PRACTICE_SERIES.md](PRACTICE_SERIES.md) for migration, import, admin filters, review, activation, source provenance and isolated tests.
+
+The operator-authorized unreviewed-practice release is a scoped exception for the five fixed FREE sets. It activates templates against explicit audit-pinned draft versions/hashes without creating approvals or publishing questions. Learners see unreviewed warnings, and ordinary template/PDF gates remain unchanged. The dedicated activation workflow performs the release; see PRACTICE_SERIES.md.

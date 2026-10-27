@@ -196,6 +196,7 @@ export default function ExamPlayer({ id }: { id: string }) {
         {view.series ? `SET ${view.series.position} · MIXED SKILLS` : view.level} · {view.mode} · {view.status}
       </div>
       <h1>{view.title}</h1>
+      {view.series?.unreviewed && <p className="notice">Unreviewed practice · These draft questions and proposed answer keys have not been independently checked and may contain errors.</p>}
       <div className="exam-status">
         <span>
           {answered} of {view.totalQuestions} answered

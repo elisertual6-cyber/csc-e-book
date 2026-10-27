@@ -1,0 +1,10 @@
+{
+  "seriesKey": "five-set-practice-v1",
+  "release": "UNREVIEWED_PRACTICE",
+  "sets": 5,
+  "questionsPerSet": 160,
+  "authorization": "The operator explicitly requested activation of all five sets without their review.",
+  "editorialStatus": "UNCHANGED",
+  "learnerLabel": "Unreviewed practice",
+  "releaseRevision": 1
+}

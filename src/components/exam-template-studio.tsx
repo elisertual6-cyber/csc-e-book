@@ -155,7 +155,7 @@ export default function ExamTemplateStudio() {
             void change(selected ? "save" : "create");
           }}
         >
-          {selected?.seriesKey && <p className="notice">This set has 160 fixed questions. Its membership and order are preserved. Use the activation control after independent content review.</p>}
+          {selected?.seriesKey && <p className="notice">This set has 160 fixed questions. Its membership and order are preserved. An explicit unreviewed-practice release can activate it while preserving its draft editorial status.</p>}
           <fieldset disabled={busy || !!selected?.seriesKey}>
             <legend>Session settings</legend>
           <label>

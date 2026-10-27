@@ -51,7 +51,8 @@
     "content:export-practice": "tsx scripts/export-practice-review.ts",
     "practice:prepare-series": "node --conditions=react-server --import tsx scripts/prepare-practice-series.ts",
     "content:export-series": "tsx scripts/export-practice-series.ts",
-    "test:practice-series": "node scripts/e2e.mjs --config playwright.series.config.ts"
+    "test:practice-series": "node scripts/e2e.mjs --config playwright.series.config.ts",
+    "practice:activate-unreviewed": "node --conditions=react-server --import tsx scripts/activate-practice-series.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",
