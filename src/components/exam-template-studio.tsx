@@ -12,6 +12,7 @@ type Template = {
   durationSeconds: number;
   version: number;
   active: boolean;
+  seriesKey?: string | null;
 };
 const empty = {
   slug: "",
@@ -154,6 +155,9 @@ export default function ExamTemplateStudio() {
             void change(selected ? "save" : "create");
           }}
         >
+          {selected?.seriesKey && <p className="notice">This set has 160 fixed questions. Its membership and order are preserved. Use the activation control after independent content review.</p>}
+          <fieldset disabled={busy || !!selected?.seriesKey}>
+            <legend>Session settings</legend>
           <label>
             Template key
             <input
@@ -176,6 +180,7 @@ export default function ExamTemplateStudio() {
               value={form.level}
               onChange={(e) => setForm({ ...form, level: e.target.value })}
             >
+              <option value="COMMON" disabled>Mixed skills (fixed practice set)</option>
               <option value="PROFESSIONAL">Professional</option>
               <option value="SUBPROFESSIONAL">Subprofessional</option>
             </select>
@@ -234,8 +239,9 @@ export default function ExamTemplateStudio() {
               }
             />
           </label>
+          </fieldset>
           <div className="actions">
-            <button className="button" disabled={busy}>
+            <button className="button" disabled={busy || !!selected?.seriesKey}>
               {selected
                 ? "Save as inactive new version"
                 : "Create inactive template"}

@@ -1,0 +1,58 @@
+{
+  "accessedOn": "2026-10-27",
+  "method": "Read publicly accessible online reviewer categories/sample questions and textbook concepts. All new item wording, contexts, options and explanations are original. Community answers are not relied upon as authority. No third-party question bank or textbook passage is reproduced.",
+  "sources": [
+    {
+      "id": "CSC-SOURCE-1",
+      "title": "CSE Reviewer 2k26 — public community reviewer examples",
+      "url": "https://github.com/Locallegend22/CSE-Reviewer2k26/blob/main/questions.json",
+      "sha256": "3bce17d349a9f72d13b7100ed7ccc935c8116f4ccd33d5de77d8373f55e796a1",
+      "classification": "Community educational examples, not an official CSC publication",
+      "usedFor": "Topic and multiple-choice format research across verbal, numerical, analytical and general-information categories",
+      "licensing": "No clear redistribution licence was verified. No question text, answer choices or explanations are copied."
+    },
+    {
+      "id": "CSC-SOURCE-2",
+      "title": "OpenStax Prealgebra 2e textbook source (Rice University/OpenStax)",
+      "url": "https://github.com/openstax/osbooks-prealgebra-bundle",
+      "classification": "Publisher textbook repository",
+      "usedFor": "General arithmetic modelling, inverse operations, multiplication, place value and algebra vocabulary; original numerical exercises use independently selected quantities",
+      "licensing": "Repository LICENSE specifies CC BY-NC-SA 4.0 at consultation. No textbook passages, images or exercises are reproduced. Mathematical facts and generic methods alone inform original questions. Do not copy its content into a commercial bank without applicable licensing review.",
+      "documents": [
+        {
+          "url": "https://github.com/openstax/osbooks-prealgebra-bundle/blob/main/collections/prealgebra-2e.collection.xml",
+          "sha256": "309fa072672372d1e46d52031167c21d9a120d1cdfdf3001548e1ca2975077a2"
+        },
+        {
+          "url": "https://github.com/openstax/osbooks-prealgebra-bundle/blob/main/modules/m81245/index.cnxml",
+          "title": "Subtract Whole Numbers",
+          "sha256": "02df262b21ee15472223ae863bc5f3bcb3714389a8ef46e66c8b4469c6972841"
+        },
+        {
+          "url": "https://github.com/openstax/osbooks-prealgebra-bundle/blob/main/modules/m81255/index.cnxml",
+          "title": "Multiply Whole Numbers",
+          "sha256": "1717786daf25223f0712f505768442007c15cf449e382d5596414460d26bd4ba"
+        },
+        {
+          "url": "https://github.com/openstax/osbooks-prealgebra-bundle/blob/main/modules/m81266/index.cnxml",
+          "title": "Introduction to the Language of Algebra",
+          "sha256": "3ef40958467c1d82ef6fd51c3f6ea8af9c2c3e2ea61a90ddf22873eaf7099333"
+        }
+      ]
+    },
+    {
+      "id": "CSC-SOURCE-3",
+      "title": "Civil Service Exam Reviewer App — category documentation",
+      "url": "https://github.com/r-jheltandugon/CivilServiceExamReviewer",
+      "classification": "Community reviewer application documentation",
+      "usedFor": "Professional/Subprofessional and clerical category orientation only",
+      "licensing": "README states MIT. No application code or question text is copied."
+    }
+  ],
+  "blockedPrimarySources": [
+    "https://www.csc.gov.ph",
+    "https://lawphil.net/consti/cons1987.html",
+    "https://www.un.org/en/about-us/universal-declaration-of-human-rights"
+  ],
+  "remainingReview": "All 640 new items and the existing Set 1 remain unapproved drafts. Qualified independent content, legal/source, Filipino, ambiguity and distractor review is required before learner release. No official 2027 blueprint is claimed."
+}

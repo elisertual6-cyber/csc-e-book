@@ -193,7 +193,7 @@ export default function ExamPlayer({ id }: { id: string }) {
   return (
     <section className="exam-panel">
       <div className="eyebrow">
-        {view.level} · {view.mode} · {view.status}
+        {view.series ? `SET ${view.series.position} · MIXED SKILLS` : view.level} · {view.mode} · {view.status}
       </div>
       <h1>{view.title}</h1>
       <div className="exam-status">
@@ -213,6 +213,9 @@ export default function ExamPlayer({ id }: { id: string }) {
               : "Progress saved to your account"}
         </span>
       </div>
+      {view.series && done && <p className="notice"><Link className="button" href="/practice/sets">
+        {view.series.position < 5 ? "Open your next practice set →" : "View your completed sets →"}
+      </Link></p>}
       <p className="fine-print">
         Timing is enforced online. Reconnecting or changing your device clock
         does not extend the session. These timings and results are not official
@@ -224,7 +227,14 @@ export default function ExamPlayer({ id }: { id: string }) {
           graded.
         </p>
       )}
-      <nav className="question-nav" aria-label="Question navigation">
+      {view.series ? <label>Question number
+        <select value={index} onChange={event => setIndex(Number(event.target.value))}>
+          {view.questions.map((q, i) => {
+            const response = view.responses.find(r => r.questionKey === q.questionKey);
+            return <option key={q.questionKey} value={i}>Question {i + 1} of {view.totalQuestions}{response?.choiceLabel ? " · Answered" : ""}{response?.flagged ? " · Flagged" : ""}</option>;
+          })}
+        </select>
+      </label> : <nav className="question-nav" aria-label="Question navigation">
         {view.questions.map((q, i) => {
           const response = view.responses.find(
             (r) => r.questionKey === q.questionKey,
@@ -242,7 +252,7 @@ export default function ExamPlayer({ id }: { id: string }) {
             </button>
           );
         })}
-      </nav>
+      </nav>}
       <div className="exam-question">
         <span className="eyebrow">
           QUESTION {index + 1} OF {view.totalQuestions} · {question.topic}
@@ -310,12 +320,12 @@ export default function ExamPlayer({ id }: { id: string }) {
       {!done && (
         <div className="exam-submit">
           <p>
-            Submit when you are ready. Unanswered questions receive no credit.
+            {view.series ? "Answer all 160 questions to finish this set and unlock the next released set." : "Submit when you are ready. Unanswered questions receive no credit."}
             You cannot change responses after grading.
           </p>
           <button
             className="button"
-            disabled={busy || needsReload}
+            disabled={busy || needsReload || (!!view.series && answered !== view.totalQuestions)}
             onClick={() => void write({ action: "submit" }, true)}
           >
             Submit and view explanations
@@ -365,6 +375,7 @@ export default function ExamPlayer({ id }: { id: string }) {
         </section>
       )}
       <div className="actions">
+        {view.series && <Link className="button" href="/practice/sets">{done ? "Continue to your practice sets →" : "Back to your practice sets"}</Link>}
         <Link className="text-link" href="/practice/history">
           History & subject reports →
         </Link>

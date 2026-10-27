@@ -163,3 +163,44 @@ test("operator draft import requires ADMIN, rolls back conflicts, preserves exis
     expect(await db.examTemplate.count()).toBe(0);
   } finally { await db.$disconnect(); }
 });
+
+test("five-set source import creates 800 draft members and five inactive fixed sets without approvals", async () => {
+  test.setTimeout(180000);
+  expect(new URL(process.env.DATABASE_URL!).pathname).toMatch(/^\/csc_e2e_[a-f0-9]{16}$/);
+  const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL }) });
+  const admin = await db.user.create({ data: { email: `series-admin-${randomUUID()}@example.test`, role: "ADMIN" } });
+  const customer = await db.user.create({ data: { email: `series-customer-${randomUUID()}@example.test`, role: "CUSTOMER" } });
+  const run = (script: string, args: string[], email = admin.email) => spawnSync(process.execPath,
+    ["--conditions=react-server", "--import", "tsx", script, ...args],
+    { env: { ...process.env, ADMIN_EMAIL: email }, encoding: "utf8", timeout: 45000 });
+  try {
+    const before = run("scripts/prepare-practice-series.ts", ["--apply"]);
+    expect(before.status).toBe(1); expect(before.stderr).toContain("Import all five");
+    const packs = ["practice-core", "practice-extended", ...[2, 3, 4, 5].flatMap(n => [`series-${n}-core`, `series-${n}-extended`])];
+    for (const pack of packs) {
+      const imported = run("scripts/import-numerical-drafts.ts", ["--pack", pack, "--apply"]);
+      expect(imported.status, pack).toBe(0);
+    }
+    const denied = run("scripts/prepare-practice-series.ts", ["--apply"], customer.email);
+    expect(denied.status).toBe(1); expect(denied.stderr).toContain("ADMIN");
+    expect(denied.stdout + denied.stderr).not.toContain(customer.email);
+    expect(run("scripts/prepare-practice-series.ts", []).status).toBe(1);
+    const prepared = run("scripts/prepare-practice-series.ts", ["--apply"]);
+    expect(prepared.status).toBe(0); expect(prepared.stdout).toContain("Prepared 5 inactive");
+    const templates = await db.examTemplate.findMany({ where: { seriesKey: "five-set-practice-v1" }, orderBy: { setPosition: "asc" } });
+    expect(templates).toHaveLength(5);
+    expect(templates.every(t => !t.active && t.questionKeys.length === 160 && t.questionCount === 160)).toBe(true);
+    expect(new Set(templates.flatMap(t => t.questionKeys)).size).toBe(800);
+    expect(await db.question.count({ where: { key: { in: templates.flatMap(t => t.questionKeys) }, status: "DRAFT" } })).toBe(800);
+    const repeated = run("scripts/prepare-practice-series.ts", ["--apply"]);
+    expect(repeated.status).toBe(0); expect(repeated.stdout).toContain("Prepared 0 inactive");
+    expect(await db.examTemplate.count({ where: { seriesKey: "five-set-practice-v1" } })).toBe(5);
+    expect(await db.review.count()).toBe(0);
+    expect(await db.question.count({ where: { status: { not: "DRAFT" } } })).toBe(0);
+    expect(await db.examTemplate.count({ where: { active: true } })).toBe(0);
+    await db.examTemplate.update({ where: { id: templates[0].id }, data: { title: "Deliberate operator edit" } });
+    const conflict = run("scripts/prepare-practice-series.ts", ["--apply"]);
+    expect(conflict.status).toBe(1); expect(conflict.stderr).toContain("conflicts with the fixed manifest");
+    expect((await db.examTemplate.findUniqueOrThrow({ where: { id: templates[0].id } })).title).toBe("Deliberate operator edit");
+  } finally { await db.$disconnect(); }
+});

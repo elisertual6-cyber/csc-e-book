@@ -22,6 +22,7 @@ export default async function Account() {
         <Link className="button button-light" href="/practice/history">
           Practice history & reports
         </Link>
+        <Link className="button button-light" href="/practice/sets">Your five practice sets</Link>
         <Link className="button" href="/preview">
           Read the draft lesson
         </Link>

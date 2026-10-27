@@ -13,6 +13,8 @@ import {
 } from "@/lib/editorial";
 import { digest, staffRoles } from "@/lib/security";
 import { grade, snapshotSchema, examMetadataSchema } from "@/lib/grading";
+import { requirePreviousSets } from "@/lib/practice-series";
+import { validSeriesSettings } from "@/lib/practice-series-policy";
 import type {
   AttemptView,
   AttemptSummary,
@@ -128,15 +130,15 @@ export async function hasExamAccess(
 }
 async function bank(
   tx: Tx,
-  template: { level: string; topics: string[] },
+  template: { level: string; topics: string[]; seriesKey?: string | null; questionKeys?: string[] },
   topic?: string,
 ) {
   const questions = await tx.question.findMany({
     where: {
       status: "PUBLISHED",
-      level: {
+      ...(template.seriesKey ? { key: { in: template.questionKeys ?? [] } } : { level: {
         in: ["COMMON", template.level as "PROFESSIONAL" | "SUBPROFESSIONAL"],
-      },
+      } }),
       ...(topic
         ? { topic }
         : template.topics.length
@@ -196,8 +198,10 @@ async function finalize(
   if (attempt.status !== "IN_PROGRESS") return attempt;
   const expired = !!attempt.deadlineAt && time >= attempt.deadlineAt;
   if (!submit && !expired) return attempt;
-  const { snapshot } = readSnapshot(attempt);
+  const { snapshot, metadata } = readSnapshot(attempt);
   const result = grade(snapshot, attempt.responses);
+  if (metadata.series && submit && result.unanswered !== 0)
+    throw new HttpError(400, "Answer all 160 questions before submitting this set.");
   const updated = await tx.attempt.update({
     where: { id: attempt.id },
     data: {
@@ -220,6 +224,7 @@ function view(attempt: StoredAttempt, time: Date): AttemptView {
     id: attempt.id,
     title: metadata.title,
     level: metadata.level,
+    ...(metadata.series ? { series: metadata.series } : {}),
     mode: metadata.mode,
     access: metadata.access,
     status: attempt.status,
@@ -271,7 +276,7 @@ export async function templatesFor(actor: Actor) {
     const time = await now(tx),
       premium = await hasExamAccess(tx, actor, "PREMIUM", time);
     const templates = await tx.examTemplate.findMany({
-      where: { active: true },
+      where: { active: true, seriesKey: null },
       orderBy: { title: "asc" },
       take: 100,
     });
@@ -333,6 +338,13 @@ export async function startAttempt(actor: Actor, input: unknown) {
           403,
           "Active purchased exam access is required. Checkout is not available yet.",
         );
+      if (template.seriesKey) {
+        await requirePreviousSets(tx, actor.id, template);
+        if (data.topic !== undefined || data.questionCount !== undefined)
+          throw new HttpError(400, "Each practice set contains exactly 160 fixed questions; count and topic overrides are unavailable.");
+        const activeSet = await tx.attempt.findFirst({ where: { userId: actor.id, templateId: template.id, status: "IN_PROGRESS" }, select: { id: true } });
+        if (activeSet) return view(await lockAttempt(tx, actor.id, activeSet.id), await now(tx));
+      }
       if (
         template.mode === "MOCK" &&
         (data.topic !== undefined || data.questionCount !== undefined)
@@ -379,15 +391,17 @@ export async function startAttempt(actor: Actor, input: unknown) {
           "Submit an existing attempt before starting another (maximum three active sessions).",
         );
       const candidates = await bank(tx, template, data.topic);
-      if (candidates.length < count)
+      if (candidates.length < count || (template.seriesKey &&
+        (candidates.length !== count || template.questionKeys.some(key => !candidates.some(q => q.key === key)))))
         throw new HttpError(
           409,
           "There are not enough independently reviewed published questions for this selection.",
         );
-      for (let i = candidates.length - 1; i > 0; i--) {
+      for (let i = template.seriesKey ? 0 : candidates.length - 1; i > 0; i--) {
         const j = randomInt(i + 1);
         [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
       }
+      if (template.seriesKey) candidates.sort((a, b) => template.questionKeys.indexOf(a.key) - template.questionKeys.indexOf(b.key));
       const snapshot = snapshotSchema.parse({
         schemaVersion: 1,
         questions: candidates.slice(0, count).map((q) => ({
@@ -415,6 +429,7 @@ export async function startAttempt(actor: Actor, input: unknown) {
         templateVersion: template.version,
         durationSeconds: template.durationSeconds,
         requestHash,
+        ...(template.seriesKey ? { series: { key: template.seriesKey, position: template.setPosition! } } : {}),
       };
       const attempt = await tx.attempt.create({
         data: {
@@ -631,6 +646,8 @@ export async function manageTemplate(actor: Actor, input: unknown) {
       if (!current) throw new HttpError(404, "Template not found.");
       if (current.version !== command.version)
         throw new HttpError(409, "Template changed. Refresh before editing.");
+      if (current.seriesKey && command.action === "save")
+        throw new HttpError(409, "A prepared practice set has fixed membership. Create a new series revision to change its configuration.");
       let data: Prisma.ExamTemplateUpdateInput = {
         active: false,
         version: { increment: 1 },
@@ -642,7 +659,9 @@ export async function manageTemplate(actor: Actor, input: unknown) {
           version: { increment: 1 },
         };
       if (command.action === "activate") {
-        templateInput.parse({
+        if (current.seriesKey) {
+          if (!validSeriesSettings(current)) throw new HttpError(409, "Practice set configuration is invalid.");
+        } else templateInput.parse({
           slug: current.slug,
           title: current.title,
           level: current.level,

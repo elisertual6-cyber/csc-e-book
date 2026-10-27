@@ -6,7 +6,7 @@ An independent, unofficial learning platform for Professional and Subprofessiona
 
 Next.js App Router + TypeScript + Tailwind, PostgreSQL + Prisma, Zod validation, Vitest and Playwright. Includes a responsive landing page, configurable illustrative PHP catalog, track-based curriculum, Markdown lesson preview, ungraded interactive arithmetic exercise, policy drafts and database health endpoint.
 
-The 25-chapter provisional curriculum now links to **five public draft lessons** at `/lessons`. There is one seeded draft question plus a **20-question numerical editorial review pack** for manual import; the pack is not automatically placed in the database or graded exams. None of this content is independently approved for commercial publication. Phase 2 adds customer sign-in, an editorial dashboard, independent review and protected PDF generation. Phase 3 adds server-owned practice/mock attempts, saved responses, deadline enforcement, grading, explanations and history. Phase 4 adds development commerce and protected downloads; GCash has a sandbox-only adapter without real merchant test evidence. `PAYMENT_PROVIDER=mock` enables simulations only outside production. Read [DRAFT_LESSONS.md](docs/DRAFT_LESSONS.md) for content/review boundaries and export steps.
+The 25-chapter provisional curriculum links to **23 public draft lessons** at `/lessons`. There is one seeded draft question plus **870 questions in 14 fixed editorial packs** for manual import, including **five sequential sets of 160 (800 total)**. Set 1 reuses the previous 160-item expansion; Sets 2–5 add 640. Packs are not automatically placed in the database or graded exams. None of this content is independently approved for commercial publication. Phase 2 adds customer sign-in, an editorial dashboard, independent review and protected PDF generation. Phase 3 adds server-owned practice/mock attempts, saved responses, deadline enforcement, grading, explanations and history. Phase 4 adds development commerce and protected downloads; GCash has a sandbox-only adapter without real merchant test evidence. `PAYMENT_PROVIDER=mock` enables simulations only outside production. Read [DRAFT_LESSONS.md](docs/DRAFT_LESSONS.md) for content/review boundaries and export steps.
 
 ## Accounts and editorial workflow
 
@@ -16,7 +16,7 @@ PDF generation uses Node and Chromium, stores files privately outside public/, a
 
 ## Practice sessions and reports
 
-Signed-in learners use /practice and /practice/history. Admins configure inactive templates at /admin/exams, then activate them only after enough independently reviewed questions are published. Topic practice supports validated smaller counts and optional untimed sessions; mock exams use operator-defined fixed counts/timers. No official 2027 timing, coverage or scoring is implied.
+Signed-in learners use /practice and /practice/history. The separate `/practice/sets` course unlocks the next released 160-question set after all answers in each earlier set are submitted; no minimum score is required. See [docs/PRACTICE_SERIES.md](docs/PRACTICE_SERIES.md) for the migration, import, admin set filters, online research and review/activation steps. Admins configure inactive templates at /admin/exams, then activate them only after enough independently reviewed questions are published. Topic practice supports validated smaller counts and optional untimed sessions; mock exams use operator-defined fixed counts/timers. No official 2027 timing, coverage or scoring is implied.
 
 Answer keys stay server-side until submission/expiry. Attempts retain immutable question/settings snapshots, progress is acknowledged after server saves, and row locks/revisions prevent stale writes or repeated grading. Premium content requires a current purchased entitlement and coherent paid/verified financial records; development mock checkout now creates those records transactionally, while mock-backed access remains blocked in production. No real templates, approvals or paid records are seeded. See [docs/EXAM_OPERATIONS.md](docs/EXAM_OPERATIONS.md).
 
@@ -65,7 +65,7 @@ To run the production server locally: `npm run build`, then `npm start`. Develop
 
 - `src/app`: public pages, account/editorial UI, protected APIs, free preview route and `/api/health`.
 - `src/lib`: database-backed sessions, password hashing, authorization, content workflow, PDF worker, exam snapshots/grading, curriculum and price validation.
-- `content/`: editable original Markdown and a DRAFT question fixture. Not under `public/`.
+- `content/`: original Markdown, fixed DRAFT question packs, validation cases and online source provenance. Not under `public/`.
 - `prisma/`: relational schema, checked-in migration and idempotent draft seed.
 - `tests/`, `e2e/`: content/configuration unit tests and desktop/mobile browser tests.
 - `docs/ROADMAP.md`: small, testable milestones.
@@ -104,3 +104,5 @@ GCash is the chosen customer payment method through PayMongo-hosted checkout. A 
 Private PDF storage and separate rendering: [operator setup and remaining hosted checks](docs/PDF_STORAGE.md).
 
 Encrypted database/private PDF recovery rehearsal: [secure operator setup and limits](docs/REMOTE_RECOVERY.md).
+
+Sequential practice sets: [800 draft questions, proposed keys, import and release steps](docs/PRACTICE_SERIES.md). Run `test:practice-series` through its disposable wrapper after building; run browser suites sequentially.

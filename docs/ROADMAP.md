@@ -38,13 +38,14 @@ Content and operator work proceeds alongside these engineering tasks: finish the
 
 ## Content and learner tools
 
-The public catalog contains **23 unapproved teaching drafts** and six manual review packs contain **230 draft questions**. The unchanged one-question demo seed is separate. Chapter headings are a provisional 25-area outline; 23 now have draft lesson text, while the two mock-exam areas are not completed or activated. The existing samples are public-source educational drafts, not confidential/exclusive paid banks.
+The public catalog contains **23 unapproved teaching drafts** and 14 manual review packs contain **870 draft questions**. The unchanged one-question demo seed is separate. Chapter headings are a provisional 25-area outline; 23 now have draft lesson text, while the two mock-exam areas are not completed or activated. The existing samples are public-source educational drafts, not confidential/exclusive paid banks.
 
 - Numerical: five lessons and 20 questions; see [DRAFT_LESSONS.md](DRAFT_LESSONS.md) and [NUMERICAL_IMPORT.md](NUMERICAL_IMPORT.md).
 - English: three lessons and 15 questions; see [ENGLISH_DRAFTS.md](ENGLISH_DRAFTS.md).
 - Paragraphs/reading: two lessons and ten questions; see [READING_DRAFTS.md](READING_DRAFTS.md).
 - Professional reasoning/data and Subprofessional clerical: five lessons and 25 questions; see [TRACK_DRAFTS.md](TRACK_DRAFTS.md).
 - Expanded practice: eight additional lessons and 160 new questions with proposed keys/rationales; see [PRACTICE_EXPANSION.md](PRACTICE_EXPANSION.md).
+- Sequential practice: five fixed sets of 160 (800 total), reusing the preceding 160 and adding 640 new keyed drafts; account-owned completion unlocks the next released set. See [PRACTICE_SERIES.md](PRACTICE_SERIES.md).
 - Personal study planner: track-specific routines, optional browser-only progress and printing; see [STUDY_PLANNER.md](STUDY_PLANNER.md). This creates neither exam results nor additional approved content.
 
 All import jobs preserve existing records and create only drafts under a current ADMIN identity. Publication, independently checked versions, paid editions and exam activation remain separate controlled operations.
@@ -76,6 +77,10 @@ The no-send SMTP check, strict-TLS/encrypted queue and administrator-only manual
 
 Automatic request delivery now attempts only the account message committed by the current request after returning its response. A separate main-only retry workflow sweeps at most ten due account messages on a best-effort five-minute schedule. Web and GitHub activation flags default off; existing SMTP and mail-key settings are reused. Purchase dispatch and public registration remain closed. Local disposable security/protocol tests cover isolation, failures/retries, concurrency and existing recovery gates. Hosted automatic receipt/latency, retry observation, provider limits, bounce monitoring and launch readiness remain pending. See [MAIL_SETUP.md](MAIL_SETUP.md) and [PHASE_5I_REPORT.md](PHASE_5I_REPORT.md).
 
-## Current milestone: Phase 5J — expanded draft learning material
+## Phase 5J — expanded draft learning material
 
 Added eight lesson drafts and 160 new questions with one proposed key and rationale each, split into two 80-item fixed packs. A single manual import workflow preserves existing records and imports only drafts; a separate export prepares a numbered question booklet and matching Markdown/CSV key. The public library grows to 23 lessons and the six review packs total 230 items. Legal/source and Filipino review remain explicitly pending; primary-site retrieval was blocked in this environment. Neither the independent 500-question gate nor official coverage is satisfied. The existing automation setup is operator-reported and the latest Ready Production redeployment is screenshot-confirmed; automatic mailbox receipt remains unconfirmed. See [PRACTICE_EXPANSION.md](PRACTICE_EXPANSION.md).
+
+## Current milestone: Phase 5K — five sequential practice sets
+
+Added 640 original keyed drafts to arrange five sets of 160, reusing the prior 160 as Set 1. The admin set selector reports actual imported counts, and `/practice/sets` provides account-owned saves/resume, complete-submission gating and sequential unlocks without a score threshold. Online community reviewer and publisher textbook research is recorded; no source-bank text is copied. A manual workflow imports drafts and prepares inactive templates, preserving independent review and release gates. The additive schema expansion was pushed separately before the application changes. See [PRACTICE_SERIES.md](PRACTICE_SERIES.md) and [PHASE_5K_REPORT.md](PHASE_5K_REPORT.md). Hosted import/review/activation remains distinct from local implementation and automated evidence.

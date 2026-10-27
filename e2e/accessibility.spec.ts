@@ -5,7 +5,7 @@ import { draftLessons } from "../src/lib/lesson-catalog";
 test("public learning and account pages meet automated WCAG AA checks", async ({ page }) => {
   test.setTimeout(120_000);
   const violations = [];
-  for (const route of ["/", "/curriculum", "/preview", "/practice", "/study-plan", "/shop", "/login", "/register", "/forgot-password", "/reset-password", "/verify-email", "/policies/privacy", "/policies/terms", "/policies/refunds", "/policies/support", "/lessons", ...draftLessons.map(lesson => `/lessons/${lesson.slug}`)]) {
+  for (const route of ["/", "/curriculum", "/preview", "/practice", "/practice/sets", "/study-plan", "/shop", "/login", "/register", "/forgot-password", "/reset-password", "/verify-email", "/policies/privacy", "/policies/terms", "/policies/refunds", "/policies/support", "/lessons", ...draftLessons.map(lesson => `/lessons/${lesson.slug}`)]) {
     await page.goto(route);
     await expect(page.locator("main")).toBeVisible();
     const results = await new AxeBuilder({ page })
@@ -22,6 +22,8 @@ test("keyboard users can skip navigation to the learning content", async ({ page
   await expect(page.getByRole("link", { name: "Skip to content" })).toBeFocused();
   await page.keyboard.press("Enter");
   await expect(page.locator("main")).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("link", { name: "Open the five 160-question sets →", exact: true })).toBeFocused();
   await page.keyboard.press("Tab");
   await expect(page.getByRole("link", { name: /Sign in for reviewed sessions/ })).toBeFocused();
   await page.keyboard.press("Tab");

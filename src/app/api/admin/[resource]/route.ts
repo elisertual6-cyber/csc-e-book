@@ -3,6 +3,7 @@ import { getDb } from "@/lib/db";
 import { requireUser, rateLimit } from "@/lib/auth";
 import { staffRoles, writerRoles } from "@/lib/security";
 import { api, assertMutation, readJson, json, HttpError } from "@/lib/http";
+import { questionKeysForSet } from "@/lib/practice-series-policy";
 import {
   audit,
   chapterInput,
@@ -10,7 +11,7 @@ import {
   changeContent,
 } from "@/lib/editorial";
 export async function GET(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ resource: string }> },
 ) {
   return api("admin", async () => {
@@ -27,7 +28,15 @@ export async function GET(
           take: 200,
         }),
       );
-    if (resource === "questions")
+    if (resource === "questions") {
+      const selection = new URL(request.url).searchParams.get("set");
+      if (selection !== null) {
+        const position = z.coerce.number().int().min(1).max(5).parse(selection);
+        const rows = await db.question.findMany({ where: { key: { in: questionKeysForSet(position) } },
+          include: { choices: true, explanation: true, reviews: true }, distinct: ["key"],
+          orderBy: [{ key: "asc" }, { version: "desc" }], take: 160 });
+        return json(rows);
+      }
       return json(
         await db.question.findMany({
           include: { choices: true, explanation: true, reviews: true },
@@ -35,6 +44,7 @@ export async function GET(
           take: 200,
         }),
       );
+    }
     throw new HttpError(404, "Unknown resource.");
   });
 }

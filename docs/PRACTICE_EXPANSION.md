@@ -1,5 +1,7 @@
 # Eight lessons and 160 additional practice questions
 
+This describes the Phase 5J expansion. It is now Set 1 of the [five-set series](PRACTICE_SERIES.md), which adds 640 more drafts and an admin set selector showing all 160 keys per set. Counts and validation results below are the historical 5J totals.
+
 This expansion adds **eight original draft lessons and 160 new multiple-choice questions**, each with four distinct choices, one proposed answer and an explanation. It does not replace the earlier 70 editorial questions or the one-question demo seed. Current totals are **23 public lesson drafts, 230 questions in six manual editorial packs, and 231 question records when the unchanged demo seed is included**. These counts describe authored drafts, not independent approvals.
 
 ## What was added

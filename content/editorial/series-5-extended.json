@@ -1,0 +1,2648 @@
+{
+  "title": "Practice Set 5 extended — original drafts",
+  "version": 1,
+  "status": "DRAFT",
+  "reviewStatus": "PENDING_INDEPENDENT_REVIEW",
+  "questions": [
+    {
+      "key": "series5-reading-01",
+      "prompt": "In this invented example: A fictional help desk handles scheduled visits from 2 p.m. to 6 p.m. on Tuesdays. It explicitly excludes visitors without a booking. Which restriction is directly stated?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The booking requirement is stated for this fictional service only; no wider or morning schedule follows.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A booking is required for those visits.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "All other services everywhere use the same rule.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The service runs every Tuesday morning.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Every person may walk in without a booking.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-reading-02",
+      "prompt": "In this invented example: A small trial changed the layout of one information sheet. Several readers said it was easier to scan; actual error rates were not measured. Which conclusion is supported?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Reported ease of scanning and measured error or score changes are different forms of evidence.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Every document in the organisation was changed.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The layout eliminated every reading error.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Some readers reported easier scanning; an error-rate reduction was not measured.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "The trial established a specific improvement in exam scores.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-reading-03",
+      "prompt": "In this invented example: Rui noted a manual’s revision code and later used it to ask for that exact version. What role did the code play?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The narrative connects the recorded code with a precise later request, not authorship or identity of all versions.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "It proved that every version was identical.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "It helped specify the requested version.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "It made Rui the author of the manual.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "It removed the need to name any version.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-reading-04",
+      "prompt": "In this invented example: Five of eight invited committees returned a response. The passage provides no reasons for the remaining three. Which assertion is not supported?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The specific motive about the venue is invented; it cannot be derived from the response count.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The three remaining committees disliked the proposed venue.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Eight committees were invited.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Five returned a response.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The passage does not explain the missing responses.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-reading-05",
+      "prompt": "In this invented example: Two drafts disagreed about the meeting date. The secretary checked the confirmed booking before distributing the final notice. Which practice does this illustrate?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The booking provides the stated basis for verification before distribution, unlike the unsupported selection rules.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Check an authoritative record before distributing corrected information.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Choose the earlier date merely because it is earlier.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Ignore the booking when correcting the notice.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Distribute every conflicting draft at once.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-reading-06",
+      "prompt": "In this invented example: The note says The instructions were brief, although readers still asked for a worked example. What relationship does although indicate?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Although marks the contrast; brief instructions do not preclude further requests for clarification.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "An assertion that no instruction was provided",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "A guarantee that brief instructions need no examples",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "A definition of the word reader",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "A concession or contrast between brevity and remaining requests",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-reading-07",
+      "prompt": "In this invented example: Twelve of twenty-one participants chose an optional revision session. No subsequent performance data are given. Which inference is warranted?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The passage supports the voluntary participation count, not claims about knowledge or future success.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Attendance guaranteed success in every assessment.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Every participant was forced to attend.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "All nonattendees lacked any knowledge.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Twelve opted in; a subsequent performance advantage is not established.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-reading-08",
+      "prompt": "In this invented example: An invented records rule says Keep the original message and record the correction in a separate dated note. Which action is consistent?",
+      "topic": "reading",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The stated method preserves the original and documents the correction; the other actions discard or distort records.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Replace the complete archive with an undated memory.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Delete the original with no retained copy.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Retain the original and create a separate dated correction.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Change every old message whether relevant or not.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filipino-01",
+      "prompt": "Punan: Nagdala si Dario ___ limang malilinis na baso.",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Ng ang pananda sa layong limang baso sa pangungusap. Kailangan pa rin ang independiyenteng pagsusuri sa wika at kalinawan.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "nang",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "kay",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "ng",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "kina",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filipino-02",
+      "prompt": "Punan: Huminto ang usapan ___ pumasok ang tagapagsalita.",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Nang ang nag-uugnay sa pagpasok bilang panahunan ng paghinto ng usapan. Kailangan pa rin ang independiyenteng pagsusuri sa wika at kalinawan.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ng",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "kay",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "mga",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "nang",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-filipino-03",
+      "prompt": "Ano ang kahulugan ng payak sa “Payak ang paliwanag: maikli at madaling maunawaan”?",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Ang maikli at madaling maunawaan ang mga pahiwatig ng pagiging simple o payak. Kailangan pa rin ang independiyenteng pagsusuri sa wika at kalinawan.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Laging mahaba",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Sadyang malabo",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Walang kaugnayan",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Simple at hindi masalimuot",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-filipino-04",
+      "prompt": "Sa “Naging malinaw ang tala kaya nabawasan ang tanong,” ano ang ipinakikilala ng kaya?",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Ang pagbawas ng tanong ang bunga na ipinakikilala ng kaya. Kailangan pa rin ang independiyenteng pagsusuri sa wika at kalinawan.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Bunga",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Pagsalungat",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Pagmamay-ari",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Pangalan",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filipino-05",
+      "prompt": "Alin ang panghalip sa “Ikaw ang susunod na magsasalita”?",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Ikaw ang panghalip na panao na tumutukoy sa kausap. Kailangan pa rin ang independiyenteng pagsusuri sa wika at kalinawan.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "susunod",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Ikaw",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "ang",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "magsasalita",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filipino-06",
+      "prompt": "Punan ang layunin: Sinuri niya ang ruta ___ makarating nang ligtas.",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Upang ang nagpapakilala sa layuning makarating nang ligtas sa pagsusuri ng ruta. Kailangan pa rin ang independiyenteng pagsusuri sa wika at kalinawan.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "upang",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "ngunit",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "subalit",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "bagaman",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filipino-07",
+      "prompt": "Paalala: “Ilagay ang petsa sa itaas ng tala.” Ano ang hinihingi?",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Ang espesipikong tagubilin ay paglalagay ng petsa sa itaas ng tala. Kailangan pa rin ang independiyenteng pagsusuri sa wika at kalinawan.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Isulat ang lahat ng pangalan sa likod",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Itago ang petsa sa ibang aklat",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Isulat ang petsa sa itaas",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Burahin ang buong tala",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filipino-08",
+      "prompt": "Sa “Madilim ang daan, subalit maliwanag ang loob ng gusali,” anong ugnayan ang ipinapakita ng subalit?",
+      "topic": "filipino",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Subalit ay pang-ugnay na pasalungat; hindi ito pananda ng pagmamay-ari o bilang. Kailangan pa rin ang independiyenteng pagsusuri sa wika at kalinawan.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pagbibilang ng sasakyan",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Pagsalungat ng mga ideya",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Pagmamay-ari ng ilaw",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Pagsasaad ng iisang sanhi",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-analogies-01",
+      "prompt": "Use the relationship instrument to what it measures, preserving its direction: odometer : distance travelled :: stopwatch : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The stated relationship pairs odometer with distance travelled. Applying the same direction and relation to stopwatch gives elapsed time; the other options do not preserve that specified relation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "mass",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "temperature",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "elapsed time",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "direction",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-analogies-02",
+      "prompt": "Use the relationship whole to one constituent, preserving its direction: sentence : word :: paragraph : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The stated relationship pairs sentence with word. Applying the same direction and relation to paragraph gives sentence; the other options do not preserve that specified relation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "dictionary author",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "bookcase",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "ink bottle",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "sentence",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-analogies-03",
+      "prompt": "Use the relationship occupation to a usual workplace, preserving its direction: judge : courtroom :: nurse : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The stated relationship pairs judge with courtroom. Applying the same direction and relation to nurse gives hospital; the other options do not preserve that specified relation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "bakery",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "observatory",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "shipyard",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "hospital",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-analogies-04",
+      "prompt": "Use the relationship action to its opposite, preserving its direction: ascend : descend :: expand : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The stated relationship pairs ascend with descend. Applying the same direction and relation to expand gives contract; the other options do not preserve that specified relation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "enlarge",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "increase",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "extend",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "contract",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-analogies-05",
+      "prompt": "Use the relationship creator to created work, preserving its direction: sculptor : sculpture :: poet : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The stated relationship pairs sculptor with sculpture. Applying the same direction and relation to poet gives poem; the other options do not preserve that specified relation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "paper mill",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "poem",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "printing press",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "bookshop",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-analogies-06",
+      "prompt": "Use the relationship word to a close synonym, preserving its direction: quiet : silent :: candid : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The stated relationship pairs quiet with silent. Applying the same direction and relation to candid gives frank; the other options do not preserve that specified relation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "deceptive",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "distant",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "frank",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "crowded",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-analogies-07",
+      "prompt": "Use the relationship material to a typical product, preserving its direction: cotton : cloth :: wool : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The stated relationship pairs cotton with cloth. Applying the same direction and relation to wool gives blanket; the other options do not preserve that specified relation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "sheep",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "pasture",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "blanket",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "shearing tool",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-analogies-08",
+      "prompt": "Use the relationship adult animal to its young, preserving its direction: goat : kid :: dog : ___.",
+      "topic": "analogies",
+      "level": "PROFESSIONAL",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The stated relationship pairs goat with kid. Applying the same direction and relation to dog gives puppy; the other options do not preserve that specified relation.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "lamb",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "calf",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "foal",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "puppy",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-logic-01",
+      "prompt": "In an invented rule system, every approved parcel has a green band. Parcel T lacks that mark. What must follow?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The rule makes the mark necessary for being approved. A parcel lacking it cannot have that property under the premise. The converse about all marked parcels is not supplied.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "No parcel exists.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "T is not approved.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "T must be approved.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Every marked parcel is approved.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-logic-02",
+      "prompt": "Invented premises: All verified notices are signed. Some verified notices are indexed. What follows?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The existential premise supplies at least one item with both named properties. The universal signing rule applies to that item, establishing the limited some conclusion without its unsupported converse.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Some indexed notices are signed.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "No indexed notices is verified.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "All signed notices are verified.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Every indexed item is verified.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-logic-03",
+      "prompt": "Exactly one of boxes M, N, P contains a token. M and P are empty. What follows?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The exactly-one condition supplies existence as well as exclusivity. Excluding the two stated empty boxes leaves the middle named box as the only possible location.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "M and N both contain tokens.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "N contains the token.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "There must be three tokens.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "N is empty.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-logic-04",
+      "prompt": "An invented task order requires T before U, U before V, and W after V. Which offered order is valid?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Chaining the first two requirements orders the first three tasks. The final requirement places the fourth after them; each wrong option violates at least one explicit constraint.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "W-T-U-V",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "U-T-V-W",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "T-U-V-W",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "T-V-U-W",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-logic-05",
+      "prompt": "Under invented premises, no archived record is changeable. Record U is changeable. What follows?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The two categories are disjoint under the premise. Membership in the second excludes membership in the first, but supplies no converse about every record outside the first.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "No other record exists.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "U is not archived.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "U must be archived.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "All records not archived are changeable.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-logic-06",
+      "prompt": "In a formal exercise, X or Y, or both, is true. Y is false. Which conclusion follows?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Inclusive or requires at least one true statement. The stated falsity of the second leaves the first necessarily true; both true is excluded by the second premise.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Both are false.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "X is true.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Both must be true.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "X is false.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-logic-07",
+      "prompt": "An invented rule says if a sheet is checked, it may be filed. Sheet Z may be filed. What is established about whether it is checked?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "A sufficient condition is not automatically necessary. Inferring the condition from its consequence affirms the consequent; another permission rule has not been excluded.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "It must be checked.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Every sheet has already been destroyed.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The premises do not establish that it is checked.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "It must not be checked.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-logic-08",
+      "prompt": "In a puzzle, a valid badge must be both blue and stamped. Badge D4 is blue but not stamped. What follows?",
+      "topic": "logic",
+      "level": "PROFESSIONAL",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Both conditions are necessary. Failure of the second condition rules out validity; colour alone does not satisfy a conjunction.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Every blue badge is valid.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "All stamped badges are blue.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "D4 is not valid under the definition.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "D4 is valid from colour alone.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filing-01",
+      "prompt": "For this exercise, compare displayed surname keys letter by letter A to Z. Which comes first: Delos, Dizon, Diaz, Dela?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Compare from the first differing letter; the alphabetical minimum of the displayed keys is Dela. No unstated naming convention is applied.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Dizon",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Dela",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Diaz",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Delos",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filing-02",
+      "prompt": "Use A-to-Z order, with a shorter exact prefix before its extensions. Which order is correct for Dan, Dana, Dane, Dano?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The shorter matching prefix comes first; subsequent differing letters decide the extensions. Applying the stated rule gives Dan, Dana, Dane, Dano.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Dan, Dana, Dane, Dano",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Dano, Dane, Dana, Dan",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Dana, Dan, Dane, Dano",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Dan, Dano, Dana, Dane",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filing-03",
+      "prompt": "For N-009, N-017, N-038, N-012, compare suffixes as integers. Which sorts last?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The largest numerical suffix is 38. Preserve the displayed identifier N-038; leading zeroes affect its spelling but not the declared integer comparison.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "N-038",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "N-012",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "N-009",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "N-017",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filing-04",
+      "prompt": "Sort these exercise records by letter prefix, then ascending integer suffix: K-7, K-1, J-15, J-6. Which order is correct?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The primary comparison is the prefix, so all first-prefix records precede second-prefix records. The secondary comparison is integer size, not whole-string spelling.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "J-6, J-15, K-1, K-7",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "J-6, K-1, J-15, K-7",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "J-15, J-6, K-1, K-7",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "K-7, K-1, J-15, J-6",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filing-05",
+      "prompt": "Interpret dates as YYYY-MM-DD. Which earliest-to-latest order is correct for 2030-10-01, 2030-03-08 and 2030-03-18?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Compare year, month and day in that order. The two March dates precede October, and day 08 precedes day 18.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "2030-03-18, 2030-03-08, 2030-10-01",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "2030-10-01, 2030-03-18, 2030-03-08",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "2030-03-08, 2030-03-18, 2030-10-01",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "2030-03-08, 2030-10-01, 2030-03-18",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filing-06",
+      "prompt": "For this exercise only, ignore spaces and compare letters A to Z. Which comes first among La Cruz, Lago, Lara, Lazo?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Remove spaces only for comparison, then compare letters from left to right. The first resulting key belongs to La Cruz. This is not an assertion of an official name-filing standard.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "La Cruz",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Lago",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Lara",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Lazo",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filing-07",
+      "prompt": "In numeric ascending order, which of T-8, T-31, T-34 and T-113 immediately follows T-31?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Compare the supplied suffixes, rather than assume consecutive numbers. The next larger supplied suffix is 34.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "T-34",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "T-31",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "T-113",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "T-8",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-filing-08",
+      "prompt": "Use surname first, then given name, both A to Z. Which entry comes first among Herrera, Ben; Herrera, Ana; Garcia, Bea; Garcia, Ada?",
+      "topic": "filing",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Garcia precedes Herrera. Within Garcia, Ada precedes Bea, so Garcia, Ada is the first key.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Herrera, Ben",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Garcia, Bea",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Herrera, Ana",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Garcia, Ada",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-spelling-01",
+      "prompt": "Which option gives the conventional edited-English spelling of the word represented here by the proposed form proceedure?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The conventional spelling is procedure. Compare its complete letter sequence; the other spellings contain omissions, substitutions or unnecessary extra letters. Reference checking remains part of independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "procedur",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "procedure",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "proccedure",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "proceedure",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-spelling-02",
+      "prompt": "Which option gives the conventional edited-English spelling of the word represented here by the proposed form referance?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The conventional spelling is reference. Compare its complete letter sequence; the other spellings contain omissions, substitutions or unnecessary extra letters. Reference checking remains part of independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "refference",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "referance",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "reference",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "referrence",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-spelling-03",
+      "prompt": "Which option gives the conventional edited-English spelling of the word represented here by the proposed form explaination?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The conventional spelling is explanation. Compare its complete letter sequence; the other spellings contain omissions, substitutions or unnecessary extra letters. Reference checking remains part of independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "explaination",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "explanation",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "explanattion",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "explanasion",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-spelling-04",
+      "prompt": "Which option gives the conventional edited-English spelling of the word represented here by the proposed form confidencial?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The conventional spelling is confidential. Compare its complete letter sequence; the other spellings contain omissions, substitutions or unnecessary extra letters. Reference checking remains part of independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "confidenttial",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "confidantial",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "confidential",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "confidencial",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-spelling-05",
+      "prompt": "Which option gives the conventional edited-English spelling of the word represented here by the proposed form equiptment?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The conventional spelling is equipment. Compare its complete letter sequence; the other spellings contain omissions, substitutions or unnecessary extra letters. Reference checking remains part of independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "equipment",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "equipmant",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "equiipment",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "equiptment",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-spelling-06",
+      "prompt": "Which option gives the conventional edited-English spelling of the word represented here by the proposed form correspondance?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The conventional spelling is correspondence. Compare its complete letter sequence; the other spellings contain omissions, substitutions or unnecessary extra letters. Reference checking remains part of independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "correspondance",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "corresponddence",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "correspondence",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "corespondence",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-spelling-07",
+      "prompt": "Exact transcription is required. Which copy matches ST-6733-Z without changing any character?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The correct option preserves every character and its position in the supplied reference. Changing digit order, a letter or a digit value is not an exact copy.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ST-6733-2",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "ST-6733-Z",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "ST-7633-Z",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "ST-6743-Z",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-spelling-08",
+      "prompt": "Copy this invented identifier exactly, including leading zeroes: ZA/0070/28. Which is the matching copy?",
+      "topic": "spelling",
+      "level": "SUBPROFESSIONAL",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-3 (community reviewer category documentation; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Preserve both leading zeroes and the terminal digits 28. The alternatives omit a zero, reverse the final digits or substitute a different final digit.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ZA/070/28",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "ZA/0070/29",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "ZA/0070/82",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "ZA/0070/28",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-constitution-01",
+      "prompt": "A fictional citizenship lesson rejects the idea that public authority is owned by an individual family. What Article II, Section 1 principle is the relevant alternative?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Article II, Section 1 locates sovereignty in the people, from whom government authority emanates. Primary constitutional text and current applicability must be checked independently before approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Sovereignty resides in the people.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "No public authority can exist.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Authority is the permanent personal property of an officer.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Only a private family owns public authority.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-constitution-02",
+      "prompt": "A draft note needs the Article III, Section 1 term about legal procedures before deprivation. Which term should be entered?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Article III, Section 1 names due process and equal protection. Due process is not automatic appointment or universal immunity. Primary constitutional text and current applicability must be checked independently before approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A guarantee of identical outcomes in every dispute",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Automatic appointment to office",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Immunity from all laws",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Due process of law",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-constitution-03",
+      "prompt": "A fictional flashcard labels security from unreasonable searches and seizures. Which article-and-section match is correct?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Article III, Section 2 concerns security against unreasonable searches and seizures. This topic identification does not decide exceptions or a particular legal case. Primary constitutional text and current applicability must be checked independently before approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Article XI, Section 1: public office as public trust",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Article VII, Section 1: executive power",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Article III, Section 2: unreasonable searches and seizures",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Article VI, Section 1: ordinary legislative allocation",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-constitution-04",
+      "prompt": "In a hypothetical lesson, two legislative chambers are named Senate and House of Representatives. Together they constitute what institution?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Article VI, Section 1 identifies Congress, consisting of the Senate and House of Representatives, with the reservation concerning initiative and referendum. Primary constitutional text and current applicability must be checked independently before approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The Cabinet alone",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The Supreme Court alone",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Congress",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "The Commission on Audit alone",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-constitution-05",
+      "prompt": "An invented matching exercise pairs Article VII, Section 1 with which holder of power?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Article VII, Section 1 vests executive power in the President, rather than the other named constitutional officers. Primary constitutional text and current applicability must be checked independently before approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The Senate President alone",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The President of the Philippines",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "The Ombudsman alone",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The Chief Justice alone",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-constitution-06",
+      "prompt": "A civics note needs the bodies named for judicial power in Article VIII, Section 1. Which choice is correct?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Article VIII, Section 1 identifies one Supreme Court and lower courts established by law as repositories of judicial power. Primary constitutional text and current applicability must be checked independently before approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "One Supreme Court and lower courts established by law",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Only the Cabinet",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Only private arbitration clubs",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Only city mayors",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-constitution-07",
+      "prompt": "A fictional supervisor treats a public role as personal property rather than an obligation. Which opening principle of Article XI applies?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Article XI, Section 1 begins with public office as a public trust and connects it with accountability and public service. Primary constitutional text and current applicability must be checked independently before approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Public office is private property.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Public accountability is optional.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "A position is a permanent family asset.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Public office is a public trust.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-constitution-08",
+      "prompt": "A worksheet correctly identifies speech and expression as Article III, Section 4 freedoms. Which statement would add an unsupported guarantee?",
+      "topic": "constitution",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Identifying the speech, expression and press provision does not establish an automatic employment entitlement. Actual restrictions and legal applications require separate qualified review. Primary constitutional text and current applicability must be checked independently before approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "That the press is named in Section 4",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "That expression is addressed in the Bill of Rights",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "That speech is a subject of constitutional protection",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "That every person is guaranteed a government job",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-ethics-01",
+      "prompt": "An invented office policy prioritises authorised public needs and efficient, honest use of resources. Which Section 4 norm is central?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Section 4(a) prioritises public interest and efficient, effective, honest and economical use of government resources. Check the primary statutory text before editorial approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Commitment to public interest",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Private enrichment",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Partisan favouritism",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Personal ownership of public assets",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-ethics-02",
+      "prompt": "A fictional analyst improves the specialised skills required for excellent performance of assigned public work. Which RA 6713 norm is most directly described?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Section 4(b) concerns excellence, professionalism, intelligence and skill in performing duties. Check the primary statutory text before editorial approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Concealing all performance information",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Professionalism",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Private enrichment",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Partisan preference",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-ethics-03",
+      "prompt": "A fictional selection process ignores applicants’ party preferences and uses the same relevant criteria. Which norm is illustrated?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Section 4(d) addresses service without unfair discrimination regardless of party affiliation or preference. Check the primary statutory text before editorial approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Personal ownership of office",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Preference for one party",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Automatic advancement by affiliation",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Political neutrality",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-ethics-04",
+      "prompt": "A fictional service assistant gives visitors prompt, courteous and adequate assistance. Which Section 4 norm is the precise match?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Section 4(e) concerns prompt, courteous and adequate service to the public. Check the primary statutory text before editorial approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Deliberate delay",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Responsiveness to the public",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Preference for relatives",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Refusal to explain any process",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-ethics-05",
+      "prompt": "A fictional lesson contrasts modest living with extravagant displays inconsistent with position and income. Which norm is it teaching?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Section 4(h) describes modest living appropriate to position and income and avoidance of extravagant or ostentatious display. Check the primary statutory text before editorial approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Simple living",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Identical expenses for every employee",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "A replacement for financial disclosure",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Permanent poverty for every household",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-ethics-06",
+      "prompt": "An invented quiz asks for the Section 5(a) reply period in working days, not calendar months. Which option matches the statutory text?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The text of Section 5(a) states fifteen working days from receipt and says the reply should contain the action taken. Current implementing guidance needs separate review. Check the primary statutory text before editorial approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "15 calendar months",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "60 working days",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "No period is stated",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "15 working days",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-ethics-07",
+      "prompt": "A fictional business promises cash only if an officer gives it favourable official action. Which response matches the Section 7(d) restriction?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The described quid-pro-quo offer falls within the covered official-context restriction in Section 7(d). Renaming it does not make the exchange acceptable; this is not an assertion that every token in every context has identical treatment. Check the primary statutory text before editorial approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Accept if the offer is renamed a thank-you fee.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Refuse the offered exchange for favourable official action.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Ask for a higher payment.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Accept because a transaction is pending.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-ethics-08",
+      "prompt": "A draft lesson asks why Section 8 financial statements and disclosures exist. Which answer states their accountability purpose?",
+      "topic": "ethics",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Section 8 disclosures support accountability through financial and business-interest transparency. They do not grant immunity or require exposing passwords. Check the primary statutory text before editorial approval.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Replacement of every public audit",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Disclosure of assets, liabilities, net worth and specified interests",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Public release of every bank password",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Automatic immunity from investigation",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-rights-01",
+      "prompt": "An invented notice makes dignity a privilege granted by salary level. Which UDHR Article 1 principle contradicts it?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "UDHR Article 1 expresses the equal freedom, dignity and rights of human beings rather than conditioning them on possessions or office. Source instrument: Universal Declaration of Human Rights; do not equate it with a Philippine criminal statute.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Equal dignity and rights of all human beings",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Dignity based only on wealth",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Rights belonging only to officeholders",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Rights restricted to landowners",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-rights-02",
+      "prompt": "An invented rights handout excludes people solely because of their religion. Which Article 2 principle is the relevant correction?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "UDHR Article 2 describes nondiscriminatory entitlement to the Declaration’s rights, including without distinction based on race or religion. Source instrument: Universal Declaration of Human Rights; do not equate it with a Philippine criminal statute.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Human dignity purchased through income",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Entitlement without the stated discriminatory distinctions",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Rights limited to one religious group",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Rights limited to one racial group",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-rights-03",
+      "prompt": "A fictional note suggests degrading punishment is a human-rights entitlement. Which Article 5 statement corrects it?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "UDHR Article 5 rejects the listed treatment. The item identifies that instrument’s principle, not the outcome of a Philippine criminal proceeding. Source instrument: Universal Declaration of Human Rights; do not equate it with a Philippine criminal statute.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "All peaceful discussions are forbidden.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Torture is an ordinary entitlement.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Every opportunity to present evidence must be removed.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Torture and cruel, inhuman or degrading treatment or punishment are rejected.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-rights-04",
+      "prompt": "A learner asks what Article 9 protects against when detention is described as arbitrary. Which option is correct?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "UDHR Article 9 addresses arbitrary arrest, detention and exile. Arbitrary is not a synonym for every lawful legal process. Source instrument: Universal Declaration of Human Rights; do not equate it with a Philippine criminal statute.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Protection against arbitrary arrest, detention or exile",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "A ban on every lawful hearing requirement",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "A prohibition of all criticism",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Immunity from all tax laws",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-rights-05",
+      "prompt": "A fictional hearing guarantees the complainant a win before evidence is heard. Which Article 10 standard is the proper alternative?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "UDHR Article 10 identifies independence, impartiality and fair public hearing; it does not predetermine a winner. Source instrument: Universal Declaration of Human Rights; do not equate it with a Philippine criminal statute.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A guaranteed win for a chosen party",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "A fair and public hearing before an independent and impartial tribunal",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "A rule that no party may be heard",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "A decision based solely on personal preference",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-rights-06",
+      "prompt": "An invented accusation circulates widely, but the passage states no legal proof. Which Article 11(1) principle applies?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "UDHR Article 11(1) distinguishes a charge from proof according to law and includes necessary defence guarantees. Repetition alone does not supply proof. Source instrument: Universal Declaration of Human Rights; do not equate it with a Philippine criminal statute.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Guilt established conclusively by rumour",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Automatic guilt after repeated allegations",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Removal of all opportunity for defence",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Presumption of innocence with the necessary legal proof and defence guarantees",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-rights-07",
+      "prompt": "A study chart labels thought and conscience. Which freedom completes the Article 18 group?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "UDHR Article 18 concerns thought, conscience and religion, not private coercive authority or falsification. Source instrument: Universal Declaration of Human Rights; do not equate it with a Philippine criminal statute.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Ownership of all government buildings",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "A private power to imprison neighbours",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "A right to falsify public records",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Freedom of thought, conscience and religion",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-rights-08",
+      "prompt": "A fictional note asks what Article 19 says about opinions, expression and receiving information. Which freedom is the match?",
+      "topic": "rights",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "UDHR Article 19 concerns opinion, expression and seeking, receiving and imparting information. It does not itself prove opinions true or decide all limitation questions. Source instrument: Universal Declaration of Human Rights; do not equate it with a Philippine criminal statute.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Freedom of opinion and expression",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "A guarantee that every opinion is true",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Removal of every responsibility in every circumstance",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "An exclusive right of officials to hold opinions",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-environment-01",
+      "prompt": "A fictional unit chooses a reusable service system so that unnecessary disposable packaging is never bought. Which prevention strategy is highlighted?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Avoiding an unnecessary material before purchase prevents waste. This differs from processing an item after it already exists.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Waste reduction at source",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Composting existing scraps",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Burning existing rubbish",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Recycling already discarded glass",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-environment-02",
+      "prompt": "An invented workplace segregates materials primarily where waste is generated. Which RA 9003 requirement is reflected?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "RA 9003 Section 21 addresses segregation primarily at source. Follow applicable collection and handling instructions rather than treating all materials as interchangeable.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A prohibition of all separation",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Segregation primarily at source",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Mixing every material permanently",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Disposal into waterways",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-environment-03",
+      "prompt": "An invented composting project accepts suitable organic food scraps. Which offered material is an appropriate example?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Suitable organic kitchen scraps may enter an appropriate composting process. Batteries and glass are not interchangeable food-scrap feedstock; real collection rules must be checked.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Broken glass as edible compost",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Used batteries in a food-scrap pile",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Suitable vegetable or fruit scraps in the appropriate compost stream",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Open burning of every material",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-environment-04",
+      "prompt": "A fictional waste plan calls open burning a safe general solution. Which correction matches the RA 9003 prohibition?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "RA 9003 Section 48 includes open burning of solid waste among prohibited acts. It does not make indiscriminate burning the default disposal method.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Source segregation is always prohibited.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Open burning is the required method for every household.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "All recycling is forbidden.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Open burning of solid waste is among the prohibited acts.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series5-environment-05",
+      "prompt": "A fictional wash area has a broken fixture wasting water day and night. Which practical action directly prevents the ongoing waste?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Repair addresses the physical source of avoidable water loss. Reminders alone do not stop a damaged fixture.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Arrange a safe repair of the leak or broken fixture.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Rely on reminders without addressing the leak.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Leave the loss continuing indefinitely.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Increase the flow through the defect.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-environment-06",
+      "prompt": "For the same useful lighting task and duration, a fictional 5 W lamp is compared with an 8 W lamp. Which uses less electrical energy?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Energy equals power multiplied by time. At equal runtime, lower input power means lower energy use for the stated comparison.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Power and time are irrelevant",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Both must use identical energy",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The 5 W device",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "The 8 W device",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-environment-07",
+      "prompt": "A fictional lesson links appropriately managed roots and ground cover with soil protection. Which is a justified limited claim?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Appropriately managed vegetation can reduce erosion, but this limited benefit is not a guarantee against every landslide or a substitute for hazard planning.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Roots and ground cover can help reduce soil erosion.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Vegetation always exposes more bare soil.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Every slope becomes immune to all landslides.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "All land-use planning becomes unnecessary.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series5-environment-08",
+      "prompt": "A fictional office wants to dispose of exhausted batteries. Which approach should it follow?",
+      "topic": "environment",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Primary legal/instrument references must be verified independently; direct official-source retrieval remains pending. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Used batteries need the relevant designated collection and authorised handling route. Actual local arrangements must be verified; composting, open burning and water disposal are unsuitable.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Dispose of the batteries in a stream.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Burn the batteries openly.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Mix the batteries into food compost.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Use the designated special-waste collection or authorised handling channel.",
+          "isCorrect": true
+        }
+      ]
+    }
+  ]
+}

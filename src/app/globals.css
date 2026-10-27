@@ -1603,3 +1603,6 @@ button:disabled {
   .planner-print th, .planner-print td { text-align: left; padding: 5pt; border-bottom: 1px solid #aaa; }
   .planner-print tr { break-inside: avoid; }
 }
+/* Sequential account practice sets keep native list order and responsive cards. */
+.practice-set-list { list-style: none; padding: 0; display: grid; gap: 1.5rem; }
+.practice-set-list > li { margin: 0; min-width: 0; }

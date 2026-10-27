@@ -61,3 +61,7 @@ Use npm run test:e2e, never bare Playwright against live data. The wrapper creat
 Migration 202610200003_exam_engine is additive except making deadlines nullable for untimed practice. Existing records are preserved. A manually created legacy attempt without a recognized version snapshot fails closed with an operator-review response; it is not reset or silently assigned an invented grade.
 
 Before commercial launch, finish the 500-question independent review target, verified coverage/source work, real gateway verification/reconciliation, deployment/privacy/security review, monitoring and load/restore testing from ROADMAP.md.
+
+## Five fixed practice sets
+
+The separate `/practice/sets` course uses five FREE untimed 160-item templates with fixed membership and mixed-skill COMMON metadata. It requires all answers before submission and all earlier sets completed before a new start; no score threshold applies. Ordinary template/practice behavior above remains unchanged. Draft imports prepare inactive templates; all 160 members require independent review/publication before activation. See [PRACTICE_SERIES.md](PRACTICE_SERIES.md) for migration, import, admin filters, review, activation, source provenance and isolated tests.

@@ -1,0 +1,43 @@
+# Five sequential 160-question practice sets
+
+The series contains **five sets of 160 questions (800 total)**, each with four choices, one proposed answer and an explanation. Set 1 reuses the existing `practice160-` collection; Sets 2–5 add **640 new questions** under `series2-` through `series5-`. The preceding 70 editorial questions and one-question demo seed are outside this series. Overall source totals are 23 lesson drafts, 870 editorial questions in 14 packs, and 871 records including the seed. No draft is automatically reviewed or published.
+
+Each set includes eight items in each of 20 topics: arithmetic, fractions, ratios, sequences, word problems, data, vocabulary, grammar, sentences, paragraphs, reading, Filipino, analogies, logic, filing, spelling, Constitution, ethics, rights and environment. This is mixed Professional/Subprofessional skill practice, with COMMON series metadata; it is not an official CSC mock blueprint, timing or scope claim.
+
+## Learner behavior
+
+Open `/practice/sets`, also linked from the practice studio and account page. Sign in to see all five set cards and account-owned progress. Each released set is free, untimed, contains exactly its fixed 160 members and saves answers online. Learners may leave and resume. A labelled Question number selector makes all 160 items accessible without a wall of navigation buttons.
+
+Answer all 160 questions and submit to complete a set. No minimum score is required: completing a set with zero correct answers still unlocks the next released set. Skipping a set, changing its count/topic or submitting a partial set is rejected on the server. Correct answers and explanations appear only after submission. Completed results remain in private history, and learners can practise a completed set again. Retrying a completed set does not remove previous completion.
+
+Completion comes from immutable, fully answered, submitted attempts belonging to the signed-in account, never localStorage, client scores or browser flags. All earlier sets must be completed. The existing ownership, private caching, Origin/action-header checks, immutable snapshots, revision/save locks and start/submit idempotency remain. Concurrent starts for the same unfinished set return one active attempt. The normal three-active-session cap still applies to new attempts. Ordinary topic practice and timed mocks retain their original behavior, including partial submissions; fixed sets are not mixed into the generic template lobby.
+
+## Deploy, import and locate the 800 items
+
+1. Run [Apply database migrations](https://github.com/elisertual6-cyber/csc-e-book/actions/workflows/database-migrate.yml) on `main`. Migration `202610270009_practice_series` adds nullable series columns and constraints to ExamTemplate while preserving existing content and attempts. This expansion was pushed separately at `9b93530` so it can run before the application update. Builds never migrate or seed.
+2. Deploy the updated application. Then run [Import five 160-question practice sets](https://github.com/elisertual6-cyber/csc-e-book/actions/workflows/import-five-practice-sets.yml) on `main`. It checks the applied schema, imports ten fixed 80-item packs and prepares five **inactive** templates. It reuses the existing DATABASE_MIGRATION_URL and ADMIN_BOOTSTRAP_EMAIL secrets; no new service or payment is needed.
+3. Open [Admin](https://csc-e-book.vercel.app/admin), choose **Questions**, then **Question collection → Practice Set 1** through **Practice Set 5**. Each filter shows the actual number of matching keys found, out of 160, and loads the latest version of each member. Select an item to inspect its proposed correct option and explanation. The legacy All questions list keeps its 200-record limit; the set filters avoid that limit.
+4. Independently check, review and publish the intended versions through the existing editorial process. Actual review must be performed by a separate qualified person. In [Exam administration](https://csc-e-book.vercel.app/admin/exams), select Practice Set 1 through 5 and activate each only after review. Activation and every new start require all 160 fixed members to have eligible independently approved PUBLISHED versions. A successful import alone does not make draft questions available to learners.
+5. Visit [Five practice sets](https://csc-e-book.vercel.app/practice/sets) with a learner account. Confirm Set 1 is available and later sets are locked; complete and submit a set to check the next unlock. Hosted migration/import/activation and learner behavior must be observed separately from local test evidence.
+
+The fixed pack allowlist and 100-item per-pack limit remain. Imports preserve existing keys, versions, edits, authorship and lifecycle; conflicting prompts roll back their pack. Each pack is its own transaction, allowing up to five minutes for hosted round trips. If a later pack fails, rerun to preserve completed packs and import missing members. Preparation requires all 800 keys and a current matching ADMIN. Its serializable transaction preserves existing valid templates, including activation, and rolls back on conflicting membership/configuration. Nothing approves content, activates products, changes registration, sends email or releases a PDF edition.
+
+Set membership/configuration cannot be edited through ordinary template saving. Activation/deactivation remain available to administrators. Existing attempts retain their snapshots after content changes or deactivation; earlier completion survives template activation versions. Changing the actual course membership requires a separately designed series revision, rather than silently redefining completion.
+
+## Online research and editorial review
+
+The user requested online CSC-related reviewer and publication research. Actually consulted public material and licensing limits are recorded in [practice-series-sources.json](../content/references/practice-series-sources.json):
+
+- Community [CSE Reviewer 2k26](https://github.com/Locallegend22/CSE-Reviewer2k26/blob/main/questions.json), for topic/example format research. Some community keys were ambiguous; they are not treated as authority or copied into this bank.
+- [Civil Service Exam Reviewer](https://github.com/r-jheltandugon/CivilServiceExamReviewer), for Professional/Subprofessional and clerical category documentation.
+- Publisher [OpenStax Prealgebra 2e sources](https://github.com/openstax/osbooks-prealgebra-bundle), including whole-number subtraction/multiplication and algebra-language modules. Generic arithmetic concepts inform independently chosen exercises; no textbook passage, exercise or image is reproduced. Its consulted repository license is CC BY-NC-SA 4.0; do not assume permission to copy licensed text into commercial content.
+
+All new prompts, contexts, options and explanations are original educational drafts. Primary CSC, Lawphil and UN sites could not be retrieved in this environment; their current text, official coverage and legal applicability remain unverified here. A saved additive environment-network draft is not applied/published configuration. Independent correctness, ambiguity, distractor, originality, legal/source and Filipino review remains required. Automated validations or synthetic test approvals do not constitute those reviews or satisfy the 500-question independent-review gate.
+
+These banks are in a public repository. They are not confidential/exclusive paid material. Application attempt APIs withhold answers until submission, but public source files are not an anti-cheating boundary. No JSON assessment pack is imported by a public/client route or served by a new downloadable application endpoint.
+
+## Operator exports and verification
+
+`npm run content:export-series` writes five numbered question booklets and corresponding proposed Markdown/CSV keys under a private `.local/editorial/five-sets-<uuid>/` directory. Both derive from the same validated source manifests in fixed order. The command has no database writes and accepts no arbitrary source paths. Local PDF review copies can be prepared separately with network-disabled Chromium; these are review documents, not paid/released application editions.
+
+Run the repository checks, then `npm run test:practice-series`, `npm run test:content-import`, `npm run test:e2e` and `npm run test:a11y:authenticated` through their disposable wrappers. Browser suites using port 3100 must run sequentially. The series suite uses synthetic content for review/activation; the import suite separately inserts the actual source drafts and asserts no reviews/publications. Neither suite touches hosted recipients or customer data. See [PHASE_5K_REPORT.md](PHASE_5K_REPORT.md) for results and limitations.

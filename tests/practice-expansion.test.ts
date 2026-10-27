@@ -15,7 +15,7 @@ describe("160-question original draft expansion", () => {
   it("adds 160 unique keyed items while preserving all previous draft packs", () => {
     expect(core.questions).toHaveLength(80); expect(extended.questions).toHaveLength(80);
     const all = Object.values(editorialPacks).flatMap(pack => validateDraftPack(JSON.parse(readFileSync(`content/editorial/${pack.file}`, "utf8"))).questions);
-    expect(validateBank([...seed, ...all])).toHaveLength(231);
+    expect(validateBank([...seed, ...all])).toHaveLength(871);
     expect(new Set(questions.map(q => q.topic)).size).toBe(20);
     for (const q of questions) {
       expect(q.status).toBe("DRAFT");

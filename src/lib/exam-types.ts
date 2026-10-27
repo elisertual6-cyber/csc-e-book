@@ -7,7 +7,8 @@ export type TopicResult = {
 export type AttemptView = {
   id: string;
   title: string;
-  level: "PROFESSIONAL" | "SUBPROFESSIONAL";
+  level: "COMMON" | "PROFESSIONAL" | "SUBPROFESSIONAL";
+  series?: { key: string; position: number };
   mode: "PRACTICE" | "MOCK";
   access: "FREE" | "PREMIUM";
   status: "IN_PROGRESS" | "SUBMITTED" | "EXPIRED";

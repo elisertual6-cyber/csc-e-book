@@ -1,0 +1,1614 @@
+[
+  {
+    "key": "series2-arithmetic-01",
+    "kind": "expression",
+    "expression": "46-3*5+12/3",
+    "answer": "35"
+  },
+  {
+    "key": "series2-arithmetic-02",
+    "kind": "expression",
+    "expression": "(62-14)/4+4**2",
+    "answer": "28"
+  },
+  {
+    "key": "series2-arithmetic-03",
+    "kind": "sum_difference",
+    "values": [
+      "33/4",
+      "63/20",
+      "27/10"
+    ],
+    "answer": "87/10"
+  },
+  {
+    "key": "series2-arithmetic-04",
+    "kind": "product",
+    "values": [
+      "16/5",
+      "1/4"
+    ],
+    "answer": "4/5"
+  },
+  {
+    "key": "series2-arithmetic-05",
+    "kind": "quotient",
+    "values": [
+      "72",
+      "3/2"
+    ],
+    "answer": "48"
+  },
+  {
+    "key": "series2-arithmetic-06",
+    "kind": "fraction_difference",
+    "values": [
+      "7/12",
+      "1/6"
+    ],
+    "answer": "5/12"
+  },
+  {
+    "key": "series2-arithmetic-07",
+    "kind": "stock",
+    "boxes": 19,
+    "each": 24,
+    "used": 83,
+    "answer": 373
+  },
+  {
+    "key": "series2-arithmetic-08",
+    "kind": "balance",
+    "start": 1400,
+    "payments": 4,
+    "price": 135,
+    "receipt": 180,
+    "answer": 1040
+  },
+  {
+    "key": "series2-fractions-01",
+    "kind": "fraction_of",
+    "whole": 180,
+    "num": 5,
+    "den": 6,
+    "answer": 150
+  },
+  {
+    "key": "series2-fractions-02",
+    "kind": "decimal_fraction",
+    "decimal": "0.35",
+    "answer": "7/20"
+  },
+  {
+    "key": "series2-fractions-03",
+    "kind": "fraction_sum",
+    "values": [
+      "3/8",
+      "2/5"
+    ],
+    "answer": "31/40"
+  },
+  {
+    "key": "series2-fractions-04",
+    "kind": "discount",
+    "original": 360,
+    "rate": 10,
+    "answer": "324"
+  },
+  {
+    "key": "series2-fractions-05",
+    "kind": "percent_change",
+    "before": 80,
+    "after": 100,
+    "answer": "25"
+  },
+  {
+    "key": "series2-fractions-06",
+    "kind": "reverse_discount",
+    "paid": 1000,
+    "rate": 20,
+    "answer": 1250
+  },
+  {
+    "key": "series2-fractions-07",
+    "kind": "complement",
+    "part": "5/12",
+    "answer": "7/12"
+  },
+  {
+    "key": "series2-fractions-08",
+    "kind": "share",
+    "selected": 90,
+    "total": 240,
+    "answer": "37.5"
+  },
+  {
+    "key": "series2-ratios-01",
+    "kind": "ratio_parts",
+    "a": 4,
+    "b": 7,
+    "total": 66,
+    "answer": 42
+  },
+  {
+    "key": "series2-ratios-02",
+    "kind": "map",
+    "cm": "12/5",
+    "scale": 25000,
+    "answer": "3/5"
+  },
+  {
+    "key": "series2-ratios-03",
+    "kind": "missing_mean",
+    "count": 7,
+    "mean": 76,
+    "subtotal": 450,
+    "answer": 82
+  },
+  {
+    "key": "series2-ratios-04",
+    "kind": "weighted_mean",
+    "counts": [
+      9,
+      6
+    ],
+    "prices": [
+      40,
+      70
+    ],
+    "answer": "52"
+  },
+  {
+    "key": "series2-ratios-05",
+    "kind": "inverse_work",
+    "workers": 8,
+    "days": 15,
+    "new": 12,
+    "answer": "10"
+  },
+  {
+    "key": "series2-ratios-06",
+    "kind": "ratio_reduce",
+    "a": 18,
+    "b": 48,
+    "answer": "3/8"
+  },
+  {
+    "key": "series2-ratios-07",
+    "kind": "recipe",
+    "cups": "3/2",
+    "servings": 4,
+    "target": 10,
+    "answer": "15/4"
+  },
+  {
+    "key": "series2-ratios-08",
+    "kind": "chain_ratio",
+    "a": 2,
+    "b": 5,
+    "c": 7,
+    "answer": "2/7"
+  },
+  {
+    "key": "series2-sequences-01",
+    "kind": "arithmetic_next",
+    "terms": [
+      8,
+      14,
+      20,
+      26
+    ],
+    "difference": 6,
+    "answer": 32
+  },
+  {
+    "key": "series2-sequences-02",
+    "kind": "geometric_next",
+    "terms": [
+      3,
+      6,
+      12,
+      24
+    ],
+    "ratio": 2,
+    "answer": 48
+  },
+  {
+    "key": "series2-sequences-03",
+    "kind": "nth_square",
+    "n": 4,
+    "const": 3,
+    "answer": 19
+  },
+  {
+    "key": "series2-sequences-04",
+    "kind": "alternating",
+    "start": 12,
+    "up": 7,
+    "down": 3,
+    "answer": 27
+  },
+  {
+    "key": "series2-sequences-05",
+    "kind": "fibonacci",
+    "first": [
+      2,
+      5
+    ],
+    "answer": 31
+  },
+  {
+    "key": "series2-sequences-06",
+    "kind": "arithmetic_nth",
+    "first": 11,
+    "difference": 4,
+    "n": 12,
+    "answer": 55
+  },
+  {
+    "key": "series2-sequences-07",
+    "kind": "sequence_sum",
+    "step": 3,
+    "n": 5,
+    "answer": 45
+  },
+  {
+    "key": "series2-sequences-08",
+    "kind": "power_nth",
+    "base": 2,
+    "n": 5,
+    "answer": 32
+  },
+  {
+    "key": "series2-word-problems-01",
+    "kind": "speed",
+    "distance": 84,
+    "minutes": 42,
+    "answer": "120"
+  },
+  {
+    "key": "series2-word-problems-02",
+    "kind": "joint_rate",
+    "times": [
+      6,
+      9
+    ],
+    "answer": "18/5"
+  },
+  {
+    "key": "series2-word-problems-03",
+    "kind": "purchase",
+    "pens": 4,
+    "total": 164,
+    "books": 2,
+    "book": 48,
+    "answer": 17
+  },
+  {
+    "key": "series2-word-problems-04",
+    "kind": "rectangle",
+    "perimeter": 46,
+    "length": 16,
+    "answer": 112
+  },
+  {
+    "key": "series2-word-problems-05",
+    "kind": "simple_interest",
+    "principal": 3200,
+    "rate": 5,
+    "years": 3,
+    "answer": "480"
+  },
+  {
+    "key": "series2-word-problems-06",
+    "kind": "tank",
+    "inflow": 11,
+    "drain": 3,
+    "target": 56,
+    "answer": "7"
+  },
+  {
+    "key": "series2-word-problems-07",
+    "kind": "clock",
+    "start": 505,
+    "duration": 97,
+    "answer": "10:02"
+  },
+  {
+    "key": "series2-word-problems-08",
+    "kind": "age",
+    "factor": 2,
+    "total": 39,
+    "answer": 13
+  },
+  {
+    "key": "series2-data-01",
+    "kind": "data_total",
+    "values": [
+      36,
+      42,
+      54
+    ],
+    "answer": 132
+  },
+  {
+    "key": "series2-data-02",
+    "kind": "attendance",
+    "attended": 30,
+    "invited": 40,
+    "answer": "75"
+  },
+  {
+    "key": "series2-data-03",
+    "kind": "data_mean",
+    "values": [
+      50,
+      70,
+      90,
+      110
+    ],
+    "answer": 80
+  },
+  {
+    "key": "series2-data-04",
+    "kind": "compare_rates",
+    "a": 36,
+    "at": 48,
+    "b": 48,
+    "bt": 80,
+    "answer": "A"
+  },
+  {
+    "key": "series2-data-05",
+    "kind": "median",
+    "values": [
+      7,
+      10,
+      13,
+      18,
+      27
+    ],
+    "answer": 13
+  },
+  {
+    "key": "series2-data-06",
+    "kind": "inclusion_exclusion",
+    "a": 22,
+    "b": 17,
+    "both": 8,
+    "neither": 5,
+    "answer": 36
+  },
+  {
+    "key": "series2-data-07",
+    "kind": "error_rate",
+    "errors": [
+      10,
+      12
+    ],
+    "entries": [
+      500,
+      400
+    ],
+    "answer": [
+      "2",
+      "3"
+    ]
+  },
+  {
+    "key": "series2-data-08",
+    "kind": "observed_change",
+    "before": 42,
+    "after": 61,
+    "answer": 19
+  },
+  {
+    "key": "series3-arithmetic-01",
+    "kind": "expression",
+    "expression": "53-4*6+15/3",
+    "answer": "34"
+  },
+  {
+    "key": "series3-arithmetic-02",
+    "kind": "expression",
+    "expression": "(68-16)/4+5**2",
+    "answer": "38"
+  },
+  {
+    "key": "series3-arithmetic-03",
+    "kind": "sum_difference",
+    "values": [
+      "43/5",
+      "67/20",
+      "57/20"
+    ],
+    "answer": "91/10"
+  },
+  {
+    "key": "series3-arithmetic-04",
+    "kind": "product",
+    "values": [
+      "18/5",
+      "3/10"
+    ],
+    "answer": "27/25"
+  },
+  {
+    "key": "series3-arithmetic-05",
+    "kind": "quotient",
+    "values": [
+      "112",
+      "2"
+    ],
+    "answer": "56"
+  },
+  {
+    "key": "series3-arithmetic-06",
+    "kind": "fraction_difference",
+    "values": [
+      "2/3",
+      "1/7"
+    ],
+    "answer": "11/21"
+  },
+  {
+    "key": "series3-arithmetic-07",
+    "kind": "stock",
+    "boxes": 21,
+    "each": 25,
+    "used": 90,
+    "answer": 435
+  },
+  {
+    "key": "series3-arithmetic-08",
+    "kind": "balance",
+    "start": 1500,
+    "payments": 4,
+    "price": 145,
+    "receipt": 205,
+    "answer": 1125
+  },
+  {
+    "key": "series3-fractions-01",
+    "kind": "fraction_of",
+    "whole": 216,
+    "num": 5,
+    "den": 6,
+    "answer": 180
+  },
+  {
+    "key": "series3-fractions-02",
+    "kind": "decimal_fraction",
+    "decimal": "0.225",
+    "answer": "9/40"
+  },
+  {
+    "key": "series3-fractions-03",
+    "kind": "fraction_sum",
+    "values": [
+      "1/2",
+      "1/3"
+    ],
+    "answer": "5/6"
+  },
+  {
+    "key": "series3-fractions-04",
+    "kind": "discount",
+    "original": 400,
+    "rate": 15,
+    "answer": "340"
+  },
+  {
+    "key": "series3-fractions-05",
+    "kind": "percent_change",
+    "before": 100,
+    "after": 125,
+    "answer": "25"
+  },
+  {
+    "key": "series3-fractions-06",
+    "kind": "reverse_discount",
+    "paid": 1200,
+    "rate": 20,
+    "answer": 1500
+  },
+  {
+    "key": "series3-fractions-07",
+    "kind": "complement",
+    "part": "7/16",
+    "answer": "9/16"
+  },
+  {
+    "key": "series3-fractions-08",
+    "kind": "share",
+    "selected": 105,
+    "total": 280,
+    "answer": "37.5"
+  },
+  {
+    "key": "series3-ratios-01",
+    "kind": "ratio_parts",
+    "a": 5,
+    "b": 8,
+    "total": 104,
+    "answer": 64
+  },
+  {
+    "key": "series3-ratios-02",
+    "kind": "map",
+    "cm": "16/5",
+    "scale": 50000,
+    "answer": "8/5"
+  },
+  {
+    "key": "series3-ratios-03",
+    "kind": "missing_mean",
+    "count": 8,
+    "mean": 77,
+    "subtotal": 532,
+    "answer": 84
+  },
+  {
+    "key": "series3-ratios-04",
+    "kind": "weighted_mean",
+    "counts": [
+      10,
+      7
+    ],
+    "prices": [
+      45,
+      75
+    ],
+    "answer": "975/17"
+  },
+  {
+    "key": "series3-ratios-05",
+    "kind": "inverse_work",
+    "workers": 10,
+    "days": 15,
+    "new": 15,
+    "answer": "10"
+  },
+  {
+    "key": "series3-ratios-06",
+    "kind": "ratio_reduce",
+    "a": 28,
+    "b": 63,
+    "answer": "4/9"
+  },
+  {
+    "key": "series3-ratios-07",
+    "kind": "recipe",
+    "cups": "2",
+    "servings": 4,
+    "target": 12,
+    "answer": "6"
+  },
+  {
+    "key": "series3-ratios-08",
+    "kind": "chain_ratio",
+    "a": 3,
+    "b": 6,
+    "c": 8,
+    "answer": "3/8"
+  },
+  {
+    "key": "series3-sequences-01",
+    "kind": "arithmetic_next",
+    "terms": [
+      11,
+      18,
+      25,
+      32
+    ],
+    "difference": 7,
+    "answer": 39
+  },
+  {
+    "key": "series3-sequences-02",
+    "kind": "geometric_next",
+    "terms": [
+      4,
+      12,
+      36,
+      108
+    ],
+    "ratio": 3,
+    "answer": 324
+  },
+  {
+    "key": "series3-sequences-03",
+    "kind": "nth_square",
+    "n": 5,
+    "const": 4,
+    "answer": 29
+  },
+  {
+    "key": "series3-sequences-04",
+    "kind": "alternating",
+    "start": 17,
+    "up": 8,
+    "down": 4,
+    "answer": 33
+  },
+  {
+    "key": "series3-sequences-05",
+    "kind": "fibonacci",
+    "first": [
+      3,
+      7
+    ],
+    "answer": 44
+  },
+  {
+    "key": "series3-sequences-06",
+    "kind": "arithmetic_nth",
+    "first": 13,
+    "difference": 5,
+    "n": 13,
+    "answer": 73
+  },
+  {
+    "key": "series3-sequences-07",
+    "kind": "sequence_sum",
+    "step": 4,
+    "n": 6,
+    "answer": 84
+  },
+  {
+    "key": "series3-sequences-08",
+    "kind": "power_nth",
+    "base": 3,
+    "n": 5,
+    "answer": 243
+  },
+  {
+    "key": "series3-word-problems-01",
+    "kind": "speed",
+    "distance": 96,
+    "minutes": 48,
+    "answer": "120"
+  },
+  {
+    "key": "series3-word-problems-02",
+    "kind": "joint_rate",
+    "times": [
+      8,
+      12
+    ],
+    "answer": "24/5"
+  },
+  {
+    "key": "series3-word-problems-03",
+    "kind": "purchase",
+    "pens": 5,
+    "total": 197,
+    "books": 2,
+    "book": 51,
+    "answer": 19
+  },
+  {
+    "key": "series3-word-problems-04",
+    "kind": "rectangle",
+    "perimeter": 56,
+    "length": 19,
+    "answer": 171
+  },
+  {
+    "key": "series3-word-problems-05",
+    "kind": "simple_interest",
+    "principal": 3600,
+    "rate": 6,
+    "years": 3,
+    "answer": "648"
+  },
+  {
+    "key": "series3-word-problems-06",
+    "kind": "tank",
+    "inflow": 13,
+    "drain": 4,
+    "target": 63,
+    "answer": "7"
+  },
+  {
+    "key": "series3-word-problems-07",
+    "kind": "clock",
+    "start": 512,
+    "duration": 110,
+    "answer": "10:22"
+  },
+  {
+    "key": "series3-word-problems-08",
+    "kind": "age",
+    "factor": 3,
+    "total": 60,
+    "answer": 15
+  },
+  {
+    "key": "series3-data-01",
+    "kind": "data_total",
+    "values": [
+      42,
+      45,
+      63
+    ],
+    "answer": 150
+  },
+  {
+    "key": "series3-data-02",
+    "kind": "attendance",
+    "attended": 36,
+    "invited": 48,
+    "answer": "75"
+  },
+  {
+    "key": "series3-data-03",
+    "kind": "data_mean",
+    "values": [
+      60,
+      80,
+      100,
+      120
+    ],
+    "answer": 90
+  },
+  {
+    "key": "series3-data-04",
+    "kind": "compare_rates",
+    "a": 44,
+    "at": 58,
+    "b": 54,
+    "bt": 90,
+    "answer": "A"
+  },
+  {
+    "key": "series3-data-05",
+    "kind": "median",
+    "values": [
+      9,
+      12,
+      15,
+      20,
+      29
+    ],
+    "answer": 15
+  },
+  {
+    "key": "series3-data-06",
+    "kind": "inclusion_exclusion",
+    "a": 25,
+    "b": 19,
+    "both": 9,
+    "neither": 6,
+    "answer": 41
+  },
+  {
+    "key": "series3-data-07",
+    "kind": "error_rate",
+    "errors": [
+      12,
+      15
+    ],
+    "entries": [
+      600,
+      500
+    ],
+    "answer": [
+      "2",
+      "3"
+    ]
+  },
+  {
+    "key": "series3-data-08",
+    "kind": "observed_change",
+    "before": 49,
+    "after": 70,
+    "answer": 21
+  },
+  {
+    "key": "series4-arithmetic-01",
+    "kind": "expression",
+    "expression": "60-5*7+18/3",
+    "answer": "31"
+  },
+  {
+    "key": "series4-arithmetic-02",
+    "kind": "expression",
+    "expression": "(74-18)/4+6**2",
+    "answer": "50"
+  },
+  {
+    "key": "series4-arithmetic-03",
+    "kind": "sum_difference",
+    "values": [
+      "179/20",
+      "71/20",
+      "3"
+    ],
+    "answer": "19/2"
+  },
+  {
+    "key": "series4-arithmetic-04",
+    "kind": "product",
+    "values": [
+      "4",
+      "7/20"
+    ],
+    "answer": "7/5"
+  },
+  {
+    "key": "series4-arithmetic-05",
+    "kind": "quotient",
+    "values": [
+      "160",
+      "5/2"
+    ],
+    "answer": "64"
+  },
+  {
+    "key": "series4-arithmetic-06",
+    "kind": "fraction_difference",
+    "values": [
+      "3/4",
+      "1/8"
+    ],
+    "answer": "5/8"
+  },
+  {
+    "key": "series4-arithmetic-07",
+    "kind": "stock",
+    "boxes": 23,
+    "each": 26,
+    "used": 97,
+    "answer": 501
+  },
+  {
+    "key": "series4-arithmetic-08",
+    "kind": "balance",
+    "start": 1600,
+    "payments": 4,
+    "price": 155,
+    "receipt": 230,
+    "answer": 1210
+  },
+  {
+    "key": "series4-fractions-01",
+    "kind": "fraction_of",
+    "whole": 252,
+    "num": 5,
+    "den": 6,
+    "answer": 210
+  },
+  {
+    "key": "series4-fractions-02",
+    "kind": "decimal_fraction",
+    "decimal": "0.52",
+    "answer": "13/25"
+  },
+  {
+    "key": "series4-fractions-03",
+    "kind": "fraction_sum",
+    "values": [
+      "5/8",
+      "2/7"
+    ],
+    "answer": "51/56"
+  },
+  {
+    "key": "series4-fractions-04",
+    "kind": "discount",
+    "original": 440,
+    "rate": 20,
+    "answer": "352"
+  },
+  {
+    "key": "series4-fractions-05",
+    "kind": "percent_change",
+    "before": 120,
+    "after": 150,
+    "answer": "25"
+  },
+  {
+    "key": "series4-fractions-06",
+    "kind": "reverse_discount",
+    "paid": 1400,
+    "rate": 20,
+    "answer": 1750
+  },
+  {
+    "key": "series4-fractions-07",
+    "kind": "complement",
+    "part": "4/15",
+    "answer": "11/15"
+  },
+  {
+    "key": "series4-fractions-08",
+    "kind": "share",
+    "selected": 120,
+    "total": 320,
+    "answer": "37.5"
+  },
+  {
+    "key": "series4-ratios-01",
+    "kind": "ratio_parts",
+    "a": 6,
+    "b": 9,
+    "total": 150,
+    "answer": 90
+  },
+  {
+    "key": "series4-ratios-02",
+    "kind": "map",
+    "cm": "4",
+    "scale": 75000,
+    "answer": "3"
+  },
+  {
+    "key": "series4-ratios-03",
+    "kind": "missing_mean",
+    "count": 9,
+    "mean": 78,
+    "subtotal": 616,
+    "answer": 86
+  },
+  {
+    "key": "series4-ratios-04",
+    "kind": "weighted_mean",
+    "counts": [
+      11,
+      8
+    ],
+    "prices": [
+      50,
+      80
+    ],
+    "answer": "1190/19"
+  },
+  {
+    "key": "series4-ratios-05",
+    "kind": "inverse_work",
+    "workers": 12,
+    "days": 15,
+    "new": 18,
+    "answer": "10"
+  },
+  {
+    "key": "series4-ratios-06",
+    "kind": "ratio_reduce",
+    "a": 40,
+    "b": 80,
+    "answer": "1/2"
+  },
+  {
+    "key": "series4-ratios-07",
+    "kind": "recipe",
+    "cups": "5/2",
+    "servings": 4,
+    "target": 14,
+    "answer": "35/4"
+  },
+  {
+    "key": "series4-ratios-08",
+    "kind": "chain_ratio",
+    "a": 4,
+    "b": 7,
+    "c": 9,
+    "answer": "4/9"
+  },
+  {
+    "key": "series4-sequences-01",
+    "kind": "arithmetic_next",
+    "terms": [
+      14,
+      22,
+      30,
+      38
+    ],
+    "difference": 8,
+    "answer": 46
+  },
+  {
+    "key": "series4-sequences-02",
+    "kind": "geometric_next",
+    "terms": [
+      5,
+      20,
+      80,
+      320
+    ],
+    "ratio": 4,
+    "answer": 1280
+  },
+  {
+    "key": "series4-sequences-03",
+    "kind": "nth_square",
+    "n": 6,
+    "const": 5,
+    "answer": 41
+  },
+  {
+    "key": "series4-sequences-04",
+    "kind": "alternating",
+    "start": 22,
+    "up": 9,
+    "down": 5,
+    "answer": 39
+  },
+  {
+    "key": "series4-sequences-05",
+    "kind": "fibonacci",
+    "first": [
+      4,
+      9
+    ],
+    "answer": 57
+  },
+  {
+    "key": "series4-sequences-06",
+    "kind": "arithmetic_nth",
+    "first": 15,
+    "difference": 6,
+    "n": 14,
+    "answer": 93
+  },
+  {
+    "key": "series4-sequences-07",
+    "kind": "sequence_sum",
+    "step": 5,
+    "n": 7,
+    "answer": 140
+  },
+  {
+    "key": "series4-sequences-08",
+    "kind": "power_nth",
+    "base": 4,
+    "n": 5,
+    "answer": 1024
+  },
+  {
+    "key": "series4-word-problems-01",
+    "kind": "speed",
+    "distance": 108,
+    "minutes": 54,
+    "answer": "120"
+  },
+  {
+    "key": "series4-word-problems-02",
+    "kind": "joint_rate",
+    "times": [
+      10,
+      15
+    ],
+    "answer": "6"
+  },
+  {
+    "key": "series4-word-problems-03",
+    "kind": "purchase",
+    "pens": 6,
+    "total": 234,
+    "books": 2,
+    "book": 54,
+    "answer": 21
+  },
+  {
+    "key": "series4-word-problems-04",
+    "kind": "rectangle",
+    "perimeter": 66,
+    "length": 22,
+    "answer": 242
+  },
+  {
+    "key": "series4-word-problems-05",
+    "kind": "simple_interest",
+    "principal": 4000,
+    "rate": 7,
+    "years": 3,
+    "answer": "840"
+  },
+  {
+    "key": "series4-word-problems-06",
+    "kind": "tank",
+    "inflow": 15,
+    "drain": 5,
+    "target": 70,
+    "answer": "7"
+  },
+  {
+    "key": "series4-word-problems-07",
+    "kind": "clock",
+    "start": 519,
+    "duration": 123,
+    "answer": "10:42"
+  },
+  {
+    "key": "series4-word-problems-08",
+    "kind": "age",
+    "factor": 4,
+    "total": 85,
+    "answer": 17
+  },
+  {
+    "key": "series4-data-01",
+    "kind": "data_total",
+    "values": [
+      48,
+      48,
+      72
+    ],
+    "answer": 168
+  },
+  {
+    "key": "series4-data-02",
+    "kind": "attendance",
+    "attended": 42,
+    "invited": 56,
+    "answer": "75"
+  },
+  {
+    "key": "series4-data-03",
+    "kind": "data_mean",
+    "values": [
+      70,
+      90,
+      110,
+      130
+    ],
+    "answer": 100
+  },
+  {
+    "key": "series4-data-04",
+    "kind": "compare_rates",
+    "a": 52,
+    "at": 68,
+    "b": 60,
+    "bt": 100,
+    "answer": "A"
+  },
+  {
+    "key": "series4-data-05",
+    "kind": "median",
+    "values": [
+      11,
+      14,
+      17,
+      22,
+      31
+    ],
+    "answer": 17
+  },
+  {
+    "key": "series4-data-06",
+    "kind": "inclusion_exclusion",
+    "a": 28,
+    "b": 21,
+    "both": 10,
+    "neither": 7,
+    "answer": 46
+  },
+  {
+    "key": "series4-data-07",
+    "kind": "error_rate",
+    "errors": [
+      14,
+      18
+    ],
+    "entries": [
+      700,
+      600
+    ],
+    "answer": [
+      "2",
+      "3"
+    ]
+  },
+  {
+    "key": "series4-data-08",
+    "kind": "observed_change",
+    "before": 56,
+    "after": 79,
+    "answer": 23
+  },
+  {
+    "key": "series5-arithmetic-01",
+    "kind": "expression",
+    "expression": "67-6*8+21/3",
+    "answer": "26"
+  },
+  {
+    "key": "series5-arithmetic-02",
+    "kind": "expression",
+    "expression": "(80-20)/4+7**2",
+    "answer": "64"
+  },
+  {
+    "key": "series5-arithmetic-03",
+    "kind": "sum_difference",
+    "values": [
+      "93/10",
+      "15/4",
+      "63/20"
+    ],
+    "answer": "99/10"
+  },
+  {
+    "key": "series5-arithmetic-04",
+    "kind": "product",
+    "values": [
+      "22/5",
+      "2/5"
+    ],
+    "answer": "44/25"
+  },
+  {
+    "key": "series5-arithmetic-05",
+    "kind": "quotient",
+    "values": [
+      "216",
+      "3"
+    ],
+    "answer": "72"
+  },
+  {
+    "key": "series5-arithmetic-06",
+    "kind": "fraction_difference",
+    "values": [
+      "5/6",
+      "1/9"
+    ],
+    "answer": "13/18"
+  },
+  {
+    "key": "series5-arithmetic-07",
+    "kind": "stock",
+    "boxes": 25,
+    "each": 27,
+    "used": 104,
+    "answer": 571
+  },
+  {
+    "key": "series5-arithmetic-08",
+    "kind": "balance",
+    "start": 1700,
+    "payments": 4,
+    "price": 165,
+    "receipt": 255,
+    "answer": 1295
+  },
+  {
+    "key": "series5-fractions-01",
+    "kind": "fraction_of",
+    "whole": 288,
+    "num": 5,
+    "den": 6,
+    "answer": 240
+  },
+  {
+    "key": "series5-fractions-02",
+    "kind": "decimal_fraction",
+    "decimal": "0.22",
+    "answer": "11/50"
+  },
+  {
+    "key": "series5-fractions-03",
+    "kind": "fraction_sum",
+    "values": [
+      "3/4",
+      "1/4"
+    ],
+    "answer": "1"
+  },
+  {
+    "key": "series5-fractions-04",
+    "kind": "discount",
+    "original": 480,
+    "rate": 25,
+    "answer": "360"
+  },
+  {
+    "key": "series5-fractions-05",
+    "kind": "percent_change",
+    "before": 140,
+    "after": 175,
+    "answer": "25"
+  },
+  {
+    "key": "series5-fractions-06",
+    "kind": "reverse_discount",
+    "paid": 1600,
+    "rate": 20,
+    "answer": 2000
+  },
+  {
+    "key": "series5-fractions-07",
+    "kind": "complement",
+    "part": "9/20",
+    "answer": "11/20"
+  },
+  {
+    "key": "series5-fractions-08",
+    "kind": "share",
+    "selected": 135,
+    "total": 360,
+    "answer": "37.5"
+  },
+  {
+    "key": "series5-ratios-01",
+    "kind": "ratio_parts",
+    "a": 7,
+    "b": 10,
+    "total": 204,
+    "answer": 120
+  },
+  {
+    "key": "series5-ratios-02",
+    "kind": "map",
+    "cm": "24/5",
+    "scale": 100000,
+    "answer": "24/5"
+  },
+  {
+    "key": "series5-ratios-03",
+    "kind": "missing_mean",
+    "count": 10,
+    "mean": 79,
+    "subtotal": 702,
+    "answer": 88
+  },
+  {
+    "key": "series5-ratios-04",
+    "kind": "weighted_mean",
+    "counts": [
+      12,
+      9
+    ],
+    "prices": [
+      55,
+      85
+    ],
+    "answer": "475/7"
+  },
+  {
+    "key": "series5-ratios-05",
+    "kind": "inverse_work",
+    "workers": 14,
+    "days": 15,
+    "new": 21,
+    "answer": "10"
+  },
+  {
+    "key": "series5-ratios-06",
+    "kind": "ratio_reduce",
+    "a": 54,
+    "b": 99,
+    "answer": "6/11"
+  },
+  {
+    "key": "series5-ratios-07",
+    "kind": "recipe",
+    "cups": "3",
+    "servings": 4,
+    "target": 16,
+    "answer": "12"
+  },
+  {
+    "key": "series5-ratios-08",
+    "kind": "chain_ratio",
+    "a": 5,
+    "b": 8,
+    "c": 10,
+    "answer": "1/2"
+  },
+  {
+    "key": "series5-sequences-01",
+    "kind": "arithmetic_next",
+    "terms": [
+      17,
+      26,
+      35,
+      44
+    ],
+    "difference": 9,
+    "answer": 53
+  },
+  {
+    "key": "series5-sequences-02",
+    "kind": "geometric_next",
+    "terms": [
+      6,
+      30,
+      150,
+      750
+    ],
+    "ratio": 5,
+    "answer": 3750
+  },
+  {
+    "key": "series5-sequences-03",
+    "kind": "nth_square",
+    "n": 7,
+    "const": 6,
+    "answer": 55
+  },
+  {
+    "key": "series5-sequences-04",
+    "kind": "alternating",
+    "start": 27,
+    "up": 10,
+    "down": 6,
+    "answer": 45
+  },
+  {
+    "key": "series5-sequences-05",
+    "kind": "fibonacci",
+    "first": [
+      5,
+      11
+    ],
+    "answer": 70
+  },
+  {
+    "key": "series5-sequences-06",
+    "kind": "arithmetic_nth",
+    "first": 17,
+    "difference": 7,
+    "n": 15,
+    "answer": 115
+  },
+  {
+    "key": "series5-sequences-07",
+    "kind": "sequence_sum",
+    "step": 6,
+    "n": 8,
+    "answer": 216
+  },
+  {
+    "key": "series5-sequences-08",
+    "kind": "power_nth",
+    "base": 5,
+    "n": 5,
+    "answer": 3125
+  },
+  {
+    "key": "series5-word-problems-01",
+    "kind": "speed",
+    "distance": 120,
+    "minutes": 60,
+    "answer": "120"
+  },
+  {
+    "key": "series5-word-problems-02",
+    "kind": "joint_rate",
+    "times": [
+      12,
+      18
+    ],
+    "answer": "36/5"
+  },
+  {
+    "key": "series5-word-problems-03",
+    "kind": "purchase",
+    "pens": 7,
+    "total": 275,
+    "books": 2,
+    "book": 57,
+    "answer": 23
+  },
+  {
+    "key": "series5-word-problems-04",
+    "kind": "rectangle",
+    "perimeter": 76,
+    "length": 25,
+    "answer": 325
+  },
+  {
+    "key": "series5-word-problems-05",
+    "kind": "simple_interest",
+    "principal": 4400,
+    "rate": 8,
+    "years": 3,
+    "answer": "1056"
+  },
+  {
+    "key": "series5-word-problems-06",
+    "kind": "tank",
+    "inflow": 17,
+    "drain": 6,
+    "target": 77,
+    "answer": "7"
+  },
+  {
+    "key": "series5-word-problems-07",
+    "kind": "clock",
+    "start": 526,
+    "duration": 136,
+    "answer": "11:02"
+  },
+  {
+    "key": "series5-word-problems-08",
+    "kind": "age",
+    "factor": 5,
+    "total": 114,
+    "answer": 19
+  },
+  {
+    "key": "series5-data-01",
+    "kind": "data_total",
+    "values": [
+      54,
+      51,
+      81
+    ],
+    "answer": 186
+  },
+  {
+    "key": "series5-data-02",
+    "kind": "attendance",
+    "attended": 48,
+    "invited": 64,
+    "answer": "75"
+  },
+  {
+    "key": "series5-data-03",
+    "kind": "data_mean",
+    "values": [
+      80,
+      100,
+      120,
+      140
+    ],
+    "answer": 110
+  },
+  {
+    "key": "series5-data-04",
+    "kind": "compare_rates",
+    "a": 60,
+    "at": 78,
+    "b": 66,
+    "bt": 110,
+    "answer": "A"
+  },
+  {
+    "key": "series5-data-05",
+    "kind": "median",
+    "values": [
+      13,
+      16,
+      19,
+      24,
+      33
+    ],
+    "answer": 19
+  },
+  {
+    "key": "series5-data-06",
+    "kind": "inclusion_exclusion",
+    "a": 31,
+    "b": 23,
+    "both": 11,
+    "neither": 8,
+    "answer": 51
+  },
+  {
+    "key": "series5-data-07",
+    "kind": "error_rate",
+    "errors": [
+      16,
+      21
+    ],
+    "entries": [
+      800,
+      700
+    ],
+    "answer": [
+      "2",
+      "3"
+    ]
+  },
+  {
+    "key": "series5-data-08",
+    "kind": "observed_change",
+    "before": 63,
+    "after": 88,
+    "answer": 25
+  }
+]

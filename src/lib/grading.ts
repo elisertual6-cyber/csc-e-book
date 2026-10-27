@@ -38,11 +38,12 @@ export const snapshotSchema = z
   );
 export const examMetadataSchema = z.object({
   title: z.string(),
-  level: z.enum(["PROFESSIONAL", "SUBPROFESSIONAL"]),
+  level: z.enum(["COMMON", "PROFESSIONAL", "SUBPROFESSIONAL"]),
   mode: z.enum(["PRACTICE", "MOCK"]),
   access: z.enum(["FREE", "PREMIUM"]),
   templateVersion: z.number().int(),
   durationSeconds: z.number().int().nonnegative(),
+  series: z.object({ key: z.string().min(1), position: z.number().int().min(1).max(5) }).optional(),
 });
 export type ExamSnapshot = z.infer<typeof snapshotSchema>;
 export function grade(

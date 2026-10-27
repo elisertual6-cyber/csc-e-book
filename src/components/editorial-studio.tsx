@@ -68,9 +68,11 @@ export default function EditorialStudio({
     [busy, setBusy] = useState(false);
   const [transfer, setTransfer] = useState(""),
     [format, setFormat] = useState("json");
+  const [setFilter, setSetFilter] = useState("all");
+  const [contentLoading, setContentLoading] = useState(true);
   const writer = actor.role === "ADMIN" || actor.role === "EDITOR";
   async function refresh(resource: Kind = kind) {
-    const response = await fetch(`/api/admin/${resource}`, {
+    const response = await fetch(`/api/admin/${resource}${resource === "questions" && setFilter !== "all" ? `?set=${setFilter}` : ""}`, {
       cache: "no-store",
     });
     const data = await response.json();
@@ -79,18 +81,18 @@ export default function EditorialStudio({
   }
   useEffect(() => {
     let alive = true;
-    fetch(`/api/admin/${kind}`, { cache: "no-store" })
+    fetch(`/api/admin/${kind}${kind === "questions" && setFilter !== "all" ? `?set=${setFilter}` : ""}`, { cache: "no-store" })
       .then((r) => r.json())
       .then((data) => {
-        if (alive && Array.isArray(data)) setRows(data);
+        if (alive) { if (Array.isArray(data)) setRows(data); else setMessage(data.error ?? "Unable to load content."); setContentLoading(false); }
       })
       .catch(() => {
-        if (alive) setMessage("Unable to load content.");
+        if (alive) { setMessage("Unable to load content."); setContentLoading(false); }
       });
     return () => {
       alive = false;
     };
-  }, [kind]);
+  }, [kind, setFilter]);
   useEffect(() => {
     fetch("/api/admin/chapters", { cache: "no-store" })
       .then((r) => r.json())
@@ -187,7 +189,10 @@ export default function EditorialStudio({
             key={k}
             aria-pressed={kind === k}
             onClick={() => {
+              if (kind === k) return;
               setKind(k);
+              setRows([]);
+              setContentLoading(true);
               setSelected(null);
               setMessage("");
             }}
@@ -199,9 +204,18 @@ export default function EditorialStudio({
       <div className="studio-grid">
         <aside className="record-list">
           <h2>Content versions</h2>
+          {kind === "questions" && <label>Question collection
+            <select value={setFilter} onChange={event => {
+              setSetFilter(event.target.value); setSelected(null); setQuestion(emptyQuestion); setRows([]); setContentLoading(true);
+            }}>
+              <option value="all">Latest questions from all collections</option>
+              {[1, 2, 3, 4, 5].map(position => <option key={position} value={position}>Practice Set {position} · 160 items</option>)}
+            </select>
+          </label>}
           <p className="fine-print">
-            Latest 200 records. Export includes the latest version of every
-            question key.
+            {contentLoading ? "Loading content…" : kind === "questions" && setFilter !== "all"
+              ? `Set ${setFilter}: ${rows.length} of 160 question keys found. Showing the latest version of each.`
+              : "Latest 200 records. Export includes the latest version of every question key."}
           </p>
           {rows.map((row) => (
             <button

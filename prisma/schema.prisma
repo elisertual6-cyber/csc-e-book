@@ -238,6 +238,11 @@ model ExamTemplate {
   active          Boolean    @default(false)
   updatedAt       DateTime   @default(now()) @updatedAt
   attempts        Attempt[]
+  seriesKey       String?
+  setPosition     Int?
+  questionKeys    String[]        @default([])
+
+  @@unique([seriesKey, setPosition])
 }
 
 model Attempt {

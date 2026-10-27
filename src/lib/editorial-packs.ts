@@ -30,4 +30,12 @@ export const editorialPacks = {
     lessons: ["filipino", "constitution", "ethics", "rights", "environment", "study-plan"],
     source: "public-practice-extended-v1",
   },
+  "series-2-core": { file: "series-2-core.json", lessons: [], source: "public-series-2-core-v1" },
+  "series-2-extended": { file: "series-2-extended.json", lessons: [], source: "public-series-2-extended-v1" },
+  "series-3-core": { file: "series-3-core.json", lessons: [], source: "public-series-3-core-v1" },
+  "series-3-extended": { file: "series-3-extended.json", lessons: [], source: "public-series-3-extended-v1" },
+  "series-4-core": { file: "series-4-core.json", lessons: [], source: "public-series-4-core-v1" },
+  "series-4-extended": { file: "series-4-extended.json", lessons: [], source: "public-series-4-extended-v1" },
+  "series-5-core": { file: "series-5-core.json", lessons: [], source: "public-series-5-core-v1" },
+  "series-5-extended": { file: "series-5-extended.json", lessons: [], source: "public-series-5-extended-v1" },
 } as const;

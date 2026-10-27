@@ -16,8 +16,8 @@ async function main() {
   const { values } = parseArgs({ options: { apply: { type: "boolean" }, pack: { type: "string", default: "numerical" } } });
   if (!values.apply)
     throw new ImportError("Use --apply for an intentional draft import.");
-  const selection = z.enum(["numerical", "language", "reading", "tracks", "practice-core", "practice-extended"]).safeParse(values.pack);
-  if (!selection.success) throw new ImportError("Choose a supported editorial pack: numerical, language, reading, tracks, practice-core or practice-extended.");
+  const selection = z.enum(["numerical", "language", "reading", "tracks", "practice-core", "practice-extended", "series-2-core", "series-2-extended", "series-3-core", "series-3-extended", "series-4-core", "series-4-extended", "series-5-core", "series-5-extended"]).safeParse(values.pack);
+  if (!selection.success) throw new ImportError("Choose a supported editorial pack: numerical, language, reading, tracks, practice-core, practice-extended or a fixed series-2 through series-5 core/extended pack.");
   const packName = selection.data;
   const pack = editorialPacks[packName];
   if (!process.env.DATABASE_URL)

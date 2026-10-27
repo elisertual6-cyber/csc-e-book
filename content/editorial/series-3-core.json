@@ -1,0 +1,2648 @@
+{
+  "title": "Practice Set 3 core — original drafts",
+  "version": 1,
+  "status": "DRAFT",
+  "reviewStatus": "PENDING_INDEPENDENT_REVIEW",
+  "questions": [
+    {
+      "key": "series3-arithmetic-01",
+      "prompt": "Evaluate 53 - 4 × 6 + 15 ÷ 3, applying multiplication and division before addition and subtraction.",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Calculate 4 × 6 = 24 and 15 ÷ 3 = 5. Then 53 - 24 + 5 = 34. Keep the subtraction and addition in left-to-right order.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "34",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "30",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "46",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "40",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-arithmetic-02",
+      "prompt": "What is (68 - 16) ÷ 4 + 5²?",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The parentheses give 52; dividing by 4 gives 13. The square is 25, so the total is 38.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "50",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "42",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "38",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "13",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-arithmetic-03",
+      "prompt": "A fictional measurement combines 8.60 m and 3.35 m, then removes 2.85 m. What length remains?",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Add the first two lengths and subtract the removed portion: 8.60 + 3.35 - 2.85 = 9.10 m. Use aligned decimal places.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "11.95 m",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "9.1 m",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "8.1 m",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "10.1 m",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-arithmetic-04",
+      "prompt": "Calculate 3.6 × 0.3.",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The product is 1.08. Multiplication by a positive decimal below 1 reduces 3.6; place-value checking rules out the tenfold alternatives.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "2.08",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "10.8",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "1.08",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "0.108",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-arithmetic-05",
+      "prompt": "112 litres are poured into containers that each hold 2 litres, without loss. How many containers can be filled?",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Divide total capacity by capacity per container: 112 ÷ 2 = 56. Multiplying 56 containers by 2 litres checks the given total.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "112 containers",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "48 containers",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "56 containers",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "64 containers",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-arithmetic-06",
+      "prompt": "Find 2/3 - 1/7, expressed as a fraction in lowest terms.",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Use a common denominator and subtract the numerators. The reduced difference is 11/21; adding the fractions would instead give 17/21.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "11/21",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "1/7",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "2/3",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "17/21",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-arithmetic-07",
+      "prompt": "An invented stock log records 21 cartons of 25 sheets each. After 90 sheets are issued, how many sheets remain?",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The cartons hold 525 sheets altogether. Subtract the 90 issued to obtain 435; the cartons must first be converted to individual sheets.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "435 sheets",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "615 sheets",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "460 sheets",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "345 sheets",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-arithmetic-08",
+      "prompt": "A fictional fund starts at ₱1500, makes 4 payments of ₱145, then receives ₱205. What is its balance?",
+      "topic": "arithmetic",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Total payments are 580 pesos. The balance is 1500 - 580 + 205 = 1125 pesos. The receipt is an addition.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1270 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "1125 pesos",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "920 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "2285 pesos",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-fractions-01",
+      "prompt": "In a fictional checklist, 5/6 of 216 records are complete. How many records are complete?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "One sixth is 36; five such parts give 180. The denominator refers to the original whole of 216 records.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "180 records",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "195 records",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "181 records",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "36 records",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-fractions-02",
+      "prompt": "Express the decimal 0.225 as a fraction in lowest terms.",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Write the decimal using its place-value denominator, then cancel common factors. The reduced fraction is 9/40.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "3/14",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "13/40",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "9/40",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "1/8",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-fractions-03",
+      "prompt": "Add 1/2 and 1/3; choose the reduced fraction equal to their sum.",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Use equal-sized fractional parts before adding. The exact sum is 5/6; adding denominators or subtracting the fractions does not represent this addition.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1/6",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "5/6",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "1/3",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "1/2",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-fractions-04",
+      "prompt": "A fictional item priced at ₱400 receives a 15% discount. What is the new price?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The buyer pays 85% of the original price. 400 × 85/100 = 340 pesos; the discount amount alone is not the final price.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "60 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "385 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "415 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "340 pesos",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-fractions-05",
+      "prompt": "A fictional membership count changes from 100 to 125. Relative to the original count, what is the percentage increase?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The increase is 25. Dividing by the original 100 gives 0.25, or 25%. The final count is not the reference denominator.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "25%",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "26%",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "125%",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "20%",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-fractions-06",
+      "prompt": "After a 20% discount, a fictional purchase costs ₱1200. What was the original price?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The payment represents 80% of the original. Dividing 1200 by 0.8 gives 1500 pesos; adding 20% of the payment uses the wrong base.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1000 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "1500 pesos",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "1750 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "1440 pesos",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-fractions-07",
+      "prompt": "A fictional reading assignment is 7/16 complete. What fraction remains?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The whole assignment is 1. Subtract the completed fraction 7/16 to obtain 9/16; the remaining and completed fractions add back to 1.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "31/48",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "1/16",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "9/16",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "7/16",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-fractions-08",
+      "prompt": "In an invented survey, 105 of 280 respondents select option R. What percentage is that?",
+      "topic": "fractions",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The proportion is 105/280 = 3/8 = 0.375, or 37.5%. This is the surveyed share only, not a claim about all people.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "62.5%",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "30%",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "37.5%",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "40%",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-ratios-01",
+      "prompt": "Green and yellow folders in a fictional batch have ratio 5:8; the total is 104. How many are yellow?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "There are 13 ratio parts, each worth 8 folders. Yellow takes 8 parts, giving 64.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "40 folders",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "72 folders",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "64 folders",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "52 folders",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-ratios-02",
+      "prompt": "A map scale is 1:50000. An invented straight distance measures 3.2 cm. What distance does it represent in kilometres?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Multiply by the scale to obtain 160000 cm, then divide by 100,000 cm per kilometre. The result is 1.6 km.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1.6 km",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "16 km",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "2.6 km",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "0.16 km",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-ratios-03",
+      "prompt": "8 invented scores average 77. All but one sum to 532. What is the missing score?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The required total is 8 × 77 = 616. Subtracting 532 leaves 84.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "77",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "90",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "84",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "85",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-ratios-04",
+      "prompt": "A fictional order has 10 tickets at ₱45 and 7 at ₱75. What is the exact mean price per ticket?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The weighted total is 975 pesos for 17 tickets. Dividing gives 975/17 pesos per ticket; equal weighting of the two prices ignores the ticket counts.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "60 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "992/17 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "941/17 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "975/17 pesos",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-ratios-05",
+      "prompt": "10 equally productive workers take 15 days for a fixed fictional job. How many days would 15 workers need at the same individual rate?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The work requires 150 worker-days. Dividing by 15 workers gives 10 days, assuming no coordination or productivity change.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "15 days",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "10 days",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "12 days",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "20 days",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-ratios-06",
+      "prompt": "Which reduced fraction equals the numerical value of the ratio 28:63?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The reduced ratio has value 4/9. Both original terms must be divided by their greatest common divisor; reducing only one term changes the relationship.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "9/4",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "5/9",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "4/9",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "2/5",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-ratios-07",
+      "prompt": "A fictional recipe uses 2 cups for 4 servings. How many cups are needed for 12 servings at the same proportion?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The scale factor is 12/4. Multiplying 2 cups by that factor gives 6 cups.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "6 cups",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "5 cups",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "7 cups",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "4 cups",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-ratios-08",
+      "prompt": "For an exercise, a:b = 3:6 and b:c = 6:8. Which fraction equals a/c?",
+      "topic": "ratios",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The shared value for b already matches. Thus a:b:c = 3:6:8, so a/c = 3/8.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "3/4",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "3/8",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "8/3",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "1/2",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-sequences-01",
+      "prompt": "The stated rule adds 7 each time: 11, 18, 25, 32. What is the next term?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Apply the given common difference once more: 32 + 7 = 39. A supplied rule removes ambiguity about possible continuations.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "42",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "46",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "37",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "39",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-sequences-02",
+      "prompt": "Each term is 3 times the preceding term: 4, 12, 36, 108. What is next?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The declared ratio is 3, so multiply 108 by 3 to obtain 324. Do not substitute a constant difference.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "324",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "327",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "108",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "648",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-sequences-03",
+      "prompt": "A sequence has nth term n² + 4. What is the term at n = 5?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Substitute n = 5: 5² + 4 = 29. The index belongs inside the square.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "31",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "25",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "34",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "29",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-sequences-04",
+      "prompt": "Beginning with +8, a rule alternates adding 8 and subtracting 4: 17, 25, 21, 29, 25. What is next?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The previous step subtracted 4, so the next adds 8. This gives 25 + 8 = 33.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "21",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "41",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "29",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "33",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-sequences-05",
+      "prompt": "After the first two terms, add the previous two to get the next: 3, 7, 10, 17, 27. What is the sixth term?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The last two displayed terms are 17 and 27. Their sum is 44.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "37",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "54",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "47",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "44",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-sequences-06",
+      "prompt": "An arithmetic sequence starts at 13 with common difference 5. What is its 13th term?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "From the first term to term 13 there are 12 increases. Compute 13 + 12 × 5 = 73.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "86",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "68",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "73",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "78",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-sequences-07",
+      "prompt": "What is the sum of the first 6 terms of the sequence a(n) = 4n for positive integers n?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The terms are 4, 8, 12, 16, 20, 24. Their sum is 84; the final term alone is not the sum.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "88",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "84",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "24",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "80",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-sequences-08",
+      "prompt": "The rule for 3, 9, 27, 81 is a(n) = 3ⁿ, beginning at n = 1. What is the fifth term?",
+      "topic": "sequences",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The fifth term is 3 raised to the fifth power, 243. It is also the fourth term multiplied once more by 3.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "243",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "246",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "729",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "81",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-word-problems-01",
+      "prompt": "An invented delivery covers 96 km in 48 minutes. What is its mean speed in km/h?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Convert minutes to hours before dividing: 96 ÷ (48/60) = 120 km/h. The calculation is an average over the stated trip.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "132 km/h",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "240 km/h",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "120 km/h",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "60 km/h",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-word-problems-02",
+      "prompt": "Two fictional machines would finish a job alone in 8 and 12 hours. At independent constant rates, what time do they need together?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Add job rates, 1/8 + 1/12, then take the reciprocal. The resulting time is 24/5 hours; averaging times does not combine rates.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "20 hours",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "10 hours",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "24/5 hours",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "29/5 hours",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-word-problems-03",
+      "prompt": "5 identical pens and two notebooks total ₱197; each notebook is ₱51. What does one pen cost?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The notebooks account for 102 pesos. The remaining 95 pays for 5 pens, so one costs 19 pesos.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "39 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "19 pesos",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "22 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "38 pesos",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-word-problems-04",
+      "prompt": "A rectangular display has perimeter 56 cm and length 19 cm. What is its area?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Half the perimeter is 28, so width is 28 - 19 = 9 cm. Area is 19 × 9 = 171 cm².",
+      "choices": [
+        {
+          "label": "A",
+          "text": "112 cm²",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "171 cm²",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "361 cm²",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "190 cm²",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-word-problems-05",
+      "prompt": "For a fictional simple-interest exercise, ₱3600 earns 6% annually for 3 years with no compounding or fees. What interest is earned?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Simple interest is principal × annual rate × years: 3600 × 6/100 × 3 = 648 pesos. Do not include the principal when only interest is requested.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "216 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "748 pesos",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "648 pesos",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "4248 pesos",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-word-problems-06",
+      "prompt": "A fictional empty tank receives 13 L/min and drains 4 L/min simultaneously. At these constant rates, how long to accumulate 63 L?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Net inflow is 9 L/min. Time equals 63/(13-4) = 7 minutes.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "63/13 minutes",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "7 minutes",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "14 minutes",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "9 minutes",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-word-problems-07",
+      "prompt": "A same-day trip starts at 08:32 and lasts 110 minutes. What is its arrival time on a 24-hour clock?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Add 110 to the starting minute count and regroup every 60 minutes into one hour. The resulting clock time is 10:22.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "10:22",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "10:02",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "11:22",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "10:52",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-word-problems-08",
+      "prompt": "In an invented age puzzle, the older person is 3 times the younger person’s age. Their ages total 60. What is the younger age?",
+      "topic": "word-problems",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "If the younger age is x, the total is (3+1)x = 60. Thus x = 15; multiplying by 3 gives the older age.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "15 years",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "18 years",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "30 years",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "45 years",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-data-01",
+      "prompt": "An invented log lists completed cases for units L, M and N as 42, 45 and 63. What is their combined total?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The entries use the same unit, so add them: 42 + 45 + 63 = 150 cases.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "192 cases",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "63 cases",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "150 cases",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "105 cases",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-data-02",
+      "prompt": "A fictional attendance register shows 36 attendees from 48 invitees. What percentage of invitees attended?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Attendance is 36/48 = 3/4, or 75%. Use invitees, not attendees, as the whole.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "25%",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "75%",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "80%",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "60%",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-data-03",
+      "prompt": "Four invented monthly counts are 60, 80, 100, 120. What is their arithmetic mean?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The counts total 360. Dividing by four observations gives 90 records per month.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "360 records",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "80 records",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "100 records",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "90 records",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-data-04",
+      "prompt": "An invented table shows Unit A completed 44/58 assigned cases, and Unit B completed 54/90. Which rate comparison is correct?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Compare fractions, not raw counts. A completes 44/58 and B completes 54/90; since 3960 > 3132, A has the higher rate.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The larger completed count alone determines the larger completion rate.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "A has the higher rate: 2200/29% versus 60%.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "B has the higher rate: 60% versus 2200/29%.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The rates are equal.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-data-05",
+      "prompt": "In increasing order, five fictional wait times are 9, 12, 15, 20, 29 minutes. Find the median.",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "With five ordered values, the median is the third: 15 minutes. It is not necessarily the mean.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "12 minutes",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "15 minutes",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "17 minutes",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "20 minutes",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-data-06",
+      "prompt": "An invented survey has 25 people choosing workshop X, 19 choosing Y, 9 choosing both, and 6 choosing neither. How many people are represented?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Count the union once: 25+19-9 = 35. Add the 6 outside the union for 41 people.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "59 people",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "32 people",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "41 people",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "35 people",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-data-07",
+      "prompt": "A fictional audit finds 12 errors in 600 entries for P and 15 in 500 for Q. Which statement compares error rates correctly?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Divide errors by entries: 12/600 = 2%, whereas 15/500 = 3%. P has the lower proportion.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The rates are equal because both batches contain errors.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Q has a lower rate because it has 3%.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Raw error totals alone determine the error rate.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "P has a lower rate: 2% compared with Q’s 3%.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-data-08",
+      "prompt": "An invented centre records 49 visits before adding a noticeboard and 70 afterward. No comparison group is recorded. Which conclusion is justified?",
+      "topic": "data",
+      "level": "PROFESSIONAL",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). Numerical foundations consulted: CSC-SOURCE-2 (OpenStax textbook repository). Mathematical facts are used; source exercises and wording are not reproduced. See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The descriptive increase is 70-49 = 21. A before/after pair without controls does not establish the cause or a future trend.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The noticeboard necessarily caused every additional visit.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Every later visitor must have been a new resident.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The change proves an identical rise will happen next month.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Observed visits rose by 21; these counts alone do not prove the noticeboard caused the change.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-vocabulary-01",
+      "prompt": "In this original sentence, what does coherent mean? The coherent report presented connected reasons in a clear sequence.",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The context supplies the defining clue. Here coherent means logically connected; the answer must preserve the sentence’s stated relationship rather than ignore it.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Logically connected",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Explain in more detail",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Assign resources to a purpose",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Correct an error",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-vocabulary-02",
+      "prompt": "In this original sentence, what does impartial mean? An impartial assessor applied the same criteria despite pressure from either side.",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The context supplies the defining clue. Here impartial means unbiased in treatment; the answer must preserve the sentence’s stated relationship rather than ignore it.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Unbiased in treatment",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Correct an error",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Unnecessarily repetitive",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "No longer useful in the present setting",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-vocabulary-03",
+      "prompt": "In this original sentence, what does explicit mean? The notice was explicit: it stated the deadline directly rather than leaving readers to guess.",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The context supplies the defining clue. Here explicit means clearly and directly stated; the answer must preserve the sentence’s stated relationship rather than ignore it.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Able to recover after difficulty",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Clearly and directly stated",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Connected to the matter under consideration",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Explain in more detail",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-vocabulary-04",
+      "prompt": "In this original sentence, what does scarce mean? Clean containers were scarce; only three remained for a large group.",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The context supplies the defining clue. Here scarce means in short supply; the answer must preserve the sentence’s stated relationship rather than ignore it.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "In short supply",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Explain in more detail",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Assign resources to a purpose",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Correct an error",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-vocabulary-05",
+      "prompt": "In this original sentence, what does feasible mean? After checking time and materials, the team judged the small repair feasible.",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The context supplies the defining clue. Here feasible means practicable with the available resources; the answer must preserve the sentence’s stated relationship rather than ignore it.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "No longer useful in the present setting",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Practicable with the available resources",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Able to recover after difficulty",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Connected to the matter under consideration",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-vocabulary-06",
+      "prompt": "In this original sentence, what does relevant mean? The reviewer kept only relevant evidence that directly concerned the request.",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The context supplies the defining clue. Here relevant means connected to the matter being considered; the answer must preserve the sentence’s stated relationship rather than ignore it.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Explain in more detail",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Connected to the matter being considered",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Assign resources to a purpose",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Correct an error",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-vocabulary-07",
+      "prompt": "In this original sentence, what does accurate mean? The accurate copy matched every amount and date in the verified original.",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The context supplies the defining clue. Here accurate means correct and free from the described errors; the answer must preserve the sentence’s stated relationship rather than ignore it.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Able to recover after difficulty",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Connected to the matter under consideration",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Correct and free from the described errors",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Explain in more detail",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-vocabulary-08",
+      "prompt": "In this original sentence, what does elaborate mean? Asked to elaborate, the speaker supplied the missing details and an example.",
+      "topic": "vocabulary",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The context supplies the defining clue. Here elaborate means explain in more detail; the answer must preserve the sentence’s stated relationship rather than ignore it.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Correct an error",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Unnecessarily repetitive",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Explain in more detail",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "No longer useful in the present setting",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-grammar-01",
+      "prompt": "The schedule of activities ___ on the noticeboard.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Schedule is the singular subject; the plural activities does not control agreement. This is a formal edited-English exercise, pending independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "are appearing",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "appears",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "have appeared",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "appear",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-grammar-02",
+      "prompt": "Neither of the two containers ___ damaged.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "In this formal singular construction, neither takes is. This is a formal edited-English exercise, pending independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "were",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "is",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "have been",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "are",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-grammar-03",
+      "prompt": "Choose the sentence with a correctly formed simple past verb.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Wrote is the simple past of write and matches yesterday. This is a formal edited-English exercise, pending independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "They written the minutes yesterday.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "They wrote the minutes yesterday.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "They will write the minutes yesterday.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "They writes the minutes yesterday.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-grammar-04",
+      "prompt": "There are ___ errors in the revised table.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Errors are countable, so fewer is the appropriate formal quantifier. This is a formal edited-English exercise, pending independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "little",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "fewer",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "much",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "less",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-grammar-05",
+      "prompt": "The envelope was addressed to ___ alone.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The preposition to takes the object pronoun her; hers is possessive. This is a formal edited-English exercise, pending independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "her",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "herself as a subject",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "hers",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "she",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-grammar-06",
+      "prompt": "Choose the plural possessive phrase for reports belonging to several editors.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Editors is already a regular plural; its possessive form ends with an apostrophe after s. This is a formal edited-English exercise, pending independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "the editor’s reports",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "the editor reports’",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "the editors’s reports",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "the editors’ reports",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-grammar-07",
+      "prompt": "By the time noon came, the technician ___ the inspection.",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Had completed identifies an event finished before the stated past time. This is a formal edited-English exercise, pending independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "had completed",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "has complete",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "completing",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "will complete",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-grammar-08",
+      "prompt": "Which sentence correctly modifies answered with an adverb?",
+      "topic": "grammar",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Politely is an adverb describing how Jon answered. This is a formal edited-English exercise, pending independent language review.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Jon answered politeness.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Jon answered polite.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Jon answered politestness.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Jon answered politely.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-sentences-01",
+      "prompt": "Choose the connector that fits the intended relationship: The summary was brief, ___ it omitted no essential finding.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "But introduces the contrast between brevity and completeness.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "because",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "so that",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "unless",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "but",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-sentences-02",
+      "prompt": "Choose the connector that fits the intended relationship: The bridge was closed; ___, the vehicle used another route.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The second action is a consequence, signalled by therefore.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "likewise",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "however",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "for instance",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "therefore",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-sentences-03",
+      "prompt": "Choose the connector that fits the intended relationship: The file loaded quickly ___ it was small.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Because supplies the reason for the loading speed.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "unless",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "because",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "whereas",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "although",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-sentences-04",
+      "prompt": "Choose the connector that fits the intended relationship: ___ the room was noisy, the speaker remained audible.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Although introduces a condition despite which the outcome held.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Unless",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "So that",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Because of",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Although",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-sentences-05",
+      "prompt": "Which sentence presents these intended activities in parallel form? sorting receipts, reconciling totals and writing notes.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The three coordinated activities in the correct sentence all use matching -ing forms. The alternatives mix noun phrases, infinitives or incomplete activity descriptions.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The task involves reconciling totals, summaries and to work.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The task involves sorting receipts, reconciling totals and writing notes.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "The task involves to work, writing notes and papers.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "The task involves sorting receipts, to totals and reports.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-sentences-06",
+      "prompt": "Choose the complete sentence about this action: the supervisor / checked / the log.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The correct option contains a complete independent clause. Because and after introduce dependent clauses in the alternatives, and the noun phrase has no main verb.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The log near the desk.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The supervisor checked the log.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "Because the supervisor checked the log.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "After the supervisor checked the log.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-sentences-07",
+      "prompt": "Which sentence unambiguously states that Cora corrected Cora’s own notebook, rather than Dina doing so?",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Naming the actor and explicitly identifying that actor’s own document removes the ambiguity. The alternatives assign the work differently or leave the actor unspecified.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Cora and Dina discussed a notebook, and one of them corrected it.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Cora consulted Dina, who corrected Dina’s own notebook.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Cora corrected Cora’s own notebook after consulting Dina.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Dina corrected Cora’s notebook.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-sentences-08",
+      "prompt": "Choose a grammatically correct way to join these two statements: The supervisor checked the log; the task was complete.",
+      "topic": "sentences",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The two independent clauses can be joined with a semicolon. A comma alone creates a comma splice, while no separator or a misplaced comma does not correctly join them.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Use a semicolon: The supervisor checked the log; the task was complete.",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Use a comma alone: The supervisor checked the log, the task was complete.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Use no separator: The supervisor checked the log the task was complete.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Place a comma after the article: The, supervisor checked the log the task was complete.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-paragraphs-01",
+      "prompt": "Arrange this invented notice procedure. R: Create a blank draft. Q: Write the approved message. P: Save the completed draft. S: Add the final label after the preceding finishing step. Choose the order that satisfies every dependency.",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The container or draft must exist before insertion or writing; completion follows that action. The label is explicitly placed after finishing, giving R-Q-P-S.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "S-R-Q-P",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "R-P-Q-S",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "R-Q-P-S",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Q-R-P-S",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-paragraphs-02",
+      "prompt": "Arrange these references: Q: The original report repeated one entry. R: The editor revised that report. P: This revision removed the duplicate.",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "EASY",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "Q introduces the original and its problem; R introduces the revision; P refers back to that revision. This sequence supplies each referent before it is used.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Q-P-R",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "R-P-Q",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "P-Q-R",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Q-R-P",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "key": "series3-paragraphs-03",
+      "prompt": "Which opening best introduces a paragraph explaining three steps to check a small delivery, followed by First, Next and Finally?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The correct opening previews the procedural purpose developed by the following ordered steps. The other options contradict that purpose or introduce an unrelated subject.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A distant mountain has four ridges.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The paragraph has no actions to describe.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "A simple routine can help you check a small delivery.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "The final step is necessarily useless.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-paragraphs-04",
+      "prompt": "A paragraph is entirely about labelling storage boxes. Which sentence is least relevant?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The cafeteria menu does not develop the stated procedure. The other offered sentences concern selecting, checking or recording information relevant to that task.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A second check can catch an error while labelling storage boxes.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The first step identifies the relevant records for labelling storage boxes.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "The fictional cafeteria served mango pudding on day 13.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Keep a short note of unresolved issues in labelling storage boxes.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-paragraphs-05",
+      "prompt": "An invented paragraph describes a routine for labelling storage boxes: collect the sources, compare them and record corrections. Which conclusion best summarises the routine?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The correct conclusion synthesises the common checking purpose without an unsupported guarantee. The other choices either contradict the paragraph or introduce an unrelated idea.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "These steps guarantee that no human error can ever occur.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "The paragraph proves that sources should never be consulted.",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Together, the steps make the work easier to check.",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "A new unrelated subject is the height of clouds.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-paragraphs-06",
+      "prompt": "A paragraph first describes similarities between handwritten and printed labels, then turns to a difference. Which transition best signals that change?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "In contrast directly signals a difference. The example phrase would continue illustration, and the other alternatives either deny the stated difference or disrupt the paragraph.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "For example, here is another identical feature.",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "In contrast, the next feature differs.",
+          "isCorrect": true
+        },
+        {
+          "label": "C",
+          "text": "As a result, there are no differences.",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "In conclusion, a new unrelated story begins.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-paragraphs-07",
+      "prompt": "An invented paragraph has (1) the introduction of a printer, (2) its first use, (3) its result. A new sentence says This device must be connected before its first use. Where does it fit most clearly?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "MEDIUM",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "The introduction supplies a referent for This device, and the instruction must precede first use. Between 1 and 2 satisfies both dependencies.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "After sentence 3 as a claim that connection happened later",
+          "isCorrect": false
+        },
+        {
+          "label": "B",
+          "text": "Before sentence 1, without identifying the device",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Between sentences 1 and 2",
+          "isCorrect": true
+        },
+        {
+          "label": "D",
+          "text": "Replace the result with no instruction about use",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "key": "series3-paragraphs-08",
+      "prompt": "A paragraph introduces a quiet reading area. The next sentence begins For example and describes a concrete instance of that idea. What is the second sentence doing?",
+      "topic": "paragraphs",
+      "level": "COMMON",
+      "difficulty": "HARD",
+      "version": 1,
+      "status": "DRAFT",
+      "sourceNotes": "Original newly authored draft; invented scenarios and quantities where stated. Independent human correctness/originality review pending. Online topic/format research: CSC-SOURCE-1 (community reviewer; no official endorsement). See content/references/practice-series-sources.json. Provisional topic/track labels are not official 2027 coverage.",
+      "explanation": "For example introduces an illustration. A concrete example can clarify an idea without proving a universal claim or cancelling the paragraph’s subject.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Illustrating the preceding general idea",
+          "isCorrect": true
+        },
+        {
+          "label": "B",
+          "text": "Automatically proving that every alternative is wrong",
+          "isCorrect": false
+        },
+        {
+          "label": "C",
+          "text": "Changing to a completely unrelated topic",
+          "isCorrect": false
+        },
+        {
+          "label": "D",
+          "text": "Withdrawing every statement in the paragraph",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 // Operator/test export helper only. Never import assessment packs in public readers.
 import type { validateDraftPack } from "./draft-pack";
 type Question = ReturnType<typeof validateDraftPack>["questions"][number];
-export function practiceReviewDocuments(questions: Question[]) {
-  const heading = "Original 160-question practice expansion — DRAFT";
+export function practiceReviewDocuments(questions: Question[], title?: string) {
+  const heading = title ?? "Original 160-question practice expansion — DRAFT";
   const note = "Independent correctness, originality, source and language review pending. Unofficial educational samples, not a released examination or a passing guarantee. Questions and proposed keys are public-source drafts.";
   const booklet = [`# ${heading}`, note, "Choose one option per item. Use the separate proposed answer key after attempting the questions."];
   const key = [`# Proposed answer key — ${heading}`, note];

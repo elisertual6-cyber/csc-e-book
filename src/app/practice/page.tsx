@@ -19,6 +19,7 @@ export default async function Practice() {
         progress to your account. Counts, timers and results are practice
         settings, not official CSC specifications.
       </div>
+      <p><Link className="button" href="/practice/sets">Open the five 160-question sets →</Link></p>
       {user ? (
         <ExamLobby />
       ) : (

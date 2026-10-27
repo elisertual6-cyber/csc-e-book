@@ -29,6 +29,8 @@ Read docs/OPERATIONS_MONITORING.md for request references, structured logs and h
 
 Read docs/DRAFT_LESSONS.md, docs/ENGLISH_DRAFTS.md, docs/READING_DRAFTS.md, docs/TRACK_DRAFTS.md and docs/PRACTICE_EXPANSION.md for the current public previews and manually imported review packs. Public previews are ungraded drafts with teaching solutions, not published editorial versions. The source repository is public; do not put private paid banks there. No new questions/lessons are automatically seeded, reviewed or activated. content:export prepares inputs only; real imports and independent approval remain separate. Preserve the fixed lesson and pack allowlists, match track labels to the curriculum and do not import assessment packs into public/client routes.
 
+Read docs/PRACTICE_SERIES.md before modifying sequential practice. Preserve the five fixed 160-key manifests, complete server-owned submissions, predecessor checks, account isolation and post-submission keys. Imports prepare inactive templates only; actual source questions never receive synthetic test approvals. Run test:practice-series and test:content-import through their disposable wrappers after series/import changes, sequentially with other browser servers. Source totals are now 870 editorial drafts plus one seed.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know
