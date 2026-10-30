@@ -26,6 +26,7 @@ test("focused retries use missed saved questions, hide keys and keep the origina
     await page.goto(`/practice/${source.id}`);
     await expect(page.getByRole("heading", { name: "Practise what you missed", exact: true })).toBeVisible();
     await expect(page.getByRole("combobox", { name: "Questions to retry", exact: true })).toHaveValue("missed");
+    await page.getByRole("button", { name: "Question 3", exact: true }).click();
     const keys: string[] = [];
     let hideFirstResponse = true;
     await page.route(`**/api/exams/attempts/${source.id}/retry`, async route => {
@@ -42,6 +43,7 @@ test("focused retries use missed saved questions, hide keys and keep the origina
     expect(keys).toHaveLength(2); expect(keys[0]).toBe(keys[1]);
     const id = new URL(page.url()).pathname.split("/").at(-1)!;
     const retry = await body(await f.alice.get(`/api/exams/attempts/${id}`));
+    await expect(page.locator(".exam-question .eyebrow")).toContainText("QUESTION 1 OF 2");
     expect(retry.retry?.sourceAttemptId).toBe(source.id); expect(retry.series).toBeUndefined();
     expect(retry.mode).toBe("PRACTICE"); expect(retry.deadlineAt).toBeNull(); expect(retry.score).toBeNull(); expect(retry.result).toBeNull(); expect(retry.responses).toEqual([]);
     expect(retry.questions.map(question => question.prompt)).toEqual(source.questions.slice(1).map(question => question.prompt));
