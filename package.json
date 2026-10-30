@@ -54,7 +54,8 @@
     "test:practice-series": "node scripts/e2e.mjs --config playwright.series.config.ts",
     "practice:activate-unreviewed": "node --conditions=react-server --import tsx scripts/activate-practice-series.ts",
     "practice:activate-timed-mocks": "node --conditions=react-server --import tsx scripts/activate-timed-mocks.ts",
-    "test:timed-mocks": "node scripts/e2e.mjs --config playwright.timed-mocks.config.ts"
+    "test:timed-mocks": "node scripts/e2e.mjs --config playwright.timed-mocks.config.ts",
+    "test:exam-retry": "node scripts/e2e.mjs --config playwright.retry.config.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",

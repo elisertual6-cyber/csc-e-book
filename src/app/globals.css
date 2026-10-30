@@ -1761,3 +1761,12 @@ body:has(.account-page) .announcement, body:has(.account-page) .site-header .but
 .account-page { padding-top: 42px; }
 .account-page > h1 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 14px; }
 .account-page > .lead { font-size: 16px; max-width: 650px; }
+
+.exam-retry { padding: 24px; margin: 28px 0; border: 1px solid var(--line); border-radius: 6px; background: #f5f2e9; }
+.exam-retry h3 { margin-top: 0; }
+.exam-retry p { margin: 12px 0; }
+.exam-retry form { display: flex; align-items: end; flex-wrap: wrap; gap: 14px; }
+.exam-retry label { width: 100%; font-size: 13px; font-weight: 700; }
+.exam-retry select { min-height: 46px; max-width: 100%; min-width: 0; border: 1px solid #a5afa9; border-radius: 4px; padding: 10px; color: var(--navy); background: white; font: inherit; }
+.exam-retry select:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+@media (max-width: 620px) { .exam-retry { padding: 18px; } .exam-retry select, .exam-retry .button { width: 100%; } }

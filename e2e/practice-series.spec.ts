@@ -116,6 +116,26 @@ test("five 160-item sets enforce review, complete submissions, account isolation
     expect(result.result?.answers).toHaveLength(160);
     expect(await db.auditEvent.count({ where: { action: "exam.submit", targetId: first.id } })).toBe(1);
     expect((await bob.post("/api/exams/attempts", { data: { templateId: templates[1].id, startKey: randomUUID() } })).status()).toBe(403);
+    // A full-size retry must not appear as a course attempt or unlock a set.
+    const firstStored = await db.attempt.findUniqueOrThrow({ where: { id: first.id } });
+    const historical = await db.attempt.create({ data: {
+      userId: users[3].id, templateId: templates[0].id, status: "EXPIRED", submittedAt: new Date(), totalQuestions: 160, score: 0,
+      questionSnapshot: firstStored.questionSnapshot as import("@prisma/client").Prisma.InputJsonValue,
+      templateSnapshot: firstStored.templateSnapshot as import("@prisma/client").Prisma.InputJsonValue,
+    } });
+    const retryResponse = await bob.post(`/api/exams/attempts/${historical.id}/retry`, { data: { startKey: randomUUID(), selection: "missed" } });
+    expect(retryResponse.status()).toBe(201);
+    const retrySet = await retryResponse.json() as AttemptView;
+    expect(retrySet.totalQuestions).toBe(160); expect(retrySet.series).toBeUndefined();
+    const retryProgress = await (await bob.get("/api/exams/series")).json();
+    expect(retryProgress.completedSets).toBe(0); expect(retryProgress.sets[0].state).toBe("available"); expect(retryProgress.sets[0].attemptId).toBeNull();
+    const realStart = await bob.post("/api/exams/attempts", { data: { templateId: templates[0].id, startKey: randomUUID() } });
+    expect(realStart.status()).toBe(201); expect((await realStart.json()).id).not.toBe(retrySet.id);
+    expect((await bob.patch(`/api/exams/attempts/${retrySet.id}`, { data: { revision: 0, responses: retrySet.questions.map(q => ({ questionKey: q.questionKey, choiceLabel: "B", flagged: false })) } })).status()).toBe(200);
+    expect((await bob.post(`/api/exams/attempts/${retrySet.id}`, { data: { action: "submit" } })).status()).toBe(200);
+    const afterRetry = await (await bob.get("/api/exams/series")).json();
+    expect(afterRetry.completedSets).toBe(0); expect(afterRetry.sets[1].state).toBe("locked");
+    expect((await bob.post("/api/exams/attempts", { data: { templateId: templates[1].id, startKey: randomUUID() } })).status()).toBe(403);
     for (let index = 1; index < 5; index++) {
       const progress = await (await alice.get("/api/exams/series")).json();
       expect(progress.completedSets).toBe(index); expect(progress.sets[index].state).toBe("available");
@@ -208,6 +228,10 @@ test("explicit unreviewed release activates all five drafts without fabricated a
     expect((await alice.patch(`/api/exams/attempts/${attempt.id}`, { data: { revision: attempt.revision, responses: attempt.questions.map(q => ({ questionKey: q.questionKey, choiceLabel: "A", flagged: false })) } })).status()).toBe(200);
     const submitted = await alice.post(`/api/exams/attempts/${attempt.id}`, { data: { action: "submit" } });
     expect(submitted.status()).toBe(200); expect((await submitted.json()).result.correct).toBe(0);
+    const draftRetryResponse = await alice.post(`/api/exams/attempts/${attempt.id}/retry`, { data: { startKey: randomUUID(), selection: "incorrect" } });
+    expect(draftRetryResponse.status()).toBe(201);
+    const draftRetry = await draftRetryResponse.json() as AttemptView;
+    expect(draftRetry.unreviewed).toBe(true); expect(draftRetry.series).toBeUndefined(); expect(draftRetry.totalQuestions).toBe(160);
     const changed = records[160];
     await db.question.update({ where: { id: changed.id }, data: { prompt: changed.prompt + " A deliberate later edit." } });
     expect((await alice.post("/api/exams/attempts", { data: { templateId: templates[1].id, startKey: randomUUID() } })).status()).toBe(409);

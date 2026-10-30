@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ExamAnswerReview from "./exam-answer-review";
+import ExamRetry from "./exam-retry";
 import type { AttemptView } from "@/lib/exam-types";
 export default function ExamPlayer({ id }: { id: string }) {
   const [view, setView] = useState<AttemptView | null>(null),
@@ -197,6 +198,7 @@ export default function ExamPlayer({ id }: { id: string }) {
         {view.series ? `SET ${view.series.position} · MIXED SKILLS` : view.level} · {view.mode} · {view.status}
       </div>
       <h1>{view.title}</h1>
+      {view.retry && <p className="notice">Focused practice · This session uses questions from a previous result. Your original score and course progress are kept.</p>}
       {(view.unreviewed || view.series?.unreviewed) && <p className="notice">Unreviewed practice · These draft questions and proposed answer keys have not been independently checked and may contain errors.</p>}
       <div className="exam-status">
         <span>
@@ -355,10 +357,12 @@ export default function ExamPlayer({ id }: { id: string }) {
               </strong>
             </div>
           ))}
+          <ExamRetry key={`retry-${view.id}`} id={view.id} result={view.result} />
           <ExamAnswerReview key={view.id} questions={view.questions} responses={view.responses} result={view.result} />
         </section>
       )}
       <div className="actions">
+        {view.retry && <Link className="text-link" href={`/practice/${view.retry.sourceAttemptId}`}>Back to the earlier result →</Link>}
         {view.series && <Link className="button" href="/practice/sets">{done ? "Continue to your practice sets →" : "Back to your practice sets"}</Link>}
         <Link className="text-link" href="/practice/history">
           History & subject reports →

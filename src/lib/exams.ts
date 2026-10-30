@@ -14,7 +14,7 @@ import {
 import { digest, staffRoles } from "@/lib/security";
 import { grade, snapshotSchema, examMetadataSchema } from "@/lib/grading";
 import { requirePreviousSets } from "@/lib/practice-series";
-import { validSeriesSettings, type SeriesSettings } from "@/lib/practice-series-policy";
+import { practiceSeriesKey, validSeriesSettings, type SeriesSettings } from "@/lib/practice-series-policy";
 import { matchesUnreviewedRelease, unreviewedSeriesRelease } from "@/lib/practice-series-release";
 import { unreviewedTimedMockRelease } from "@/lib/timed-mock-release";
 import { timedMockDefinitions } from "@/lib/timed-mock-policy";
@@ -53,6 +53,7 @@ export const startInput = z
     questionCount: z.number().int().min(1).max(200).optional(),
   })
   .strict();
+export const retryInput = z.object({ startKey: z.uuid(), selection: z.enum(["missed", "incorrect", "unanswered"]) }).strict();
 export const saveInput = z
   .object({
     revision: z.number().int().nonnegative(),
@@ -231,6 +232,7 @@ function view(attempt: StoredAttempt, time: Date): AttemptView {
     title: metadata.title,
     level: metadata.level,
     ...(metadata.series ? { series: metadata.series } : {}),
+    ...(metadata.retry ? { retry: metadata.retry } : {}),
     ...(metadata.unreviewed ? { unreviewed: true } : {}),
     mode: metadata.mode,
     access: metadata.access,
@@ -352,7 +354,7 @@ export async function startAttempt(actor: Actor, input: unknown) {
         await requirePreviousSets(tx, actor.id, template);
         if (data.topic !== undefined || data.questionCount !== undefined)
           throw new HttpError(400, "Each practice set contains exactly 160 fixed questions; count and topic overrides are unavailable.");
-        const activeSet = await tx.attempt.findFirst({ where: { userId: actor.id, templateId: template.id, status: "IN_PROGRESS" }, select: { id: true } });
+        const activeSet = await tx.attempt.findFirst({ where: { userId: actor.id, templateId: template.id, status: "IN_PROGRESS", templateSnapshot: { path: ["series", "key"], equals: practiceSeriesKey } }, select: { id: true } });
         if (activeSet) return view(await lockAttempt(tx, actor.id, activeSet.id), await now(tx));
       }
       if (
@@ -375,31 +377,7 @@ export async function startAttempt(actor: Actor, input: unknown) {
           400,
           "The question count exceeds this template's limit.",
         );
-      const expired = await tx.attempt.findMany({
-        where: {
-          userId: actor.id,
-          status: "IN_PROGRESS",
-          deadlineAt: { lte: time },
-        },
-        select: { id: true },
-        orderBy: { id: "asc" },
-      });
-      for (const row of expired)
-        await finalize(
-          tx,
-          actor,
-          await lockAttempt(tx, actor.id, row.id),
-          time,
-        );
-      if (
-        (await tx.attempt.count({
-          where: { userId: actor.id, status: "IN_PROGRESS" },
-        })) >= 3
-      )
-        throw new HttpError(
-          409,
-          "Submit an existing attempt before starting another (maximum three active sessions).",
-        );
+      await prepareNewAttempt(tx, actor, time);
       const candidates = await bank(tx, template, data.topic);
       if (candidates.length < count || (template.seriesKey &&
         (candidates.length !== count || template.questionKeys.some(key => !candidates.some(q => q.key === key)))))
@@ -467,6 +445,80 @@ export async function startAttempt(actor: Actor, input: unknown) {
     { timeout: 20000 },
   );
 }
+async function prepareNewAttempt(tx: Tx, actor: Actor, time: Date) {
+  const expired = await tx.attempt.findMany({
+    where: {
+      userId: actor.id,
+      status: "IN_PROGRESS",
+      deadlineAt: { lte: time },
+    },
+    select: { id: true },
+    orderBy: { id: "asc" },
+  });
+  for (const row of expired)
+    await finalize(
+      tx,
+      actor,
+      await lockAttempt(tx, actor.id, row.id),
+      time,
+    );
+  if (
+    (await tx.attempt.count({
+      where: { userId: actor.id, status: "IN_PROGRESS" },
+    })) >= 3
+  )
+    throw new HttpError(
+      409,
+      "Submit an existing attempt before starting another (maximum three active sessions).",
+    );
+}
+
+export async function retryAttempt(actor: Actor, sourceId: string, input: unknown) {
+  const data = retryInput.parse(input);
+  const requestHash = digest(JSON.stringify({ kind: "MISTAKE_RETRY", sourceId, selection: data.selection }));
+  return getDb().$transaction(async tx => {
+    await tx.$queryRaw`SELECT 1 AS locked FROM pg_advisory_xact_lock(hashtextextended(${actor.id},48293))`;
+    const previous = await tx.attempt.findUnique({ where: { userId_startKey: { userId: actor.id, startKey: data.startKey } } });
+    if (previous) {
+      if ((previous.templateSnapshot as { requestHash?: string } | null)?.requestHash !== requestHash)
+        throw new HttpError(409, "This start key already belongs to a different request.");
+      const locked = await lockAttempt(tx, actor.id, previous.id);
+      const replayTime = await now(tx);
+      await authorize(tx, actor, locked, replayTime);
+      return view(await finalize(tx, actor, locked, replayTime), replayTime);
+    }
+    // Check ownership before quota cleanup, so another account's ID always stays private.
+    const owned = await tx.attempt.findFirst({ where: { id: sourceId, userId: actor.id }, select: { id: true } });
+    if (!owned) throw new HttpError(404, "Attempt not found.");
+    const time = await now(tx);
+    await prepareNewAttempt(tx, actor, time);
+    const source = await lockAttempt(tx, actor.id, sourceId);
+    await authorize(tx, actor, source, await now(tx));
+    if (source.status === "IN_PROGRESS") throw new HttpError(409, "Finish the session before starting focused practice.");
+    const { snapshot, metadata } = readSnapshot(source);
+    const result = grade(snapshot, source.responses);
+    const missed = new Set(result.answers.filter(answer => data.selection === "unanswered" ? answer.selectedLabel === null
+      : data.selection === "incorrect" ? answer.selectedLabel !== null && !answer.isCorrect : !answer.isCorrect).map(answer => answer.questionKey));
+    const questions = snapshot.questions.filter(question => missed.has(question.questionKey));
+    if (!questions.length) throw new HttpError(409, "There are no questions in this retry selection.");
+    const retrySnapshot = snapshotSchema.parse({ schemaVersion: 1, questions: questions.map(question => ({ ...question, questionKey: randomUUID() })) });
+    const sourceTitle = metadata.retry?.sourceTitle ?? metadata.title;
+    const retryMetadata = {
+      title: `Focused practice: ${sourceTitle}`, level: metadata.level, mode: "PRACTICE", access: metadata.access,
+      templateVersion: metadata.templateVersion, durationSeconds: 0, requestHash,
+      ...(metadata.unreviewed || metadata.series?.unreviewed ? { unreviewed: true } : {}),
+      retry: { sourceAttemptId: source.id, selection: data.selection, sourceTitle },
+    };
+    const started = await now(tx);
+    const created = await tx.attempt.create({ data: {
+      userId: actor.id, templateId: source.templateId, startKey: data.startKey, startedAt: started, deadlineAt: null,
+      totalQuestions: questions.length, questionSnapshot: retrySnapshot as Prisma.InputJsonValue, templateSnapshot: retryMetadata as Prisma.InputJsonValue,
+    }, include: { responses: true } });
+    await audit(tx, actor, "exam.start", created.id, { kind: "MISTAKE_RETRY", sourceAttemptId: source.id, selection: data.selection, count: questions.length });
+    return view(created, started);
+  }, { timeout: 20000 });
+}
+
 export async function getAttempt(actor: Actor, id: string) {
   return getDb().$transaction(
     async (tx) => {

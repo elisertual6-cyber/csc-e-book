@@ -44,8 +44,9 @@ export const examMetadataSchema = z.object({
   templateVersion: z.number().int(),
   unreviewed: z.boolean().optional(),
   durationSeconds: z.number().int().nonnegative(),
+  retry: z.object({ sourceAttemptId: z.string().min(1).max(100), selection: z.enum(["missed", "incorrect", "unanswered"]), sourceTitle: z.string().min(1) }).optional(),
   series: z.object({ key: z.string().min(1), position: z.number().int().min(1).max(5), unreviewed: z.boolean().optional() }).optional(),
-});
+}).refine(metadata => !metadata.retry || (!metadata.series && metadata.mode === "PRACTICE" && metadata.durationSeconds === 0), "Focused retries must be untimed practice outside the fixed series.");
 export type ExamSnapshot = z.infer<typeof snapshotSchema>;
 export function grade(
   snapshot: ExamSnapshot,

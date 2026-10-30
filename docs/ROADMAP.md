@@ -100,3 +100,7 @@ The operator-requested Professional and Subprofessional timed mocks reuse fixed 
 ## Learner study improvements
 
 The account home now provides a minimal learning dashboard: one next action, compact recent metrics, set progress, the latest result and one suggested subject; account tools are collapsed. Completed answer reviews support category, subject and explanation search filters while preserving original question numbers and saved grades. Six new public supplementary teaching chapters add 12 worked examples to the reviewer guides, bringing their displayed learning-chapter total to 29. No assessment questions are approved, no content-release or commercial gates are changed, and no database migration is introduced. See LEARNER_DASHBOARD.md, EXAM_OPERATIONS.md and REVIEWERS.md.
+
+## Focused retries
+
+Learners can start separate untimed practice from incorrect/unanswered items in a finalized result. Retries preserve original results, use stored question versions, inherit unreviewed/access settings and do not unlock or complete fixed sets. The existing minimal dashboard can resume them through ordinary history. No schema or content-release changes are required. See MISTAKE_PRACTICE.md.

@@ -9,6 +9,7 @@ export type AttemptView = {
   title: string;
   level: "COMMON" | "PROFESSIONAL" | "SUBPROFESSIONAL";
   series?: { key: string; position: number; unreviewed?: boolean };
+  retry?: { sourceAttemptId: string; selection: "missed" | "incorrect" | "unanswered"; sourceTitle: string };
   unreviewed?: boolean;
   mode: "PRACTICE" | "MOCK";
   access: "FREE" | "PREMIUM";

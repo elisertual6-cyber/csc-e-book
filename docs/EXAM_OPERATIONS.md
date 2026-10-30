@@ -75,3 +75,7 @@ Two fixed FREE configurations now support the operator-requested timed mocks usi
 ## Results review controls
 
 Completed or expired attempts show the full selected and correct option text with the stored explanation. Learners can filter all, incorrect, unanswered, correct or flagged answers, combine a subject filter with a case-insensitive question/answer/explanation search, and reset the controls. Original question numbers and the complete saved score remain unchanged. Category counts describe the complete attempt; the live result count describes the combined filters. Unanswered items are separate from incorrect selections. Review filters use only the already authorized completed-attempt DTO in memory; they do not write responses, alter grades, persist private content in browser storage or add private search terms to URLs. No controls or keys are rendered before server finalization. The same interface works on previous completed attempts without a migration.
+
+## Focused mistake practice
+
+Finalized results now support a separate untimed retry of incorrect, unanswered or both kinds of missed items. The server selects the saved snapshot questions, gives the new attempt fresh question IDs and preserves the source score. Current ownership/access and start quotas apply. Retry metadata is separate from fixed-series metadata, so retries never complete a course set. See [MISTAKE_PRACTICE.md](MISTAKE_PRACTICE.md).

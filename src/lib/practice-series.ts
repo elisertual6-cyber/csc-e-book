@@ -10,7 +10,7 @@ type Tx = Prisma.TransactionClient;
 export async function hasCompletedSet(tx: Tx, userId: string, template: SeriesSettings & { id: string }) {
   if (!validSeriesSettings(template)) return false;
   const attempt = await tx.attempt.findFirst({
-    where: { userId, templateId: template.id, status: "SUBMITTED", totalQuestions: practiceSetSize },
+    where: { userId, templateId: template.id, status: "SUBMITTED", totalQuestions: practiceSetSize, templateSnapshot: { path: ["series", "key"], equals: practiceSeriesKey } },
     orderBy: { submittedAt: "asc" }, include: { responses: true },
   });
   if (!attempt) return false;
@@ -39,7 +39,7 @@ export async function practiceSeriesProgress(userId: string): Promise<SeriesProg
       const template = templates.find(t => t.setPosition === position);
       const valid = !!template && validSeriesSettings(template);
       const complete = valid && await hasCompletedSet(tx, userId, template);
-      const active = valid ? await tx.attempt.findFirst({ where: { userId, templateId: template.id, status: "IN_PROGRESS" }, orderBy: { startedAt: "desc" }, select: { id: true, responses: { select: { choiceLabel: true } } } }) : null;
+      const active = valid ? await tx.attempt.findFirst({ where: { userId, templateId: template.id, status: "IN_PROGRESS", templateSnapshot: { path: ["series", "key"], equals: practiceSeriesKey } }, orderBy: { startedAt: "desc" }, select: { id: true, responses: { select: { choiceLabel: true } } } }) : null;
       const state = !valid ? "not_prepared" : !predecessorsComplete ? "locked" : complete ? "completed" : active ? "in_progress" : !template.active ? "awaiting_review" : "available";
       sets.push({ position, title: template?.title ?? `Practice Set ${position}`, questionCount: practiceSetSize, state,
         unreviewed: valid ? !!await unreviewedSeriesRelease(tx, template) : false, templateId: valid ? template.id : null, attemptId: predecessorsComplete ? active?.id ?? null : null,
