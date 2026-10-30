@@ -2,7 +2,7 @@ name: Verify web deployment
 on:
   push:
     branches: [main]
-    paths: ['src/components/exam-*.tsx', 'src/app/api/exams/**', src/lib/exams.ts, src/lib/grading.ts, src/lib/practice-series.ts, src/components/learner-dashboard.tsx, src/app/account/page.tsx, 'src/app/reviewers/**', 'content/reviewer-lessons/**', src/app/globals.css]
+    paths: ['src/components/exam-*.tsx', 'src/app/api/exams/**', src/lib/exams.ts, src/lib/grading.ts, src/lib/practice-series.ts, src/components/learner-dashboard.tsx, src/components/practice-trend.tsx, src/lib/practice-trends.ts, src/app/account/page.tsx, 'src/app/reviewers/**', 'content/reviewer-lessons/**', src/app/globals.css]
   workflow_dispatch:
 permissions:
   contents: read

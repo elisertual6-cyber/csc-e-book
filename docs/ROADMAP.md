@@ -108,3 +108,7 @@ Learners can start separate untimed practice from incorrect/unanswered items in 
 ## Reviewer bookmarks
 
 All 29 public reviewer chapters have optional browser bookmarks, with one saved chapter per guide and exact-chapter resume links on the library. Saving is explicitly browser-only, shared across that browser profile and separate from account/exam completion. Clear controls, corrupt/blocked/full-storage handling and print hiding are included. No dashboard cards, database changes or assessment releases are added. See REVIEWER_BOOKMARKS.md.
+
+## Recent practice trends
+
+Practice history now compares up to ten finalized results from its existing recent-50 window, with matching-session filters, a chart, accessible session details and percentage-point changes. The account dashboard stays minimal. No schema, grade, content-release or account setting changes are introduced. Question-feedback reporting was explicitly skipped at the operator's request. See PRACTICE_TRENDS.md.

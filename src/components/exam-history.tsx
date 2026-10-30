@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { AttemptHistory } from "@/lib/exam-types";
+import PracticeTrend from "./practice-trend";
 export default function ExamHistory() {
   const [data, setData] = useState<AttemptHistory | null>(null),
     [message, setMessage] = useState("");
@@ -38,6 +39,7 @@ export default function ExamHistory() {
           <span>Average practice result (not official)</span>
         </div>
       </div>
+      <PracticeTrend attempts={data.attempts} limit={data.limit} />
       <h2>Subject performance</h2>
       {data.byTopic.length ? (
         data.byTopic.map((t) => (

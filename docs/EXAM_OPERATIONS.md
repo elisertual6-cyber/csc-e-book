@@ -79,3 +79,7 @@ Completed or expired attempts show the full selected and correct option text wit
 ## Focused mistake practice
 
 Finalized results now support a separate untimed retry of incorrect, unanswered or both kinds of missed items. The server selects the saved snapshot questions, gives the new attempt fresh question IDs and preserves the source score. Current ownership/access and start quotas apply. Retry metadata is separate from fixed-series metadata, so retries never complete a course set. See [MISTAKE_PRACTICE.md](MISTAKE_PRACTICE.md).
+
+## Recent result trends
+
+History includes an oldest-to-newest chart of up to ten finalized sessions within its existing latest-50 summary window, matching-session filtering, percentage-point changes and an accessible results table. This is a summary-only comparison, not an exam-readiness estimate; it does not alter attempts or course progress. See [PRACTICE_TRENDS.md](PRACTICE_TRENDS.md).

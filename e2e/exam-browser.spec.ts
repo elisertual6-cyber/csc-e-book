@@ -96,7 +96,7 @@ test("learner can resume, flag, submit and review a session on this screen", asy
     await expect(
       page.getByRole("heading", { name: "Subject performance", exact: true }),
     ).toBeVisible();
-    await expect(page.getByText("100%", { exact: true })).toBeVisible();
+    await expect(page.locator(".exam-metrics").getByText("100%", { exact: true })).toBeVisible();
     // A browser clock set to the past cannot keep an expired mock open.
     const timed = await f.template("browser-timed", {
       mode: "MOCK",
