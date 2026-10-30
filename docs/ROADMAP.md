@@ -38,7 +38,7 @@ Content and operator work proceeds alongside these engineering tasks: finish the
 
 ## Content and learner tools
 
-The public catalog contains **23 unapproved teaching drafts** and 14 manual review packs contain **870 draft questions**. The unchanged one-question demo seed is separate. Chapter headings are a provisional 25-area outline; 23 now have draft lesson text, while the two mock-exam areas are not completed or activated. The existing samples are public-source educational drafts, not confidential/exclusive paid banks.
+The public catalog contains **23 unapproved teaching drafts** and 14 manual review packs contain **870 draft questions**. The unchanged one-question demo seed is separate. Chapter headings are a provisional 25-area outline; 23 now have draft lesson text, while the two mock-exam areas have no separate lesson text. Fixed timed draft mocks are available through the scoped release in TIMED_MOCKS.md. The existing samples are public-source educational drafts, not confidential/exclusive paid banks.
 
 - Numerical: five lessons and 20 questions; see [DRAFT_LESSONS.md](DRAFT_LESSONS.md) and [NUMERICAL_IMPORT.md](NUMERICAL_IMPORT.md).
 - English: three lessons and 15 questions; see [ENGLISH_DRAFTS.md](ENGLISH_DRAFTS.md).
@@ -87,8 +87,12 @@ Added 640 original keyed drafts to arrange five sets of 160, reusing the prior 1
 
 ## Operator-authorized unreviewed practice
 
-The operator subsequently requested all five sets activated without their review. A separate main-only release workflow atomically activates the five FREE fixed templates with audit-pinned question versions/hashes, preserving all DRAFT/Review states. Set cards and attempts identify unreviewed material; sequential completion and post-submission keys remain enforced. This exception does not satisfy human review or apply to ordinary topic/mock templates, paid banks or PDF releases. See PRACTICE_SERIES.md. Hosted activation run [40450960205](https://github.com/elisertual6-cyber/csc-e-book/actions/runs/40450960205) was observed successful; see [UNREVIEWED_PRACTICE_REPORT.md](UNREVIEWED_PRACTICE_REPORT.md).
+The operator subsequently requested all five sets activated without their review. A separate main-only release workflow atomically activates the five FREE fixed templates with audit-pinned question versions/hashes, preserving all DRAFT/Review states. Set cards and attempts identify unreviewed material; sequential completion and post-submission keys remain enforced. This exception does not satisfy human review or apply to unrelated topic/mock templates, paid banks or PDF releases. The subsequent two fixed timed mocks have their own explicit scope and release in TIMED_MOCKS.md. See PRACTICE_SERIES.md. Hosted activation run [40450960205](https://github.com/elisertual6-cyber/csc-e-book/actions/runs/40450960205) was observed successful; see [UNREVIEWED_PRACTICE_REPORT.md](UNREVIEWED_PRACTICE_REPORT.md).
 
 ## Reviewer study library
 
 The Reviewers section at `/reviewers` and legacy `/shop` now arranges all 23 existing teaching drafts into six free subject guides with search, track filters, full chapter readers, contents navigation, browser printing and links to the five practice sets and study planner. Paid PDF catalog controls remain separate below the free library. No new approvals, migrations or payment changes are introduced. See [REVIEWERS.md](REVIEWERS.md).
+
+## Free timed mock practice
+
+The operator-requested Professional and Subprofessional timed mocks reuse fixed track-matched selections from the existing drafts. Each is FREE, labelled unreviewed and configured for 160 questions in 150 practice minutes, with database deadlines and post-submission keys. This scoped release changes no question approval/publication or commercial gates. See [TIMED_MOCKS.md](TIMED_MOCKS.md).

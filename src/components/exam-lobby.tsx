@@ -42,7 +42,7 @@ export default function ExamLobby() {
     <section className="exam-panel">
       <div className="section-heading">
         <div>
-          <div className="eyebrow">REVIEWED CONTENT · YOUR OWN PACE</div>
+          <div className="eyebrow">PRACTICE SESSIONS · SAVED PROGRESS</div>
           <h2>Choose your session.</h2>
         </div>
         <Link className="text-link" href="/practice/history">
@@ -85,9 +85,8 @@ export default function ExamLobby() {
         <p>Loading available sessions…</p>
       ) : !filtered.length ? (
         <div className="notice">
-          No reviewed sessions are available for this track and mode yet. New
-          sessions will appear after content review is complete. The draft
-          teaching exercise below remains available.
+          No sessions are available for this track and mode yet. Try another
+          session type or open the five practice sets above.
         </div>
       ) : (
         <fieldset className="session-options">
@@ -111,11 +110,11 @@ export default function ExamLobby() {
                 <small>
                   {t.questionCount} questions ·{" "}
                   {t.durationSeconds
-                    ? `${t.durationSeconds} seconds`
+                    ? t.durationSeconds % 60 ? `${t.durationSeconds} seconds` : `${t.durationSeconds / 60} minutes`
                     : "Untimed"}{" "}
                   ·{" "}
                   {t.access === "FREE"
-                    ? "Free reviewed session"
+                    ? t.unreviewed ? "Free draft practice" : "Free reviewed session"
                     : "Purchased exam access required"}
                 </small>
               </span>
@@ -123,6 +122,7 @@ export default function ExamLobby() {
           ))}
         </fieldset>
       )}
+      {chosen?.unreviewed && <p className="notice">Unreviewed practice · These questions and proposed keys may contain errors. This timed session reuses questions from the five practice sets.</p>}
       {chosen && (
         <form
           onSubmit={async (e) => {

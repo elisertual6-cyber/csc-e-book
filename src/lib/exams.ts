@@ -16,6 +16,8 @@ import { grade, snapshotSchema, examMetadataSchema } from "@/lib/grading";
 import { requirePreviousSets } from "@/lib/practice-series";
 import { validSeriesSettings, type SeriesSettings } from "@/lib/practice-series-policy";
 import { matchesUnreviewedRelease, unreviewedSeriesRelease } from "@/lib/practice-series-release";
+import { unreviewedTimedMockRelease } from "@/lib/timed-mock-release";
+import { timedMockDefinitions } from "@/lib/timed-mock-policy";
 import type {
   AttemptView,
   AttemptSummary,
@@ -131,13 +133,15 @@ export async function hasExamAccess(
 }
 async function bank(
   tx: Tx,
-  template: SeriesSettings & { id: string; topics: string[] },
+  template: SeriesSettings & { id: string; slug: string; topics: string[] },
   topic?: string,
 ) {
-  const release = await unreviewedSeriesRelease(tx, template);
+  const mockRelease = await unreviewedTimedMockRelease(tx, template);
+  const release = mockRelease ?? await unreviewedSeriesRelease(tx, template);
   const questions = await tx.question.findMany({
     where: {
       ...(release ? { OR: [{ status: "PUBLISHED" as const }, { id: { in: release.questions.map(q => q.id) }, status: { not: "ARCHIVED" as const } }] } : { status: "PUBLISHED" as const }),
+      ...(mockRelease ? { key: { in: mockRelease.questions.map(q => q.key) } } : {}),
       ...(template.seriesKey ? { key: { in: template.questionKeys ?? [] } } : { level: {
         in: ["COMMON", template.level as "PROFESSIONAL" | "SUBPROFESSIONAL"],
       } }),
@@ -227,6 +231,7 @@ function view(attempt: StoredAttempt, time: Date): AttemptView {
     title: metadata.title,
     level: metadata.level,
     ...(metadata.series ? { series: metadata.series } : {}),
+    ...(metadata.unreviewed ? { unreviewed: true } : {}),
     mode: metadata.mode,
     access: metadata.access,
     status: attempt.status,
@@ -282,7 +287,9 @@ export async function templatesFor(actor: Actor) {
       orderBy: { title: "asc" },
       take: 100,
     });
-    return templates.map((t) => ({
+    const releases = new Map<string, boolean>();
+    for (const template of templates) releases.set(template.id, !!await unreviewedTimedMockRelease(tx, template));
+    return templates.filter(t => !timedMockDefinitions.some(d => d.slug === t.slug) || releases.get(t.id)).map((t) => ({
       id: t.id,
       title: t.title,
       level: t.level,
@@ -292,6 +299,7 @@ export async function templatesFor(actor: Actor) {
       questionCount: t.questionCount,
       durationSeconds: t.durationSeconds,
       version: t.version,
+      ...(releases.get(t.id) ? { unreviewed: true } : {}),
       canStart: t.access === "FREE" || premium,
     }));
   });
@@ -431,6 +439,7 @@ export async function startAttempt(actor: Actor, input: unknown) {
         templateVersion: template.version,
         durationSeconds: template.durationSeconds,
         requestHash,
+        ...(candidates.slice(0, count).some(q => q.status !== "PUBLISHED" || !independentlyApproved(q)) ? { unreviewed: true } : {}),
         ...(template.seriesKey ? { series: { key: template.seriesKey, position: template.setPosition!, unreviewed: candidates.slice(0, count).some(q => q.status !== "PUBLISHED" || !independentlyApproved(q)) } } : {}),
       };
       const attempt = await tx.attempt.create({

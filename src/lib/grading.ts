@@ -42,6 +42,7 @@ export const examMetadataSchema = z.object({
   mode: z.enum(["PRACTICE", "MOCK"]),
   access: z.enum(["FREE", "PREMIUM"]),
   templateVersion: z.number().int(),
+  unreviewed: z.boolean().optional(),
   durationSeconds: z.number().int().nonnegative(),
   series: z.object({ key: z.string().min(1), position: z.number().int().min(1).max(5), unreviewed: z.boolean().optional() }).optional(),
 });

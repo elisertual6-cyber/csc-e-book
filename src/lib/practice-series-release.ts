@@ -24,7 +24,7 @@ export async function unreviewedSeriesRelease(tx: Tx, template: SeriesSettings &
     parsed.data.questions.some((q, index) => q.key !== template.questionKeys[index])) return null;
   return parsed.data;
 }
-export function matchesUnreviewedRelease(question: Question, release: UnreviewedRelease | null) {
+export function matchesUnreviewedRelease(question: Question, release: Pick<UnreviewedRelease, "questions"> | null) {
   return question.status !== "ARCHIVED" && !!release?.questions.some(q => q.id === question.id && q.key === question.key &&
     q.version === question.version && q.hash === contentHash(question));
 }

@@ -9,6 +9,7 @@ export type AttemptView = {
   title: string;
   level: "COMMON" | "PROFESSIONAL" | "SUBPROFESSIONAL";
   series?: { key: string; position: number; unreviewed?: boolean };
+  unreviewed?: boolean;
   mode: "PRACTICE" | "MOCK";
   access: "FREE" | "PREMIUM";
   status: "IN_PROGRESS" | "SUBMITTED" | "EXPIRED";
@@ -50,6 +51,7 @@ export type ExamOption = {
   id: string;
   title: string;
   level: string;
+  unreviewed?: boolean;
   mode: "PRACTICE" | "MOCK";
   access: "FREE" | "PREMIUM";
   topics: string[];

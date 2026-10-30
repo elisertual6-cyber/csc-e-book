@@ -30,3 +30,5 @@ The only client guide code filters public metadata and opens the print dialog. N
 ## Validation
 
 The required lint, TypeScript, unit/content/build and isolated browser/accessibility checks are recorded in [REVIEWER_LIBRARY_REPORT.md](REVIEWER_LIBRARY_REPORT.md). New desktop/mobile behavior coverage includes search, track filtering, empty/reset focus, full six-guide/23-chapter content, contents navigation, real print-PDF creation, print visibility, next guide, responsive layout, the old shop URL and unknown-guide/JSON rejection. Public automated WCAG scans include both library URLs and all six guide pages. Use only the existing disposable test wrappers; generated fixtures and synthetic reviews are not human editorial evidence.
+
+Deployment verification: read-only workflow [40457590860](https://github.com/elisertual6-cyber/csc-e-book/actions/runs/40457590860) reported Vercel deployment success, `/lessons` HTTP 308 to `/reviewers`, and `/reviewers` HTTP 200 with the new library. This independently confirms removal of the old public listing, while individual lesson URLs remain available.

@@ -26,7 +26,7 @@ test("keyboard users can skip navigation to the learning content", async ({ page
   await page.keyboard.press("Tab");
   await expect(page.getByRole("link", { name: "Open the five 160-question sets →", exact: true })).toBeFocused();
   await page.keyboard.press("Tab");
-  await expect(page.getByRole("link", { name: /Sign in for reviewed sessions/ })).toBeFocused();
+  await expect(page.getByRole("link", { name: /Sign in for practice sessions/ })).toBeFocused();
   await page.keyboard.press("Tab");
   await expect(page.getByLabel("Your answer in minutes")).toBeFocused();
 });

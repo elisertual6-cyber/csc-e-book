@@ -1,0 +1,9 @@
+{
+  "purpose": "Operator-requested free timed mock practice for both learning tracks",
+  "revision": 1,
+  "reviewStatus": "UNREVIEWED",
+  "sessions": 2,
+  "questionCount": 160,
+  "durationMinutes": 150,
+  "note": "Reuses fixed track-matched questions from existing practice drafts; no publication or human approval is claimed."
+}
