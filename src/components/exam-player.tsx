@@ -359,14 +359,19 @@ export default function ExamPlayer({ id }: { id: string }) {
             const result = view.result!.answers.find(
               (a) => a.questionKey === q.questionKey,
             )!;
+            const selectedChoice = q.choices.find(c => c.label === result.selectedLabel);
+            const correctChoice = q.choices.find(c => c.label === result.correctLabel);
             return (
               <article className="answer-review" key={q.questionKey}>
                 <h4>
                   {i + 1}. {q.prompt}
                 </h4>
                 <p>
-                  Your answer: {result.selectedLabel ?? "Unanswered"} · Correct
-                  answer: {result.correctLabel}
+                  Your answer: {result.selectedLabel ?? "Unanswered"}
+                  {selectedChoice && <> — {selectedChoice.text}</>}
+                </p>
+                <p>
+                  <strong>Correct answer: {result.correctLabel}{correctChoice && <> — {correctChoice.text}</>}</strong>
                 </p>
                 <p>{result.explanation}</p>
                 <p className="fine-print">Source notes: {result.sourceNotes}</p>

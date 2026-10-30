@@ -77,6 +77,14 @@ test("learner can resume, flag, submit and review a session on this screen", asy
         exact: true,
       }),
     ).toBeVisible();
+    const reviews = page.locator(".answer-review");
+    await expect(reviews).toHaveCount(2);
+    const graded = await (await f.alice.get(`/api/exams/attempts/${new URL(page.url()).pathname.split("/").at(-1)}`)).json();
+    for (const [index, question] of graded.questions.entries()) {
+      const correctText = question.choices.find((c: { label: string; text: string }) => c.label === "B").text;
+      await expect(reviews.nth(index).getByText(`Your answer: B — ${correctText}`, { exact: true })).toBeVisible();
+      await expect(reviews.nth(index).getByText(`Correct answer: B — ${correctText}`, { exact: true })).toBeVisible();
+    }
     await mkdir(".local", { recursive: true });
     await page.screenshot({
       path: `.local/phase3-result-${testInfo.project.name}.png`,
@@ -99,6 +107,10 @@ test("learner can resume, flag, submit and review a session on this screen", asy
     });
     expect(response.status()).toBe(201);
     const attempt = await response.json();
+    const saved = await f.alice.patch(`/api/exams/attempts/${attempt.id}`, {
+      data: { revision: attempt.revision, responses: [{ questionKey: attempt.questions[0].questionKey, choiceLabel: "A", flagged: false }] },
+    });
+    expect(saved.status()).toBe(200);
     await f.db.attempt.update({
       where: { id: attempt.id },
       data: { deadlineAt: new Date(Date.now() - 1000) },
@@ -116,6 +128,9 @@ test("learner can resume, flag, submit and review a session on this screen", asy
     await expect(
       page.getByRole("heading", { name: "Your practice result", exact: true }),
     ).toBeVisible();
+    await expect(page.locator(".answer-review").first().getByText("Your answer: A — 4", { exact: true })).toBeVisible();
+    await expect(page.locator(".answer-review").nth(1).getByText("Your answer: Unanswered", { exact: true })).toBeVisible();
+    await expect(page.locator(".answer-review").first().getByText(/^Correct answer: B — (5|11)$/)).toBeVisible();
     await context.close();
   } finally {
     await f.dispose();
