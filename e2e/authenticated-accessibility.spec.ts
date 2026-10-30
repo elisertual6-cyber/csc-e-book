@@ -24,6 +24,11 @@ test("signed-in learner screens and keyboard attempt flow meet automated accessi
     for (const route of ["/account", "/account/purchases", "/practice", "/practice/history"]) {
       await page.goto(route);
       await expect(page.locator("h1")).toBeVisible();
+      if (route === "/account") {
+        await expect(page.getByRole("link", { name: "Start practising →", exact: true })).toBeVisible();
+        await page.getByText("Account settings and tools", { exact: true }).click();
+        await expect(page.getByRole("heading", { name: "Account security", exact: true })).toBeVisible();
+      }
       if (route === "/practice") await expect(page.getByRole("radio", { name: new RegExp(template.title) })).toBeVisible();
       if (route === "/practice/history") await expect(page.getByRole("heading", { name: "Subject performance" })).toBeVisible();
       if (route === "/account/purchases") await expect(page.getByRole("link", { name: "Browse editions", exact: true })).toBeVisible();

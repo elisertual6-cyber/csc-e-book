@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { PDFDocument } from "pdf-lib";
+import { findReviewerSupplement } from "../src/lib/reviewer-supplements";
 import { reviewerGuides, reviewerLessonTitle } from "../src/lib/reviewer-catalog";
 
 test("learners can find a reviewer, filter tracks, read its chapters and print all teaching content", async ({ page }, info) => {
@@ -29,11 +30,15 @@ test("learners can find a reviewer, filter tracks, read its chapters and print a
   await expect(page).toHaveURL(/\/reviewers\/numerical-ability$/);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Numerical Ability");
   const contents = page.getByRole("navigation", { name: "Reviewer contents", exact: true });
-  await expect(contents.getByRole("link")).toHaveCount(5);
+  await expect(contents.getByRole("link")).toHaveCount(6);
   await contents.getByRole("link", { name: "Fractions, decimals, and percentages", exact: true }).click();
   await expect(page).toHaveURL(/#fractions$/);
-  await expect(page.locator(".reviewer-chapter")).toHaveCount(5);
-  await expect(page.getByRole("heading", { name: "Rationale", exact: true })).toHaveCount(5);
+  await expect(page.locator(".reviewer-chapter")).toHaveCount(6);
+  await expect(page.getByRole("heading", { name: "Rationale", exact: true })).toHaveCount(6);
+  await contents.getByRole("link", { name: /Extra lesson:/ }).click();
+  await expect(page).toHaveURL(/#extra-practice$/);
+  await expect(page.locator(".reviewer-supplement")).toContainText("81 km/h");
+  await expect(page.locator(".reviewer-supplement")).toContainText("1,386 units");
   await page.screenshot({ path: `.local/reviewers-reader-${info.project.name}.png` });
   await page.evaluate(() => { window.print = () => { document.documentElement.dataset.printRequested = "yes"; }; });
   await page.getByRole("button", { name: "Print / Save as PDF", exact: true }).click();
@@ -41,10 +46,10 @@ test("learners can find a reviewer, filter tracks, read its chapters and print a
   await page.emulateMedia({ media: "print" });
   await expect(page.getByRole("button", { name: "Print / Save as PDF", exact: true })).toBeHidden();
   await expect(page.locator(".site-header")).toBeHidden();
-  await expect(page.locator(".reviewer-chapter")).toHaveCount(5);
+  await expect(page.locator(".reviewer-chapter")).toHaveCount(6);
   await expect(page.locator(".reviewer-checkpoints")).toBeVisible();
   const pdf = await PDFDocument.load(await page.pdf({ format: "A4", printBackground: true }));
-  expect(pdf.getPageCount()).toBeGreaterThanOrEqual(5);
+  expect(pdf.getPageCount()).toBeGreaterThanOrEqual(6);
   await page.emulateMedia({ media: "screen" });
   await page.getByRole("link", { name: "Next reviewer: Verbal Ability →", exact: true }).click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Verbal Ability");
@@ -64,6 +69,12 @@ test("all six public reviewer guides contain their full lesson chapters and reje
       await expect(chapter.locator(".prose")).toContainText("Practice");
       await expect(chapter.locator(".prose")).toContainText("Rationale");
     }
+    const supplement = page.locator(".reviewer-supplement");
+    await expect(supplement.getByRole("heading", { level: 2 })).toHaveText(findReviewerSupplement(guide.slug)!.title);
+    await expect(supplement).toContainText("Draft editorial supplement");
+    await expect(supplement.getByRole("heading", { level: 4, name: /^Example [12]:/ })).toHaveCount(2);
+    await expect(supplement).toContainText("Practice");
+    await expect(supplement).toContainText("Rationale");
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
   expect(covered.size).toBe(23);

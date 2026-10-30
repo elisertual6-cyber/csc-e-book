@@ -73,3 +73,11 @@ export type AttemptSummary = {
   accessLocked: boolean;
   byTopic: TopicResult[];
 };
+
+export type AttemptHistory = {
+  attempts: AttemptSummary[];
+  byTopic: TopicResult[];
+  completedCount: number;
+  averagePercent: number | null;
+  limit: number;
+};

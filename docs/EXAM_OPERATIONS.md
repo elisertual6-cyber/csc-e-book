@@ -71,3 +71,7 @@ The operator-authorized unreviewed-practice release is a scoped exception for th
 ## Operator-requested timed draft mocks
 
 Two fixed FREE configurations now support the operator-requested timed mocks using audit-pinned, track-matched draft questions: 160 items, 150 practice minutes. Other template eligibility remains as above. No fabricated publication/review is performed. See [TIMED_MOCKS.md](TIMED_MOCKS.md) for release scope, learner flow and verification.
+
+## Results review controls
+
+Completed or expired attempts show the full selected and correct option text with the stored explanation. Learners can filter all, incorrect, unanswered, correct or flagged answers, combine a subject filter with a case-insensitive question/answer/explanation search, and reset the controls. Original question numbers and the complete saved score remain unchanged. Category counts describe the complete attempt; the live result count describes the combined filters. Unanswered items are separate from incorrect selections. Review filters use only the already authorized completed-attempt DTO in memory; they do not write responses, alter grades, persist private content in browser storage or add private search terms to URLs. No controls or keys are rendered before server finalization. The same interface works on previous completed attempts without a migration.

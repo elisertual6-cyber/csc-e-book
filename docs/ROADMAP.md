@@ -96,3 +96,7 @@ The Reviewers section at `/reviewers` and legacy `/shop` now arranges all 23 exi
 ## Free timed mock practice
 
 The operator-requested Professional and Subprofessional timed mocks reuse fixed track-matched selections from the existing drafts. Each is FREE, labelled unreviewed and configured for 160 questions in 150 practice minutes, with database deadlines and post-submission keys. This scoped release changes no question approval/publication or commercial gates. See [TIMED_MOCKS.md](TIMED_MOCKS.md).
+
+## Learner study improvements
+
+The account home now provides a minimal learning dashboard: one next action, compact recent metrics, set progress, the latest result and one suggested subject; account tools are collapsed. Completed answer reviews support category, subject and explanation search filters while preserving original question numbers and saved grades. Six new public supplementary teaching chapters add 12 worked examples to the reviewer guides, bringing their displayed learning-chapter total to 29. No assessment questions are approved, no content-release or commercial gates are changed, and no database migration is introduced. See LEARNER_DASHBOARD.md, EXAM_OPERATIONS.md and REVIEWERS.md.

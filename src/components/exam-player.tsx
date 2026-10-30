@@ -1,6 +1,7 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import ExamAnswerReview from "./exam-answer-review";
 import type { AttemptView } from "@/lib/exam-types";
 export default function ExamPlayer({ id }: { id: string }) {
   const [view, setView] = useState<AttemptView | null>(null),
@@ -354,30 +355,7 @@ export default function ExamPlayer({ id }: { id: string }) {
               </strong>
             </div>
           ))}
-          <h3>Answers and detailed explanations</h3>
-          {view.questions.map((q, i) => {
-            const result = view.result!.answers.find(
-              (a) => a.questionKey === q.questionKey,
-            )!;
-            const selectedChoice = q.choices.find(c => c.label === result.selectedLabel);
-            const correctChoice = q.choices.find(c => c.label === result.correctLabel);
-            return (
-              <article className="answer-review" key={q.questionKey}>
-                <h4>
-                  {i + 1}. {q.prompt}
-                </h4>
-                <p>
-                  Your answer: {result.selectedLabel ?? "Unanswered"}
-                  {selectedChoice && <> — {selectedChoice.text}</>}
-                </p>
-                <p>
-                  <strong>Correct answer: {result.correctLabel}{correctChoice && <> — {correctChoice.text}</>}</strong>
-                </p>
-                <p>{result.explanation}</p>
-                <p className="fine-print">Source notes: {result.sourceNotes}</p>
-              </article>
-            );
-          })}
+          <ExamAnswerReview key={view.id} questions={view.questions} responses={view.responses} result={view.result} />
         </section>
       )}
       <div className="actions">

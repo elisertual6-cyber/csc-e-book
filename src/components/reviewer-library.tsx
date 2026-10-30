@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { findReviewerSupplement } from "@/lib/reviewer-supplements";
 import { reviewerGuides, reviewerLessonTitle, reviewerTrackLabel } from "@/lib/reviewer-catalog";
 const volumes = ["I", "II", "III", "IV", "V", "VI"];
 export default function ReviewerLibrary() {
@@ -9,7 +10,7 @@ export default function ReviewerLibrary() {
   const [track, setTrack] = useState("all");
   const term = query.trim().toLowerCase();
   const visible = reviewerGuides.filter(guide => (track === "all" || guide.track === "COMMON" || guide.track === track) &&
-    `${guide.title} ${guide.summary} ${guide.lessons.map(reviewerLessonTitle).join(" ")}`.toLowerCase().includes(term));
+    `${guide.title} ${guide.summary} ${guide.lessons.map(reviewerLessonTitle).join(" ")} ${findReviewerSupplement(guide.slug)?.title ?? ""}`.toLowerCase().includes(term));
   return <section id="subject-reviewers" className="reviewer-library" aria-labelledby="reviewer-library-title">
     <div className="reviewer-section-heading"><div><p className="eyebrow">YOUR STUDY SHELF</p><h2 id="reviewer-library-title">Find a subject. Build your foundation.</h2></div><p>Read online for free. Print a guide when you need a paper copy.</p></div>
     <div className="reviewer-filters">
@@ -22,7 +23,7 @@ export default function ReviewerLibrary() {
       <div className="reviewer-card-body"><p className="eyebrow">{reviewerTrackLabel(guide.track)} · {guide.lessons.length} LESSONS</p><h3>{guide.title}</h3><p>{guide.summary}</p>
         <ul className="reviewer-topics">{guide.lessons.map(slug => <li key={slug}>{reviewerLessonTitle(slug)}</li>)}</ul>
         <Link className="button" href={`/reviewers/${guide.slug}`}>Open {guide.title} reviewer →</Link>
-        <span className="fine-print">FREE · UNREVIEWED TEACHING DRAFT</span>
+        <p className="fine-print">Includes an extra lesson with two worked examples.</p><span className="fine-print">FREE · UNREVIEWED TEACHING DRAFT</span>
       </div>
     </article>)}</div>
     {visible.length === 0 && <div className="reviewer-empty"><h3>No matching reviewers.</h3><p>Try another subject or reset the filters to see all six guides.</p><button className="button button-light" onClick={() => { setQuery(""); setTrack("all"); searchInput.current?.focus(); }}>Reset reviewer filters</button></div>}

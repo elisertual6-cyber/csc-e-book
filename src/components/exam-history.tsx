@@ -1,16 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import type { AttemptSummary, TopicResult } from "@/lib/exam-types";
-type History = {
-  attempts: AttemptSummary[];
-  byTopic: TopicResult[];
-  completedCount: number;
-  averagePercent: number | null;
-  limit: number;
-};
+import type { AttemptHistory } from "@/lib/exam-types";
 export default function ExamHistory() {
-  const [data, setData] = useState<History | null>(null),
+  const [data, setData] = useState<AttemptHistory | null>(null),
     [message, setMessage] = useState("");
   useEffect(() => {
     let active = true;
@@ -58,7 +51,7 @@ export default function ExamHistory() {
           </div>
         ))
       ) : (
-        <p>Complete a reviewed session to see subject reports.</p>
+        <p>Complete a practice session to see subject reports.</p>
       )}
       <h2>Saved sessions</h2>
       <p className="fine-print">

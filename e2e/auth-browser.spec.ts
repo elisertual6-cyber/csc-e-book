@@ -20,6 +20,7 @@ test("customer registration, session, account boundary and logout", async ({
   ).toBeVisible();
   await page.goto("/admin");
   await expect(page).toHaveURL(/\/account$/);
+  await page.getByText("Account settings and tools", { exact: true }).click();
   await page.getByRole("button", { name: "Sign out", exact: true }).click();
   await expect(page).toHaveURL(/\/login$/);
   await page.goto("/account");

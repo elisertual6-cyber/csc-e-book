@@ -2,7 +2,7 @@ name: Verify web deployment
 on:
   push:
     branches: [main]
-    paths: [src/components/exam-player.tsx]
+    paths: ['src/components/exam-*.tsx', src/components/learner-dashboard.tsx, src/app/account/page.tsx, 'src/app/reviewers/**', 'content/reviewer-lessons/**', src/app/globals.css]
   workflow_dispatch:
 permissions:
   contents: read

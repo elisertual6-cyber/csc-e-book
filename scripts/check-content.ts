@@ -3,6 +3,7 @@ import { validateBank, checkLesson } from "../src/lib/content-validation";
 import { validateDraftPack } from "../src/lib/draft-pack";
 import { draftLessons } from "../src/lib/lesson-catalog";
 import { editorialPacks } from "../src/lib/editorial-packs";
+import { reviewerSupplements } from "../src/lib/reviewer-supplements";
 import { curriculum } from "../src/lib/curriculum";
 const bank = validateBank(
   JSON.parse(readFileSync("content/questions.json", "utf8")),
@@ -18,6 +19,12 @@ for (const lesson of draftLessons) {
   checkLesson(markdown);
   if (!markdown.startsWith(`# ${lesson.title}\n`) || !markdown.includes("Draft editorial")) throw new Error("Lesson catalog/title or draft label mismatch.");
 }
+for (const lesson of reviewerSupplements) {
+  const markdown = readFileSync(`content/reviewer-lessons/${lesson.file}`, "utf8");
+  checkLesson(markdown);
+  if (!markdown.startsWith(`# ${lesson.title}\n`) || !markdown.includes("Draft editorial supplement") ||
+    (markdown.match(/^### Example [12]:/gm) ?? []).length !== 2) throw new Error("Supplement title, draft label or worked examples are incomplete.");
+}
 console.log(
-  `Validated ${draftLessons.length} public draft lessons and ${bank.length + questions.length} draft question records (${bank.length} seed, ${questions.length} in manual editorial packs). Independent human review pending; commercial launch requires at least 500 reviewed questions.`,
+  `Validated ${draftLessons.length} public draft lessons and ${bank.length + questions.length} draft question records (${bank.length} seed, ${questions.length} in manual editorial packs). ${reviewerSupplements.length} additional public teaching supplements with two worked examples each. Independent human review pending; commercial launch requires at least 500 reviewed questions.`,
 );
