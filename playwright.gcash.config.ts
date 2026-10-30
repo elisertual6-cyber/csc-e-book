@@ -40,6 +40,7 @@ export default defineConfig({
         PAYMONGO_WEBHOOK_SECRET: process.env.PAYMONGO_WEBHOOK_SECRET!,
         PAYMONGO_TEST_API_ORIGIN: "http://127.0.0.1:3201",
         MAIL_TRANSPORT: "file",
+        PURCHASE_MAIL_AUTOMATION: "true",
         MAIL_PRIVATE_DIR: process.env.MAIL_PRIVATE_DIR!,
         MAIL_ENCRYPTION_KEY: process.env.MAIL_ENCRYPTION_KEY!,
         PDF_PRIVATE_DIR: process.env.PDF_PRIVATE_DIR!,

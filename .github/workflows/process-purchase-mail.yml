@@ -1,0 +1,40 @@
+name: Retry paid reviewer email
+on:
+  schedule:
+    - cron: '1-56/5 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: purchase-mail-retries-main
+  cancel-in-progress: false
+jobs:
+  retry:
+    if: github.ref == 'refs/heads/main' && vars.PURCHASE_MAIL_AUTOMATION == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Retry only verified paid reviewer notices
+        env:
+          NODE_ENV: production
+          PURCHASE_MAIL_AUTOMATION: 'true'
+          DATABASE_URL: ${{ secrets.DATABASE_MIGRATION_URL }}
+          DATABASE_CA_PEM: ${{ secrets.RECOVERY_SOURCE_CA_PEM }}
+          MAIL_TRANSPORT: smtp
+          SMTP_ALLOW_INSECURE: 'false'
+          APP_URL: https://csc-e-book.vercel.app
+          MAIL_ENCRYPTION_KEY: ${{ secrets.MAIL_ENCRYPTION_KEY }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+        run: npm run mail:purchase:work -- --send

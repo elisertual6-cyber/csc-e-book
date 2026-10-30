@@ -26,6 +26,7 @@ export default function Purchases() {
     [history, setHistory] = useState<History>([]),
     [development, setDevelopment] = useState(false),
     [sandbox, setSandbox] = useState(false),
+    [live, setLive] = useState(false),
     [paymentUrl, setPaymentUrl] = useState<string | null>(null),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
@@ -33,7 +34,7 @@ export default function Purchases() {
   async function load() {
     const [o, c, h] = await Promise.all([
       commerceRequest<Order[]>("/api/commerce/orders"),
-      commerceRequest<{ development: boolean; sandbox: boolean }>(
+      commerceRequest<{ development: boolean; sandbox: boolean; live: boolean }>(
         "/api/commerce/catalog",
       ),
       commerceRequest<History>("/api/commerce/downloads"),
@@ -41,12 +42,13 @@ export default function Purchases() {
     setOrders(o);
     setDevelopment(c.development);
     setSandbox(c.sandbox);
+    setLive(c.live);
     setHistory(h);
   }
   useEffect(() => {
     Promise.all([
       commerceRequest<Order[]>("/api/commerce/orders"),
-      commerceRequest<{ development: boolean; sandbox: boolean }>(
+      commerceRequest<{ development: boolean; sandbox: boolean; live: boolean }>(
         "/api/commerce/catalog",
       ),
       commerceRequest<History>("/api/commerce/downloads"),
@@ -55,6 +57,7 @@ export default function Purchases() {
         setOrders(o);
         setDevelopment(c.development);
         setSandbox(c.sandbox);
+        setLive(c.live);
         setHistory(h);
       })
       .catch((e) => setError(e.message));
@@ -124,7 +127,7 @@ export default function Purchases() {
       {paymentUrl && (
         <div className="notice">
           <a className="button" href={paymentUrl} rel="noreferrer">
-            Continue to GCash sandbox
+            {live ? "Continue to GCash" : "Continue to GCash sandbox"}
           </a>
         </div>
       )}
@@ -170,22 +173,22 @@ export default function Purchases() {
             {o.paymentMethod === "gcash" && (
               <>
                 <p>
-                  Payment method: GCash · Sandbox ·{" "}
+                  Payment method: GCash ·{" "}
                   {o.paymentSession?.state ?? "Not started"}
                 </p>
                 <div className="actions">
                   {o.status === "PENDING" && (
                     <button
-                      disabled={busy || !sandbox}
+                      disabled={busy || (!sandbox && !live)}
                       className="button"
                       onClick={() => gcash(o.id, "checkout")}
                     >
-                      Pay with GCash (sandbox)
+                      {live ? "Pay with GCash" : "Pay with GCash (sandbox)"}
                     </button>
                   )}
                   {o.paymentSession && (
                     <button
-                      disabled={busy || !sandbox}
+                      disabled={busy}
                       className="button button-light"
                       onClick={() => gcash(o.id, "refresh")}
                     >
@@ -243,6 +246,7 @@ export default function Purchases() {
                       </button>
                     )),
                 )}
+            {o.notices.some((n) => n.transport === "purchase-pending") && <p>Payment confirmed. Your reviewer is available in this library; its email is awaiting delivery.</p>}
             {o.notices.some((n) => n.transport === "development-outbox") && (
               <p>
                 Purchase notice recorded in development outbox. Email not sent.

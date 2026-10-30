@@ -63,7 +63,7 @@ describe("GCash sandbox protocol", () => {
     ).toThrow();
     expect(() => verifyPaymongoSignature(body, null, secret, time)).toThrow();
   });
-  it("never enables live keys, production checkout or a non-isolated API override", () => {
+  it("keeps live and production checkout off without all explicit matching settings", () => {
     expect(paymongoConfig(settings).base).toBe("https://api.paymongo.com/v1");
     for (const patch of [
       { NODE_ENV: "production" },
@@ -86,6 +86,34 @@ describe("GCash sandbox protocol", () => {
     ).toBe("http://127.0.0.1:9999/v1");
     expect(isTestPaymentProvider("paymongo_test")).toBe(true);
     expect(isTestPaymentProvider("mock")).toBe(true);
+  });
+  it("accepts an explicitly configured live deployment and rejects key, origin and emulator mode confusion", () => {
+    const live = { ...settings, NODE_ENV: "production", PAYMONGO_MODE: "live", GCASH_LIVE_ENABLED: "true", PAYMONGO_SECRET_KEY: "sk_live_synthetic", APP_URL: "https://csc-e-book.vercel.app" };
+    expect(paymongoConfig(live)).toMatchObject({ mode: "live", base: "https://api.paymongo.com/v1" });
+    for (const patch of [{ NODE_ENV: "development" }, { GCASH_LIVE_ENABLED: "false" }, { PAYMONGO_SECRET_KEY: "sk_test_synthetic" }, { APP_URL: "http://localhost:3000" }, { APP_URL: "https://localhost" }, { PAYMONGO_TEST_API_ORIGIN: "http://127.0.0.1:3201" }]) expect(() => paymongoConfig({ ...live, ...patch })).toThrow();
+  });
+  it("binds a live signature to its live slot, body and timestamp", () => {
+    const body = Buffer.from('{"livemode":true}'), time = 1700000000, secret = "fixture-live";
+    const signature = createHmac("sha256", secret).update(`${time}.`).update(body).digest("hex");
+    expect(() => verifyPaymongoSignature(body, `t=${time},te=,li=${signature}`, secret, time, "live")).not.toThrow();
+    for (const header of [`t=${time},te=${signature},li=`, `t=${time},te=${signature},li=${signature}`, `t=${time},li=${"0".repeat(64)}`]) expect(() => verifyPaymongoSignature(body, header, secret, time, "live")).toThrow();
+    expect(() => verifyPaymongoSignature(body, `t=${time},li=${signature}`, secret, time + 301, "live")).toThrow();
+  });
+  it("can verify existing payments while sales are paused, but a confirmation client cannot create a checkout", async () => {
+    const paused = { ...settings, NODE_ENV: "production", PAYMONGO_MODE: "live", GCASH_LIVE_ENABLED: "false", GCASH_CHECKOUT_ENABLED: "false", PAYMONGO_SECRET_KEY: "sk_live_synthetic", APP_URL: "https://csc-e-book.vercel.app" };
+    expect(() => paymongoConfig(paused)).toThrow();
+    const config = paymongoConfig(paused, true);
+    const fetcher = async () => Response.json({ data: { ...remote, attributes: { ...remote.attributes, livemode: true } } });
+    const client = new PaymongoClient(config, fetcher);
+    expect((await client.checkout(remote.id)).attributes.livemode).toBe(true);
+    await expect(client.create({ id: "order1", totalMinor: 9900, currency: "PHP", items: [{ productName: "Reviewer", unitPriceMinor: 9900, quantity: 1 }] }, "local1")).rejects.toThrow("New checkouts are paused");
+  });
+  it("never treats a response from a different payment mode as a valid checkout", async () => {
+    const live = paymongoConfig({ ...settings, NODE_ENV: "production", PAYMONGO_MODE: "live", GCASH_LIVE_ENABLED: "true", PAYMONGO_SECRET_KEY: "sk_live_synthetic", APP_URL: "https://csc-e-book.vercel.app" });
+    const client = new PaymongoClient(live, async () => Response.json({ data: remote }));
+    await expect(client.checkout(remote.id)).rejects.toThrow("different payment mode");
+    const accepted = new PaymongoClient(live, async () => Response.json({ data: { ...remote, attributes: { ...remote.attributes, livemode: true } } }));
+    expect((await accepted.checkout(remote.id)).attributes.livemode).toBe(true);
   });
   it("restricts hosted payment links to the exact trusted HTTPS host", () => {
     expect(trustedCheckoutUrl(remote.attributes.checkout_url)).toBe(

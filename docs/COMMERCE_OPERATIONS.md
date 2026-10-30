@@ -2,6 +2,8 @@ Current PDF storage/worker update: see [PDF_STORAGE.md](PDF_STORAGE.md). The pri
 
 # Development commerce operations
 
+Current update: GCASH_PURCHASE_DELIVERY.md describes the separately gated live GCash implementation and automatic paid-reviewer email. Actual merchant/provider/content release remains pending and defaults off. The original mock-only milestone below is historical; its private-delivery and editorial controls remain enforced.
+
 This milestone implements a development storefront and mock purchase lifecycle. It is not a commercial launch. No real gateway, outbound mail service or remote object-storage integration is configured. Production checkout is deliberately unavailable, including when PAYMENT_PROVIDER=mock. No card data is requested or stored.
 
 ## Product preparation

@@ -1,0 +1,30 @@
+import { test, expect } from "@playwright/test";
+import { randomUUID } from "node:crypto";
+import AxeBuilder from "@axe-core/playwright";
+test("the reviewer email library link returns a buyer to downloads after sign-in and ignores arbitrary return destinations", async ({ page }) => {
+  const headers = { Origin: "http://127.0.0.1:3100", "X-CSC-Action": "1" };
+  const credentials = { email: `library-${randomUUID()}@example.test`, password: randomUUID() + "-library" };
+  expect((await page.request.post("/api/auth/register", { headers, data: { ...credentials, name: "Library Learner" } })).status()).toBe(201);
+  expect((await page.request.post("/api/auth/logout", { headers, data: {} })).status()).toBe(200);
+  await page.goto("/account/purchases");
+  await expect(page).toHaveURL(/\/login\?from=library$/);
+  await expect(page.getByText("Sign in with the account used for your purchase to open your reviewer library.", { exact: true })).toBeVisible();
+  await page.getByLabel("Email", { exact: true }).fill(credentials.email);
+  await page.getByLabel("Password (12–128 characters)", { exact: true }).fill(credentials.password);
+  await page.getByRole("button", { name: "Sign in", exact: true }).click();
+  await expect(page).toHaveURL(/\/account\/purchases$/);
+  await expect(page.getByRole("heading", { name: "Orders & downloads.", exact: true })).toBeVisible();
+  await expect(page.getByText("No orders yet.", { exact: false })).toBeVisible();
+  // Pausing new checkout must not disable the buyer's read-only payment-status check.
+  await page.route("**/api/commerce/orders", route => route.fulfill({ json: [{ id: "paused", status: "PENDING", paymentMethod: "gcash", paymentSession: { state: "OPEN" }, totalMinor: 9900, createdAt: "2026-10-30T00:00:00Z", items: [{ productName: "Pending test reviewer", productVersion: "fixture" }], notices: [], entitlements: [] }] }));
+  let refreshed = false;
+  await page.route("**/api/commerce/orders/paused/gcash", route => { refreshed = route.request().postDataJSON().action === "refresh"; return route.fulfill({ json: { status: "PENDING" } }); });
+  await page.reload();
+  await expect(page.getByRole("button", { name: "Pay with GCash (sandbox)", exact: true })).toBeDisabled();
+  await page.getByRole("button", { name: "Check GCash status", exact: true }).click();
+  expect(refreshed).toBe(true);
+  await expect(page.getByRole("button", { name: "Check GCash status", exact: true })).toBeEnabled();
+  expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze()).violations).toEqual([]);
+  await page.goto("/login?from=https%3A%2F%2Fattacker.invalid%2F");
+  await expect(page).toHaveURL(/\/account$/);
+});

@@ -29,6 +29,8 @@ const env = {
   MAIL_ENCRYPTION_KEY: randomBytes(32).toString("hex"),
   MAIL_TRANSPORT: "disabled",
   ACCOUNT_MAIL_AUTOMATION: "false",
+  PURCHASE_MAIL_AUTOMATION: "false",
+  GCASH_LIVE_ENABLED: "false",
   PAYMONGO_SECRET_KEY: `sk_test_fixture_${randomBytes(24).toString("hex")}`,
   PAYMONGO_WEBHOOK_SECRET: randomBytes(32).toString("hex"),
   GCASH_CHECKOUT_ENABLED: "false",

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-export default function AuthForm({ register = false }: { register?: boolean }) {
+export default function AuthForm({ register = false, library = false }: { register?: boolean; library?: boolean }) {
   const router = useRouter();
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
@@ -29,7 +29,7 @@ export default function AuthForm({ register = false }: { register?: boolean }) {
           const result = await response.json();
           if (!response.ok) setMessage(result.error);
           else {
-            router.push("/account");
+            router.push(library ? "/account/purchases" : "/account");
             router.refresh();
           }
         } catch {

@@ -16,7 +16,7 @@ const refund = z.object({
     amount: z.number().int().nonnegative(),
     currency: z.literal("PHP"),
     payment_id: paymentId,
-    livemode: z.literal(false),
+    livemode: z.boolean(),
     status: z.string(),
   }),
 });
@@ -26,7 +26,7 @@ export const paymentResource = z.object({
   attributes: z.object({
     amount: z.number().int().positive(),
     currency: z.literal("PHP"),
-    livemode: z.literal(false),
+    livemode: z.boolean(),
     status: z.string(),
     payment_intent_id: z.string().min(1),
     source: z.object({ type: z.literal("gcash") }),
@@ -40,7 +40,7 @@ export const checkoutResource = z.object({
   id: checkoutId,
   type: z.literal("checkout_session"),
   attributes: z.object({
-    livemode: z.literal(false),
+    livemode: z.boolean(),
     checkout_url: z.string().url(),
     reference_number: z.string().min(1),
     metadata: z.object({
@@ -66,13 +66,14 @@ export const checkoutResource = z.object({
 });
 export type CheckoutResource = z.infer<typeof checkoutResource>;
 export type PaymentResource = z.infer<typeof paymentResource>;
-export function paymongoConfig(env: Env = process.env) {
+export function paymongoConfig(env: Env = process.env, confirmationOnly = false) {
+  const live = env.PAYMONGO_MODE === "live";
   if (
-    env.NODE_ENV === "production" ||
+    (live ? env.NODE_ENV !== "production" || (!confirmationOnly && env.GCASH_LIVE_ENABLED !== "true") : env.NODE_ENV === "production") ||
     env.PAYMENT_PROVIDER !== "paymongo" ||
-    env.PAYMONGO_MODE !== "test" ||
-    env.GCASH_CHECKOUT_ENABLED !== "true" ||
-    !env.PAYMONGO_SECRET_KEY?.startsWith("sk_test_") ||
+    !["test", "live"].includes(env.PAYMONGO_MODE ?? "") ||
+    (!confirmationOnly && env.GCASH_CHECKOUT_ENABLED !== "true") ||
+    !env.PAYMONGO_SECRET_KEY?.startsWith(live ? "sk_live_" : "sk_test_") ||
     !env.PAYMONGO_WEBHOOK_SECRET
   )
     throw new HttpError(
@@ -82,6 +83,7 @@ export function paymongoConfig(env: Env = process.env) {
   let base = "https://api.paymongo.com/v1";
   // A loopback emulator is permitted only in the generated disposable test database.
   if (env.PAYMONGO_TEST_API_ORIGIN) {
+    if (live) throw new HttpError(503, "A live payment cannot use a test API origin.");
     const origin = new URL(env.PAYMONGO_TEST_API_ORIGIN),
       database = new URL(env.DATABASE_URL ?? "postgresql://invalid/invalid")
         .pathname;
@@ -105,7 +107,8 @@ export function paymongoConfig(env: Env = process.env) {
     app.search ||
     app.hash ||
     app.pathname !== "/" ||
-    !["http:", "https:"].includes(app.protocol)
+    !["http:", "https:"].includes(app.protocol) ||
+    (live && (app.protocol !== "https:" || app.port || ["localhost", "127.0.0.1", "[::1]"].includes(app.hostname)))
   )
     throw new HttpError(503, "The payment return origin is invalid.");
   return {
@@ -113,6 +116,8 @@ export function paymongoConfig(env: Env = process.env) {
     secretKey: env.PAYMONGO_SECRET_KEY,
     webhookSecret: env.PAYMONGO_WEBHOOK_SECRET,
     appOrigin: app.origin,
+    mode: live ? "live" as const : "test" as const,
+    confirmationOnly,
   };
 }
 export function gcashCheckoutEnabled() {
@@ -144,6 +149,7 @@ export function verifyPaymongoSignature(
   header: string | null,
   secret: string,
   timeSeconds = Math.floor(Date.now() / 1000),
+  mode: "test" | "live" = "test",
 ) {
   if (!header || header.length > 1024)
     throw new HttpError(401, "Payment signature could not be verified.");
@@ -159,12 +165,12 @@ export function verifyPaymongoSignature(
     values.set(entry[0], entry[1]);
   }
   const timestamp = values.get("t") ?? "",
-    signature = values.get("te") ?? "";
+    signature = values.get(mode === "live" ? "li" : "te") ?? "";
   if (
     !/^\d{1,12}$/.test(timestamp) ||
     Math.abs(timeSeconds - Number(timestamp)) > 300 ||
     !/^[a-f0-9]{64}$/i.test(signature) ||
-    !!values.get("li")
+    !!values.get(mode === "live" ? "te" : "li")
   )
     throw new HttpError(401, "Payment signature could not be verified.");
   const expected = createHmac("sha256", secret)
@@ -196,6 +202,8 @@ export class PaymongoClient {
     route: string,
     attributes?: unknown,
   ) {
+    if (method === "POST" && this.config.confirmationOnly)
+      throw new HttpError(503, "New checkouts are paused. Existing payments can still be verified.");
     let response: Response;
     try {
       response = await this.fetcher(this.config.base + route, {
@@ -270,7 +278,7 @@ export class PaymongoClient {
       payment_method_types: ["gcash"],
       reference_number: order.id,
       metadata: { order_id: order.id, local_session_id: localSessionId },
-      description: "CSC Study independent reviewer — sandbox checkout",
+      description: this.config.mode === "live" ? "CSC Study independent reviewer" : "CSC Study independent reviewer — sandbox checkout",
       line_items: order.items.map((i) => ({
         name: i.productName ?? "Study edition",
         amount: i.unitPriceMinor,
@@ -283,21 +291,26 @@ export class PaymongoClient {
       show_description: true,
       show_line_items: true,
     });
-    return providerResult(checkoutResource, result.data);
+    return this.checkedMode(providerResult(checkoutResource, result.data));
   }
   async checkout(id: string) {
     const result = await this.request(
       "GET",
       `/checkout_sessions/${checkoutId.parse(id)}`,
     );
-    return providerResult(checkoutResource, result.data);
+    return this.checkedMode(providerResult(checkoutResource, result.data));
   }
   async payment(id: string) {
     const result = await this.request(
       "GET",
       `/payments/${paymentId.parse(id)}`,
     );
-    return providerResult(paymentResource, result.data);
+    return this.checkedMode(providerResult(paymentResource, result.data));
+  }
+  private checkedMode<T extends { attributes: { livemode: boolean } }>(resource: T): T {
+    if (resource.attributes.livemode !== (this.config.mode === "live"))
+      throw new HttpError(502, "The payment provider returned a different payment mode.");
+    return resource;
   }
 }
 export const paymongoEvent = z.object({
@@ -306,7 +319,7 @@ export const paymongoEvent = z.object({
     type: z.literal("event"),
     attributes: z.object({
       type: z.string().min(1).max(100),
-      livemode: z.literal(false),
+      livemode: z.boolean(),
       data: z.object({ id: z.string().min(1).max(100), type: z.string() }),
     }),
   }),

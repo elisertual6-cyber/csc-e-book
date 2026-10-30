@@ -6,6 +6,7 @@ import { commerceRequest, pesos } from "@/lib/commerce-client";
 type Catalog = {
   development: boolean;
   sandbox: boolean;
+  live: boolean;
   checkoutAvailable: boolean;
   products: {
     id: string;
@@ -49,7 +50,9 @@ export default function Storefront() {
   return (
     <>
       <div className="notice">
-        {catalog?.sandbox
+        {catalog?.live
+          ? "Pay securely with GCash through PayMongo. Your reviewer email follows verified payment confirmation."
+          : catalog?.sandbox
           ? "GCash sandbox checkout only. No real funds are collected. Verify your email before creating a test order."
           : catalog?.development
             ? "Development simulation only. No money is collected. Draft proofs are for testing and are not commercial editions."
@@ -96,7 +99,9 @@ export default function Storefront() {
             >
               {busy
                 ? "Creating order…"
-                : catalog.sandbox
+                : catalog.live
+                  ? "Buy with GCash"
+                  : catalog.sandbox
                   ? "Create GCash sandbox order"
                   : catalog.development
                     ? "Create simulated order"

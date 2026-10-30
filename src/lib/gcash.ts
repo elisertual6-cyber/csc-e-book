@@ -6,6 +6,7 @@ import { lockOrder, artifactBytes } from "@/lib/commerce";
 import { audit, type Actor } from "@/lib/editorial";
 import { HttpError } from "@/lib/http";
 import { digest } from "@/lib/security";
+import { requirePurchaseMailConfiguration } from "@/lib/purchase-mail";
 import {
   PaymongoClient,
   paymongoConfig,
@@ -16,8 +17,12 @@ import {
   type CheckoutResource,
   type PaymentResource,
 } from "@/lib/paymongo";
-const provider = "paymongo_test";
 type Order = Awaited<ReturnType<typeof lockOrder>>;
+async function assertSessionMode(tx: Prisma.TransactionClient, orderId: string, sessionId: string) {
+  const event = await tx.auditEvent.findFirst({ where: { action: "gcash.checkout.begin", targetId: orderId, metadata: { path: ["sessionId"], equals: sessionId } }, orderBy: { createdAt: "asc" } });
+  const metadata = z.object({ mode: z.enum(["test", "live"]) }).safeParse(event?.metadata);
+  if (!metadata.success || metadata.data.mode !== paymongoConfig(undefined, true).mode) throw new HttpError(409, "This checkout belongs to another payment mode or needs operator review.");
+}
 function coherent(order: Order) {
   if (
     order.paymentMethod !== "gcash" ||
@@ -39,7 +44,7 @@ function bound(remote: CheckoutResource, order: Order, localId: string) {
   coherent(order);
   const a = remote.attributes;
   if (
-    a.livemode ||
+    a.livemode !== (paymongoConfig(undefined, true).mode === "live") ||
     a.reference_number !== order.id ||
     a.metadata.order_id !== order.id ||
     a.metadata.local_session_id !== localId ||
@@ -74,6 +79,7 @@ async function verifiedUser(tx: Prisma.TransactionClient, id: string) {
 }
 export async function beginGcash(actor: Actor, orderId: string) {
   paymongoConfig();
+  if (paymongoConfig().mode === "live") requirePurchaseMailConfiguration();
   const result = await getDb().$transaction(
     async (tx) => {
       const order = await lockOrder(tx, orderId, actor.id);
@@ -85,6 +91,7 @@ export async function beginGcash(actor: Actor, orderId: string) {
         where: { orderId },
       });
       if (previous) {
+        await assertSessionMode(tx, order.id, previous.id);
         if (previous.state === "OPEN" && previous.checkoutUrl)
           return {
             existing: {
@@ -127,7 +134,7 @@ export async function beginGcash(actor: Actor, orderId: string) {
       const local = await tx.paymentSession.create({ data: { orderId } });
       await audit(tx, actor, "gcash.checkout.begin", order.id, {
         sessionId: local.id,
-        mode: "test",
+        mode: paymongoConfig().mode,
       });
       return { existing: null, order, local };
     },
@@ -194,8 +201,10 @@ async function receiptLock(tx: Prisma.TransactionClient, receipt: Receipt) {
   return !!previous;
 }
 async function syncRemote(remote: CheckoutResource, receipt?: Receipt) {
-  const client = new PaymongoClient(),
+  const client = new PaymongoClient(paymongoConfig(undefined, true)),
     a = remote.attributes;
+  const mode = paymongoConfig(undefined, true).mode;
+  const provider = mode === "live" ? "paymongo" : "paymongo_test";
   if (a.payments.length > 5)
     throw new HttpError(409, "The payment history needs operator review.");
   const payments = await Promise.all(
@@ -225,6 +234,7 @@ async function syncRemote(remote: CheckoutResource, receipt?: Receipt) {
       const local = await tx.paymentSession.findUniqueOrThrow({
         where: { id: a.metadata.local_session_id },
       });
+      await assertSessionMode(tx, order.id, local.id);
       bound(remote, order, local.id);
       if (local.providerSessionId && local.providerSessionId !== remote.id)
         throw new HttpError(
@@ -261,7 +271,7 @@ async function syncRemote(remote: CheckoutResource, receipt?: Receipt) {
       }
       const p = payment.attributes;
       if (
-        p.livemode ||
+        p.livemode !== (mode === "live") ||
         p.currency !== order.currency ||
         p.amount !== order.totalMinor ||
         p.source.type !== "gcash" ||
@@ -281,7 +291,7 @@ async function syncRemote(remote: CheckoutResource, receipt?: Receipt) {
           (r) =>
             r.attributes.payment_id !== payment.id ||
             r.attributes.currency !== p.currency ||
-            r.attributes.livemode,
+            r.attributes.livemode !== (mode === "live"),
         ) ||
         refunded.reduce((n, r) => n + r.attributes.amount, 0) > p.amount
       )
@@ -341,7 +351,7 @@ async function syncRemote(remote: CheckoutResource, receipt?: Receipt) {
         if (order.status !== "REFUNDED")
           await audit(tx, null, "gcash.payment.refund", order.id, {
             paymentId: payment.id,
-            mode: "test",
+            mode,
             refundedMinor: refunded.reduce(
               (n, r) => n + r.attributes.amount,
               0,
@@ -373,7 +383,7 @@ async function syncRemote(remote: CheckoutResource, receipt?: Receipt) {
           where: {
             orderId_kind: { orderId: order.id, kind: "PURCHASE_READY" },
           },
-          create: { orderId: order.id, userId: order.userId },
+          create: { orderId: order.id, userId: order.userId, transport: "purchase-pending" },
           update: {},
         });
         await tx.paymentSession.update({
@@ -383,7 +393,7 @@ async function syncRemote(remote: CheckoutResource, receipt?: Receipt) {
         if (order.status !== "PAID")
           await audit(tx, null, "gcash.payment.fulfill", order.id, {
             paymentId: payment.id,
-            mode: "test",
+            mode,
           });
       }
       if (receipt) await tx.paymentWebhookReceipt.create({ data: receipt });
@@ -396,7 +406,7 @@ async function syncRemote(remote: CheckoutResource, receipt?: Receipt) {
   );
 }
 export async function refreshGcash(actor: Actor, orderId: string) {
-  paymongoConfig();
+  const config = paymongoConfig(undefined, true);
   const local = await getDb().paymentSession.findFirst({
     where: { orderId, order: { userId: actor.id, paymentMethod: "gcash" } },
   });
@@ -407,13 +417,13 @@ export async function refreshGcash(actor: Actor, orderId: string) {
       "The payment session needs operator reconciliation.",
     );
   return syncRemote(
-    await new PaymongoClient().checkout(local.providerSessionId),
+    await new PaymongoClient(config).checkout(local.providerSessionId),
   );
 }
 export async function reconcileGcash(actor: Actor, raw: unknown) {
   if (actor.role !== "ADMIN")
     throw new HttpError(403, "Admin access required.");
-  paymongoConfig();
+  const config = paymongoConfig(undefined, true);
   const input = z
     .object({
       orderId: z.string().min(1).max(100),
@@ -425,7 +435,7 @@ export async function reconcileGcash(actor: Actor, raw: unknown) {
     where: { orderId: input.orderId },
   });
   if (!local) throw new HttpError(404, "Payment session not found.");
-  const remote = await new PaymongoClient().checkout(input.providerSessionId);
+  const remote = await new PaymongoClient(config).checkout(input.providerSessionId);
   if (
     remote.attributes.metadata.local_session_id !== local.id ||
     remote.attributes.metadata.order_id !== input.orderId
@@ -437,7 +447,7 @@ export async function reconcileGcash(actor: Actor, raw: unknown) {
       actorId: actor.id,
       action: "gcash.payment.reconcile",
       targetId: input.orderId,
-      metadata: { providerSessionId: input.providerSessionId, mode: "test" },
+      metadata: { providerSessionId: input.providerSessionId, mode: config.mode },
     },
   });
   return result;
@@ -446,8 +456,8 @@ export async function processGcashWebhook(
   body: Uint8Array,
   signature: string | null,
 ) {
-  const config = paymongoConfig();
-  verifyPaymongoSignature(body, signature, config.webhookSecret);
+  const config = paymongoConfig(undefined, true);
+  verifyPaymongoSignature(body, signature, config.webhookSecret, undefined, config.mode);
   let raw: unknown;
   try {
     raw = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(body));
@@ -456,6 +466,7 @@ export async function processGcashWebhook(
   }
   const event = paymongoEvent.parse(raw).data,
     a = event.attributes;
+  if (a.livemode !== (config.mode === "live")) throw new HttpError(400, "Payment event mode does not match this deployment.");
   const receipt = {
     eventId: event.id,
     eventType: a.type,
@@ -473,7 +484,7 @@ export async function processGcashWebhook(
       );
     return { duplicate: true };
   }
-  const client = new PaymongoClient();
+  const client = new PaymongoClient(config);
   if (a.type === "checkout_session.payment.paid") {
     if (a.data.type !== "checkout_session")
       throw new HttpError(400, "Invalid checkout event.");

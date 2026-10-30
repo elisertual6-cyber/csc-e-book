@@ -6,7 +6,8 @@ import { getDb } from "@/lib/db";
 import { audit, slug, type Actor } from "@/lib/editorial";
 import { HttpError } from "@/lib/http";
 import { digest } from "@/lib/security";
-import { gcashCheckoutEnabled } from "@/lib/paymongo";
+import { gcashCheckoutEnabled, paymongoConfig } from "@/lib/paymongo";
+import { requirePurchaseMailConfiguration } from "@/lib/purchase-mail";
 import { paymentAllowedInRuntime } from "@/lib/payment-policy";
 import { fullEdition, readEdition } from "@/lib/pdf";
 import {
@@ -131,7 +132,7 @@ export async function manageAccess(actor: Actor, raw: unknown) {
   });
 }
 function developmentCommerceEnabled() {
-  return mockCheckoutEnabled() || gcashCheckoutEnabled();
+  return process.env.NODE_ENV !== "production" && (mockCheckoutEnabled() || gcashCheckoutEnabled());
 }
 export async function catalog() {
   const products = await getDb().product.findMany({
@@ -147,9 +148,10 @@ export async function catalog() {
   });
   return {
     development: mockCheckoutEnabled(),
-    sandbox: gcashCheckoutEnabled(),
+    sandbox: gcashCheckoutEnabled() && paymongoConfig().mode === "test",
+    live: gcashCheckoutEnabled() && paymongoConfig().mode === "live",
     preferredPaymentMethod: "GCash",
-    checkoutAvailable: developmentCommerceEnabled(),
+    checkoutAvailable: mockCheckoutEnabled() || gcashCheckoutEnabled(),
     products: products
       .filter(
         (p) =>
@@ -354,7 +356,8 @@ export async function manageProduct(actor: Actor, raw: unknown) {
 }
 export async function checkout(actor: Actor, raw: unknown) {
   const gcash = gcashCheckoutEnabled();
-  if (!developmentCommerceEnabled())
+  if (gcash && paymongoConfig().mode === "live") requirePurchaseMailConfiguration();
+  if (!mockCheckoutEnabled() && !gcash)
     throw new HttpError(
       503,
       "Checkout is unavailable. No payment will be collected.",
@@ -454,7 +457,7 @@ export async function checkout(actor: Actor, raw: unknown) {
         },
       });
       await audit(tx, actor, "commerce.order.create", order.id, {
-        provider: gcash ? "paymongo_test" : "mock",
+        provider: gcash ? paymongoConfig().mode === "live" ? "paymongo" : "paymongo_test" : "mock",
       });
       return { id: order.id, status: order.status };
     },

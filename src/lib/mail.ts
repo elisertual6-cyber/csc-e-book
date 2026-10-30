@@ -257,12 +257,20 @@ function eligibleNotice(order: NoticeOrder, userId: string, time: Date) {
   );
 }
 export type AccountMailScope = { accountOnly: true; messageId?: string };
-export async function processMailBatch(db: PrismaClient, limit = 25, accountScope?: string | AccountMailScope) {
+export type PurchaseMailScope = { purchaseOnly: true; orderId?: string };
+export async function processMailBatch(db: PrismaClient, limit = 25, accountScope?: string | AccountMailScope | PurchaseMailScope) {
   if (typeof accountScope === "string" && !accountScope.trim()) throw new Error("An account scope is required.");
-  if (typeof accountScope === "object" && accountScope.messageId !== undefined && !accountScope.messageId.trim()) throw new Error("A message scope is required.");
+  if (typeof accountScope === "object") {
+    const valid = z.union([
+      z.object({ accountOnly: z.literal(true), messageId: z.string().trim().min(1).max(100).optional() }).strict(),
+      z.object({ purchaseOnly: z.literal(true), orderId: z.string().trim().min(1).max(100).optional() }).strict(),
+    ]).safeParse(accountScope);
+    if (!valid.success) throw new Error("A valid mail scope is required.");
+  }
   const purposes = Prisma.sql`AND purpose IN ('VERIFY_EMAIL','RESET_PASSWORD','PASSWORD_CHANGED')`;
   const scope = accountScope === undefined ? Prisma.empty : typeof accountScope === "string"
     ? Prisma.sql`AND "userId"=${accountScope} ${purposes}`
+    : "purchaseOnly" in accountScope ? Prisma.sql`AND purpose='PURCHASE_READY' ${accountScope.orderId === undefined ? Prisma.empty : Prisma.sql`AND "noticeId" IN (SELECT id FROM "DeliveryNotice" WHERE "orderId"=${accountScope.orderId})`}`
     : Prisma.sql`${purposes} ${accountScope.messageId === undefined ? Prisma.empty : Prisma.sql`AND id=${accountScope.messageId}`}`;
   const counts = { sent: 0, retried: 0, failed: 0, cancelled: 0 };
   const maximum = Math.max(1, Math.min(100, Math.trunc(limit)));
@@ -336,10 +344,9 @@ export async function processMailBatch(db: PrismaClient, limit = 25, accountScop
         token.expiresAt <= time ||
         token.authVersion !== claim.user.authVersion ||
         token.email !== claim.user.email);
-    const invalidNotice =
-      claim.notice &&
-      (!claim.user.emailVerifiedAt ||
-        !eligibleNotice(claim.notice.order, claim.userId, time));
+    const invalidNotice = claim.purpose === "PURCHASE_READY"
+      ? !claim.notice || !claim.user.emailVerifiedAt || !eligibleNotice(claim.notice.order, claim.userId, time)
+      : !!claim.notice;
     if (
       claim.expiresAt <= time ||
       !claim.encryptedPayload ||
@@ -407,11 +414,13 @@ export async function processMailBatch(db: PrismaClient, limit = 25, accountScop
   }
   return counts;
 }
-export async function queuePurchaseNotices(db: PrismaClient) {
+export async function queuePurchaseNotices(db: PrismaClient, options: { orderId?: string; limit?: number } = {}) {
+  const scope = z.object({ orderId: z.string().trim().min(1).max(100).optional(), limit: z.number().int().min(1).max(100).optional() }).strict().parse(options);
   const setup = await mailSetup();
   const notices = await db.deliveryNotice.findMany({
     where: {
       mailMessage: null,
+      ...(scope.orderId ? { orderId: scope.orderId } : {}),
       user: { emailVerifiedAt: { not: null } },
       order: { status: "PAID" },
     },
@@ -426,7 +435,7 @@ export async function queuePurchaseNotices(db: PrismaClient) {
       },
     },
     orderBy: { createdAt: "asc" },
-    take: 100,
+    take: scope.limit ?? 100,
   });
   let queued = 0;
   for (const notice of notices) {
@@ -444,7 +453,7 @@ export async function queuePurchaseNotices(db: PrismaClient) {
             payload: {
               to: notice.user.email,
               subject: "Your CSC Study materials are ready",
-              text: `Your ${process.env.NODE_ENV !== "production" && order.payments.some((p) => p.provider === "mock") ? "simulated development " : ""}order ${order.id} is ready. Sign in to your account to request a private download: ${setup.origin}/account/purchases\n\nNo private files or download tokens are included in this email. CSC Study is independent and unofficial.`,
+              text: `Your ${process.env.NODE_ENV !== "production" && order.payments.some((p) => p.provider === "mock" || p.provider === "paymongo_test") ? "test " : ""}CSC Study reviewer is ready.\n\n${order.items.map(item => `${item.productName ?? "Study edition"}${item.productVersion ? ` · v${item.productVersion}` : ""}`).join("\n")}\n\nOpen your reviewer library: ${setup.origin}/account/purchases\n\nSign in with the account used for this purchase, then choose Request private PDF. Your download link is created when you request it, so it does not expire while this email waits in your inbox. Access is checked again before every download.\n\nOrder reference: ${order.id}\n\nCSC Study is independent and unofficial.`,
             },
           },
           setup,

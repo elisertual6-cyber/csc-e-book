@@ -3,7 +3,7 @@ import { test, expect, type APIRequestContext } from "@playwright/test";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { randomBytes, randomUUID, createHmac } from "node:crypto";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, writeFile, readFile } from "node:fs/promises";
 import path from "node:path";
 import { PDFDocument } from "pdf-lib";
 import { digest } from "../src/lib/security";
@@ -322,6 +322,15 @@ test("GCash hosted sandbox, verified canonical payments, idempotency, reconcilia
     expect(
       (await db.order.findUniqueOrThrow({ where: { id: order.id } })).status,
     ).toBe("PAID");
+    await expect.poll(async () => (await db.mailMessage.findFirst({ where: { notice: { orderId: order.id } } }))?.status).toBe("SENT");
+    const delivered = await db.mailMessage.findFirstOrThrow({ where: { notice: { orderId: order.id } } });
+    expect(delivered.encryptedPayload).toBeNull();
+    expect(delivered.purpose).toBe("PURCHASE_READY");
+    expect(await db.mailMessage.count({ where: { notice: { orderId: order.id } } })).toBe(1);
+    const notification = JSON.parse(await readFile(path.join(process.env.MAIL_PRIVATE_DIR!, `${delivered.id}.json`), "utf8"));
+    expect(notification.text).toContain(`${origin}/account/purchases`);
+    expect(notification.text).toContain("reviewer is ready");
+    expect(notification.text).not.toContain("/api/commerce/downloads/");
     expect(
       (
         await webhook({

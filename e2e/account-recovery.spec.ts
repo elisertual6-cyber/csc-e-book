@@ -418,6 +418,7 @@ test("verify mailbox, reset safely, revoke sessions and deliver private transact
       .getByLabel("Password (12–128 characters)", { exact: true })
       .fill(finalPassword);
     await page.getByRole("button", { name: "Sign in", exact: true }).click();
+    await page.getByText("Account settings and tools", { exact: true }).click();
     await expect(
       page.getByText("Email address verified.", { exact: true }),
     ).toBeVisible();

@@ -1,10 +1,12 @@
 import { api, HttpError, json } from "@/lib/http";
 import { processGcashWebhook } from "@/lib/gcash";
 import { paymongoConfig } from "@/lib/paymongo";
+import { schedulePurchaseMail } from "@/lib/purchase-mail-delivery";
 export const runtime = "nodejs";
+export const maxDuration = 60;
 export async function POST(request: Request) {
   return api("commerce", async () => {
-    paymongoConfig();
+    paymongoConfig(undefined, true);
     const reader = request.body?.getReader();
     if (!reader) throw new HttpError(400, "A payment event is required.");
     const chunks: Uint8Array[] = [];
@@ -19,11 +21,11 @@ export async function POST(request: Request) {
       }
       chunks.push(value);
     }
-    return json(
-      await processGcashWebhook(
+    const result = await processGcashWebhook(
         Buffer.concat(chunks),
         request.headers.get("paymongo-signature"),
-      ),
-    );
+      );
+    if ("orderId" in result) schedulePurchaseMail(result);
+    return json(result);
   });
 }

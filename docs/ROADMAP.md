@@ -28,6 +28,8 @@ Acceptance criteria:
 
 ## Next engineering priorities
 
+Current operator priority: GCash payment followed by the reviewer's email link. The gated live adapter and scoped purchase-email callback/retry implementation are now prepared; actual merchant approval, current provider contract/sandbox evidence, eligible commercial PDF release and received purchase-mail proof remain outstanding. See GCASH_PURCHASE_DELIVERY.md. Monitoring work is paused for this payment priority; its two draft files are retained in a local WIP stash, not deployed.
+
 1. Complete the remaining Phase 5F manual and deployed accessibility review, including screen readers, zoom/reflow and conditional payment/download/error states. Local automated coverage is delivered; it is not a conformance claim.
 2. Continue recurring encrypted backups and protected long-term retention for the Phase 2/4 private artifacts. Hosted storage, manual rendering, signed-in retrieval/signed-out denial and one isolated encrypted restore rehearsal are operator-confirmed. Preserve checksums, entitlement checks, immutable manifests and repeatable recovery evidence; see [PDF_STORAGE.md](PDF_STORAGE.md) and [REMOTE_RECOVERY.md](REMOTE_RECOVERY.md).
 3. Activate and observe automatic account-mail dispatch/retries after operator-confirmed manual verification/reset delivery. Verify hosted latency, failures, provider limits and monitoring before opening registration; see MAIL_SETUP.md.
@@ -81,7 +83,7 @@ Automatic request delivery now attempts only the account message committed by th
 
 Added eight lesson drafts and 160 new questions with one proposed key and rationale each, split into two 80-item fixed packs. A single manual import workflow preserves existing records and imports only drafts; a separate export prepares a numbered question booklet and matching Markdown/CSV key. The public library grows to 23 lessons and the six review packs total 230 items. Legal/source and Filipino review remain explicitly pending; primary-site retrieval was blocked in this environment. Neither the independent 500-question gate nor official coverage is satisfied. The existing automation setup is operator-reported and the latest Ready Production redeployment is screenshot-confirmed; automatic mailbox receipt remains unconfirmed. See [PRACTICE_EXPANSION.md](PRACTICE_EXPANSION.md).
 
-## Current milestone: Phase 5K — five sequential practice sets
+## Phase 5K — five sequential practice sets
 
 Added 640 original keyed drafts to arrange five sets of 160, reusing the prior 160 as Set 1. The admin set selector reports actual imported counts, and `/practice/sets` provides account-owned saves/resume, complete-submission gating and sequential unlocks without a score threshold. Online community reviewer and publisher textbook research is recorded; no source-bank text is copied. A manual workflow imports drafts and prepares inactive templates, preserving independent review and release gates. The additive schema expansion was pushed separately before the application changes. See [PRACTICE_SERIES.md](PRACTICE_SERIES.md) and [PHASE_5K_REPORT.md](PHASE_5K_REPORT.md). Hosted import/review/activation remains distinct from local implementation and automated evidence.
 

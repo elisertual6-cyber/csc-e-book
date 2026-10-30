@@ -1,5 +1,7 @@
 # Zero-extra-cost mail readiness
 
+Paid-reviewer update: GCASH_PURCHASE_DELIVERY.md documents the separate PURCHASE_MAIL_AUTOMATION request callback and purchase-only retry job. Account automation remains independently scoped. Both purchase settings default off, and real GCash/paid-edition rollout is still pending.
+
 The operator has confirmed manual verification email receipt, successful verification and password recovery on the hosted preview. The encrypted queue and strict-TLS SMTP adapter are implemented. Automatic request dispatch and a bounded retry sweep are now available behind separate settings; hosted automatic delivery still needs activation and observation. This step adds **Verify SMTP setup without sending**, a manual main-only GitHub Action that checks configuration and negotiates SMTP/TLS/login. It does not send a message, access the application database, process queued mail, enable registration or change Vercel mail settings. SMTP verification alone does not prove sender permission, inbox placement, bounce handling or reliable job scheduling.
 
 ## Existing free Gmail account
