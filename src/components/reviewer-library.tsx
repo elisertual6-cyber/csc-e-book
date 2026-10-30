@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { findReviewerSupplement } from "@/lib/reviewer-supplements";
 import { reviewerGuides, reviewerLessonTitle, reviewerTrackLabel } from "@/lib/reviewer-catalog";
+import { ReviewerBookmarks } from "./reviewer-bookmarks";
 const volumes = ["I", "II", "III", "IV", "V", "VI"];
 export default function ReviewerLibrary() {
   const searchInput = useRef<HTMLInputElement>(null);
@@ -12,6 +13,7 @@ export default function ReviewerLibrary() {
   const visible = reviewerGuides.filter(guide => (track === "all" || guide.track === "COMMON" || guide.track === track) &&
     `${guide.title} ${guide.summary} ${guide.lessons.map(reviewerLessonTitle).join(" ")} ${findReviewerSupplement(guide.slug)?.title ?? ""}`.toLowerCase().includes(term));
   return <section id="subject-reviewers" className="reviewer-library" aria-labelledby="reviewer-library-title">
+    <ReviewerBookmarks />
     <div className="reviewer-section-heading"><div><p className="eyebrow">YOUR STUDY SHELF</p><h2 id="reviewer-library-title">Find a subject. Build your foundation.</h2></div><p>Read online for free. Print a guide when you need a paper copy.</p></div>
     <div className="reviewer-filters">
       <div><label htmlFor="reviewer-search">Search reviewers</label><input id="reviewer-search" ref={searchInput} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Try percentages, grammar or Filipino" /></div>

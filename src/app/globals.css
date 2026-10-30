@@ -1658,6 +1658,19 @@ button:disabled {
 .reviewer-editions > h2 { margin: 12px 0 16px; }
 .reviewer-editions > p:not(.eyebrow) { color: var(--muted); max-width: 700px; }
 .reviewer-reader-header { max-width: 900px; margin-top: 35px; }
+.reviewer-bookmarks { padding: 22px 0; margin-bottom: 24px; border-block: 1px solid var(--line); overflow-wrap: anywhere; }
+.reviewer-bookmarks h2 { font-size: 24px; margin: 0 0 12px; }
+.reviewer-bookmarks p { margin: 10px 0; font-size: 13px; }
+.reviewer-bookmarks ul { list-style: none; padding: 0; margin: 18px 0; }
+.reviewer-bookmarks li { padding: 8px 0; font-size: 14px; }
+.reviewer-bookmarks button, .reviewer-bookmark button { font: inherit; cursor: pointer; background: transparent; border: 0; padding: 12px 0; text-align: left; min-height: 44px; }
+.reviewer-bookmarks button:focus-visible, .reviewer-bookmark button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.reviewer-bookmark button[aria-pressed="true"] { font-weight: 700; }
+.reviewer-bookmark button:disabled { cursor: default; opacity: .65; }
+.reviewer-bookmark { font-size: 13px; display: flex; flex-wrap: wrap; gap: 0 16px; align-items: center; }
+.reviewer-bookmark span { color: var(--muted); }
+.reviewer-toc .reviewer-bookmarks { margin: 22px 0 0; padding: 20px 0 0; border-bottom: 0; }
+.reviewer-toc .reviewer-bookmarks p { font-size: 11px; }
 .reviewer-reader-header .eyebrow { text-transform: uppercase; }
 .reviewer-reading-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); align-items: start; gap: 48px; }
 .reviewer-toc { position: sticky; top: 24px; border: 1px solid var(--line); border-radius: 6px; padding: 22px; }

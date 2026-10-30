@@ -25,7 +25,7 @@ Print / Save as PDF uses the reader's own browser print dialog. Print CSS includ
 
 `src/lib/reviewer-catalog.ts` is a fixed allowlist of metadata and lesson slugs. Routes accept only those six guide slugs and use the existing fixed lesson loader. Unknown slugs return 404. The reader is prerendered from public teaching Markdown at build time; arbitrary filesystem paths and assessment packs are never accepted. Raw HTML and images remain disabled. Chapter hierarchy uses one page H1, chapter H2s and lesson-section H3s; the Filipino chapter carries a language attribute.
 
-The only client guide code filters public metadata and opens the print dialog. No assessment JSON, correct-answer flags, private source snapshots, credentials or learner responses are bundled or placed in localStorage. Existing commerce services and storefront controls are reused without activation or payment changes. No database migration, seed/import, account email or new environment variable is needed.
+Client guide code filters public metadata, opens the print dialog and provides optional chapter bookmarks. Bookmarks store only fixed public guide/chapter identifiers on the current browser, with a visible shared-device notice and removal control; they are not account progress. See [REVIEWER_BOOKMARKS.md](REVIEWER_BOOKMARKS.md). No assessment JSON, correct-answer flags, private source snapshots, credentials or learner responses are bundled or placed in localStorage. Existing commerce services and storefront controls are reused without activation or payment changes. No database migration, seed/import, account email or new environment variable is needed.
 
 ## Validation
 

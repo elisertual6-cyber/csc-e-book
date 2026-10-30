@@ -104,3 +104,7 @@ The account home now provides a minimal learning dashboard: one next action, com
 ## Focused retries
 
 Learners can start separate untimed practice from incorrect/unanswered items in a finalized result. Retries preserve original results, use stored question versions, inherit unreviewed/access settings and do not unlock or complete fixed sets. The existing minimal dashboard can resume them through ordinary history. No schema or content-release changes are required. See MISTAKE_PRACTICE.md.
+
+## Reviewer bookmarks
+
+All 29 public reviewer chapters have optional browser bookmarks, with one saved chapter per guide and exact-chapter resume links on the library. Saving is explicitly browser-only, shared across that browser profile and separate from account/exam completion. Clear controls, corrupt/blocked/full-storage handling and print hiding are included. No dashboard cards, database changes or assessment releases are added. See REVIEWER_BOOKMARKS.md.
